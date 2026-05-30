@@ -4,6 +4,40 @@ Full decks should have one coherent storyline. Choose a deck pattern based on th
 
 Do not treat these as fixed templates. Add, remove, or combine pages based on the user's material.
 
+## First-Class Exemplars
+
+Use these complete decks as first-class authoring references before creating a new full deck:
+
+| exemplar | best when | inspect for |
+| --- | --- | --- |
+| `templates/full-decks/ai-application-investment-thesis/index.html` | investment, pitch, thesis, market map, funding, product bet, or diligence-style decks | evidence extraction, thesis flow, market/peer pages, risk framing, pitch-style density |
+| `templates/full-decks/enterprise-intelligence-transformation/index.html` | transformation, operating model, AI strategy, capability build, roadmap, governance, or board update decks | executive answer, flywheel/story model, capability heatmap, roadmap, governance, decision pages |
+
+`examples/*` are public demo outputs. `templates/full-decks/*` are the authoring exemplars an agent should inspect when deciding how to structure a real deck. Keep the exemplar content fictional or generic; never copy it verbatim into user work.
+
+## One-Shot Full-Deck Workflow
+
+When the user gives limited context, do not ask them to design the deck page by page. Extract structure from the source material:
+
+1. Identify the audience and likely decision: investor, board, executive, workshop, operating team, or diligence reader.
+2. Build an evidence inventory: numeric values, percentages, rankings, comparisons, time periods, risks, customer/market claims, and named uncertainties.
+3. Group the evidence into 2-5 mutually distinct sections.
+4. Pick the closest deck archetype below and inspect the closest `templates/full-decks/*` exemplar for pacing and page density.
+5. Draft an answer-first storyline: answer, why now, proof, implications, risks, and next decisions.
+6. Map every body slide to one layout and at least one component. If a slide has data but no component, revise the plan before writing HTML.
+7. Build, audit, package, and export.
+
+Evidence-to-page routing:
+
+- Numeric comparisons: table plus ranked bars, column chart, range plot, or metric strip.
+- Peer or industry sets: comparison table, ranked bars, heatmap, quadrant, or scatter.
+- Segments or business lines: table, stacked bars, donut/pie only when part-to-whole is clean.
+- Risks and uncertainty: risk matrix register, pros-cons table, decision log, or callout paired with evidence.
+- Timeline or execution: phase roadmap, milestone track, process flow, or stage gate.
+- Qualitative thesis: outcome-support, framework-map, cause-effect, or numbered-list-grid.
+
+Short full decks should rarely use pure section dividers. If the source has evidence for a section, open with an evidence-bearing page instead of a blank divider.
+
 ## Deck-Level Rules
 
 - Start with the audience question and the answer.

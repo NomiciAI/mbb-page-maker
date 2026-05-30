@@ -64,6 +64,7 @@ mbb-page-maker/
 │   ├── light-skeleton.html
 │   ├── dark-skeleton.html
 │   ├── mixed-skeleton.html
+│   ├── full-decks/
 │   ├── components/
 │   └── layouts/
 ├── scripts/
@@ -117,6 +118,8 @@ Authoring is composable:
 The starter deck stays intentionally light: title cover, simple agenda/context, blank content page, and ending page. Default simple pages are included for opening, centered message/list/metric, visual title, and ending slides. Use `blank-*` layouts when the slide structure is known but the component choice is still being composed.
 
 `templates/deck.html` is the design-system gallery and review tour, not the default generation template.
+
+`templates/full-decks/` contains complete authoring exemplars. Agents should inspect the closest exemplar before producing a real full deck; `examples/` remains the public demo output area.
 
 ## Acknowledgements
 

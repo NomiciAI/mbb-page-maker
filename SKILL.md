@@ -24,13 +24,15 @@ Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker
 For real deck work, follow this path in order:
 
 1. Read `references/authoring-guide.md` before creating or materially rewriting a deck.
-2. Start from `templates/starter-deck.html` or the user's existing deck. Do not start from a blank file.
-3. Create a short slide plan before writing HTML: page message, evidence, layout, component, and output purpose.
-4. Use `references/layouts.md`, `references/components.md`, and `references/themes.md` only when choosing from those catalogs.
-5. Assemble slides using existing CSS layers, layout shells, components, and theme tokens.
-6. Run `scripts/check-deck-quality.sh path/to/index.html` and `scripts/check-deck-contrast.sh path/to/index.html`; fix failures.
-7. Run `scripts/render.sh path/to/index.html` unless the user explicitly asks for source HTML only.
-8. Deliver `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` as the default share set.
+2. For full decks, read `references/full-decks.md` and inspect the closest exemplar in `templates/full-decks/` before writing HTML.
+3. Start from `templates/starter-deck.html` or the user's existing deck. Do not start from a blank file.
+4. Extract an evidence inventory from the user's material: claims, numbers, comparisons, time periods, risks, decisions, and open gaps.
+5. Create a short slide plan before writing HTML: page message, evidence, layout, component, and output purpose.
+6. Use `references/layouts.md`, `references/components.md`, and `references/themes.md` only when choosing from those catalogs.
+7. Assemble slides using existing CSS layers, layout shells, components, and theme tokens.
+8. Run `scripts/check-deck-quality.sh path/to/index.html` and `scripts/check-deck-contrast.sh path/to/index.html`; fix failures.
+9. Run `scripts/render.sh path/to/index.html` unless the user explicitly asks for source HTML only.
+10. Deliver `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` as the default share set.
 
 If any export step fails, fix the source deck or dependency problem and rerun the same command. Do not hand-wave missing package assets, PDF, PNGs, or audit failures.
 
@@ -40,6 +42,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 
 - Use `templates/starter-deck.html` as the minimal HTML PPT starting point.
 - Use `templates/deck.html` only as the design-system gallery and review tour.
+- Use `templates/full-decks/*/index.html` as first-class exemplars for storyline, page density, component coverage, and export packaging. Do not copy their content verbatim into user decks.
 - Use the CSS layers in order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, then one file from `assets/themes/`.
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
@@ -64,14 +67,15 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 
 1. Start from `templates/starter-deck.html` for generated decks; use skeleton files only as role-specific references.
 2. Infer the communication task from the user's prompt and source material.
-3. Read `references/components.md` and create a slide plan before writing HTML. Each planned slide needs: message title, source evidence used, layout, component(s), and output purpose.
-4. Write answer-first slide titles and build a coherent storyline before polishing visuals.
-5. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
-6. Choose reusable components from `templates/components/` using `references/components.md`.
-7. Apply one theme file from `assets/themes/`.
-8. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
-9. Run the deck quality and contrast audits; fix empty section pages, missing evidence components, and failed text/background pairs.
-10. Render the default self-contained HTML package, PDF, and PNG slide images unless the user explicitly asked for HTML only.
+3. For full decks, read `references/full-decks.md` and inspect the closest full-deck exemplar under `templates/full-decks/`.
+4. Read `references/components.md` and create a slide plan before writing HTML. Each planned slide needs: message title, source evidence used, layout, component(s), and output purpose.
+5. Write answer-first slide titles and build a coherent storyline before polishing visuals.
+6. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
+7. Choose reusable components from `templates/components/` using `references/components.md`.
+8. Apply one theme file from `assets/themes/`.
+9. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
+10. Run the deck quality and contrast audits; fix empty section pages, missing evidence components, and failed text/background pairs.
+11. Render the default self-contained HTML package, PDF, and PNG slide images unless the user explicitly asked for HTML only.
 
 Prefer editing the deck and rerunning deterministic scripts over explaining how the user could do it manually.
 

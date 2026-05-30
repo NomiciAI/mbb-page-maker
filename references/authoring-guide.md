@@ -43,15 +43,16 @@ Use this order when building a deck:
 1. Inspect the user's material and identify the communication task.
 2. Draft the storyline and answer-first page messages.
 3. Check whether the input has enough data for specialized components.
-4. Create a slide plan before writing HTML.
-5. Choose the simplest layout that can hold the message.
-6. Place one primary component, or a small stack of related components, inside the layout's content slot.
-7. Apply one theme file.
-8. Add static assets only when the user supplies them or the deck explicitly needs them.
-9. Render and verify the slide at 16:9.
-10. Run `scripts/check-deck-quality.sh path/to/deck.html` and fix empty section pages or missing evidence components.
-11. Run `scripts/check-deck-contrast.sh path/to/deck.html` and fix any failed text/background contrast pairs.
-12. Render the default PDF with `scripts/render.sh path/to/deck.html` unless the user requested HTML only.
+4. For full decks, inspect the closest exemplar in `templates/full-decks/` after reading `references/full-decks.md`.
+5. Create a slide plan before writing HTML.
+6. Choose the simplest layout that can hold the message.
+7. Place one primary component, or a small stack of related components, inside the layout's content slot.
+8. Apply one theme file.
+9. Add static assets only when the user supplies them or the deck explicitly needs them.
+10. Render and verify the slide at 16:9.
+11. Run `scripts/check-deck-quality.sh path/to/deck.html` and fix empty section pages or missing evidence components.
+12. Run `scripts/check-deck-contrast.sh path/to/deck.html` and fix any failed text/background contrast pairs.
+13. Render the default PDF with `scripts/render.sh path/to/deck.html` unless the user requested HTML only.
 
 Do not start from color, effects, or images. Start from message, data shape, layout, and component fit.
 
@@ -77,6 +78,19 @@ Component coverage expectations:
 - Execution or recommendation section: roadmap, decision-log, process-flow, stage-gate, pros-cons, or milestone-track.
 
 If useful structured data exists, do not replace it with only prose cards. Cards are acceptable for synthesis, but evidence pages should show the data structure.
+
+## Evidence Extraction
+
+When the user provides a report, notes, transcript, or raw text file, extract the deck substance before choosing slides:
+
+- Claims: management conclusions, analyst views, user asks, and stated recommendations.
+- Quantitative facts: revenue, growth, margin, valuation, share, count, timing, ranges, and rankings.
+- Comparisons: peers, segments, regions, customers, alternatives, industries, historical periods.
+- Causal drivers: why performance changed, why the opportunity exists, why risk matters.
+- Uncertainty: missing verification, rumors, assumptions, dependencies, or conflicting signals.
+- Decisions: what the audience should approve, monitor, defer, or investigate.
+
+Then compress the material into a storyline. Use the strongest evidence as exhibits and put weaker or repetitive details into notes, appendix, or omit them. Do not make a slide for every paragraph in the source.
 
 ## Storyline Logic
 
