@@ -45,12 +45,15 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 
 1. Start from the neutral skeleton unless the user explicitly asks for a theme.
 2. Infer the communication task from the user's prompt and source material.
-3. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
-4. Choose reusable components from `templates/components/` using `references/components.md`.
-5. Apply one theme file from `assets/themes/`.
-6. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
+3. Write answer-first slide titles and build a coherent storyline before polishing visuals.
+4. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
+5. Choose reusable components from `templates/components/` using `references/components.md`.
+6. Apply one theme file from `assets/themes/`.
+7. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
 
 Do not create filler pages. If the user input does not contain enough structured content for a specialized layout, use a simpler layout or omit the page.
+
+Avoid generic slide titles such as "Overview", "Analysis", or "Findings" unless they are section labels. Content slide titles should state the page's message as a complete, meaningful sentence.
 
 If content overflows a region, reduce the number of components, choose a wider layout, or split the content into another slide. Do not solve overflow by making text too small to read.
 

@@ -24,14 +24,74 @@ Keep the base library structure-first. Components and blank layouts should not h
 Use this order when building a deck:
 
 1. Inspect the user's material and identify the communication task.
-2. Check whether the input has enough data for specialized components.
-3. Choose the simplest layout that can hold the message.
-4. Place one primary component, or a small stack of related components, inside the layout's content slot.
-5. Apply one theme file.
-6. Add static assets only when the user supplies them or the deck explicitly needs them.
-7. Render and verify the slide at 16:9.
+2. Draft the storyline and answer-first page messages.
+3. Check whether the input has enough data for specialized components.
+4. Choose the simplest layout that can hold the message.
+5. Place one primary component, or a small stack of related components, inside the layout's content slot.
+6. Apply one theme file.
+7. Add static assets only when the user supplies them or the deck explicitly needs them.
+8. Render and verify the slide at 16:9.
 
 Do not start from color, effects, or images. Start from message, data shape, layout, and component fit.
+
+## Storyline Logic
+
+Build decks as a coherent executive argument, not a collection of pages. The deck should answer the audience's question, then support that answer with the minimum necessary evidence.
+
+Storyline workflow:
+
+1. Define the audience and decision: who is reading, what decision or understanding do they need, and what will they do next?
+2. State the governing answer: the top-level recommendation, finding, or conclusion.
+3. Group supporting points into 2-5 mutually distinct pillars.
+4. Sequence pages so each page advances the argument.
+5. Use exhibits to prove or clarify claims, not to decorate.
+6. End with implications, decisions, next steps, or appendix as appropriate.
+
+Preferred narrative shape:
+
+1. Context: why this matters now.
+2. Answer: the main conclusion or recommendation.
+3. Evidence: facts, data, comparisons, or qualitative support.
+4. Implication: what the evidence means.
+5. Action: decision, roadmap, owner, or next step.
+
+## Slide Title Rules
+
+Content slide titles should be answer-first. A reader should understand the page's point from the title before studying the exhibit.
+
+Good title behavior:
+
+- Use a complete, meaningful sentence for content pages.
+- State the conclusion, contrast, implication, or decision.
+- Keep one main message per slide.
+- Make titles specific enough to distinguish pages from each other.
+- Keep section divider titles short when the page is only a divider.
+
+Avoid:
+
+- Generic content titles such as "Overview", "Analysis", "Findings", "Data", "Chart", or "Discussion" on evidence pages.
+- Question titles unless the slide is deliberately framing an unresolved decision.
+- Titles that describe the exhibit type rather than the insight.
+- Multiple unrelated messages in one title.
+
+Examples:
+
+- Weak: "Market overview"
+- Strong: "Demand is growing fastest in the two segments where the company already has channel access"
+- Weak: "Cost analysis"
+- Strong: "Labor and logistics explain most of the margin gap versus priority peers"
+- Weak: "Next steps"
+- Strong: "The team should validate three assumptions before committing to full rollout"
+
+## Page Message Discipline
+
+Every content page needs a clear page message:
+
+- Claim: what the page is saying.
+- Evidence: what proves or supports it.
+- Implication: why it matters for the audience.
+
+If a page has evidence without a claim, write the claim before choosing the layout. If a page has a claim without evidence, use a statement/callout page or ask for the missing evidence.
 
 ## Content Sufficiency Gate
 
