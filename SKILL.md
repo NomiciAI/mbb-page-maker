@@ -46,3 +46,7 @@ Decks should be composed from self-contained slide sections:
 ```
 
 Export targets for later implementation: PNG, PDF, HTML, and eventually PowerPoint after the HTML system is stable.
+
+## License & Author
+
+MIT. Copyright (c) 2026 Saitop at NomiciAI <support@nomici.ai>.

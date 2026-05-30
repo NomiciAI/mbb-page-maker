@@ -62,10 +62,16 @@
     });
 
     slides.forEach((slide, i) => {
-      slide.addEventListener("click", () => {
-        if (!document.body.classList.contains("is-overview")) return;
-        index = i;
-        toggleOverview();
+      slide.addEventListener("click", (event) => {
+        if (event.target.closest(".deck-controls")) return;
+        if (document.body.classList.contains("is-overview")) {
+          index = i;
+          toggleOverview();
+          return;
+        }
+        const x = event.clientX;
+        const midpoint = window.innerWidth / 2;
+        show(x < midpoint ? index - 1 : index + 1);
       });
     });
   }

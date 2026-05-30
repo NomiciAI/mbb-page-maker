@@ -62,3 +62,7 @@ mbb-page-maker/
 2. Add case-by-case reference guidance after approved examples are selected.
 3. Add PNG/PDF export.
 4. Research PowerPoint export.
+
+## License & Author
+
+MIT. Copyright (c) 2026 Saitop at NomiciAI <support@nomici.ai>.

@@ -35,3 +35,7 @@ GitHub 仓库：[NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-m
 - `scripts/`: 新建 deck 和导出 PNG/PDF/HTML。
 
 后续拿到真正的参考样张后，再把主题、字体比例、标题系统、图表样式和页面组件精修到更贴近目标格式。
+
+## License & Author
+
+MIT. Copyright (c) 2026 Saitop at NomiciAI <support@nomici.ai>.
