@@ -23,6 +23,8 @@ Generated decks must load the static files in that order: fonts, base, layouts, 
 
 Dark backgrounds must always activate a dark token context. Use `.dark`, `[data-mode="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]`; do not set a dark background alone. The token context is what flips text, muted text, rules, panels, and accents for every theme.
 
+The runtime adds a slide-level `auto-dark` safety class when it detects a dark slide background without a dark token context. Treat this as a guardrail, not an authoring pattern: authors should still declare the mode explicitly and run the contrast audit before delivery.
+
 ## Template Roles
 
 - `templates/starter-deck.html`: default generation starting point for new decks. It stays light: title cover, simple agenda/context, blank content page, and ending page.
@@ -46,6 +48,7 @@ Use this order when building a deck:
 6. Apply one theme file.
 7. Add static assets only when the user supplies them or the deck explicitly needs them.
 8. Render and verify the slide at 16:9.
+9. Run `scripts/check-deck-contrast.sh path/to/deck.html` and fix any failed text/background contrast pairs.
 
 Do not start from color, effects, or images. Start from message, data shape, layout, and component fit.
 
@@ -161,6 +164,23 @@ Alignment and visual balance:
 - `?print=1` activates print/export mode, shows all slides, and hides controls.
 
 Present mode uses a fixed 1600x900 slide canvas that scales as a whole to the browser viewport. Do not add runtime behavior or CSS breakpoints that reflow slide internals for narrow browser widths.
+
+## Contrast Audit
+
+Every generated deck should pass the built-in visibility audit:
+
+```bash
+scripts/check-deck-contrast.sh path/to/index.html
+```
+
+The script opens the deck in headless Chrome with `?print=1&audit=1`, computes real browser styles, and fails on text/background contrast below WCAG-style thresholds: 4.5:1 for normal text and 3:1 for large or bold text. Use it after changing themes, adding dark section dividers, inserting image overlays, or writing inline styles.
+
+If the audit fails:
+
+- Add `.dark`, `[data-mode="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]` to dark slides.
+- Move dark panels into a proper dark token context or choose a lighter panel token.
+- Do not patch failures by hiding text, shrinking text, or hardcoding one-off colors in components.
+- Prefer theme tokens over inline colors so the same deck works across `mono`, `blue`, `red`, `green`, and custom themes.
 
 ## Next Pattern Pass
 

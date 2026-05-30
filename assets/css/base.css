@@ -129,7 +129,8 @@ body:not(.is-print):not(.is-overview) .slide {
 .slide.dark,
 .slide[data-mode="dark"],
 .slide.dark-cover,
-.slide[data-variant="dark-cover"] {
+.slide[data-variant="dark-cover"],
+.slide.auto-dark {
   --color-bg: var(--theme-dark-bg);
   --color-text: var(--theme-dark-text);
   --color-muted: var(--theme-dark-muted);

@@ -257,7 +257,7 @@
 
 .card p {
   margin: 0;
-  color: var(--color-muted);
+  color: var(--color-text);
   font-size: 16px;
   line-height: 1.4;
 }
@@ -883,6 +883,10 @@
   background: var(--color-accent-soft);
   padding: 28px;
   overflow: hidden;
+}
+
+.filter-result p {
+  color: var(--color-text);
 }
 
 .loop-cycle {
@@ -1534,6 +1538,10 @@
   line-height: 1.35;
 }
 
+.matrix-cell.is-focus span {
+  color: var(--color-text);
+}
+
 .tree-node {
   position: relative;
   display: flex;
@@ -1922,10 +1930,10 @@
   font-weight: 800;
 }
 
-.heat-1 { background: color-mix(in srgb, var(--color-accent) 8%, #fff); }
-.heat-2 { background: color-mix(in srgb, var(--color-accent) 18%, #fff); }
-.heat-3 { background: color-mix(in srgb, var(--color-accent) 30%, #fff); }
-.heat-4 { background: color-mix(in srgb, var(--color-accent) 46%, #fff); color: #fff; }
+.heat-1 { background: color-mix(in srgb, var(--color-accent) 8%, #fff); color: var(--color-text); }
+.heat-2 { background: color-mix(in srgb, var(--color-accent) 18%, #fff); color: var(--color-text); }
+.heat-3 { background: color-mix(in srgb, var(--color-accent) 30%, #fff); color: var(--color-text); }
+.heat-4 { background: color-mix(in srgb, var(--color-accent) 46%, #fff); color: var(--color-text); }
 .heat-5 { background: color-mix(in srgb, var(--color-accent) 68%, #000); color: #fff; }
 
 .viz-title {
@@ -2141,7 +2149,7 @@
   border-right: 1px solid var(--color-line);
   border-bottom: 1px solid var(--color-line);
   background: var(--risk-bg, transparent);
-  color: var(--color-muted);
+  color: var(--color-text);
   font-size: 14px;
   font-weight: 800;
 }

@@ -8,6 +8,84 @@
   let touchStartY = 0;
   let lastWheelAt = 0;
 
+  function parseColor(value) {
+    if (!value || value === "transparent") return null;
+    const hex = value.trim().match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+    if (hex) {
+      const raw = hex[1].length === 3
+        ? hex[1].split("").map((part) => part + part).join("")
+        : hex[1];
+      return {
+        r: Number.parseInt(raw.slice(0, 2), 16),
+        g: Number.parseInt(raw.slice(2, 4), 16),
+        b: Number.parseInt(raw.slice(4, 6), 16),
+        a: 1
+      };
+    }
+    const match = value.match(/rgba?\(([^)]+)\)/i);
+    const srgb = value.match(/color\(srgb\s+([^)]+)\)/i);
+    if (!match && !srgb) return null;
+    const parts = (match ? match[1] : srgb[1]).split(/[\s,\/]+/).filter(Boolean).map(Number);
+    if (parts.length < 3 || parts.some((part, i) => i < 3 && !Number.isFinite(part))) return null;
+    const multiplier = srgb ? 255 : 1;
+    return {
+      r: Math.max(0, Math.min(255, parts[0] * multiplier)),
+      g: Math.max(0, Math.min(255, parts[1] * multiplier)),
+      b: Math.max(0, Math.min(255, parts[2] * multiplier)),
+      a: Number.isFinite(parts[3]) ? Math.max(0, Math.min(1, parts[3])) : 1
+    };
+  }
+
+  function luminance(color) {
+    const channel = (value) => {
+      const ratio = value / 255;
+      return ratio <= 0.03928 ? ratio / 12.92 : ((ratio + 0.055) / 1.055) ** 2.4;
+    };
+    return 0.2126 * channel(color.r) + 0.7152 * channel(color.g) + 0.0722 * channel(color.b);
+  }
+
+  function contrastRatio(foreground, background) {
+    const lighter = Math.max(luminance(foreground), luminance(background));
+    const darker = Math.min(luminance(foreground), luminance(background));
+    return (lighter + 0.05) / (darker + 0.05);
+  }
+
+  function colorToRgb(color) {
+    return `rgb(${Math.round(color.r)}, ${Math.round(color.g)}, ${Math.round(color.b)})`;
+  }
+
+  function effectiveBackground(element) {
+    let current = element;
+    while (current && current.nodeType === Node.ELEMENT_NODE) {
+      const style = window.getComputedStyle(current);
+      const color = parseColor(style.backgroundColor);
+      if (color && color.a > 0.05) return color;
+      if (style.backgroundImage && style.backgroundImage !== "none") {
+        const tokenColor = parseColor(style.getPropertyValue("--color-bg").trim())
+          || parseColor(style.getPropertyValue("--theme-dark-bg").trim())
+          || parseColor(style.getPropertyValue("--theme-light-bg").trim());
+        if (tokenColor) return tokenColor;
+      }
+      current = current.parentElement;
+    }
+    return parseColor(window.getComputedStyle(document.body).backgroundColor) || { r: 255, g: 255, b: 255, a: 1 };
+  }
+
+  function hasDarkContext(slide) {
+    return slide.matches(".dark, [data-mode='dark'], .dark-cover, [data-variant='dark-cover'], .auto-dark");
+  }
+
+  function syncAutoColorMode() {
+    slides.forEach((slide) => {
+      if (hasDarkContext(slide)) return;
+      const background = effectiveBackground(slide);
+      if (background && luminance(background) < 0.28) {
+        slide.classList.add("auto-dark");
+        slide.dataset.autoMode = "dark";
+      }
+    });
+  }
+
   function readPxVar(name, fallback) {
     const value = window.getComputedStyle(document.documentElement).getPropertyValue(name).trim();
     const parsed = Number.parseFloat(value);
@@ -51,6 +129,7 @@
       slide.classList.remove("active", "is-enter-next", "is-enter-prev", "is-bump-left", "is-bump-right");
     });
     const active = slides[index];
+    syncAutoColorMode();
     active.classList.add("active");
     if (index !== previousIndex) {
       active.classList.add(index > previousIndex ? "is-enter-next" : "is-enter-prev");
@@ -157,12 +236,76 @@
     }, { passive: true });
   }
 
+  function visibleTextNodes() {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.textContent || !node.textContent.trim()) return NodeFilter.FILTER_REJECT;
+        const element = node.parentElement;
+        if (!element || element.closest("script, style, noscript, .deck-controls, #deck-audit-report")) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        const style = window.getComputedStyle(element);
+        if (style.visibility === "hidden" || style.display === "none" || Number.parseFloat(style.opacity) === 0) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        const rect = element.getBoundingClientRect();
+        if (rect.width < 1 || rect.height < 1) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    return nodes;
+  }
+
+  function runDeckAudit() {
+    if (params.get("audit") !== "1") return;
+    syncAutoColorMode();
+    const failures = [];
+    visibleTextNodes().forEach((node) => {
+      const element = node.parentElement;
+      const style = window.getComputedStyle(element);
+      const foreground = parseColor(style.color);
+      const background = effectiveBackground(element);
+      if (!foreground || !background) return;
+      const ratio = contrastRatio(foreground, background);
+      const fontSize = Number.parseFloat(style.fontSize) || 0;
+      const fontWeight = Number.parseInt(style.fontWeight, 10) || 400;
+      const largeText = fontSize >= 24 || (fontSize >= 18.66 && fontWeight >= 700);
+      const minimum = largeText ? 3 : 4.5;
+      if (ratio + 0.01 < minimum) {
+        const slide = element.closest(".slide");
+        failures.push({
+          slide: slide ? slides.indexOf(slide) + 1 : null,
+          text: node.textContent.trim().slice(0, 80),
+          ratio: Number(ratio.toFixed(2)),
+          minimum,
+          color: style.color,
+          background: colorToRgb(background)
+        });
+      }
+    });
+    const report = document.createElement("pre");
+    report.id = "deck-audit-report";
+    report.hidden = true;
+    report.textContent = failures.length
+      ? `DECK_AUDIT_FAIL ${JSON.stringify(failures)}`
+      : "DECK_AUDIT_PASS []";
+    document.body.appendChild(report);
+    document.body.dataset.auditStatus = failures.length ? "fail" : "pass";
+    if (failures.length) {
+      console.warn("Deck contrast audit failed", failures);
+    }
+  }
+
   setPageNumbers();
   window.addEventListener("resize", syncSlideScale);
 
   if (printMode) {
     document.body.classList.add("is-print");
     slides.forEach((slide) => slide.classList.add("active"));
+    syncAutoColorMode();
+    runDeckAudit();
     return;
   }
 
@@ -172,4 +315,5 @@
   show(index);
   bindKeys();
   bindSwipe();
+  runDeckAudit();
 })();

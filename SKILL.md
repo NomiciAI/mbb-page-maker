@@ -29,6 +29,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
 - Read `references/layouts.md`, `references/themes.md`, or `references/full-decks.md` only when that catalog is needed.
+- Run `scripts/check-deck-contrast.sh path/to/deck.html` before final delivery, especially for dark, pitch, or image-heavy decks.
 - Use `templates/layouts/default-*.html` for opening, centered transition, centered message, headline metric, and ending pages.
 - Use `templates/layouts/blank-*.html` for ordinary structure-first pages before adding specialized components.
 - Normalize relative asset paths after copying snippets into a deck.
@@ -51,12 +52,15 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 5. Choose reusable components from `templates/components/` using `references/components.md`.
 6. Apply one theme file from `assets/themes/`.
 7. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
+8. Run the deck contrast audit and fix any failed text/background pairs before delivery.
 
 Do not create filler pages. If the user input does not contain enough structured content for a specialized layout, use a simpler layout or omit the page.
 
 Avoid generic slide titles such as "Overview", "Analysis", or "Findings" unless they are section labels. Content slide titles should state the page's message as a complete, meaningful sentence.
 
 If content overflows a region, reduce the number of components, choose a wider layout, or split the content into another slide. Do not solve overflow by making text too small to read.
+
+Dark or pitch-style pages must use `.dark`, `[data-mode="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]` instead of only setting a dark background. The runtime includes a slide-level safety net for dark backgrounds, but generated decks must still pass the contrast audit.
 
 Page choice is compositional, not fixed. Infer the user's task and data shape, then combine the smallest suitable layout with the needed components. Use `references/layouts.md` and `references/components.md` for detailed selection guidance.
 

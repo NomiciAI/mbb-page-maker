@@ -67,6 +67,7 @@ mbb-page-maker/
 │   └── layouts/
 ├── scripts/
 │   ├── new-deck.sh
+│   ├── check-deck-contrast.sh
 │   └── render.sh
 └── examples/
     ├── enterprise-intelligence-transformation/
@@ -105,6 +106,7 @@ Authoring is composable:
 5. Apply one theme from `assets/themes/`.
 6. Add static assets from `assets/media/` only when they are supplied or needed.
 7. Render-check alignment, visual balance, and overflow.
+8. Run `scripts/check-deck-contrast.sh path/to/deck.html` before delivery.
 
 The starter deck stays intentionally light: title cover, simple agenda/context, blank content page, and ending page. Default simple pages are included for opening, centered message/list/metric, visual title, and ending slides. Use `blank-*` layouts when the slide structure is known but the component choice is still being composed.
 

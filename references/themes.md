@@ -22,6 +22,8 @@ Never put a dark background on a slide, region, split panel, or custom block wit
 
 Use one theme file per deck. Do not mix theme files in one production deck unless the user explicitly wants a theme comparison.
 
+For pitch-style decks, prefer dark section dividers and a controlled number of dark emphasis pages rather than ad hoc black panels. Any dark page must pass `scripts/check-deck-contrast.sh path/to/deck.html`. The runtime can auto-apply dark text tokens to a slide-level dark background, but it cannot reliably infer the intent of every custom nested panel, gradient, or image overlay.
+
 ## Token Rules
 
 - Put colors only in `assets/themes/*.css`.
