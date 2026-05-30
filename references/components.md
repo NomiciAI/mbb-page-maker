@@ -22,6 +22,8 @@ Use the component catalog actively. Before authoring HTML, map each planned body
 - Ordered or phased content should become `timeline`, `phase-roadmap`, `milestone-track`, `process-flow`, or `stage-gate`.
 - Qualification logic should become `funnel-steps` or `filter-cascade`.
 - Decisions and recommendations should become `weighted-scorecard`, `decision-log`, `pros-cons-table`, `outcome-support`, or `callout` paired with evidence.
+- Portfolio, initiative, or market-option choices should become `portfolio-prioritization-matrix`, `weighted-scorecard`, `quadrant-matrix`, or `comparison-table` depending on whether the evidence is directional, scored, or tabular.
+- Governance, RACI, or operating cadence records should become `raci-governance-grid`, `decision-log`, `comparison-table`, or `dense-list` depending on whether roles and cadence are explicit.
 
 Evidence shape router:
 
@@ -31,6 +33,8 @@ Evidence shape router:
 - Time: use timelines for dated events, phase roadmaps for implementation, milestone tracks for status, and horizon bands for uncertainty.
 - Risk: use risk matrix register when placement and actions matter; use decision log, pros-cons, callout, or table when only prose risk records exist.
 - Decision: use outcome-support, decision-log, comparison-table, compass-choice, pros-cons, or callout paired with evidence.
+- Portfolio: use portfolio-prioritization-matrix when options can be mapped by strategic value and feasibility; use weighted-scorecard when criteria are explicit.
+- Governance: use raci-governance-grid when decisions, roles, forums, and cadence are known; use decision-log when only asks/status are known.
 - Qualitative: use outcome-support, framework-map, issue tree, cause-effect, from-to, numbered-list-grid, dense-list, or callout.
 
 Fallback rule: if the evidence shape lacks required fields, switch to the simpler qualitative component named in the slide plan or omit the page. Do not invent the missing values to keep a specialized component.
@@ -64,6 +68,8 @@ Fallback rule: if the evidence shape lacks required fields, switch to the simple
 - Use `comparison-table` when options must be compared across consistent criteria.
 - Use `weighted-scorecard` when options have weighted criteria, scores, and a recommendation.
 - Use `sensitivity-grid` when a decision depends on low/base/high cases or scenario assumptions.
+- Use `portfolio-prioritization-matrix` when initiatives, business units, market options, or product bets can be mapped by value and feasibility.
+- Use `raci-governance-grid` when governance needs role ownership, decision rights, forums, and cadence in one exhibit.
 - Use `pyramid-stack` when levels build toward a top outcome or narrow from foundation to focus.
 - Use `cause-effect` when one root cause, driver, or constraint leads to one primary effect.
 - Use `outcome-support` when the conclusion should appear above 2-4 supporting points.
@@ -106,6 +112,8 @@ Do not output components that add no information.
 - Comparison table: needs options and shared criteria.
 - Weighted scorecard: needs at least 3 criteria, 2 options, explicit weights or a clearly stated unweighted scoring rule, and a recommendation readout.
 - Sensitivity grid: needs at least 2 assumptions or scenarios and at least 2 cases such as low/base/high, downside/base/upside, or conservative/target/stretch.
+- Portfolio prioritization matrix: needs at least 3 options or initiatives and two meaningful dimensions such as value and feasibility, attractiveness and right-to-win, or impact and readiness.
+- RACI governance grid: needs at least 2 decisions or processes and clear role/cadence fields. Do not invent accountable owners if the user has not supplied them.
 - Metric strip: needs 3-5 high-signal metrics. If there is only one number, use a statement or callout.
 - Table: needs consistent row/column structure. Do not force prose into a table.
 - Catalog grid: needs at least 3 sections. If there are more than 9 sections, split the catalog or use a denser list.
@@ -152,6 +160,7 @@ Do not output components that add no information.
 - Categorical comparison: use `column-chart` for a compact single-series vertical comparison with short labels, `ranked-bars` for visual ranking, `chart-bars` for horizontal category labels, or `table` for exact values and many fields.
 - Part-to-whole: use `pie-chart` or `donut-chart` for one or two simple splits, `stacked-bars` for composition across many categories, and `table` when percentages need exact auditability.
 - Two-dimensional opportunity: use `scatter-plot` if both axes are numeric, or `quadrant-matrix` if the axes are qualitative.
+- Initiative or portfolio prioritization: use `portfolio-prioritization-matrix` for directional value-vs-feasibility choices, `weighted-scorecard` for criteria scoring, or `comparison-table` when exact fields matter.
 - Risk view: use `risk-matrix-register` when likelihood/impact placement and action tracking both matter.
 - Capability/maturity assessment: use `heatmap` for one-direction scores or `range-competency-chart` when current-vs-target gaps are the message.
 - Benchmark spread: use `range-comparison-plot` for min/max, confidence interval, peer range, or low/base/high inputs.
@@ -169,6 +178,7 @@ Do not output components that add no information.
 - Narrowing logic: use `funnel-steps` when the set visibly shrinks and `filter-cascade` when criteria explanation matters.
 - Time and phases: use `timeline` for chronological events, `phase-roadmap` for implementation phases, `milestone-track` for progress status, `horizon-bands` for near/mid/long-term framing, and `journey-map` for stakeholder experience.
 - Lists and decisions: use `numbered-list-grid` for short parallel steps, `dense-list` for compact repeated records, `decision-log` for governance tracking, and `pros-cons-table` for option tradeoffs.
+- Governance: use `raci-governance-grid` when the page must show accountable/responsible/consulted/informed roles plus forum and cadence.
 - Quotes: use `quote-large` only when the quote is the evidence, `quote-small` when the quote supports an exhibit, and `quote-insight` when the implication should be stated beside the quote.
 
 ## Fit Contract
@@ -220,6 +230,8 @@ Future passes should expand CV/face-page primitives, richer full-deck examples, 
 | `templates/components/comparison-table.html` | Options compared against criteria. |
 | `templates/components/weighted-scorecard.html` | Weighted option scoring with recommendation. |
 | `templates/components/sensitivity-grid.html` | Low/base/high scenario or assumption sensitivity. |
+| `templates/components/portfolio-prioritization-matrix.html` | Value-vs-feasibility prioritization for initiatives, markets, or portfolio choices. |
+| `templates/components/raci-governance-grid.html` | Role, decision-rights, forum, and cadence mapping. |
 | `templates/components/pyramid-stack.html` | Hierarchical levels building toward an outcome. |
 | `templates/components/cause-effect.html` | One driver linked to one consequence. |
 | `templates/components/outcome-support.html` | Top outcome with supporting proof points. |

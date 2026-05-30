@@ -36,7 +36,7 @@ For real deck work, follow this path in order:
 5. Start from `templates/starter-deck.html` or the user's existing deck. Do not start from a blank file.
 6. Extract an evidence inventory from the user's material: claims, numbers, comparisons, time periods, risks, decisions, and open gaps.
 7. Pass the source fidelity gate: every body slide must use user-provided evidence, clearly marked assumptions, or approved external data.
-8. Pass the pattern selection gate: choose audience, decision scenario, output length, theme default, relevant full-deck archetype, optional showcase page pattern, component mix, and evidence-to-page route.
+8. Pass the pattern selection gate: choose audience, decision scenario, output length, theme default, relevant full-deck archetype, optional showcase page pattern, component mix, and evidence-to-page route. Common scenarios include strategy recommendation, board update, investment thesis, pitch, transformation, technical implementation, vendor selection, workshop, CXO/SteerCo update, LOP, initiative recommendation, market entry, pricing, org design, diligence findings, PMI, turnaround, portfolio allocation, M&A decision, and analytics readout.
 9. Create a short slide plan before writing HTML: message, evidence source, evidence shape, layout, component, fallback, and output role.
 10. Use `references/layouts.md`, `references/components.md`, and `references/themes.md` only when choosing from those catalogs.
 11. Assemble slides using existing CSS layers, layout shells, components, and theme tokens.
@@ -84,7 +84,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 3. For strategy, board, investment, pitch, transformation, or full-deck work, apply `references/consulting-thinking.md`.
 4. For full decks, read `references/full-decks.md`, the closest full-deck README sidecar, and then inspect that `index.html` as an archetype reference.
 5. For single-page or partial-deck combinations, read `references/pattern-index.md` or `templates/showcase/README.md` before composing; adapt and recombine patterns based on the user's evidence.
-6. Apply the consulting authoring gate. If the user gives enough material, do not ask them to design pages; infer the audience, decision scenario, output length, default theme, relevant archetype, optional showcase pattern, and evidence routes. Ask only when the audience, decision, hard constraints, or permission to use external data are genuinely missing.
+6. Apply the consulting authoring gate. If the user gives enough material, do not ask them to design pages; infer the audience, decision scenario, output length, default theme, relevant archetype, optional showcase pattern, and evidence routes. Route LOP, pitch, initiative recommendation, market entry, pricing, org design, diligence findings, PMI, turnaround, and portfolio allocation to their dedicated archetypes before falling back to generic strategy or investment sequences. Ask only when the audience, decision, hard constraints, or permission to use external data are genuinely missing.
 7. Read `references/components.md` and create a slide plan before writing HTML. Each planned slide needs: message title, evidence source, evidence shape, layout, component(s), fallback, and output role.
 8. Write answer-first slide titles and build a coherent storyline before polishing visuals.
 9. Choose one page layout from `templates/layouts/` using `references/layouts.md`.

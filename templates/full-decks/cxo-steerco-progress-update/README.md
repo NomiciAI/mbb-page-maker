@@ -2,7 +2,7 @@
 
 ## Summary
 
-CXO, SteerCo, LOP, board-adjacent, and work-progress update full-deck archetype for separating status, evidence, risks, blockers, and decisions.
+CXO, SteerCo, board-adjacent, and work-progress update full-deck archetype for separating status, evidence, risks, blockers, and decisions.
 
 ## Visual traits
 
@@ -10,7 +10,7 @@ Green operating update style, KPI strip, milestone status, risk/blocker register
 
 ## Use when
 
-Use for SteerCo updates, CXO progress reviews, leadership operating plan updates, board-adjacent status reads, and PMO progress packs.
+Use for SteerCo updates, CXO progress reviews, board-adjacent status reads, and PMO progress packs.
 
 ## Do not use when
 

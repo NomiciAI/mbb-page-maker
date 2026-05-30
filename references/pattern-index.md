@@ -8,6 +8,7 @@ Use this index to choose the right authoring reference before writing HTML.
 | --- | --- | --- |
 | Full deck, strategy deck, investment memo, board update, transformation deck, technology outlook | `references/full-decks.md` | Relevant `templates/full-decks/<slug>/README.md`, then `templates/full-decks/<slug>/index.html` as an archetype reference |
 | Technical implementation, vendor selection, workshop, CXO/SteerCo update, M&A decision, advanced analytics readout | `references/full-decks.md` | Relevant archetype README + HTML, plus optional `templates/showcase/README.md` page pattern |
+| LOP, pitch, initiative recommendation, market entry, pricing, org design, diligence findings, PMI, turnaround, or portfolio allocation | `references/full-decks.md` | Relevant archetype README + HTML, plus optional showcase pattern for the page-level exhibit |
 | Single page, partial deck, or local page rewrite | `templates/showcase/README.md` | Relevant `templates/showcase/*.html`, then recombine with `templates/components/*.html` |
 | New full-deck archetype, layout, component, or recurring pattern | `references/adding-patterns.md` | Existing references for full decks, layouts, components, and showcase catalog |
 | Unclear evidence shape | `references/authoring-guide.md` | `references/components.md` and `references/layouts.md` |
@@ -23,7 +24,7 @@ Agents should read the README sidecar before inspecting the HTML. The README exp
 
 The archetype is a reference for pacing and composition. Do not copy page order, page count, or content when the user's material calls for a different answer.
 
-When multiple archetypes could fit, route by the audience decision first: select a vendor, approve implementation, resolve SteerCo blockers, facilitate a workshop, approve investment/M&A, or interpret analytics. Then use showcase pages only for local page composition.
+When multiple archetypes could fit, route by the audience decision first: select a vendor, approve implementation, resolve SteerCo blockers, facilitate a workshop, approve an operating plan, fund a pitch, prioritize initiatives, enter a market, change pricing, redesign an operating model, review diligence findings, integrate a merger, recover performance, allocate capital, approve investment/M&A, or interpret analytics. Then use showcase pages only for local page composition.
 
 ## Showcase Metadata Rule
 

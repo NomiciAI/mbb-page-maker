@@ -16,7 +16,17 @@ Use these complete deck skeletons as first-class authoring references before cre
 | `templates/full-decks/technical-implementation-plan/index.html` | technical implementation, architecture rollout, platform modernization, integration, or delivery governance decks | target architecture, release gates, dependency/risk framing, implementation roadmap |
 | `templates/full-decks/vendor-selection-scorecard/index.html` | vendor selection, platform evaluation, RFP synthesis, solution shortlist, or build/buy recommendation decks | requirements, shortlist comparison, weighted scorecard, TCO/risk, decision close |
 | `templates/full-decks/workshop-decision-pack/index.html` | workshop, working session, leadership alignment, decision meeting, or planning pack decks | objectives, agenda, pre-read, option debate, decision capture, next steps |
-| `templates/full-decks/cxo-steerco-progress-update/index.html` | CXO update, SteerCo, leadership operating plan, work progress, PMO, or board-adjacent status decks | KPI status, milestones, risks/blockers, decision asks, forward plan |
+| `templates/full-decks/cxo-steerco-progress-update/index.html` | CXO update, SteerCo, work progress, PMO, or board-adjacent status decks | KPI status, milestones, risks/blockers, decision asks, forward plan |
+| `templates/full-decks/leadership-operating-plan/index.html` | LOP, annual operating plan, quarterly plan, budget cycle, operating rhythm, or initiative portfolio planning decks | KPI ambition, initiative portfolio, capacity tradeoffs, governance cadence, operating decisions |
+| `templates/full-decks/investor-pitch-growth-story/index.html` | investor pitch, fundraising, growth story, product/company pitch, or board fundraising update decks | pitch pacing, traction page, market/GTM link, financial path, funding ask |
+| `templates/full-decks/initiative-prioritization-recommendation/index.html` | initiative prioritization, strategic initiative recommendation, backlog funding, value-realization planning, or resource allocation decks | portfolio matrix, scorecard, business case, dependencies, roadmap, funding ask |
+| `templates/full-decks/market-entry-growth-strategy/index.html` | market entry, growth strategy, regional expansion, segment prioritization, channel strategy, or category expansion decks | attractiveness, segment prioritization, entry options, competitive/channel read, roadmap |
+| `templates/full-decks/pricing-commercial-strategy/index.html` | pricing strategy, packaging, discount governance, sales efficiency, revenue uplift, or commercial model redesign decks | pricing architecture, willingness/segment view, sensitivity, commercial governance |
+| `templates/full-decks/org-design-operating-model/index.html` | organization design, operating model, role clarity, governance, RACI, or capability build decks | from-to shifts, target operating model, capability gaps, decision rights, migration path |
+| `templates/full-decks/due-diligence-findings/index.html` | diligence findings, red-flag review, confirmatory tests, commercial/product/tech/operational diligence decks | findings readout, fact base, red flags, confirmatory tests, sensitivity, implications |
+| `templates/full-decks/post-merger-integration/index.html` | PMI, Day 1, 100-day plan, synergy tracking, integration governance, or workstream planning decks | value capture, Day 1 readiness, workstreams, governance, risks, integration decisions |
+| `templates/full-decks/turnaround-performance-improvement/index.html` | turnaround, cost reduction, margin improvement, cash improvement, operational reset, or urgent action plan decks | performance gap, root cause, improvement levers, cash/risk controls, recovery roadmap |
+| `templates/full-decks/portfolio-review-capital-allocation/index.html` | business portfolio review, capital allocation, product portfolio, resource rebalancing, or build/hold/exit decks | portfolio health, allocation matrix, sensitivity, capital decisions |
 | `templates/full-decks/mna-investment-decision/index.html` | acquisition, M&A, investment committee, strategic partnership, or capital allocation decision decks | rationale, value creation, risk, sensitivity, decision conditions |
 | `templates/full-decks/advanced-analytics-readout/index.html` | advanced analytics, model result, driver analysis, cohort/segment readout, scenario analysis, or insight-to-action decks | method/data foundation, driver ranking, segment implications, sensitivity, actions |
 
@@ -36,7 +46,17 @@ Read the archetype's `README.md` sidecar before inspecting `index.html`. The sid
 | Technical implementation, architecture rollout, or platform modernization | Inspect `technical-implementation-plan`, then adapt the Technical Implementation Plan sequence. |
 | Vendor selection, RFP synthesis, solution shortlist, or build/buy decision | Inspect `vendor-selection-scorecard`, then adapt the Vendor Selection sequence. |
 | Workshop or working session pack | Inspect `workshop-decision-pack`, then adapt the Workshop Pack sequence. |
-| CXO, SteerCo, LOP, PMO, progress update, or board-adjacent status | Inspect `cxo-steerco-progress-update`, then adapt the CXO SteerCo Progress Update sequence. |
+| CXO, SteerCo, PMO, progress update, or board-adjacent status | Inspect `cxo-steerco-progress-update`, then adapt the CXO SteerCo Progress Update sequence. |
+| LOP, annual operating plan, quarterly planning, budget cycle, operating rhythm, or initiative portfolio planning | Inspect `leadership-operating-plan`, then adapt the Leadership Operating Plan sequence. |
+| Investor pitch, fundraising, growth story, product/company pitch, or board fundraising update | Inspect `investor-pitch-growth-story`, then adapt the Investor Pitch Growth Story sequence. |
+| Initiative prioritization, initiative recommendation, backlog funding, strategic initiatives, or resource allocation | Inspect `initiative-prioritization-recommendation`, then adapt the Initiative Prioritization Recommendation sequence. |
+| Market entry, growth strategy, regional expansion, segment prioritization, or category expansion | Inspect `market-entry-growth-strategy`, then adapt the Market Entry Growth Strategy sequence. |
+| Pricing strategy, packaging, discount governance, sales efficiency, revenue uplift, or commercial model redesign | Inspect `pricing-commercial-strategy`, then adapt the Pricing Commercial Strategy sequence. |
+| Org design, operating model, role clarity, governance, RACI, or capability build | Inspect `org-design-operating-model`, then adapt the Org Design Operating Model sequence. |
+| Diligence findings, red-flag review, confirmatory tests, commercial/product/tech/operational diligence | Inspect `due-diligence-findings`, then adapt the Due Diligence Findings sequence. |
+| PMI, Day 1, 100-day plan, synergy tracking, integration governance, or workstream planning | Inspect `post-merger-integration`, then adapt the Post-Merger Integration sequence. |
+| Turnaround, cost reduction, margin improvement, cash improvement, operational reset, or urgent action plan | Inspect `turnaround-performance-improvement`, then adapt the Turnaround Performance Improvement sequence. |
+| Business portfolio review, capital allocation, product portfolio, resource rebalancing, or build/hold/exit choices | Inspect `portfolio-review-capital-allocation`, then adapt the Portfolio Review Capital Allocation sequence. |
 | M&A, acquisition, investment committee, strategic partnership, or capital allocation decision | Inspect `mna-investment-decision`, then adapt the M&A Investment Decision sequence. |
 | Advanced analytics, data analysis readout, model result, driver analysis, or cohort/segment analysis | Inspect `advanced-analytics-readout`, then adapt the Advanced Analytics Readout sequence. |
 | Strategy recommendation or market entry | Use the Strategy Recommendation sequence and inspect the most relevant archetype based on evidence type. |
@@ -153,6 +173,57 @@ Typical sequence:
 
 Useful components: `metric-strip`, `milestone-track`, `risk-matrix-register`, `decision-log`, `phase-roadmap`, `dense-list`.
 
+## Leadership Operating Plan
+
+Use when the audience needs to approve priorities, KPIs, initiative funding, budget/capacity tradeoffs, governance cadence, or the next operating cycle.
+
+Typical sequence:
+
+1. Title page.
+2. Operating answer: what leaders should fund, protect, gate, or defer.
+3. KPI ambition and performance snapshot.
+4. Initiative portfolio and prioritization.
+5. Budget, capacity, and resource tradeoffs.
+6. Risks, controls, and dependencies.
+7. Governance cadence and decision rights.
+8. Decisions and next cycle.
+
+Useful components: `metric-strip`, `portfolio-prioritization-matrix`, `comparison-table`, `raci-governance-grid`, `risk-matrix-register`, `decision-log`.
+
+## Investor Pitch Growth Story
+
+Use when the audience is evaluating a fundraising story, growth narrative, product/company pitch, or board fundraising update.
+
+Typical sequence:
+
+1. Title page.
+2. Investment answer: why this company can compound now.
+3. Problem and customer urgency.
+4. Solution and product wedge.
+5. Traction and customer proof.
+6. Market and go-to-market path.
+7. Business model and financial path.
+8. Funding ask and next milestones.
+
+Useful components: `metric-strip`, `outcome-support`, `ranked-bars`, `comparison-table`, `phase-roadmap`, `sensitivity-grid`, `decision-log`.
+
+## Initiative Prioritization Recommendation
+
+Use when the audience must choose which initiatives to fund, gate, sequence, defer, or stop.
+
+Typical sequence:
+
+1. Title page.
+2. Recommendation answer.
+3. Initiative inventory and constraints.
+4. Prioritization matrix or weighted scorecard.
+5. Business case and sensitivity.
+6. Dependencies, risks, and mitigation.
+7. Roadmap and resource ask.
+8. Decision close.
+
+Useful components: `portfolio-prioritization-matrix`, `weighted-scorecard`, `sensitivity-grid`, `risk-matrix-register`, `phase-roadmap`, `decision-log`.
+
 ## Technology Outlook Or Agent Architecture
 
 Use when the user asks for a technology outlook, platform strategy, architecture recommendation, agent roadmap, interoperability view, or technical market scan.
@@ -172,6 +243,57 @@ Typical sequence:
 11. Evidence base or appendix.
 
 Useful components: `metric-strip`, `framework-map`, `process-flow`, `comparison-table`, `ranked-bars`, `timeline`, `risk-matrix-register`, `phase-roadmap`, `decision-log`, `outcome-support`.
+
+## Market Entry Growth Strategy
+
+Use when the user asks where to play, which segment or region to prioritize, how to enter, or how to sequence growth.
+
+Typical sequence:
+
+1. Title page.
+2. Growth answer and recommended beachhead.
+3. Market attractiveness and demand signal.
+4. Customer or segment prioritization.
+5. Competitive and channel read.
+6. Entry option decision.
+7. Risks and prerequisites.
+8. Entry roadmap and next decisions.
+
+Useful components: `metric-strip`, `ranked-bars`, `comparison-table`, `portfolio-prioritization-matrix`, `risk-matrix-register`, `phase-roadmap`.
+
+## Pricing Commercial Strategy
+
+Use when the user needs to set pricing, packaging, discount governance, sales motion, or commercial model changes.
+
+Typical sequence:
+
+1. Title page.
+2. Commercial answer.
+3. Revenue leakage or margin opportunity.
+4. Customer willingness and segment readout.
+5. Pricing architecture and packaging choices.
+6. Financial sensitivity.
+7. Commercial governance and sales enablement.
+8. Roadmap and decisions.
+
+Useful components: `metric-strip`, `comparison-table`, `ranked-bars`, `sensitivity-grid`, `raci-governance-grid`, `phase-roadmap`, `decision-log`.
+
+## Org Design Operating Model
+
+Use when the user needs role clarity, decision rights, governance forums, capabilities, or a target operating model.
+
+Typical sequence:
+
+1. Title page.
+2. Operating model answer.
+3. Design principles or from-to shifts.
+4. Target operating model.
+5. Capability gaps.
+6. Decision rights and RACI governance.
+7. Migration roadmap.
+8. Decisions and open design questions.
+
+Useful components: `from-to-multi`, `framework-map`, `heatmap`, `raci-governance-grid`, `process-flow`, `phase-roadmap`, `decision-log`.
 
 ## Technical Implementation Plan
 
@@ -258,6 +380,74 @@ Typical sequence:
 8. Appendix.
 
 Useful components: `objective-list`, `objective-summary`, `agenda-table`, `simple-agenda-grid`, `table`, `callout`.
+
+## Due Diligence Findings
+
+Use when the audience needs a findings-led evidence readout, red flags, confirmatory tests, and implications for proceed/pause/reprice decisions.
+
+Typical sequence:
+
+1. Title page.
+2. Diligence answer.
+3. Key findings and fact base.
+4. Red flags and risk register.
+5. Confirmatory tests.
+6. Scenario or sensitivity.
+7. Recommendation implications.
+8. Next diligence gate.
+
+Useful components: `outcome-support`, `comparison-table`, `risk-matrix-register`, `weighted-scorecard`, `sensitivity-grid`, `decision-log`.
+
+## Post-Merger Integration
+
+Use when the user needs a Day 1, 100-day, synergy tracking, integration governance, or workstream planning deck.
+
+Typical sequence:
+
+1. Title page.
+2. Integration answer.
+3. Value capture priorities.
+4. Day 1 readiness.
+5. Workstream plan.
+6. Governance and decision rights.
+7. Risks and dependencies.
+8. 100-day roadmap and decisions.
+
+Useful components: `metric-strip`, `phase-roadmap`, `raci-governance-grid`, `risk-matrix-register`, `comparison-table`, `decision-log`.
+
+## Turnaround Performance Improvement
+
+Use when the user needs urgent performance recovery, cost reduction, margin improvement, cash improvement, or operational reset.
+
+Typical sequence:
+
+1. Title page.
+2. Turnaround answer.
+3. Performance gap and root causes.
+4. Quick wins and structural levers.
+5. Cash and risk controls.
+6. Recovery roadmap.
+7. Governance cadence.
+8. Decision ask.
+
+Useful components: `metric-strip`, `cause-effect`, `portfolio-prioritization-matrix`, `sensitivity-grid`, `risk-matrix-register`, `phase-roadmap`, `decision-log`.
+
+## Portfolio Review Capital Allocation
+
+Use when the user needs to allocate capital or management attention across businesses, products, regions, or initiatives.
+
+Typical sequence:
+
+1. Title page.
+2. Portfolio answer: build, hold, harvest, or exit.
+3. Portfolio health snapshot.
+4. Growth/profitability or value/efficiency map.
+5. Strategic roles and capital choices.
+6. Scenario or sensitivity.
+7. Risks and dependencies.
+8. Allocation decisions and next review.
+
+Useful components: `metric-strip`, `portfolio-prioritization-matrix`, `comparison-table`, `sensitivity-grid`, `risk-matrix-register`, `decision-log`.
 
 ## Advanced Analytics Readout
 
