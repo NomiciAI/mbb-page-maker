@@ -84,7 +84,7 @@ CSS is intentionally split by responsibility:
 - `components.css`: tables, cards, metrics, agenda, matrix, roadmap, profile blocks.
 - `illustrations.css`: neutral illustration primitives and asset slots.
 - `themes/*.css`: color tokens only, with light and dark mode values.
-- `assets/media/`: optional static images, SVGs, screenshots, and bundled filler headshots.
+- `assets/media/`: optional static images, SVGs, screenshots, and showcase-only filler headshots.
 
 Authoring is composable:
 

@@ -57,7 +57,6 @@ If content overflows a region, reduce the number of components, choose a wider l
 Content sufficiency examples:
 
 - Contact roster: require at least 3 contacts with names plus at least one of role, location, email, or team. Principal/contributor grouping requires an explicit group field or clear wording.
-- Filler headshots may be used for draft/demo contact pages only. Do not imply bundled filler images are real people.
 - Centered metric: require one verified numeric value and one sentence explaining the business meaning.
 - Chart: require numeric values with labels. Do not invent data.
 - Table: require comparable rows and columns. If only prose exists, use cards or a statement page instead.

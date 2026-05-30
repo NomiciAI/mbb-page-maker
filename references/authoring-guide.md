@@ -30,5 +30,3 @@ When copying snippets into a real deck, normalize asset paths to the deck locati
 - `templates/*.html`: usually `../assets/...`
 - `examples/<name>/index.html`: usually `../../assets/...`
 - generated deck folders from `scripts/new-deck.sh`: usually `assets/...`
-
-Bundled filler headshots live in `assets/media/headshots/` and are for examples or draft placeholders only. Replace them with supplied real photos when available.
