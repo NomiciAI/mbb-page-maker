@@ -18,6 +18,8 @@ Use this shortlist when a deck needs premium-looking but free or open assets. Al
 
 ## Pure JavaScript Visual Libraries
 
+Use these only when the library is vendored locally or the resulting visual is converted into static HTML/CSS/SVG that can be embedded in the final package. Do not add CDN runtime dependencies to generated decks.
+
 - [Chart.js](https://github.com/chartjs/Chart.js/blob/master/LICENSE.md): MIT-licensed canvas charts; useful for quick bar, line, doughnut, and scatter charts when native CSS charts are not enough.
 - [Apache ECharts](https://github.com/apache/echarts): Apache-2.0-licensed charting library; use for complex dashboards, maps, Sankey, tree, and dense interaction.
 - [Observable Plot](https://github.com/observablehq/plot): ISC-licensed SVG charts; useful for concise grammar-of-graphics charts embedded in static HTML.

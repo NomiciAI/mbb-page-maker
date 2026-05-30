@@ -11,8 +11,8 @@ Design constraints:
 - One-command install.
 - No build step.
 - Pure static HTML/CSS/JS.
-- CDN webfonts only.
-- Export targets: HTML first, then PNG/PDF, PowerPoint later.
+- System-font fallback by default; final packages must not depend on Google Fonts or other remote font services.
+- Default export targets: self-contained HTML package, PDF, and PNG; PowerPoint later.
 
 ## Install
 
@@ -81,7 +81,7 @@ mbb-page-maker/
 
 1. Finalize the foundational HTML PPT shell and shared primitives.
 2. Add case-by-case reference guidance after approved examples are selected.
-3. Add PNG/PDF export.
+3. Harden one-shot full-deck generation with exemplars, audits, and package verification.
 4. Research PowerPoint export.
 
 ## Design System
@@ -98,7 +98,7 @@ CSS is intentionally split by responsibility:
 
 Generated source decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no source build step. Final `scripts/render.sh --package` output inlines local CSS, JavaScript, and media into `package/index.html` so the HTML file can be opened by a browser on its own.
 
-Final packages are verified as self-contained: no external stylesheet links, external scripts, CSS imports, or non-embedded media URLs. Use built-in static components instead of CDN chart/runtime dependencies.
+Final packages are verified as self-contained: no external stylesheet links, external scripts, remote font imports, CSS imports, or non-embedded media URLs. Use built-in static components instead of CDN chart/runtime dependencies.
 
 The base layout and component library is structure-first. Themes, showcase pages, or deliberate variants carry color, image treatment, and decorative effects.
 

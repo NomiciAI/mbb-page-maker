@@ -4,6 +4,8 @@ This guide defines the end-to-end workflow for authoring HTML presentation decks
 
 Reference materials must be abstracted into neutral patterns. Do not copy source logos, company names, confidentiality language, client names, or identifying marks into generated HTML.
 
+Generated user decks should not show MBB Page Maker, exemplar, agency, or placeholder brand marks. Use no visible logo unless the user supplies one. Keep footers to page number plus an optional neutral deck title; do not add source notes, "prepared by" text, consulting-firm-style footers, or exemplar footer copy unless supplied by the user.
+
 ## System Layers
 
 The design system is layered by responsibility:
@@ -19,9 +21,9 @@ The design system is layered by responsibility:
 
 Keep the base library structure-first. Components and blank layouts should not hard-code brand colors, image treatment, decorative effects, or source-specific marks. Themes and showcase/full-deck examples carry the visual treatment.
 
-Generated decks must load the static files in that order: fonts, base, layouts, components, illustrations, exactly one theme file, then `assets/js/runtime.js`. Do not create a CSS bundle, inline duplicate CSS, or add a build step.
+Generated decks must load the static files in that order: fonts, base, layouts, components, illustrations, exactly one theme file, then `assets/js/runtime.js`. Do not create a CSS bundle, inline duplicate CSS, add remote font imports, or add a build step.
 
-Dark backgrounds must always activate a dark token context. Use `.dark`, `[data-mode="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]`; do not set a dark background alone. The token context is what flips text, muted text, rules, panels, and accents for every theme.
+Dark backgrounds must always activate a dark token context. Use `.dark`, `[data-mode="dark"]`, `[data-tone="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]`; do not set a dark background alone. The token context is what flips text, muted text, rules, panels, and accents for every theme.
 
 The runtime adds a slide-level `auto-dark` safety class when it detects a dark slide background without a dark token context. Treat this as a guardrail, not an authoring pattern: authors should still declare the mode explicitly and run the contrast audit before delivery.
 
@@ -78,6 +80,8 @@ Component coverage expectations:
 - Execution or recommendation section: roadmap, decision-log, process-flow, stage-gate, pros-cons, or milestone-track.
 
 If useful structured data exists, do not replace it with only prose cards. Cards are acceptable for synthesis, but evidence pages should show the data structure.
+
+If structured data does not exist, do not fabricate it. Pick a qualitative layout and make the uncertainty explicit through a callout, issue tree, decision log, or hypothesis page. A sparse source should become a clear qualitative deck, not a data-looking deck with invented metrics.
 
 ## Evidence Extraction
 
@@ -235,7 +239,7 @@ The script opens the deck in headless Chrome with `?print=1&audit=1`, computes r
 
 If the audit fails:
 
-- Add `.dark`, `[data-mode="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]` to dark slides.
+- Add `.dark`, `[data-mode="dark"]`, `[data-tone="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]` to dark slides.
 - Move dark panels into a proper dark token context or choose a lighter panel token.
 - Do not patch failures by hiding text, shrinking text, or hardcoding one-off colors in components.
 - Prefer theme tokens over inline colors so the same deck works across `mono`, `blue`, `red`, `green`, and custom themes.
@@ -254,7 +258,7 @@ When copying snippets into a real deck, normalize asset paths to the deck locati
 
 Before delivery, use `scripts/render.sh path/to/index.html`. The default export creates `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` for browser, WeChat file preview, and WeChat image preview use cases. The package step rewrites local paths and inlines local CSS, JavaScript, and media into `dist/package/index.html`, so that final HTML file can be opened directly by a browser without the source asset tree.
 
-The delivery package must not depend on remote runtime resources. Do not use CDN chart libraries, remote images, dynamic script/module loaders, or stylesheet imports in generated decks. The exporter intentionally fails if the package still contains external stylesheets, external scripts, CSS `@import`, or non-embedded media URLs.
+The delivery package must not depend on remote runtime resources. Do not use CDN chart libraries, remote images, remote font imports, dynamic script/module loaders, or stylesheet imports in generated decks. The exporter intentionally fails if the package still contains external stylesheets, external scripts, CSS `@import`, or non-embedded media URLs.
 
 ## Static Asset Rule
 

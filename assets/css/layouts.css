@@ -24,7 +24,8 @@
 }
 
 .slide.dark .brand-mark,
-.slide[data-mode="dark"] .brand-mark {
+.slide[data-mode="dark"] .brand-mark,
+.slide[data-tone="dark"] .brand-mark {
   color: var(--color-inverse);
 }
 
@@ -406,7 +407,8 @@
 }
 
 .region.is-dark,
-.region[data-mode="dark"] {
+.region[data-mode="dark"],
+.region[data-tone="dark"] {
   --color-bg: var(--theme-dark-bg);
   --color-text: var(--theme-dark-text);
   --color-muted: var(--theme-dark-muted);
@@ -489,7 +491,8 @@
 }
 
 .split-panel.dark,
-.split-panel[data-mode="dark"] {
+.split-panel[data-mode="dark"],
+.split-panel[data-tone="dark"] {
   --color-bg: var(--theme-dark-bg);
   --color-text: var(--theme-dark-text);
   --color-muted: var(--theme-dark-muted);

@@ -474,7 +474,7 @@ if [[ "$render_png" -eq 1 ]]; then
   slide_count="$(count_slides)"
   for ((i = 1; i <= slide_count; i += 1)); do
     png_file="${png_dir}/slide-$(printf '%02d' "$i").png"
-    png_url="$(append_query "$input_url" "slide=${i}")"
+    png_url="$(append_query "$input_url" "slide=${i}&export=1")"
     "$chrome" "${chrome_common[@]}" --window-size=1600,900 --screenshot="$png_file" "$png_url" >/dev/null 2>&1
     echo "PNG: $png_file"
   done

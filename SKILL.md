@@ -7,7 +7,7 @@ description: Create, edit, package, or export consulting-style HTML slide decks 
 
 This AgentSkill produces static HTML presentation decks with consulting-grade page logic: clear titles, tight storylines, exhibit-first layouts, and executive-ready visual hierarchy.
 
-The source deck must run without a build step: plain HTML, CSS, and JavaScript. The delivered package must be self-contained: no remote runtime scripts, remote images, stylesheet imports, or non-embedded media.
+The source deck must run without a build step: plain HTML, CSS, and JavaScript. The delivered package must be self-contained: no remote runtime scripts, remote images, remote font imports, stylesheet imports, or non-embedded media.
 
 ## Install
 
@@ -54,6 +54,8 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Normalize relative asset paths after copying snippets into a deck.
 - Do not add CDN scripts, remote images, dynamic module loaders, or runtime dependencies that cannot be embedded into the final package.
 - Do not copy proprietary logos, company names, confidentiality statements, or source-identifying marks from reference decks into generated HTML.
+- Do not add MBB Page Maker, exemplar, agency, or placeholder brand marks to user decks. Use no visible logo unless the user supplies one.
+- Keep footers minimal: page number and, if useful, a neutral deck title. Do not include "source", "prepared by", consulting-firm-style, or exemplar footer copy unless the user explicitly supplied that text.
 
 ## Design System Layers
 
@@ -83,6 +85,8 @@ Do not create filler pages. If the user input does not contain enough structured
 
 Do not bury structured data in prose. If the source material contains usable numbers, comparisons, rankings, time phases, risks, decisions, or categories, route them to an appropriate component. A data-rich section should not become only cards or a section divider.
 
+Do not create fake data exhibits. If the input lacks numeric values, categories, dates, or comparable records, choose a qualitative component such as outcome-support, framework-map, issue-tree, cause-effect, numbered-list-grid, callout, or decision-log. Never invent numbers to justify a chart, table, matrix, or metric page.
+
 Delivery must fail fast instead of shipping partial files. The package exporter verifies that `dist/package/index.html` has no external stylesheets, external scripts, or non-embedded media resources. If that check fails, replace the dependency with static HTML/CSS/SVG, local media that can be inlined, or a built-in component before delivery.
 
 Avoid pure section-divider pages in short generated decks. When the user asks for only a few sections, either omit dividers or turn them into useful section-intro pages with 2-4 data signals, a catalog, or a summary component. A divider is acceptable only when it creates needed pacing in a longer deck.
@@ -93,7 +97,7 @@ Avoid generic slide titles such as "Overview", "Analysis", or "Findings" unless 
 
 If content overflows a region, reduce the number of components, choose a wider layout, or split the content into another slide. Do not solve overflow by making text too small to read.
 
-Dark or pitch-style pages must use `.dark`, `[data-mode="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]` instead of only setting a dark background. The runtime includes a slide-level safety net for dark backgrounds, but generated decks must still pass the contrast audit.
+Dark or pitch-style pages must use `.dark`, `[data-mode="dark"]`, `[data-tone="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]` instead of only setting a dark background. The runtime includes a slide-level safety net for dark backgrounds, but generated decks must still pass the contrast audit.
 
 Page choice is compositional, not fixed. Infer the user's task and data shape, then combine the smallest suitable layout with the needed components. Use `references/layouts.md` and `references/components.md` for detailed selection guidance.
 
@@ -135,7 +139,7 @@ Decks should be composed from self-contained slide sections:
 
 Ordinary slides use `header + .content + footer`. Cover, ending, and full-bleed slides may use deliberate variants. Insert components only into `.content`, `.region-body`, `.safe-fill`, or `.safe-stack`.
 
-Default export targets: self-contained HTML package, PDF, and PNG slide images. Future export target: PowerPoint after the HTML system is stable.
+Default export targets: self-contained HTML package, PDF, and PNG slide images. If the user does not specify an output format, create all three by running `scripts/render.sh path/to/index.html`. Future export target: PowerPoint after the HTML system is stable.
 
 ## License & Author
 

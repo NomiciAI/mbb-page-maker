@@ -2,6 +2,7 @@
   const slides = Array.from(document.querySelectorAll(".slide"));
   const params = new URLSearchParams(window.location.search);
   const printMode = params.get("print") === "1";
+  const exportMode = params.get("export") === "1";
   let index = Math.max(0, Math.min(slides.length - 1, Number(params.get("slide") || 1) - 1));
   let status;
   let touchStartX = 0;
@@ -72,7 +73,7 @@
   }
 
   function hasDarkContext(slide) {
-    return slide.matches(".dark, [data-mode='dark'], .dark-cover, [data-variant='dark-cover'], .auto-dark");
+    return slide.matches(".dark, [data-mode='dark'], [data-tone='dark'], .dark-cover, [data-variant='dark-cover'], .auto-dark");
   }
 
   function syncAutoColorMode() {
@@ -311,9 +312,12 @@
 
   const hashIndex = Number((window.location.hash || "").replace("#", ""));
   if (hashIndex > 0) index = Math.max(0, Math.min(slides.length - 1, hashIndex - 1));
-  addControls();
+  if (exportMode) document.body.classList.add("is-export");
+  if (!exportMode) addControls();
   show(index);
-  bindKeys();
-  bindSwipe();
+  if (!exportMode) {
+    bindKeys();
+    bindSwipe();
+  }
   runDeckAudit();
 })();

@@ -13,7 +13,7 @@ Use these complete decks as first-class authoring references before creating a n
 | `templates/full-decks/ai-application-investment-thesis/index.html` | investment, pitch, thesis, market map, funding, product bet, or diligence-style decks | evidence extraction, thesis flow, market/peer pages, risk framing, pitch-style density |
 | `templates/full-decks/enterprise-intelligence-transformation/index.html` | transformation, operating model, AI strategy, capability build, roadmap, governance, or board update decks | executive answer, flywheel/story model, capability heatmap, roadmap, governance, decision pages |
 
-`examples/*` are public demo outputs. `templates/full-decks/*` are the authoring exemplars an agent should inspect when deciding how to structure a real deck. Keep the exemplar content fictional or generic; never copy it verbatim into user work.
+`examples/*` are public demo outputs. `templates/full-decks/*` are the authoring exemplars an agent should inspect when deciding how to structure a real deck. Keep the exemplar content fictional or generic; never copy it verbatim into user work. Do not copy exemplar footer text, placeholder brand marks, or deck-system labels into user decks.
 
 ## One-Shot Full-Deck Workflow
 
@@ -37,6 +37,13 @@ Evidence-to-page routing:
 - Qualitative thesis: outcome-support, framework-map, cause-effect, or numbered-list-grid.
 
 Short full decks should rarely use pure section dividers. If the source has evidence for a section, open with an evidence-bearing page instead of a blank divider.
+
+No-data fallback:
+
+- If there are no numbers, do not create charts, metrics, rankings, ranges, or heatmaps.
+- If there are no comparable records, do not create tables or matrices.
+- If there are no dates or ordered phases, do not create timelines or roadmaps.
+- Use qualitative layouts for sparse inputs, and label open questions as assumptions, risks, or decisions to validate.
 
 ## Deck-Level Rules
 
