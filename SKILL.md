@@ -120,7 +120,7 @@ If a slide has one compact component or compact region layout that only uses rou
 
 Dark or pitch-style pages must use `.dark`, `[data-mode="dark"]`, `[data-tone="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]` instead of only setting a dark background. The runtime includes a slide-level safety net for dark backgrounds, but generated decks must still pass the contrast audit.
 
-Page choice is compositional, not fixed. Infer the user's task and data shape, then combine the smallest suitable layout with the needed components. Full-deck archetypes and showcase patterns are references, not constraints; diverge from them whenever the user's material calls for a better storyline or exhibit. Use `references/layouts.md` and `references/components.md` for detailed selection guidance.
+Page choice is compositional, not fixed. Infer the user's task and data shape, then combine the smallest suitable layout with the needed components. Full-deck archetypes and showcase patterns are references, not constraints; diverge from them whenever the user's material calls for a better storyline or exhibit. For flows, funnels, filters, horizons, timelines, journeys, tables, lists, and quotes, inspect the relevant process/time/text showcase before inventing ad hoc HTML. Use `references/layouts.md` and `references/components.md` for detailed selection guidance.
 
 Do not force a specialized page. If the input is sparse, use a simpler page or ask for the missing data.
 

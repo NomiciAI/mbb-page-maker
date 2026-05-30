@@ -24,9 +24,11 @@ perl -0ne '
     numbered-list-grid|decision-log|pros-cons-table|filter-cascade|
     framework-map|risk-matrix|range-competency-chart|range-comparison-plot|
     dot-scale-comparison|pie-chart|donut-chart|stacked-bars|scatter-plot|
-    quote-insight|quote-large|quote-small|dense-list|card-grid|card\b|
+    quote-insight|quote-large|quote-small|quote-grid|dense-list|card-grid|card\b|
     quadrant-matrix|waterfall|roadmap|timeline|stage-gate|value-chain|
-    funnel-steps|loop-cycle|journey-map|milestone-track|pyramid-stack|
+    funnel-steps|loop-cycle|cycle-flow|cascading-flow|decision-flowchart|fishbone-cause-effect|
+    journey-map|journey-arc|horizon-curve|gantt-workplan|status-table|wide-data-table|
+    contents-card-grid|six-column-list|milestone-track|pyramid-stack|
     cause-effect|diverging-textboxes|from-to-multi|compass-choice
   /x;
   for my $slide (@slides) {
