@@ -95,7 +95,7 @@ CSS is intentionally split by responsibility:
 - `assets/media/`: optional static images, SVGs, screenshots, and showcase-only filler headshots.
 - `references/asset-sourcing.md`: curated sources for consulting-style photos, SVG assets, icons, and pure JavaScript visual libraries.
 
-Generated decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no CSS bundle and no build step.
+Generated source decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no source build step. Final `scripts/render.sh --package` output inlines local CSS, JavaScript, and media into `package/index.html` so the HTML file can be opened by a browser on its own.
 
 The base layout and component library is structure-first. Themes, showcase pages, or deliberate variants carry color, image treatment, and decorative effects.
 
@@ -110,7 +110,7 @@ Authoring is composable:
 7. Render-check alignment, visual balance, and overflow.
 8. Run `scripts/check-deck-quality.sh path/to/deck.html` before delivery.
 9. Run `scripts/check-deck-contrast.sh path/to/deck.html` before delivery.
-10. Unless HTML-only is requested, run `scripts/render.sh path/to/deck.html` to create the default PDF output.
+10. Unless HTML-only is requested, run `scripts/render.sh path/to/deck.html` to create the self-contained HTML package and default PDF output.
 
 The starter deck stays intentionally light: title cover, simple agenda/context, blank content page, and ending page. Default simple pages are included for opening, centered message/list/metric, visual title, and ending slides. Use `blank-*` layouts when the slide structure is known but the component choice is still being composed.
 

@@ -238,6 +238,8 @@ When copying snippets into a real deck, normalize asset paths to the deck locati
 - `examples/<name>/index.html`: usually `../../assets/...`
 - generated deck folders from `scripts/new-deck.sh`: usually `assets/...`
 
+Before delivery, use `scripts/render.sh path/to/index.html` or `scripts/render.sh path/to/index.html --package`. The package step rewrites local paths and inlines local CSS, JavaScript, and media into `dist/package/index.html`, so that final HTML file can be opened directly by a browser without the source asset tree.
+
 ## Static Asset Rule
 
 Use static assets only as content or showcase material:

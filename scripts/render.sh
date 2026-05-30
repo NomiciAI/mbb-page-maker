@@ -202,6 +202,112 @@ html_path.write_text(pattern.sub(repl, text), encoding="utf-8")
 PY
 }
 
+inline_package_assets() {
+  local html_file="$1"
+  python3 - "$html_file" <<'PY'
+import base64
+import mimetypes
+import re
+import sys
+from pathlib import Path
+
+html_path = Path(sys.argv[1])
+html_dir = html_path.parent.resolve()
+text = html_path.read_text(encoding="utf-8")
+
+def is_external(value):
+    return value.startswith(("http://", "https://", "data:", "#", "mailto:", "tel:"))
+
+def local_path(value, base_dir):
+    if not value or is_external(value):
+        return None, ""
+    raw = value.split("?", 1)[0].split("#", 1)[0]
+    suffix = value[len(raw):]
+    path = Path(raw) if Path(raw).is_absolute() else (base_dir / raw)
+    path = path.resolve()
+    if not path.is_file():
+        return None, suffix
+    try:
+        path.relative_to(html_dir)
+    except ValueError:
+        return None, suffix
+    return path, suffix
+
+def data_uri(path):
+    mime = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
+    payload = base64.b64encode(path.read_bytes()).decode("ascii")
+    return f"data:{mime};base64,{payload}"
+
+def inline_css_urls(css_text, css_path):
+    css_dir = css_path.parent.resolve()
+    pattern = re.compile(r"url\((['\"]?)([^)'\"\s]+)\1\)")
+
+    def repl(match):
+        quote, value = match.groups()
+        if is_external(value):
+            return match.group(0)
+        path, _suffix = local_path(value, css_dir)
+        if not path:
+            return match.group(0)
+        return f"url({quote}{data_uri(path)}{quote})"
+
+    return pattern.sub(repl, css_text)
+
+def read_css(path):
+    css = path.read_text(encoding="utf-8")
+    return inline_css_urls(css, path).replace("</style", "<\\/style")
+
+def read_js(path):
+    return path.read_text(encoding="utf-8").replace("</script", "<\\/script")
+
+def get_attr(tag, name):
+    match = re.search(rf"\b{name}\s*=\s*(['\"])(.*?)\1", tag, flags=re.I | re.S)
+    return match.group(2) if match else None
+
+def has_stylesheet_rel(tag):
+    rel = get_attr(tag, "rel")
+    return bool(rel and "stylesheet" in rel.lower().split())
+
+def replace_link(match):
+    tag = match.group(0)
+    href = get_attr(tag, "href")
+    path, _suffix = local_path(href, html_dir)
+    if not path or not has_stylesheet_rel(tag):
+        return tag
+    css = read_css(path)
+    source = path.relative_to(html_dir).as_posix()
+    return f'<style data-inlined-from="{source}">\n{css}\n</style>'
+
+def replace_script(match):
+    tag = match.group(0)
+    src = get_attr(tag, "src")
+    path, _suffix = local_path(src, html_dir)
+    if not path:
+        return tag
+    js = read_js(path)
+    source = path.relative_to(html_dir).as_posix()
+    return f'<script data-inlined-from="{source}">\n{js}\n</script>'
+
+def replace_media_tag(match):
+    tag = match.group(0)
+    src_match = re.search(r"\bsrc\s*=\s*(['\"])([^'\"]+)\1", tag, flags=re.I | re.S)
+    if not src_match:
+        return tag
+    quote, value = src_match.groups()
+    path, _suffix = local_path(value, html_dir)
+    if not path:
+        return tag
+    replacement = f"src={quote}{data_uri(path)}{quote}"
+    return tag[:src_match.start()] + replacement + tag[src_match.end():]
+
+text = re.sub(r"<link\b[^>]*>", replace_link, text, flags=re.I | re.S)
+text = re.sub(r"<script\b[^>]*\bsrc\s*=\s*(['\"]).*?\1[^>]*>\s*</script>", replace_script, text, flags=re.I | re.S)
+text = re.sub(r"<(?:img|source|video|audio|track|iframe|embed)\b[^>]*>", replace_media_tag, text, flags=re.I | re.S)
+
+html_path.write_text(text, encoding="utf-8")
+PY
+}
+
 package_deck() {
   if [[ -z "$input_path" ]]; then
     echo "Package output requires a local HTML file input." >&2
@@ -228,6 +334,7 @@ path.write_text("\n".join(line for line in lines if not line.lstrip().startswith
 PY
   fi
   rewrite_asset_paths "${package_dir}/index.html" "$input_dir" "$package_dir" "$skill_root"
+  inline_package_assets "${package_dir}/index.html"
   package_index="${package_dir}/index.html"
   echo "Package: ${package_dir}/index.html"
 }
