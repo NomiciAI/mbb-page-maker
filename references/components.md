@@ -8,6 +8,8 @@ Components should be structure-first:
 - Use semantic classes and theme tokens only. Themes decide color, emphasis, dark/light mode, and visual effects.
 - Images belong in user content, `assets/media/`, or showcase/full-deck examples, not generic component rules.
 - If a component needs highlighting, use structural states such as `.is-active`, `.is-focus`, or `.highlight`; the theme decides how that state looks.
+- Insert components only inside bounded slide slots: `.content`, `.region-body`, `.safe-fill`, or `.safe-stack`.
+- If a component does not fit inside its slot at 16:9, reduce rows/labels, use a wider layout, or split the content across slides.
 
 ## Selection Rules
 
@@ -83,6 +85,17 @@ Do not output components that add no information.
 - Few headline KPIs: use `metric-strip`.
 - Many records with mixed fields: use `table`.
 - No numeric data: do not create a chart.
+
+## Fit Contract
+
+- Components must not rely on resizing the slide canvas.
+- Component wrappers should preserve `min-width: 0`, `min-height: 0`, and bounded overflow behavior.
+- Demo data should prove the component shape without using so many rows, columns, or words that the default 16:9 content area overflows.
+- Use `safe-stack` only for small components that support one message. Do not stack unrelated exhibits.
+
+## Upcoming Conceptual Components
+
+Do not implement these until the Conceptuals & Visuals extraction pass starts: `pyramid-stack`, `cause-effect`, `outcome-support`, `diverging-textboxes`, and `from-to-multi`.
 
 ## Snippets
 

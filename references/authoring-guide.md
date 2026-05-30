@@ -9,15 +9,26 @@ Reference materials must be abstracted into neutral patterns. Do not copy source
 The design system is layered by responsibility:
 
 1. `assets/css/fonts.css`: webfont imports and font-family variables.
-2. `assets/css/base.css`: 16:9 slide canvas, typography defaults, footer, runtime controls, and shared tokens.
-3. `assets/themes/*.css`: color tokens, light/dark mode values, accent behavior, and theme-level visual direction.
-4. `assets/css/layouts.css`: page shells, regions, slots, grids, split areas, and blank layout structures.
-5. `assets/css/components.css`: reusable semantic blocks such as agenda grids, tables, charts, cards, profiles, and objective lists.
-6. `assets/css/illustrations.css`: neutral illustration primitives and asset slots.
+2. `assets/css/base.css`: 16:9 slide canvas, typography defaults, footer, runtime controls, print rules, and shared tokens.
+3. `assets/css/layouts.css`: page shells, regions, slots, grids, split areas, and blank layout structures.
+4. `assets/css/components.css`: reusable semantic blocks such as agenda grids, tables, charts, cards, profiles, and objective lists.
+5. `assets/css/illustrations.css`: neutral illustration primitives and asset slots.
+6. `assets/themes/*.css`: color tokens, light/dark mode values, accent behavior, and theme-level visual direction.
 7. `assets/media/`: optional static resources such as supplied images, screenshots, generated visuals, diagrams, and showcase-only filler assets.
 8. `templates/` and `examples/`: composed pages and decks that combine layout, components, theme, and optional assets.
 
 Keep the base library structure-first. Components and blank layouts should not hard-code brand colors, image treatment, decorative effects, or source-specific marks. Themes and showcase/full-deck examples carry the visual treatment.
+
+Generated decks must load the static files in that order: fonts, base, layouts, components, illustrations, exactly one theme file, then `assets/js/runtime.js`. Do not create a CSS bundle, inline duplicate CSS, or add a build step.
+
+## Template Roles
+
+- `templates/starter-deck.html`: default generation starting point for new decks.
+- `templates/deck.html`: design-system gallery and review tour, not the default generation template.
+- `templates/neutral-skeleton.html`: structure-first baseline.
+- `templates/light-skeleton.html`: default analytical pages.
+- `templates/dark-skeleton.html`: dark cover, divider, and high-emphasis shell.
+- `templates/mixed-skeleton.html`: mixed dark/light narrative example.
 
 ## Composition Order
 
@@ -112,10 +123,12 @@ Examples:
 
 ## Layout And Component Fit
 
-Blank layouts are designed to prevent components from resizing the slide canvas, but they cannot make unlimited content fit. `content`, `region`, `region-body`, and `safe-stack` provide bounded slots; if content is too large, the correct response is to simplify, split, or choose another layout.
+Blank layouts are designed to prevent components from resizing the slide canvas, but they cannot make unlimited content fit. `.content`, `.region-body`, `.safe-fill`, and `.safe-stack` provide bounded slots; if content is too large, the correct response is to simplify, split, or choose another layout.
 
 Fit rules:
 
+- Ordinary slides use `section.slide > header + .content + footer`. Cover, ending, and full-bleed pages are deliberate variants.
+- Insert components only inside `.content`, `.region-body`, `.safe-fill`, or `.safe-stack`.
 - Prefer `blank-content.html` when one component owns the page.
 - Use region layouts only when the page needs separate zones.
 - Keep one primary component per region.
@@ -130,6 +143,20 @@ Alignment and visual balance:
 - Do not let a small component float alone in a large region; use a simpler centered page or add a relevant supporting component.
 - Do not fill empty space with invented content.
 - Keep repeated components visually consistent: same heading length, similar line count, and parallel field order.
+
+## Browser Presentation
+
+`assets/js/runtime.js` is the only runtime required for interactive HTML decks:
+
+- Arrow keys, PageUp/PageDown, and Space move through slides.
+- Left/right click areas move backward or forward.
+- Touch horizontal swipe and trackpad horizontal wheel move slides.
+- `o` toggles overview; Escape exits overview.
+- `?print=1` activates print/export mode, shows all slides, and hides controls.
+
+## Next Conceptual Components
+
+The next Conceptuals & Visuals extraction pass should add these neutral components before theme styling: `pyramid-stack`, `cause-effect`, `outcome-support`, `diverging-textboxes`, and `from-to-multi`.
 
 ## Asset Path Rule
 

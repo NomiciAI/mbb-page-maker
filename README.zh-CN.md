@@ -31,7 +31,7 @@ GitHub 仓库：[NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-m
 - `SKILL.md`: AgentSkill 入口和调度规则。
 - `references/`: 主题、布局、完整 deck 结构和写作流程。
 - `assets/`: 静态 HTML PPT runtime、CSS design system、主题 token。
-- `templates/`: starter deck、light/dark/mixed skeleton 和布局模板。
+- `templates/`: `starter-deck.html`、design-system gallery、light/dark/mixed/neutral skeleton 和布局模板。
 - `scripts/`: 新建 deck 和导出 PNG/PDF/HTML。
 
 后续拿到真正的参考样张后，再把主题、字体比例、标题系统、图表样式和页面组件精修到更贴近目标格式。
@@ -49,11 +49,14 @@ CSS 按职责拆分：
 
 页面生成按组合方式进行：
 
-1. 选择 skeleton: neutral、light、dark 或 mixed。
-2. 从 `templates/layouts/` 选择页面 layout。
-3. 从 `templates/components/` 选择组件填入 layout。
-4. 从 `assets/themes/` 选择一个主题 token。
+1. 新 deck 从 `templates/starter-deck.html` 开始。
+2. 选择 skeleton: neutral、light、dark 或 mixed。
+3. 从 `templates/layouts/` 选择页面 layout。
+4. 从 `templates/components/` 选择组件填入 layout。
+5. 从 `assets/themes/` 选择一个主题 token。
+
+CSS/JS 输出保持静态分层：`fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, 一个 theme 文件，再加 `runtime.js`。不做 build，不做 CSS bundle。
 
 ## License & Author
 
-MIT. Copyright (c) 2026 Saitop at NomiciAI <satiop@nomici.ai>.
+MIT. Copyright (c) 2026 Saitop at NomiciAI <saitop@nomici.ai>.

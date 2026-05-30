@@ -54,6 +54,7 @@ mbb-page-maker/
 │       ├── mono.css
 │       └── classic.css
 ├── templates/
+│   ├── starter-deck.html
 │   ├── deck.html
 │   ├── neutral-skeleton.html
 │   ├── light-skeleton.html
@@ -86,18 +87,23 @@ CSS is intentionally split by responsibility:
 - `themes/*.css`: color tokens only, with light and dark mode values.
 - `assets/media/`: optional static images, SVGs, screenshots, and showcase-only filler headshots.
 
+Generated decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no CSS bundle and no build step.
+
 The base layout and component library is structure-first. Themes, showcase pages, or deliberate variants carry color, image treatment, and decorative effects.
 
 Authoring is composable:
 
-1. Identify the message and data shape.
-2. Choose the simplest layout from `templates/layouts/`.
-3. Fill content slots with components from `templates/components/`.
-4. Apply one theme from `assets/themes/`.
-5. Add static assets from `assets/media/` only when they are supplied or needed.
-6. Render-check alignment, visual balance, and overflow.
+1. Start from `templates/starter-deck.html` for a new deck.
+2. Identify the message and data shape.
+3. Choose the simplest layout from `templates/layouts/`.
+4. Fill content slots with components from `templates/components/`.
+5. Apply one theme from `assets/themes/`.
+6. Add static assets from `assets/media/` only when they are supplied or needed.
+7. Render-check alignment, visual balance, and overflow.
 
 Default simple pages are included for opening, centered message/list/metric, visual title, and ending slides. Use `blank-*` layouts when the slide structure is known but the component choice is still being composed.
+
+`templates/deck.html` is the design-system gallery and review tour, not the default generation template.
 
 ## Acknowledgements
 

@@ -435,18 +435,27 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .statement {
@@ -476,11 +485,16 @@
   gap: 54px;
   align-items: center;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .media-copy {
   display: grid;
   gap: 18px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .media-copy h3 {
@@ -502,6 +516,9 @@
   gap: 42px;
   align-items: center;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .issue-tree {
@@ -509,6 +526,9 @@
   grid-template-columns: 0.8fr 1.1fr 1.1fr;
   gap: 26px;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .tree-column {
@@ -525,15 +545,21 @@
   height: calc(100% - 44px);
   padding-top: 18px;
   padding-bottom: 42px;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .swimlane {
   display: grid;
   grid-template-columns: 180px repeat(4, 1fr);
   border-top: 1px solid var(--color-line);
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .slide.cover .slide-title {
     font-size: 42px;
   }

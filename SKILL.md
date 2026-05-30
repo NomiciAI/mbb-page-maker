@@ -23,7 +23,8 @@ Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker
 
 This is the foundational HTML skeleton phase. Use the starter deck as the base page system, then expand case-by-case references later.
 
-- Use `templates/deck.html` as the minimal HTML PPT starting point.
+- Use `templates/starter-deck.html` as the minimal HTML PPT starting point.
+- Use `templates/deck.html` only as the design-system gallery and review tour.
 - Use the CSS layers in order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, then one file from `assets/themes/`.
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
@@ -87,13 +88,17 @@ Decks should be composed from self-contained slide sections:
     ...
   </section>
   <section class="slide" data-title="The market is attractive but access is concentrated">
-    ...
+    <header>...</header>
+    <div class="content">...</div>
+    <footer class="footer">...</footer>
   </section>
 </main>
 ```
+
+Ordinary slides use `header + .content + footer`. Cover, ending, and full-bleed slides may use deliberate variants. Insert components only into `.content`, `.region-body`, `.safe-fill`, or `.safe-stack`.
 
 Export targets for later implementation: PNG, PDF, HTML, and eventually PowerPoint after the HTML system is stable.
 
 ## License & Author
 
-MIT. Copyright (c) 2026 Saitop at NomiciAI <satiop@nomici.ai>.
+MIT. Copyright (c) 2026 Saitop at NomiciAI <saitop@nomici.ai>.

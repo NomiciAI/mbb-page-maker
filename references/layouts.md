@@ -17,11 +17,12 @@ Choose pages by communication job and data shape, not by a fixed template map. A
 
 Use:
 
-1. `templates/neutral-skeleton.html` for structure-first drafting.
-2. `templates/layouts/blank-content.html` for the simplest full-content component page.
-3. `templates/layouts/*.html` for page shells.
-4. `templates/components/*.html` for reusable blocks.
-5. `assets/themes/*.css` for final color direction.
+1. `templates/starter-deck.html` for a new generated deck.
+2. `templates/neutral-skeleton.html` for structure-first drafting.
+3. `templates/layouts/blank-content.html` for the simplest full-content component page.
+4. `templates/layouts/*.html` for page shells.
+5. `templates/components/*.html` for reusable blocks.
+6. `assets/themes/*.css` for final color direction.
 
 ## Simple Layout Families
 
@@ -72,6 +73,8 @@ Use these when the page needs an ordinary business-slide shell before the exact 
 | `blank-three-column.html` | Three comparable segments, options, phases, or evidence groups. |
 
 These shells use `.region-layout`, `.region`, `.region-body`, and `.safe-stack`. Insert components from `templates/components/` inside `.region-body`.
+
+Ordinary layout snippets should keep the contract `section.slide > header + .content + footer`. Use cover, ending, or full-bleed variants only when that page type requires it.
 
 Composition examples:
 
@@ -133,7 +136,9 @@ Use complex layouts only when the source material has enough structure. If the u
 - The illustration must support the title's business message.
 - Keep illustrations secondary to the conclusion unless the page is explicitly a conceptual visual.
 
-Current starter layouts live in `templates/deck.html`: cover, dark cover, section divider, agenda, split shell, content primitives, statement, media split, quote, table/roadmap, KPI strip, 2x2 matrix, issue tree, waterfall, roadmap swimlane, and profile primitives.
+`templates/starter-deck.html` is the default generation base. It contains a cover, agenda/summary page, analytical placeholder page, and ending page.
+
+Current gallery layouts live in `templates/deck.html`: cover, dark cover, section divider, agenda, split shell, content primitives, statement, media split, quote, table/roadmap, KPI strip, 2x2 matrix, issue tree, waterfall, roadmap swimlane, and profile primitives.
 
 Dedicated skeleton starters:
 
@@ -141,6 +146,8 @@ Dedicated skeleton starters:
 - `templates/light-skeleton.html`
 - `templates/dark-skeleton.html`
 - `templates/mixed-skeleton.html`
+
+Upcoming Conceptuals & Visuals components to extract in a later pass: `pyramid-stack`, `cause-effect`, `outcome-support`, `diverging-textboxes`, and `from-to-multi`.
 
 Reusable layout snippets include `templates/layouts/contact-roster.html` for the contacts case.
 
