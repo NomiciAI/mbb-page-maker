@@ -4,6 +4,23 @@
   --theme-accent-strong: #000000;
   --theme-success: #3f6f61;
   --theme-danger: #7d4038;
+  --chart-series-1: #111827;
+  --chart-series-2: #4b5563;
+  --chart-series-3: #8a94a3;
+  --chart-series-4: #c7ccd4;
+  --chart-series-5: #eef1f4;
+  --chart-highlight: #000000;
+  --part-1-color: var(--chart-series-1);
+  --part-2-color: var(--chart-series-2);
+  --part-3-color: var(--chart-series-3);
+  --part-4-color: var(--chart-series-4);
+  --heat-neg-3: #4b5563;
+  --heat-neg-2: #8a94a3;
+  --heat-neg-1: #c7ccd4;
+  --heat-zero: #e1e5ea;
+  --heat-pos-1: #d5d9df;
+  --heat-pos-2: #727c89;
+  --heat-pos-3: #111827;
   --theme-dark-bg: #0b0f14;
   --theme-dark-accent: #ffffff;
   --theme-dark-bg-gradient:

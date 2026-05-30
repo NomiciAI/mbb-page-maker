@@ -146,10 +146,13 @@ Do not output components that add no information.
 
 ## Fit Contract
 
-- Components must not rely on resizing the slide canvas.
+- Components must not rely on resizing or reflowing the slide canvas.
+- Browser present mode scales the whole 1600x900 slide. Component internals should keep the same grid, column, and sidebar structure at narrow viewport widths.
 - Component wrappers should preserve `min-width: 0`, `min-height: 0`, and bounded overflow behavior.
 - Demo data should prove the component shape without using so many rows, columns, or words that the default 16:9 content area overflows.
 - Use `safe-stack` only for small components that support one message. Do not stack unrelated exhibits.
+
+Full-deck showcase files should combine multiple component families in one coherent storyline to validate fit, not to define new generation rules. Keep visible headers neutral and business-oriented rather than exposing internal component taxonomy.
 
 ## Next Component Families
 

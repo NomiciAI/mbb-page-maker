@@ -13,6 +13,25 @@ Do not treat these as fixed templates. Add, remove, or combine pages based on th
 - Avoid filler pages. Every page must either advance the argument, support a decision, or provide necessary reference.
 - Apply one theme after the storyline and structure are stable.
 
+## Full-Deck Showcase Validation
+
+Use `templates/showcase/full-deck-operating-case-mono.html` and `templates/showcase/full-deck-operating-case-blue.html` to test whether independent components compose into a coherent 16:9 deck.
+
+- The two showcase files must keep identical content and slide order; only the theme file changes.
+- The case content is fictional and exists only to validate fit, visual balance, theme switching, and storyline continuity.
+- Visible page headers should use neutral business language such as executive view, evidence, capabilities, target model, working rhythm, roadmap, decisions, team, and next steps.
+- Do not expose internal component-family labels as page headers in user-facing full decks.
+- Do not copy logos, company names, confidentiality marks, source notes, or footer text from reference materials.
+
+The showcase sequence should cover at least one useful example from each major content job:
+
+- Structure: framework, outcome-support, from-to, or decision model.
+- Data: KPI strip, column/bar chart, heatmap, range, or table.
+- Process: process flow, stage gate, filter, funnel, loop, or value chain.
+- Time: roadmap, timeline, milestone, horizon, or journey.
+- Text: quote, dense list, decision log, pros/cons, or numbered grid.
+- People: contact/team page only when records are available or the page is explicitly marked showcase-only.
+
 ## Strategy Recommendation
 
 Use when the user asks for a recommended direction, growth path, market entry, turnaround, or strategic choice.

@@ -8,6 +8,8 @@ Layouts are page shells. Components are inserted into layout content areas. Them
 
 The base layout and component library should stay visually neutral. Color, decorative line fields, image treatment, and dark/light effects belong to theme files, showcase pages, or deliberate layout variants.
 
+Slides are fixed 16:9 canvases. Browser present mode scales the whole slide to the viewport; it must not reflow the slide internals based on viewport width. Do not add mobile breakpoints that collapse grids, sidebars, charts, or component layouts inside `.slide`.
+
 Choose pages by communication job and data shape, not by a fixed template map. A layout can host many component combinations:
 
 - A `blank-right-sidebar` page can hold a chart plus implications, a table plus decisions, or a diagram plus risks.
@@ -190,6 +192,8 @@ Dedicated skeleton starters do not need identical pages; they demonstrate differ
 - `templates/mixed-skeleton.html`: dark cover, light analytical page, evidence/implication, visual concept, roadmap, dark transition.
 
 Upcoming validation work should use full-deck examples to test cross-section component combinations, storyline continuity, and visual balance.
+
+Current full-deck validation files live in `templates/showcase/full-deck-operating-case-mono.html` and `templates/showcase/full-deck-operating-case-blue.html`. They are review fixtures, not the default generated demo deck.
 
 Reusable layout snippets include `templates/layouts/contact-roster.html` for the contacts case.
 

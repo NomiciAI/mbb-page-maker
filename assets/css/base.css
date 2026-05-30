@@ -1,6 +1,9 @@
 :root {
   --slide-width: 1600px;
   --slide-height: 900px;
+  --deck-scale: 1;
+  --deck-frame-width: var(--slide-width);
+  --deck-frame-height: var(--slide-height);
   --page-x: 72px;
   --page-y: 48px;
 
@@ -14,6 +17,24 @@
   --theme-accent-strong: #063b78;
   --theme-success: #2e7d68;
   --theme-danger: #a34a3f;
+
+  --chart-series-1: var(--theme-accent-strong);
+  --chart-series-2: var(--theme-accent);
+  --chart-series-3: color-mix(in srgb, var(--theme-accent) 62%, #ffffff);
+  --chart-series-4: color-mix(in srgb, var(--theme-accent) 34%, #ffffff);
+  --chart-series-5: color-mix(in srgb, var(--theme-accent) 18%, #111827);
+  --chart-highlight: var(--theme-accent);
+  --part-1-color: var(--chart-series-1);
+  --part-2-color: var(--chart-series-2);
+  --part-3-color: var(--chart-series-3);
+  --part-4-color: var(--chart-series-4);
+  --heat-neg-3: color-mix(in srgb, var(--theme-danger) 72%, #ffffff);
+  --heat-neg-2: color-mix(in srgb, var(--theme-danger) 48%, #ffffff);
+  --heat-neg-1: color-mix(in srgb, var(--theme-danger) 24%, #ffffff);
+  --heat-zero: #d8dde3;
+  --heat-pos-1: color-mix(in srgb, var(--theme-accent) 22%, #ffffff);
+  --heat-pos-2: color-mix(in srgb, var(--theme-accent) 48%, #ffffff);
+  --heat-pos-3: color-mix(in srgb, var(--theme-accent) 72%, #111827);
 
   --theme-dark-bg: #061b26;
   --theme-dark-text: #f7fbff;
@@ -48,6 +69,13 @@ body {
   font-family: var(--font-sans);
 }
 
+body:not(.is-print):not(.is-overview) {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
 .deck {
   min-height: 100vh;
   display: grid;
@@ -55,11 +83,19 @@ body {
   padding: 32px;
 }
 
+body:not(.is-print):not(.is-overview) .deck {
+  width: var(--deck-frame-width);
+  height: var(--deck-frame-height);
+  min-height: 0;
+  padding: 0;
+}
+
 .slide {
   position: relative;
   display: none;
-  width: min(100vw - 64px, var(--slide-width));
-  aspect-ratio: 16 / 9;
+  width: var(--slide-width);
+  height: var(--slide-height);
+  aspect-ratio: auto;
   overflow: hidden;
   background: var(--color-bg);
   box-shadow: 0 18px 50px rgba(18, 25, 38, 0.08);
@@ -74,6 +110,11 @@ body {
 body.is-print .slide {
   display: flex;
   flex-direction: column;
+}
+
+body:not(.is-print):not(.is-overview) .slide {
+  transform: scale(var(--deck-scale));
+  transform-origin: top left;
 }
 
 .slide.dark,
@@ -208,27 +249,14 @@ body.is-overview .deck {
 body.is-overview .slide {
   display: flex;
   width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   cursor: pointer;
 }
 
 body.is-overview .slide.active {
   outline: 4px solid var(--theme-dark-accent);
   outline-offset: 4px;
-}
-
-@media screen and (max-width: 900px) {
-  .deck {
-    padding: 12px;
-  }
-
-  .slide {
-    width: calc(100vw - 24px);
-    padding: 28px;
-  }
-
-  .slide-title {
-    font-size: 30px;
-  }
 }
 
 @page {

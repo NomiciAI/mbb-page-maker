@@ -4,7 +4,7 @@ Themes are token files. They should not contain layout rules or component CSS.
 
 ## Available Themes
 
-- `assets/themes/blue.css`: default consulting blue.
+- `assets/themes/blue.css`: blue accent system.
 - `assets/themes/red.css`: red accent system.
 - `assets/themes/green.css`: green accent system.
 - `assets/themes/mono.css`: black-and-white system.
@@ -27,3 +27,27 @@ Use one theme file per deck. Do not mix theme files in one production deck unles
 - Put reusable content components in `assets/css/components.css`.
 - Put neutral illustration styling and asset slots in `assets/css/illustrations.css`.
 - Put optional static images, SVGs, screenshots, and headshots in `assets/media/`.
+
+## Required Theme Tokens
+
+Every theme must define the same token contract so components can stay color-neutral:
+
+- Accent tokens: `--theme-accent`, `--theme-accent-soft`, `--theme-accent-strong`.
+- State tokens: `--theme-success`, `--theme-danger`.
+- Dark-mode tokens: `--theme-dark-bg`, `--theme-dark-accent`, `--theme-dark-bg-gradient`.
+- Data tokens: `--chart-series-1` through `--chart-series-5`, plus `--chart-highlight`.
+- Part-to-whole tokens: `--part-1-color` through `--part-4-color`.
+- Diverging heat tokens: `--heat-neg-3`, `--heat-neg-2`, `--heat-neg-1`, `--heat-zero`, `--heat-pos-1`, `--heat-pos-2`, `--heat-pos-3`.
+
+If a new component needs color, add a semantic token to all themes rather than hardcoding the color in component CSS.
+
+## Font Stack
+
+`assets/css/fonts.css` is CDN-only and bilingual by default:
+
+- Latin sans: Inter.
+- Latin serif: Libre Baskerville.
+- Simplified Chinese sans fallback: Noto Sans SC plus system CJK sans fonts.
+- Simplified Chinese serif fallback: Noto Serif SC plus system CJK serif fonts.
+
+Use `--font-sans` and `--font-serif` in layouts/components. Use `--font-cjk-sans` or `--font-cjk-serif` only when a page intentionally needs a CJK-specific override.

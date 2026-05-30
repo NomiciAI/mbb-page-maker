@@ -7,6 +7,28 @@
   let touchStartX = 0;
   let touchStartY = 0;
 
+  function readPxVar(name, fallback) {
+    const value = window.getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    const parsed = Number.parseFloat(value);
+    return Number.isFinite(parsed) ? parsed : fallback;
+  }
+
+  function syncSlideScale() {
+    if (printMode || document.body.classList.contains("is-overview")) return;
+    const slideWidth = readPxVar("--slide-width", 1600);
+    const slideHeight = readPxVar("--slide-height", 900);
+    const inset = 24;
+    const scale = Math.min(
+      (window.innerWidth - inset) / slideWidth,
+      (window.innerHeight - inset) / slideHeight,
+      1
+    );
+    const safeScale = Math.max(0.1, scale);
+    document.documentElement.style.setProperty("--deck-scale", safeScale.toFixed(5));
+    document.documentElement.style.setProperty("--deck-frame-width", `${slideWidth * safeScale}px`);
+    document.documentElement.style.setProperty("--deck-frame-height", `${slideHeight * safeScale}px`);
+  }
+
   function setPageNumbers() {
     slides.forEach((slide, i) => {
       const number = slide.querySelector(".page-number");
@@ -16,6 +38,7 @@
 
   function show(nextIndex) {
     if (!slides.length || document.body.classList.contains("is-overview")) return;
+    syncSlideScale();
     index = Math.max(0, Math.min(slides.length - 1, nextIndex));
     slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
     if (status) status.textContent = `${index + 1} / ${slides.length}`;
@@ -24,7 +47,10 @@
 
   function toggleOverview() {
     document.body.classList.toggle("is-overview");
-    if (!document.body.classList.contains("is-overview")) show(index);
+    if (!document.body.classList.contains("is-overview")) {
+      syncSlideScale();
+      show(index);
+    }
   }
 
   function addControls() {
@@ -100,6 +126,7 @@
   }
 
   setPageNumbers();
+  window.addEventListener("resize", syncSlideScale);
 
   if (printMode) {
     document.body.classList.add("is-print");

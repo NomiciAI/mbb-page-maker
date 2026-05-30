@@ -1658,6 +1658,10 @@
   overflow: hidden;
 }
 
+.contact-legend + .contact-roster {
+  height: calc(100% - 40px);
+}
+
 .contact-main {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2823,53 +2827,4 @@
 .dashboard-grid .axis-y {
   left: 0;
   top: 8px;
-}
-
-@media screen and (max-width: 900px) {
-  .agenda-list,
-  .catalog-grid,
-  .catalog-items,
-  .agenda-table,
-  .simple-agenda,
-  .simple-agenda-grid,
-  .pyramid-stack,
-  .cause-effect,
-  .support-stack,
-  .diverging-textboxes,
-  .from-to-row,
-  .compass-choice,
-  .framework-map,
-  .framework-ring,
-  .column-plot,
-  .column-labels,
-  .quadrant-matrix,
-  .risk-register,
-  .competency-grid,
-  .dot-scale-comparison,
-  .range-comparison,
-  .part-to-whole,
-  .dual-pie,
-  .pie-group,
-  .diverging-legend,
-  .metric-strip,
-  .timeline,
-  .profile-grid,
-  .contact-roster,
-  .contact-main,
-  .bar-row {
-    grid-template-columns: 1fr;
-  }
-
-  .heatmap,
-  .diverging-grid,
-  .rank-row,
-  .stack-row,
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-sidebar {
-    border-left: 0;
-    padding-left: 0;
-  }
 }
