@@ -12,6 +12,7 @@ Use these complete decks as first-class authoring references before creating a n
 | --- | --- | --- |
 | `templates/full-decks/ai-application-investment-thesis/index.html` | investment, pitch, thesis, market map, funding, product bet, or diligence-style decks | evidence extraction, thesis flow, market/peer pages, risk framing, pitch-style density |
 | `templates/full-decks/enterprise-intelligence-transformation/index.html` | transformation, operating model, AI strategy, capability build, roadmap, governance, or board update decks | executive answer, flywheel/story model, capability heatmap, roadmap, governance, decision pages |
+| `templates/full-decks/agent-technology-outlook/index.html` | agent technology outlook, AI platform strategy, agent architecture, technical market scan, interoperability, or governance decks | public-evidence synthesis, technical outlook pacing, green strategic style, architecture stack, risk framing, roadmap |
 
 `examples/*` are public demo outputs. `templates/full-decks/*` are the authoring exemplars an agent should inspect when deciding how to structure a real deck. Keep the exemplar content fictional or generic; never copy it verbatim into user work. Do not copy exemplar footer text, placeholder brand marks, or deck-system labels into user decks.
 
@@ -25,6 +26,7 @@ Editable source rule: change `templates/full-decks/<name>/index.html` first, the
 | Board or executive update | Inspect `enterprise-intelligence-transformation`, then adapt the Board Or Executive Update sequence. |
 | Transformation, operating model, AI strategy, governance | Inspect `enterprise-intelligence-transformation`, then adapt the Operating Model Or Transformation sequence. |
 | Market, competitive, customer, or trend scan | Inspect `ai-application-investment-thesis` for market evidence density, then adapt the Market Or Competitive Scan sequence. |
+| Agent technology outlook, AI platform strategy, agent architecture, or technical market scan | Inspect `agent-technology-outlook`, then adapt the Technology Outlook Or Agent Architecture sequence. |
 | Workshop or working session pack | Use the Workshop Pack sequence and component catalog; no current full-deck exemplar is a direct fit. |
 | Strategy recommendation or market entry | Use the Strategy Recommendation sequence and inspect the closest exemplar based on evidence type. |
 
@@ -122,6 +124,26 @@ Typical sequence:
 8. Appendix.
 
 Useful components: `metric-strip`, `data-dashboard`, `table`, `heatmap`, `roadmap-swimlane`, `callout`.
+
+## Technology Outlook Or Agent Architecture
+
+Use when the user asks for a technology outlook, platform strategy, architecture recommendation, agent roadmap, interoperability view, or technical market scan.
+
+Typical sequence:
+
+1. Title page.
+2. Executive answer: what should change and why now.
+3. Market or capability signal.
+4. Architecture shift or maturity model.
+5. Stack or operating model.
+6. Interoperability and ecosystem implications.
+7. Value pools or priority workflows.
+8. Platform choices and build-vs-buy.
+9. Risks and governance controls.
+10. Roadmap and decisions.
+11. Evidence base or appendix.
+
+Useful components: `metric-strip`, `framework-map`, `process-flow`, `comparison-table`, `ranked-bars`, `timeline`, `risk-matrix-register`, `phase-roadmap`, `decision-log`, `outcome-support`.
 
 ## Market Or Competitive Scan
 

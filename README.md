@@ -95,6 +95,7 @@ mbb-page-maker/
 │   ├── sync-examples.sh
 │   └── render.sh
 └── examples/
+    ├── agent-technology-outlook/
     ├── enterprise-intelligence-transformation/
     └── ai-application-investment-thesis/
 ```
