@@ -4,7 +4,7 @@ This is a world-class AgentSkill for creating consulting-style HTML PPT decks: s
 
 The goal is to give any capable agent a reliable, installable way to author, preview, and eventually export executive-grade HTML presentations from a static skill package.
 
-This repo is currently in the skeleton phase.
+This repo is currently in the foundational HTML skeleton phase.
 
 Design constraints:
 
@@ -46,6 +46,8 @@ mbb-page-maker/
 │       └── classic.css
 ├── templates/
 │   ├── deck.html
+│   ├── light-skeleton.html
+│   ├── dark-skeleton.html
 │   └── layouts/
 ├── scripts/
 │   ├── new-deck.sh
@@ -56,8 +58,7 @@ mbb-page-maker/
 
 ## Roadmap
 
-1. Finalize the skeleton and file responsibilities.
-2. Build the minimal HTML PPT framework.
-3. Add one real example deck after reference pages are provided.
-4. Add PNG/PDF export.
-5. Research PowerPoint export.
+1. Finalize the foundational HTML PPT shell and shared primitives.
+2. Add case-by-case reference guidance after approved examples are selected.
+3. Add PNG/PDF export.
+4. Research PowerPoint export.

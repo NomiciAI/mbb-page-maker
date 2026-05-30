@@ -10,18 +10,153 @@
 </head>
 <body>
   <main class="deck" data-deck-title="MBB HTML Deck">
-    <section class="slide" data-title="Executive summary">
+    <section class="slide cover" data-title="Cover">
+      <div class="line-field"></div>
       <header>
-        <div class="slide-kicker">Executive summary</div>
-        <h1 class="slide-title">The slide headline should state the answer, not the topic</h1>
-        <p class="slide-subtitle">Minimal starter for static HTML PPT authoring.</p>
+        <div class="slide-kicker">Confidential draft</div>
+        <h1 class="slide-title">MBB Page Maker establishes a reusable HTML presentation skeleton</h1>
+        <p class="slide-subtitle">Static 16:9 HTML/CSS/JS starter for executive-grade slide authoring.</p>
       </header>
-      <div class="content">
-        <p>Placeholder content area. Real MBB-style layouts will be added after the skeleton is approved.</p>
+      <footer class="footer">
+        <span>Prepared for internal development</span>
+        <span class="page-number"></span>
+      </footer>
+    </section>
+
+    <section class="slide dark dark-cover cover" data-title="Dark cover">
+      <div class="line-field"></div>
+      <header>
+        <div class="slide-kicker">Skeleton system</div>
+        <h1 class="slide-title">Dark and light page shells share one slide contract</h1>
+        <p class="slide-subtitle">Use dark pages for section breaks and high-emphasis story moments.</p>
+      </header>
+      <footer class="footer">
+        <span>HTML PPT skeleton</span>
+        <span class="page-number"></span>
+      </footer>
+    </section>
+
+    <section class="slide dark" data-title="Section divider">
+      <div class="frame-lines">
+        <div></div>
       </div>
       <footer class="footer">
-        <span>Source: placeholder</span>
-        <span>01</span>
+        <span>Section divider shell</span>
+        <span class="page-number"></span>
+      </footer>
+    </section>
+
+    <section class="slide" data-title="Agenda">
+      <header>
+        <div class="slide-kicker">Agenda</div>
+        <h2 class="slide-title">A modular agenda page can scale from simple meetings to full executive narratives</h2>
+      </header>
+      <div class="content">
+        <ol class="agenda-list">
+          <li><span class="agenda-num">1</span><span class="agenda-copy"><strong>Objectives</strong><span>Clarify the decision and success measures.</span></span></li>
+          <li><span class="agenda-num">2</span><span class="agenda-copy"><strong>Fact base</strong><span>Summarize data, constraints, and context.</span></span></li>
+          <li><span class="agenda-num">3</span><span class="agenda-copy"><strong>Options</strong><span>Compare strategic paths and tradeoffs.</span></span></li>
+          <li><span class="agenda-num">4</span><span class="agenda-copy"><strong>Recommendation</strong><span>State the answer and rationale.</span></span></li>
+          <li><span class="agenda-num">5</span><span class="agenda-copy"><strong>Roadmap</strong><span>Sequence initiatives and milestones.</span></span></li>
+          <li><span class="agenda-num">6</span><span class="agenda-copy"><strong>Next steps</strong><span>Confirm owners, timing, and decisions.</span></span></li>
+        </ol>
+      </div>
+      <footer class="footer">
+        <span>Source: skeleton design system</span>
+        <span class="page-number"></span>
+      </footer>
+    </section>
+
+    <section class="slide full-bleed" data-title="Split shell">
+      <div class="split">
+        <div class="split-panel">
+          <div class="frame-lines"></div>
+        </div>
+        <div class="split-panel dark">
+          <div class="frame-lines"></div>
+        </div>
+      </div>
+      <footer class="footer">
+        <span>Split light/dark shell</span>
+        <span class="page-number"></span>
+      </footer>
+    </section>
+
+    <section class="slide" data-title="Content primitives">
+      <header>
+        <div class="slide-kicker">Content primitives</div>
+        <h2 class="slide-title">Cards, callouts, tables, timelines, and profile blocks provide the first reusable element layer</h2>
+      </header>
+      <div class="content grid-3">
+        <div class="card">
+          <h3>Insight card</h3>
+          <p>Use cards for distinct repeated items, not for whole page sections.</p>
+        </div>
+        <div class="callout">
+          The main implication should read as a concise business conclusion.
+        </div>
+        <div class="card">
+          <h3>Evidence block</h3>
+          <p>Pair each takeaway with a metric, exhibit, or decision consequence.</p>
+        </div>
+      </div>
+      <footer class="footer">
+        <span>Source: skeleton design system</span>
+        <span class="page-number"></span>
+      </footer>
+    </section>
+
+    <section class="slide" data-title="Table and roadmap">
+      <header>
+        <div class="slide-kicker">Structured content</div>
+        <h2 class="slide-title">Dense pages need strong rules, compact labels, and clear hierarchy</h2>
+      </header>
+      <div class="content grid-2">
+        <table class="table">
+          <thead>
+            <tr><th>Workstream</th><th>Current state</th><th>Target</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Commercial</td><td>Fragmented coverage</td><td class="highlight">Focused priority segments</td></tr>
+            <tr><td>Product</td><td>Broad roadmap</td><td>Critical use cases first</td></tr>
+            <tr><td>Operating model</td><td>Unclear ownership</td><td>Named owners and cadence</td></tr>
+          </tbody>
+        </table>
+        <div class="timeline">
+          <div class="timeline-step"><strong>Wave 1</strong><span>Mobilize and validate.</span></div>
+          <div class="timeline-step"><strong>Wave 2</strong><span>Launch focused pilots.</span></div>
+          <div class="timeline-step"><strong>Wave 3</strong><span>Scale repeatable model.</span></div>
+          <div class="timeline-step"><strong>Run</strong><span>Embed management rhythm.</span></div>
+        </div>
+      </div>
+      <footer class="footer">
+        <span>Source: skeleton design system</span>
+        <span class="page-number"></span>
+      </footer>
+    </section>
+
+    <section class="slide" data-title="Profile primitives">
+      <header>
+        <div class="slide-kicker">People blocks</div>
+        <h2 class="slide-title">Profile modules support team, expert, and stakeholder pages without requiring external assets</h2>
+      </header>
+      <div class="content profile-grid">
+        <div class="profile">
+          <div class="avatar"></div>
+          <div><strong>Advisor name</strong><span>Role, practice, or responsibility line.</span></div>
+        </div>
+        <div class="profile">
+          <div class="avatar"></div>
+          <div><strong>Expert name</strong><span>Role, practice, or responsibility line.</span></div>
+        </div>
+        <div class="profile">
+          <div class="avatar"></div>
+          <div><strong>Owner name</strong><span>Role, practice, or responsibility line.</span></div>
+        </div>
+      </div>
+      <footer class="footer">
+        <span>Source: skeleton design system</span>
+        <span class="page-number"></span>
       </footer>
     </section>
   </main>

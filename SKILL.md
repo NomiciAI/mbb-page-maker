@@ -21,13 +21,14 @@ Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker
 
 ## Current Scope
 
-This is the skeleton phase. Do not invent a large theme or layout library yet.
+This is the foundational HTML skeleton phase. Use the starter deck as the base page system, then expand case-by-case references later.
 
 - Use `templates/deck.html` as the minimal HTML PPT starting point.
 - Use `assets/css/base.css` for shared slide primitives.
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
 - Read `references/layouts.md`, `references/themes.md`, or `references/full-decks.md` only when that catalog is needed.
+- Do not copy proprietary logos, company names, confidentiality statements, or source-identifying marks from reference decks into generated HTML.
 
 ## HTML Slide Contract
 
