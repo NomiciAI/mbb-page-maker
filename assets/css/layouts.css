@@ -121,6 +121,10 @@
   text-align: center;
 }
 
+.content > .center-stage {
+  height: 100%;
+}
+
 .center-stage-inner {
   display: grid;
   justify-items: center;

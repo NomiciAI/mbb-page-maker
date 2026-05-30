@@ -47,6 +47,24 @@ Components should be structure-first:
 - Use `from-to-multi` when several coordinated shifts move from current state to target state.
 - Use `compass-choice` when a decision space has up to four mutually distinct strategic directions.
 - Use `framework-map` when a core operating concept is surrounded by 3-6 related elements.
+- Use `process-flow` when steps are sequential and each step has a distinct role.
+- Use `stage-gate` when major work stages are separated by explicit go/no-go decisions.
+- Use `funnel-steps` when a broad set is narrowed through qualification stages.
+- Use `filter-cascade` when each filter explains why options are removed or advanced.
+- Use `loop-cycle` when the work is iterative and learning changes the next cycle.
+- Use `value-chain` when activities create, transfer, and improve value across a chain.
+- Use `timeline` for simple chronological events or period markers.
+- Use `horizon-bands` for near/mid/long-term opportunity framing.
+- Use `journey-map` when stakeholder experience changes across phases.
+- Use `phase-roadmap` when the implementation path has 3-5 named phases.
+- Use `milestone-track` when status across major milestones is the message.
+- Use `quote-large` when a sourced voice should own the page.
+- Use `quote-small` when a quote supports, but does not replace, the exhibit.
+- Use `quote-insight` when the page must translate a quote into an implication.
+- Use `numbered-list-grid` for 4-9 short parallel steps or principles.
+- Use `dense-list` for compact records that do not need a table's column precision.
+- Use `decision-log` when decisions need owner, timing, and status tracking.
+- Use `pros-cons-table` when options can be compared across pros, cons, and implication.
 
 ## Sufficiency Rules
 
@@ -83,6 +101,24 @@ Do not output components that add no information.
 - From-to multi: needs at least two current-to-target pairs. If there is only one shift, use `cause-effect` or a statement page.
 - Compass choice: needs 3-4 distinct choices around one decision. Do not use it for sequential steps.
 - Framework map: needs one core concept and related elements. If order matters, use a flow or roadmap instead.
+- Process flow: needs 3-6 ordered steps with short labels. If order is not meaningful, use cards or a numbered list grid.
+- Stage gate: needs at least two stages and at least one decision gate. Do not use it for a simple linear timeline.
+- Funnel steps: needs a narrowing set, qualification logic, or count reduction. Do not use a funnel for unrelated categories.
+- Filter cascade: needs explicit filter criteria and a resulting set or decision output.
+- Loop cycle: needs repeated iteration. If the process ends once, use `process-flow`.
+- Value chain: needs activities that are linked by value creation or handoff. Avoid it for generic department lists.
+- Timeline: needs dated, period-based, or sequential events. Use `phase-roadmap` if work packages matter more than dates.
+- Horizon bands: needs distinct time horizons or uncertainty horizons. Do not use it for equal peer options.
+- Journey map: needs phases from a user, customer, team, or stakeholder perspective.
+- Phase roadmap: needs 3-5 phases plus one or two deliverables per phase. Split dense plans across slides.
+- Milestone track: needs milestone names and clear status or sequence.
+- Quote large: needs a real quote or user-provided statement. Do not invent attributed quotes.
+- Quote small: needs a quote that supports another page element. If no exhibit exists, use `quote-large` or omit.
+- Quote insight: needs both a quote and an implication. If the implication is missing, synthesize only when supported by context.
+- Numbered list grid: needs short, parallel items. Keep each item to a heading plus one compact support line.
+- Dense list: needs repeated records with similar shape. Use a table when exact fields or auditability matter.
+- Decision log: needs at least two decisions and owner/timing/status fields.
+- Pros-cons table: needs options plus pros and cons. Use `comparison-table` when there are more criteria.
 
 ## Data Display Router
 
@@ -100,6 +136,14 @@ Do not output components that add no information.
 - Many records with mixed fields: use `table`.
 - No numeric data: do not create a chart.
 
+## Text And Structure Router
+
+- Sequential work: use `process-flow` for ordered steps, `stage-gate` for decision checkpoints, `loop-cycle` for iteration, and `value-chain` for handoffs across an operating chain.
+- Narrowing logic: use `funnel-steps` when the set visibly shrinks and `filter-cascade` when criteria explanation matters.
+- Time and phases: use `timeline` for chronological events, `phase-roadmap` for implementation phases, `milestone-track` for progress status, `horizon-bands` for near/mid/long-term framing, and `journey-map` for stakeholder experience.
+- Lists and decisions: use `numbered-list-grid` for short parallel steps, `dense-list` for compact repeated records, `decision-log` for governance tracking, and `pros-cons-table` for option tradeoffs.
+- Quotes: use `quote-large` only when the quote is the evidence, `quote-small` when the quote supports an exhibit, and `quote-insight` when the implication should be stated beside the quote.
+
 ## Fit Contract
 
 - Components must not rely on resizing the slide canvas.
@@ -109,7 +153,7 @@ Do not output components that add no information.
 
 ## Next Component Families
 
-Flows, Funnels & Filters should add `process-flow`, `stage-gate`, `funnel-steps`, `filter-cascade`, `loop-cycle`, and `value-chain` in a later pass.
+Future passes should expand CV/face-page primitives, richer full-deck examples, and any domain-specific components that emerge from real user cases.
 
 ## Snippets
 
@@ -150,6 +194,24 @@ Flows, Funnels & Filters should add `process-flow`, `stage-gate`, `funnel-steps`
 | `templates/components/from-to-multi.html` | Multiple current-to-target shifts. |
 | `templates/components/compass-choice.html` | Four-direction decision space. |
 | `templates/components/framework-map.html` | Core concept with surrounding operating elements. |
+| `templates/components/process-flow.html` | Sequential process steps. |
+| `templates/components/stage-gate.html` | Stages separated by decision gates. |
+| `templates/components/funnel-steps.html` | Narrowing opportunity or qualification funnel. |
+| `templates/components/filter-cascade.html` | Filter criteria leading to a shortlist or result. |
+| `templates/components/loop-cycle.html` | Iterative cycle with four repeated actions. |
+| `templates/components/value-chain.html` | Linked value creation activities. |
+| `templates/components/timeline.html` | Chronological events using `.timeline-track`. |
+| `templates/components/horizon-bands.html` | Near/mid/long-term horizon framing. |
+| `templates/components/journey-map.html` | Stakeholder or customer journey phases. |
+| `templates/components/phase-roadmap.html` | Four-phase implementation roadmap. |
+| `templates/components/milestone-track.html` | Milestones with completion/current states. |
+| `templates/components/quote-large.html` | Full-page quote evidence. |
+| `templates/components/quote-small.html` | Compact supporting quote. |
+| `templates/components/quote-insight.html` | Quote plus implication panel. |
+| `templates/components/numbered-list-grid.html` | Numbered parallel steps or principles. |
+| `templates/components/dense-list.html` | Compact repeated text records. |
+| `templates/components/decision-log.html` | Decisions with owner, timing, and status. |
+| `templates/components/pros-cons-table.html` | Pros/cons/implication tradeoff table. |
 
 ## Showcase-Only Assets
 
@@ -173,6 +235,28 @@ Bundled headshots in `assets/media/headshots/` are for showcase and full-deck de
 - Use `blank-right-sidebar` when the primary concept needs 2-4 implications, caveats, or decision notes.
 - Keep conceptual labels short and parallel. Split the page if boxes require long paragraphs.
 - Do not use conceptual visuals to decorate sparse content; the component must clarify the page message.
+
+## Flows And Filters Composition
+
+- Prefer `blank-content` when the flow owns the page.
+- Use `blank-right-rail` or `blank-right-sidebar` only when the flow needs a compact implication, result, or caveat beside it.
+- Keep step labels parallel and short. Use at most six flow steps, five value-chain links, and four funnel bands unless the page is intentionally dense.
+- Use `process-flow` for sequence, `stage-gate` for approval checkpoints, `filter-cascade` for criteria, and `loop-cycle` only for repeated iteration.
+
+## Timelines And Journeys Composition
+
+- Prefer `blank-content` for `timeline`, `horizon-bands`, `phase-roadmap`, and `milestone-track`.
+- Use `blank-split-even` only when comparing two timelines or two journey states.
+- Keep roadmaps to 3-5 phases and milestone tracks to 4-6 milestones. Split the page if labels require more than two short lines.
+- `templates/components/timeline.html` uses `.timeline-track` to avoid changing legacy `.timeline` examples.
+
+## Tables, Lists, And Quotes Composition
+
+- Use `quote-large` on a full blank page when the quote is the main evidence.
+- Use `quote-small` inside a sidebar, rail, or small stack when another exhibit owns the page.
+- Use `quote-insight` when the quote and implication both need to be visible at once.
+- Use `numbered-list-grid` for short parallel items and `dense-list` for compact repeated records.
+- Use `decision-log` and `pros-cons-table` inside `blank-content` or a wide region. Do not put dense tables into narrow sidebars.
 
 ## Minimal Blank-Page Composition
 

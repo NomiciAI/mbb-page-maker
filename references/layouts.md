@@ -118,6 +118,9 @@ Overflow rules:
 - Diverging heatmap: use blank-content and keep rows/columns bounded; split across pages if labels or cells overflow.
 - Data dashboard: headline metrics plus 1-2 supporting exhibits.
 - Conceptual pages: use blank-content for one framework or diagram, split-even for balanced contrasts, and right-sidebar only when implications must sit beside the concept.
+- Flows and funnels: use blank-content for the main sequence, right-rail only for a compact result or caveat.
+- Timelines and journeys: use blank-content for one chronology or roadmap, split-even only for side-by-side comparisons.
+- Tables, lists, and quotes: use wide blank-content for tables, sidebars for small quotes, and full blank pages for large quotes.
 
 Medium pages usually combine one dominant component with supporting components. Keep the page logic top-down: title first, exhibit second, implications third.
 
@@ -133,6 +136,11 @@ Agenda and objectives snippets include `content-catalog.html`, `meeting-objectiv
 - Framework map: one core concept with surrounding operating elements.
 - Compass choice: strategic directions around one decision.
 - From-to multi: multiple current-to-target shifts.
+- Process flow: ordered activity sequence.
+- Stage gate: phases plus decision checkpoints.
+- Value chain: linked operating activities.
+- Phase roadmap: staged implementation path.
+- Journey map: stakeholder experience across phases.
 
 Use complex layouts only when the source material has enough structure. If the user gives prose without drivers, values, phases, or dimensions, use cards, statement, or a blank structured shell instead.
 
@@ -142,7 +150,18 @@ Conceptual composition rules:
 - Use `cause-effect` only when the causal link is the point of the page.
 - Use `outcome-support` when the answer should lead and the support points are parallel.
 - Use `diverging-textboxes` for two prose positions; use `comparison-table` when criteria need row-level precision.
-- Use `framework-map` for conceptual systems; use `process-flow` or roadmap components later when sequence matters.
+- Use `framework-map` for conceptual systems; use `process-flow` or roadmap components when sequence matters.
+- Use `process-flow` for sequence, `stage-gate` for decision checkpoints, and `value-chain` for handoff logic.
+- Use `funnel-steps` or `filter-cascade` only when the source has narrowing logic.
+- Use `timeline`, `phase-roadmap`, `milestone-track`, or `horizon-bands` when timing or staged progress is the organizing logic.
+
+Flow, timeline, and table composition rules:
+
+- `blank-content` is the default safe shell for a single flow, funnel, roadmap, table, or large quote.
+- `blank-right-rail` works when a wide exhibit needs a compact legend, implication, or result note.
+- `blank-split-even` works only for balanced comparisons, such as two journeys or two lists.
+- Tables should not be placed in narrow sidebars. Use a wide region or split into multiple pages.
+- Small quotes can sit in sidebars; large quotes should own the page.
 
 ## Illustration Rules
 
@@ -157,6 +176,12 @@ Current gallery layouts live in `templates/deck.html`: cover, dark cover, sectio
 
 Conceptual showcase pages live in `templates/showcase/conceptuals.html`: pyramid stack, cause-effect, outcome-support, diverging textboxes, from-to multi, compass choice, and framework map.
 
+Flow showcase pages live in `templates/showcase/flows.html`: process flow, stage gate, funnel steps, filter cascade, loop cycle, and value chain.
+
+Timeline showcase pages live in `templates/showcase/timelines.html`: timeline track, horizon bands, journey map, phase roadmap, and milestone track.
+
+Tables/lists/quotes showcase pages live in `templates/showcase/tables-lists-quotes.html`: large quote, small quote, quote insight, numbered list grid, dense list, decision log, and pros-cons table.
+
 Dedicated skeleton starters do not need identical pages; they demonstrate different roles while sharing the same output contract:
 
 - `templates/neutral-skeleton.html`: opening, centered message, blank analytical shell, ending.
@@ -164,7 +189,7 @@ Dedicated skeleton starters do not need identical pages; they demonstrate differ
 - `templates/dark-skeleton.html`: dark cover, divider, dark blank emphasis page, split shell.
 - `templates/mixed-skeleton.html`: dark cover, light analytical page, evidence/implication, visual concept, roadmap, dark transition.
 
-Upcoming Flows, Funnels & Filters components to extract in a later pass: `process-flow`, `stage-gate`, `funnel-steps`, `filter-cascade`, `loop-cycle`, and `value-chain`.
+Upcoming validation work should use full-deck examples to test cross-section component combinations, storyline continuity, and visual balance.
 
 Reusable layout snippets include `templates/layouts/contact-roster.html` for the contacts case.
 
