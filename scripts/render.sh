@@ -8,6 +8,7 @@ Usage:
 
 Defaults:
   Creates a self-contained share package, PDF, and PNG slides in <deck-dir>/dist.
+  Full-deck templates default to tmp/render/<deck>/ to keep template folders source-only.
 
 Examples:
   scripts/render.sh examples/demo-deck/index.html
@@ -103,6 +104,9 @@ else
   input_name="$(basename "$input_path" .html)"
   input_url="file://${input_path}"
   default_out="${input_dir}/dist"
+  if [[ "$input_path" == "${skill_root}/templates/full-decks/"* ]]; then
+    default_out="${skill_root}/tmp/render/$(basename "$input_dir")"
+  fi
 fi
 
 if [[ -z "$out_dir" ]]; then
@@ -204,13 +208,15 @@ def repl(match):
     source = next((path for path in candidates if path.exists()), None)
     if not source:
         return match.group(0)
-    if skill_root in source.parents or source == skill_root:
-        dest = to_dir / "assets" / source.relative_to(skill_root / "assets") if (skill_root / "assets") in source.parents else to_dir / source.name
-    else:
-        try:
-            rel = source.relative_to(from_dir)
-            dest = to_dir / rel
-        except ValueError:
+    try:
+        rel = source.relative_to(from_dir)
+        dest = to_dir / rel
+    except ValueError:
+        if (skill_root / "assets") in source.parents:
+            dest = to_dir / "assets" / source.relative_to(skill_root / "assets")
+        elif skill_root in source.parents or source == skill_root:
+            dest = to_dir / "repo" / source.relative_to(skill_root)
+        else:
             dest = to_dir / "assets" / "media" / source.name
     dest.parent.mkdir(parents=True, exist_ok=True)
     if source.is_file():
@@ -228,6 +234,7 @@ inline_package_assets() {
   local html_file="$1"
   python3 - "$html_file" <<'PY'
 import base64
+import html as html_lib
 import mimetypes
 import re
 import sys
@@ -235,6 +242,11 @@ from pathlib import Path
 
 html_path = Path(sys.argv[1])
 html_dir = html_path.parent.resolve()
+allowed_root = html_dir
+for candidate in (html_dir, *html_dir.parents):
+    if (candidate / "assets").is_dir():
+        allowed_root = candidate.resolve()
+        break
 text = html_path.read_text(encoding="utf-8")
 
 def is_external(value):
@@ -250,15 +262,36 @@ def local_path(value, base_dir):
     if not path.is_file():
         return None, suffix
     try:
-        path.relative_to(html_dir)
+        path.relative_to(allowed_root)
     except ValueError:
         return None, suffix
     return path, suffix
 
+def data_uri_payload(name, payload):
+    mime = mimetypes.guess_type(name)[0] or "application/octet-stream"
+    encoded = base64.b64encode(payload).decode("ascii")
+    return f"data:{mime};base64,{encoded}"
+
 def data_uri(path):
-    mime = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
-    payload = base64.b64encode(path.read_bytes()).decode("ascii")
-    return f"data:{mime};base64,{payload}"
+    return data_uri_payload(path.name, path.read_bytes())
+
+def embedded_html_text(path, suffix):
+    text = path.read_text(encoding="utf-8")
+    query = suffix if suffix.startswith("?") else ""
+    if query:
+        injected = (
+            "<script>"
+            f"window.__MBB_PREVIEW_QUERY = {query!r};"
+            "</script>"
+        )
+        if re.search(r"</head>", text, flags=re.I):
+            text = re.sub(r"</head>", injected + "\n</head>", text, count=1, flags=re.I)
+        else:
+            text = injected + text
+    return text
+
+def html_srcdoc(path, suffix):
+    return html_lib.escape(embedded_html_text(path, suffix), quote=True)
 
 def inline_css_urls(css_text, css_path):
     css_dir = css_path.parent.resolve()
@@ -297,7 +330,10 @@ def replace_link(match):
     if not path or not has_stylesheet_rel(tag):
         return tag
     css = read_css(path)
-    source = path.relative_to(html_dir).as_posix()
+    try:
+        source = path.relative_to(html_dir).as_posix()
+    except ValueError:
+        source = path.relative_to(allowed_root).as_posix()
     return f'<style data-inlined-from="{source}">\n{css}\n</style>'
 
 def replace_script(match):
@@ -307,19 +343,26 @@ def replace_script(match):
     if not path:
         return tag
     js = read_js(path)
-    source = path.relative_to(html_dir).as_posix()
+    try:
+        source = path.relative_to(html_dir).as_posix()
+    except ValueError:
+        source = path.relative_to(allowed_root).as_posix()
     return f'<script data-inlined-from="{source}">\n{js}\n</script>'
 
 def replace_media_tag(match):
     tag = match.group(0)
+    tag_name = re.match(r"<\s*([a-z0-9]+)", tag, flags=re.I).group(1).lower()
     src_match = re.search(r"\bsrc\s*=\s*(['\"])([^'\"]+)\1", tag, flags=re.I | re.S)
     if not src_match:
         return tag
     quote, value = src_match.groups()
-    path, _suffix = local_path(value, html_dir)
+    path, suffix = local_path(value, html_dir)
     if not path:
         return tag
-    replacement = f"src={quote}{data_uri(path)}{quote}"
+    if tag_name == "iframe" and path.suffix.lower() in {".html", ".htm"}:
+        replacement = f'srcdoc="{html_srcdoc(path, suffix)}"'
+    else:
+        replacement = f"src={quote}{data_uri(path)}{quote}"
     return tag[:src_match.start()] + replacement + tag[src_match.end():]
 
 def replace_style_block(match):
@@ -332,72 +375,6 @@ text = re.sub(r"<(?:img|source|video|audio|track|iframe|embed)\b[^>]*>", replace
 text = re.sub(r"(<style\b[^>]*>)(.*?)(</style>)", replace_style_block, text, flags=re.I | re.S)
 
 html_path.write_text(text, encoding="utf-8")
-PY
-}
-
-inline_google_font_imports() {
-  local css_file="$1"
-  local cache_dir="$2"
-  python3 - "$css_file" "$cache_dir" <<'PY'
-import base64
-import hashlib
-import mimetypes
-import re
-import sys
-import urllib.request
-from pathlib import Path
-from urllib.parse import urlparse
-
-css_path = Path(sys.argv[1])
-cache_dir = Path(sys.argv[2])
-cache_dir.mkdir(parents=True, exist_ok=True)
-text = css_path.read_text(encoding="utf-8")
-
-IMPORT_RE = re.compile(r"@import\s+(?:url\()?['\"]?(https://fonts\.googleapis\.com/[^'\"\);]+)['\"]?\)?\s*;", re.I)
-URL_RE = re.compile(r"url\((['\"]?)(https://fonts\.gstatic\.com/[^)'\"\s]+)\1\)", re.I)
-UA = "Mozilla/5.0 AppleWebKit/537.36 Chrome Safari"
-
-def cache_name(url, suffix):
-    digest = hashlib.sha256(url.encode("utf-8")).hexdigest()
-    return cache_dir / f"{digest}{suffix}"
-
-def fetch_text(url):
-    path = cache_name(url, ".css")
-    if path.exists():
-        return path.read_text(encoding="utf-8")
-    request = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(request, timeout=30) as response:
-        payload = response.read()
-    path.write_bytes(payload)
-    return payload.decode("utf-8")
-
-def fetch_binary(url):
-    parsed = urlparse(url)
-    suffix = Path(parsed.path).suffix or ".bin"
-    path = cache_name(url, suffix)
-    if not path.exists():
-        request = urllib.request.Request(url, headers={"User-Agent": UA})
-        with urllib.request.urlopen(request, timeout=30) as response:
-            path.write_bytes(response.read())
-    return path
-
-def data_uri(path):
-    mime = mimetypes.guess_type(path.name)[0] or "font/woff2"
-    payload = base64.b64encode(path.read_bytes()).decode("ascii")
-    return f"data:{mime};base64,{payload}"
-
-def inline_font_urls(css):
-    def repl(match):
-        quote, url = match.groups()
-        return f"url({quote}{data_uri(fetch_binary(url))}{quote})"
-    return URL_RE.sub(repl, css)
-
-def replace_import(match):
-    url = match.group(1).replace("&amp;", "&")
-    css = inline_font_urls(fetch_text(url))
-    return f"/* Inlined Google Fonts for offline package */\n{css}"
-
-css_path.write_text(IMPORT_RE.sub(replace_import, text), encoding="utf-8")
 PY
 }
 
@@ -488,18 +465,26 @@ package_deck() {
   cp -R "${skill_root}/assets/css" "${package_dir}/assets/"
   cp -R "${skill_root}/assets/js" "${package_dir}/assets/"
   cp -R "${skill_root}/assets/themes" "${package_dir}/assets/"
+  if [[ -d "${skill_root}/assets/fonts" ]]; then
+    cp -R "${skill_root}/assets/fonts" "${package_dir}/assets/"
+  fi
   if [[ -d "${skill_root}/assets/media" ]]; then
     cp -R "${skill_root}/assets/media" "${package_dir}/assets/"
   fi
-  if [[ -f "${package_dir}/assets/css/fonts.css" ]]; then
-    inline_google_font_imports "${package_dir}/assets/css/fonts.css" "${skill_root}/.cache/google-fonts"
-  fi
   rewrite_asset_paths "${package_dir}/index.html" "$input_dir" "$package_dir" "$skill_root"
+  while IFS= read -r -d '' nested_html; do
+    nested_rel="${nested_html#${package_dir}/}"
+    nested_source_dir="${input_dir}/$(dirname "$nested_rel")"
+    if [[ -d "$nested_source_dir" ]]; then
+      rewrite_asset_paths "$nested_html" "$nested_source_dir" "$package_dir" "$skill_root"
+      inline_package_assets "$nested_html"
+    fi
+  done < <(find "$package_dir" -mindepth 2 -name '*.html' -print0)
   inline_package_assets "${package_dir}/index.html"
   rm -rf "${package_dir}/assets"
   verify_package_index "${package_dir}/index.html"
-  package_index="${package_dir}/index.html"
-  echo "Package: ${package_dir}/index.html"
+  package_index="$(cd "$package_dir" && pwd)/index.html"
+  echo "Package: ${package_index}"
 }
 
 chrome_common=(

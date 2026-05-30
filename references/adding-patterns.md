@@ -19,12 +19,14 @@ Use this guide when adding full-deck exemplars, layout shells, or reusable compo
 ```bash
 scripts/check-deck-quality.sh templates/full-decks/<slug>/index.html
 scripts/check-deck-contrast.sh templates/full-decks/<slug>/index.html
-scripts/render.sh templates/full-decks/<slug>/index.html --all
+scripts/render.sh templates/full-decks/<slug>/index.html tmp/render/<slug> --all
 scripts/sync-examples.sh
 scripts/sync-examples.sh --check
 ```
 
 `templates/full-decks` is the editable source of truth. `examples` is generated public demo output.
+
+Do not commit `dist/`, PDF, or PNG outputs under `templates/full-decks`. Render outputs are validation artifacts only; full-deck exemplars should stay lightweight source folders.
 
 ## New Layout Shell
 

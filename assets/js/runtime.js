@@ -1,6 +1,7 @@
 (function () {
   const slides = Array.from(document.querySelectorAll(".slide"));
-  const params = new URLSearchParams(window.location.search);
+  const querySource = window.__MBB_PREVIEW_QUERY || window.location.search;
+  const params = new URLSearchParams(querySource);
   const printMode = params.get("print") === "1";
   const exportMode = params.get("export") === "1";
   const previewMode = params.has("preview");

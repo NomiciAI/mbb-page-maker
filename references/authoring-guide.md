@@ -22,7 +22,7 @@ The design system is layered by responsibility:
 
 Keep the base library structure-first. Components and blank layouts should not hard-code brand colors, image treatment, decorative effects, or source-specific marks. Themes and showcase/full-deck examples carry the visual treatment.
 
-Generated decks must load the static files in that order: fonts, base, layouts, components, illustrations, exactly one theme file, then `assets/js/runtime.js`. Do not create a CSS bundle, inline duplicate CSS, add deck-specific remote font imports, or add a build step. Use the shared Google Fonts import in `assets/css/fonts.css` for source preview; `scripts/render.sh --package` localizes it for delivery.
+Generated decks must load the static files in that order: fonts, base, layouts, components, illustrations, exactly one theme file, then `assets/js/runtime.js`. Do not create a CSS bundle, inline duplicate CSS, add deck-specific remote font imports, or add a build step. Use the shared local font declarations in `assets/css/fonts.css`; `scripts/render.sh --package` inlines those local font files for delivery.
 
 Dark backgrounds must always activate a dark token context. Use `.dark`, `[data-mode="dark"]`, `[data-tone="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]`; do not set a dark background alone. The token context is what flips text, muted text, rules, panels, and accents for every theme.
 

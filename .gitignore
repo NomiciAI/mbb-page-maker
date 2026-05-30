@@ -24,7 +24,6 @@ build/
 output/
 tmp/
 coverage/
-.cache/
 
 # Local environment
 .env

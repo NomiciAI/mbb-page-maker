@@ -7,7 +7,7 @@ description: Create, edit, package, or export consulting-style HTML slide decks 
 
 This AgentSkill produces static HTML presentation decks with consulting-grade page logic: clear titles, tight storylines, exhibit-first layouts, and executive-ready visual hierarchy.
 
-The source deck must run without a build step: plain HTML, CSS, and JavaScript. Source decks may use the bundled Google Fonts import in `assets/css/fonts.css` for preview. The delivered package must be self-contained: no remote runtime scripts, remote images, remote font URLs, stylesheet imports, or non-embedded media.
+The source deck must run without a build step: plain HTML, CSS, and JavaScript. Source decks use predownloaded local fonts through `assets/css/fonts.css`. The delivered package must be self-contained: no remote runtime scripts, remote images, remote font URLs, stylesheet imports, or non-embedded media.
 
 ## Install
 
@@ -54,7 +54,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Use `templates/layouts/default-*.html` for opening, centered transition, centered message, headline metric, and ending pages.
 - Use `templates/layouts/blank-*.html` for ordinary structure-first pages before adding specialized components.
 - Normalize relative asset paths after copying snippets into a deck.
-- Do not add CDN scripts, remote images, dynamic module loaders, or runtime dependencies that cannot be embedded into the final package. Google Fonts are allowed only through `assets/css/fonts.css`; the package exporter localizes them.
+- Do not add CDN scripts, remote images, dynamic module loaders, or runtime dependencies that cannot be embedded into the final package. Use only the predownloaded local font files referenced by `assets/css/fonts.css`.
 - Do not copy proprietary logos, company names, confidentiality statements, or source-identifying marks from reference decks into generated HTML.
 - Do not add MBB Page Maker, exemplar, agency, or placeholder brand marks to user decks. Use no visible logo unless the user supplies one.
 - Keep footers minimal: page number and, if useful, a neutral deck title. Do not include "source", "prepared by", consulting-firm-style, or exemplar footer copy unless the user explicitly supplied that text.

@@ -57,4 +57,4 @@ If a new component needs color, add a semantic token to all themes rather than h
 
 Use `--font-sans` and `--font-serif` in layouts/components. Use `--font-cjk-sans` or `--font-cjk-serif` only when a page intentionally needs a CJK-specific override.
 
-Source decks may load Google Fonts through this shared file for browser preview. `scripts/render.sh --package` downloads, caches, and inlines those font files so delivered packages do not depend on remote font services.
+Source decks load predownloaded Google Latin fonts through this shared file for browser preview. `scripts/render.sh --package` inlines those local font files so delivered packages do not depend on remote font services. Full CJK webfont binaries are intentionally not vendored by default because they add tens of megabytes; CJK text uses the system fallback stack.

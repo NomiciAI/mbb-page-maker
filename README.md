@@ -11,7 +11,7 @@ Design constraints:
 - One-command install.
 - No build step.
 - Pure static HTML/CSS/JS.
-- Google/Noto webfonts for source preview; final packages localize fonts and must not depend on remote font services.
+- Predownloaded Google Latin fonts for source preview; CJK uses system font fallbacks to keep the installable skill small.
 - Default export targets: self-contained HTML package, PDF, and PNG; PowerPoint later.
 
 ## Install
@@ -48,6 +48,8 @@ mbb-page-maker/
 │   │   └── fonts.css
 │   ├── js/
 │   │   └── runtime.js
+│   ├── fonts/
+│   │   └── google/
 │   ├── media/
 │   │   ├── covers/
 │   │   └── headshots/
@@ -72,6 +74,7 @@ mbb-page-maker/
 │   ├── new-deck.sh
 │   ├── check-deck-quality.sh
 │   ├── check-deck-contrast.sh
+│   ├── fetch-fonts.sh
 │   ├── sync-examples.sh
 │   └── render.sh
 └── examples/
@@ -98,7 +101,7 @@ CSS is intentionally split by responsibility:
 - `assets/media/`: optional static images, SVGs, screenshots, and showcase-only filler headshots.
 - `references/asset-sourcing.md`: curated sources for consulting-style photos, SVG assets, icons, and pure JavaScript visual libraries.
 
-Generated source decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no source build step. Final `scripts/render.sh --package` output localizes Google Fonts and inlines local CSS, JavaScript, and media into `package/index.html` so the HTML file can be opened by a browser on its own.
+Generated source decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no source build step. `assets/css/fonts.css` points to predownloaded font files in `assets/fonts/google/`. Final `scripts/render.sh --package` output inlines local CSS, JavaScript, fonts, and media into `package/index.html` so the HTML file can be opened by a browser on its own.
 
 Final packages are verified as self-contained: no external stylesheet links, external scripts, remote font URLs, CSS imports, or non-embedded media URLs. Use built-in static components instead of CDN chart/runtime dependencies.
 
