@@ -65,6 +65,40 @@
   opacity: 0.62;
 }
 
+.cover-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cover-art img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.cover-art::before,
+.cover-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.cover-art::before {
+  background:
+    linear-gradient(90deg, var(--color-bg) 0%, color-mix(in srgb, var(--color-bg) 92%, transparent) 34%, transparent 72%),
+    linear-gradient(0deg, color-mix(in srgb, var(--color-bg) 72%, transparent) 0%, transparent 34%);
+}
+
+.cover-art::after {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--color-bg) 40%, transparent) 0%, transparent 26%),
+    linear-gradient(270deg, color-mix(in srgb, var(--color-bg) 14%, transparent) 0%, transparent 42%);
+}
+
 .illustration {
   position: relative;
   min-height: 360px;

@@ -48,6 +48,8 @@ mbb-page-maker/
 │   ├── js/
 │   │   └── runtime.js
 │   ├── media/
+│   │   ├── covers/
+│   │   └── headshots/
 │   └── themes/
 │       ├── blue.css
 │       ├── green.css

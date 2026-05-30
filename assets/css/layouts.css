@@ -2,6 +2,11 @@
   justify-content: flex-start;
 }
 
+.slide.cover .footer {
+  position: relative;
+  z-index: 1;
+}
+
 .slide.cover .slide-title {
   max-width: 980px;
   font-size: 66px;
