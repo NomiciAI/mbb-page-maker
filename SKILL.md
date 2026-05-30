@@ -28,6 +28,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
 - Read `references/layouts.md`, `references/themes.md`, or `references/full-decks.md` only when that catalog is needed.
+- Use `templates/layouts/blank-*.html` for ordinary structure-first pages before adding specialized components.
 - Do not copy proprietary logos, company names, confidentiality statements, or source-identifying marks from reference decks into generated HTML.
 
 ## Design System Layers
@@ -45,9 +46,11 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 3. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
 4. Choose reusable components from `templates/components/` using `references/components.md`.
 5. Apply one theme file from `assets/themes/`.
-6. Verify that the assembled slide has one clear message, one dominant visual structure, and no copied source identifiers.
+6. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
 
 Do not create filler pages. If the user input does not contain enough structured content for a specialized layout, use a simpler layout or omit the page.
+
+If content overflows a region, reduce the number of components, choose a wider layout, or split the content into another slide. Do not solve overflow by making text too small to read.
 
 Content sufficiency examples:
 
