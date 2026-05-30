@@ -4,7 +4,7 @@ This is a world-class AgentSkill for creating consulting-style HTML PPT decks: s
 
 The goal is to give any capable agent a reliable, installable way to author, preview, and eventually export executive-grade HTML presentations from a static skill package.
 
-This repo is currently in the foundational HTML skeleton phase.
+This repo is in the foundational HTML skeleton phase.
 
 Design constraints:
 
@@ -22,7 +22,7 @@ npx skills add https://github.com/NomiciAI/mbb-page-maker
 
 Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker)
 
-The repository can stay private during development. When it is public, the command above can install the AgentSkill directly from GitHub.
+The command above installs the AgentSkill directly from the public GitHub repository.
 
 For broad agent discovery, install to all detected clients:
 
@@ -145,10 +145,16 @@ The starter deck stays intentionally light: title cover, simple agenda/context, 
 
 `templates/full-decks/` contains complete agent-facing deck archetypes for storyline pacing, page roles, and component composition. Each folder includes a README sidecar for fast indexing before inspecting the HTML. `templates/showcase/` contains page-level thinking patterns and theme + layout + component combinations for single pages and partial decks. Agents should use `references/pattern-index.md` to choose useful references, then adapt or recombine them. `examples/` contains independent public demo decks maintained separately from templates.
 
+## Contributing
+
+Contributions are welcome through pull requests. The `main` branch is protected: Saitop may push directly, and everyone else should submit changes through PRs.
+
+See `CONTRIBUTING.md` for PR expectations, testing notes, and repository hygiene.
+
 ## Acknowledgements
 
 Inspired by [lewislulu/html-ppt-skill](https://github.com/lewislulu/html-ppt-skill). This project is written from scratch with its own structure, templates, runtime, and design system.
 
 ## License & Author
 
-MIT. Copyright (c) 2026 Saitop at NomiciAI <saitop@nomici.ai>.
+Apache-2.0. Copyright 2026 Saitop.

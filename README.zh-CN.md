@@ -22,7 +22,7 @@ npx skills add https://github.com/NomiciAI/mbb-page-maker
 
 GitHub 仓库：[NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker)
 
-现在 repo 可以继续 private。等开源后，这条命令可以直接从 GitHub 安装。
+这条命令会直接从公开 GitHub 仓库安装 AgentSkill。
 
 为了让更多 agent 自动发现，推荐安装到所有检测到的客户端：
 
@@ -80,10 +80,16 @@ CSS 按职责拆分：
 
 `starter-deck.html` 保持轻量：标题封面、简单 agenda/context、空白内容页、ending。普通内容页默认从空白内容页开始，再按用户数据组合 layout 和 component。各 skeleton 不需要页面完全一致，只需要遵守同一个 16:9 slide contract 和输出文件顺序。
 
+## 贡献
+
+欢迎通过 pull request 贡献。`main` 分支受保护：Saitop 可以直接 push，其他 collaborator 和外部 contributor 都应通过 PR 提交变更。
+
+PR 规则、测试说明和仓库维护要求见 `CONTRIBUTING.md`。
+
 ## 致谢
 
 受 [lewislulu/html-ppt-skill](https://github.com/lewislulu/html-ppt-skill) 启发。本项目为从零编写，拥有独立的结构、模板、运行时和设计系统。
 
 ## License & Author
 
-MIT. Copyright (c) 2026 Saitop at NomiciAI <saitop@nomici.ai>.
+Apache-2.0. Copyright 2026 Saitop.
