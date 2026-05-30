@@ -2,11 +2,11 @@
 
 ## Summary
 
-Technology outlook full-deck exemplar for explaining agent systems, platform choices, interoperability, governance, and roadmap implications.
+Technology outlook full-deck archetype for explaining agent systems, platform choices, interoperability, governance, and roadmap implications.
 
 ## Visual traits
 
-Green strategic technology style, abstract agent architecture cover art, compact public evidence base, architecture diagrams, value-pool ranking, risk register, and roadmap pages.
+Green strategic technology style, abstract agent architecture cover art, architecture diagrams, platform choice tables, value-pool ranking, risk register, and roadmap pages.
 
 ## Use when
 
@@ -34,7 +34,7 @@ Source-neutral public technology outlook and platform strategy patterns. No exte
 
 ## Evidence shape
 
-Best with public technology signals, capability/adoption evidence, architecture layers, ranked value pools, platform options, autonomy risks, and phased capability plans.
+Best with technology signals, capability/adoption evidence, architecture layers, ranked value pools, platform options, autonomy risks, and phased capability plans.
 
 ## Path
 
@@ -43,3 +43,15 @@ Best with public technology signals, capability/adoption evidence, architecture 
 ## Related showcase patterns
 
 `templates/showcase/executive-answer-data-page.html`, `templates/showcase/evidence-table-implication-page.html`, `templates/showcase/roadmap-risk-decision-page.html`
+
+## Flexible swaps
+
+Swap architecture stack pages for protocol maps when interoperability is central, replace value-pool rankings with workflow tables when evidence is qualitative, and replace evidence-base pages with open-questions pages when no external research is approved.
+
+## When to diverge
+
+Diverge when the user wants a technical implementation plan, vendor selection, workshop, or investor pitch. Keep the technology-outlook logic but adjust depth, vocabulary, and decision pages.
+
+## Do not copy page order/content
+
+Do not copy the archetype page order, placeholder claims, footer text, or public-evidence framing. Use it only to understand technology-outlook pacing and component combinations.

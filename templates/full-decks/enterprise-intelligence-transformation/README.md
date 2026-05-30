@@ -2,7 +2,7 @@
 
 ## Summary
 
-Transformation full-deck exemplar for turning enterprise AI work into reusable intelligence, operating cadence, and governed execution.
+Transformation full-deck archetype for turning enterprise AI or operating-model work into reusable intelligence, operating cadence, and governed execution.
 
 ## Visual traits
 
@@ -43,3 +43,15 @@ Best with capability gaps, workstream structure, maturity signals, implementatio
 ## Related showcase patterns
 
 `templates/showcase/executive-answer-data-page.html`, `templates/showcase/roadmap-risk-decision-page.html`, `templates/showcase/full-deck-operating-case-mono.html`
+
+## Flexible swaps
+
+Swap capability heatmaps for maturity tables when the input has detailed scoring, replace the flywheel with a process flow when the transformation is linear, and replace governance cadence with decision-log pages when leadership asks are the main output.
+
+## When to diverge
+
+Diverge when the user needs a CXO update, LOP plan, implementation workshop, or technical architecture deck. Keep the transformation logic but adjust sections, data density, and the amount of operating detail.
+
+## Do not copy page order/content
+
+Do not copy the archetype page order, placeholder claims, footer text, or operating-model labels. Use it only to understand transformation-story pacing and component combinations.

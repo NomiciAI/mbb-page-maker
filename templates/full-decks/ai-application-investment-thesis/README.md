@@ -2,7 +2,7 @@
 
 ## Summary
 
-Investment-style full-deck exemplar for evaluating where AI application software value is likely to accrue.
+Investment-style full-deck archetype for evaluating where a category, company, or product bet deserves capital or executive attention.
 
 ## Visual traits
 
@@ -22,7 +22,7 @@ Cover, recommendation, why now, market evidence, segment comparison, moat logic,
 
 ## Layout + component stack
 
-Uses cover art, right-rail evidence pages, `metric-strip`, `comparison-table`, `ranked-bars`, `risk-matrix-register`, `decision-log`, and qualitative support components.
+Uses cover art, right-rail evidence pages, `metric-strip`, `comparison-table`, `ranked-bars`, `risk-matrix-register`, `phase-roadmap`, `decision-log`, and qualitative support components.
 
 ## Theme / assets
 
@@ -43,3 +43,15 @@ Best with market signals, segment comparisons, ranked opportunities, risk record
 ## Related showcase patterns
 
 `templates/showcase/evidence-table-implication-page.html`, `templates/showcase/structure-patterns.html`, `templates/showcase/text-patterns.html`
+
+## Flexible swaps
+
+Swap market-size pages for customer proof when the user has buyer evidence, replace ranked bars with a comparison table when options are qualitative, and replace return/risk pages with decision-log pages when financial evidence is missing.
+
+## When to diverge
+
+Diverge when the user asks for a fundraising story, board decision, workshop, or market scan rather than an investment committee memo. Keep the thesis logic but change the page order, density, and close.
+
+## Do not copy page order/content
+
+Do not copy the archetype page order, placeholder claims, example segment names, footer text, or visual labels. Use it only to understand investment-story pacing and component combinations.

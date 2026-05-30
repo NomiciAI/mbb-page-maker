@@ -4,7 +4,7 @@ This guide defines the end-to-end workflow for authoring HTML presentation decks
 
 Reference materials must be abstracted into neutral patterns. Do not copy source logos, company names, confidentiality language, client names, or identifying marks into generated HTML.
 
-Generated user decks should not show MBB Page Maker, exemplar, agency, or placeholder brand marks. Use no visible logo unless the user supplies one. Keep footers to page number plus an optional neutral deck title; do not add source notes, "prepared by" text, consulting-firm-style footers, or exemplar footer copy unless supplied by the user.
+Generated user decks should not show MBB Page Maker, archetype, agency, or placeholder brand marks. Use no visible logo unless the user supplies one. Keep footers to page number plus an optional neutral deck title; do not add source notes, "prepared by" text, consulting-firm-style footers, or archetype footer copy unless supplied by the user.
 
 ## System Layers
 
@@ -17,8 +17,8 @@ The design system is layered by responsibility:
 5. `assets/css/illustrations.css`: neutral illustration primitives and asset slots.
 6. `assets/themes/*.css`: color tokens, light/dark mode values, accent behavior, and theme-level visual direction.
 7. `assets/media/`: optional static resources such as supplied images, screenshots, generated visuals, diagrams, and showcase-only filler assets.
-8. `templates/`: editable composed pages, snippets, and full-deck exemplars.
-9. `examples/`: generated public demo output refreshed from `templates/full-decks/`.
+8. `templates/`: editable composed pages, snippets, full-deck archetypes, and showcase patterns.
+9. `examples/`: independent public demo decks.
 
 Keep the base library structure-first. Components and blank layouts should not hard-code brand colors, image treatment, decorative effects, or source-specific marks. Themes and showcase/full-deck examples carry the visual treatment.
 
@@ -32,8 +32,8 @@ The runtime adds a slide-level `auto-dark` safety class when it detects a dark s
 
 - `templates/starter-deck.html`: default generation starting point for new decks. It stays light: title cover, simple agenda/context, blank content page, and ending page.
 - `templates/deck.html`: design-system gallery and review tour, not the default generation template.
-- `templates/full-decks/`: single editable source for complete deck exemplars.
-- `examples/`: generated public demo output from `templates/full-decks/`; refresh with `scripts/sync-examples.sh`.
+- `templates/full-decks/`: complete deck archetypes for agent-facing storyline and composition reference.
+- `examples/`: independent public demo decks; do not use them as authoring sources unless explicitly recovering demo content.
 - `templates/neutral-skeleton.html`: structure-first baseline.
 - `templates/light-skeleton.html`: default analytical pages.
 - `templates/dark-skeleton.html`: dark cover, divider, and high-emphasis shell.
@@ -49,7 +49,7 @@ Use this order when building a deck:
 2. For strategy, board, investment, pitch, transformation, or full-deck work, use `references/consulting-thinking.md` to define the audience, decision, answer, evidence, and action.
 3. Draft the storyline and answer-first page messages.
 4. Check whether the input has enough data for specialized components.
-5. For full decks, inspect the closest exemplar in `templates/full-decks/` after reading `references/full-decks.md`.
+5. For full decks, inspect relevant archetypes in `templates/full-decks/` after reading `references/full-decks.md`; adapt or diverge based on the user's material.
 6. Create a slide plan before writing HTML.
 7. Choose the simplest layout that can hold the message.
 8. Place one primary component, or a small stack of related components, inside the layout's content slot.
@@ -289,7 +289,7 @@ Future passes should add only neutral, reusable patterns that are justified by r
 When copying snippets into a real deck, normalize asset paths to the deck location:
 
 - `templates/*.html`: usually `../assets/...`
-- `examples/<name>/index.html`: usually `../../assets/...`, generated from `templates/full-decks`.
+- `examples/<name>/index.html`: usually `../../assets/...`, independently maintained public demo.
 - generated deck folders from `scripts/new-deck.sh`: usually `assets/...`
 
 Before delivery, use `scripts/render.sh path/to/index.html`. The default export creates `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` for browser, WeChat file preview, and WeChat image preview use cases. The package step rewrites local paths and inlines local CSS, JavaScript, and media into `dist/package/index.html`, so that final HTML file can be opened directly by a browser without the source asset tree.

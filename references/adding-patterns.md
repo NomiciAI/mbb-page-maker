@@ -1,8 +1,8 @@
 # Adding Patterns
 
-Use this guide when adding full-deck exemplars, layout shells, or reusable components. Add patterns only when they improve repeated deck generation; do not add one-off HTML for a single prompt.
+Use this guide when adding full-deck archetypes, layout shells, or reusable components. Add patterns only when they improve repeated deck generation; do not add one-off HTML for a single prompt.
 
-## New Full-Deck Exemplar
+## New Full-Deck Archetype
 
 1. Write a short storyline brief before HTML:
    - audience and decision
@@ -11,23 +11,21 @@ Use this guide when adding full-deck exemplars, layout shells, or reusable compo
    - evidence inventory: claims, numbers, comparisons, time periods, risks, and decisions
    - planned slide list with message, evidence, layout, and component
 2. Build the deck in `templates/full-decks/<slug>/index.html`.
-3. Add `templates/full-decks/<slug>/README.md` with Summary, Visual traits, Use when, Do not use when, Storyline pattern, Layout + component stack, Theme / assets, Source inspiration, Evidence shape, Path, and Related showcase patterns.
+3. Add `templates/full-decks/<slug>/README.md` with Summary, Visual traits, Use when, Do not use when, Storyline pattern, Layout + component stack, Theme / assets, Source inspiration, Evidence shape, Path, Related showcase patterns, Flexible swaps, When to diverge, and Do not copy page order/content.
 4. Use existing layouts and components first. Add a new component only if the same content job will recur.
-5. Keep content fictional, generic, and source-neutral. Do not include consulting-firm marks, client marks, source notes, or placeholder agency brands.
-6. Update `references/full-decks.md` with the archetype, when-to-use guidance, and closest-exemplar routing.
+5. Keep content fictional, generic, source-neutral, and meta enough to teach structure rather than real research. Do not include consulting-firm marks, client marks, source notes, or placeholder agency brands.
+6. Update `references/full-decks.md` with the archetype, when-to-use guidance, and routing.
 7. Run:
 
 ```bash
 scripts/check-deck-quality.sh templates/full-decks/<slug>/index.html
 scripts/check-deck-contrast.sh templates/full-decks/<slug>/index.html
 scripts/render.sh templates/full-decks/<slug>/index.html tmp/render/<slug> --all
-scripts/sync-examples.sh
-scripts/sync-examples.sh --check
 ```
 
-`templates/full-decks` is the editable source of truth. `examples` is generated public demo output.
+`templates/full-decks` is the agent-facing archetype library. `examples` is an independent public demo area maintained separately from full-deck templates.
 
-Do not commit `dist/`, PDF, or PNG outputs under `templates/full-decks`. Render outputs are validation artifacts only; full-deck exemplars should stay lightweight source folders.
+Do not commit `dist/`, PDF, or PNG outputs under `templates/full-decks`. Render outputs are validation artifacts only; full-deck archetypes should stay lightweight source folders.
 
 ## New Layout Shell
 
@@ -55,7 +53,7 @@ Requirements:
 - Add data-router guidance if the component handles a new evidence type.
 - Ensure text uses `currentColor` or theme tokens and works in dark token contexts.
 - Add the component class to `scripts/check-deck-quality.sh` if it should count as evidence structure.
-- Validate the component inside at least one bounded layout and one full-deck or showcase page before treating it as agent-ready.
+- Validate the component inside at least one bounded layout and one full-deck archetype or showcase page before treating it as agent-ready.
 
 ## New Showcase Case
 
@@ -66,5 +64,5 @@ Requirements:
 - Put the source in `templates/showcase/<name>.html`.
 - Use existing components, layouts, and themes first.
 - Keep the page short, fictional, generic, and source-neutral.
-- Document Use when, Minimum data, Recommended layout, Components, Fallback, Do not use when, and Path in `templates/showcase/README.md`.
+- Document communication job, evidence shape, minimum data, recommended layout, recommended components, valid substitutions, fallback, do not use when, and path in `templates/showcase/README.md`.
 - Run quality and contrast checks against the showcase file.

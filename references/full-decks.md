@@ -2,23 +2,21 @@
 
 Full decks should have one coherent storyline. Choose a deck pattern based on the audience's decision and the available evidence, then compose pages from `templates/layouts/` and content blocks from `templates/components/`.
 
-Do not treat these as fixed templates. Add, remove, or combine pages based on the user's material.
+Do not treat these as fixed templates. Add, remove, reorder, or combine pages based on the user's material. The archetypes are there to calibrate storyline pacing, page roles, and component fit, not to constrain agent creativity.
 
-## First-Class Exemplars
+## First-Class Archetypes
 
-Use these complete decks as first-class authoring references before creating a new full deck:
+Use these complete deck skeletons as first-class authoring references before creating a new full deck:
 
-| exemplar | best when | inspect for |
+| archetype | best when | inspect for |
 | --- | --- | --- |
 | `templates/full-decks/ai-application-investment-thesis/index.html` | investment, pitch, thesis, market map, funding, product bet, or diligence-style decks | evidence extraction, thesis flow, market/peer pages, risk framing, pitch-style density |
 | `templates/full-decks/enterprise-intelligence-transformation/index.html` | transformation, operating model, AI strategy, capability build, roadmap, governance, or board update decks | executive answer, flywheel/story model, capability heatmap, roadmap, governance, decision pages |
-| `templates/full-decks/agent-technology-outlook/index.html` | agent technology outlook, AI platform strategy, agent architecture, technical market scan, interoperability, or governance decks | public-evidence synthesis, technical outlook pacing, green strategic style, architecture stack, risk framing, roadmap |
+| `templates/full-decks/agent-technology-outlook/index.html` | agent technology outlook, AI platform strategy, agent architecture, technical market scan, interoperability, or governance decks | technical outlook pacing, green strategic style, architecture stack, risk framing, roadmap |
 
-Read the exemplar's `README.md` sidecar before inspecting `index.html`. The sidecar is the fast index for visual traits, when-to-use guidance, storyline pattern, layout + component stack, source inspiration, evidence shape, and related showcase patterns.
+Read the archetype's `README.md` sidecar before inspecting `index.html`. The sidecar is the fast index for visual traits, when-to-use guidance, storyline pattern, layout + component stack, source inspiration, evidence shape, related showcase patterns, flexible swaps, and when to diverge.
 
-`examples/*` are public demo outputs. `templates/full-decks/*` are the authoring exemplars an agent should inspect when deciding how to structure a real deck. Keep the exemplar content fictional or generic; never copy it verbatim into user work. Do not copy exemplar footer text, placeholder brand marks, or deck-system labels into user decks.
-
-Editable source rule: change `templates/full-decks/<name>/index.html` first, then run `scripts/sync-examples.sh` to refresh public demos. Use `scripts/sync-examples.sh --check` before delivery to catch drift.
+`examples/*` are independent public demo decks. `templates/full-decks/*` are agent-facing archetypes an agent may inspect when deciding how to structure a real deck. Keep archetype content fictional, generic, and reusable; never copy it verbatim into user work. Do not copy archetype footer text, placeholder brand marks, or deck-system labels into user decks.
 
 ## Exemplar Selection Matrix
 
@@ -29,8 +27,8 @@ Editable source rule: change `templates/full-decks/<name>/index.html` first, the
 | Transformation, operating model, AI strategy, governance | Inspect `enterprise-intelligence-transformation`, then adapt the Operating Model Or Transformation sequence. |
 | Market, competitive, customer, or trend scan | Inspect `ai-application-investment-thesis` for market evidence density, then adapt the Market Or Competitive Scan sequence. |
 | Agent technology outlook, AI platform strategy, agent architecture, or technical market scan | Inspect `agent-technology-outlook`, then adapt the Technology Outlook Or Agent Architecture sequence. |
-| Workshop or working session pack | Use the Workshop Pack sequence and component catalog; no current full-deck exemplar is a direct fit. |
-| Strategy recommendation or market entry | Use the Strategy Recommendation sequence and inspect the closest exemplar based on evidence type. |
+| Workshop or working session pack | Use the Workshop Pack sequence and component catalog; no current full-deck archetype is a direct fit. |
+| Strategy recommendation or market entry | Use the Strategy Recommendation sequence and inspect the most relevant archetype based on evidence type. |
 
 ## One-Shot Full-Deck Workflow
 
@@ -40,7 +38,7 @@ When the user gives limited context, do not ask them to design the deck page by 
 2. Build an evidence inventory: numeric values, percentages, rankings, comparisons, time periods, risks, customer/market claims, and named uncertainties.
 3. Separate user-provided evidence from assumptions and any approved external data.
 4. Group the evidence into 2-5 mutually distinct sections.
-5. Pick the closest deck archetype below and inspect the closest `templates/full-decks/*` exemplar for pacing and page density.
+5. Pick the relevant deck archetype below and inspect the relevant `templates/full-decks/*` skeleton for pacing and page density.
 6. Draft an answer-first storyline: answer, why now, proof, implications, risks, and next decisions.
 7. Map every body slide to one layout, at least one component, and one fallback if evidence is insufficient. If a slide has data but no component, revise the plan before writing HTML.
 8. Build, audit, package, and export.

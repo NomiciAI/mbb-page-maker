@@ -31,12 +31,12 @@ For real deck work, follow this path in order:
 
 1. Read `references/authoring-guide.md` before creating or materially rewriting a deck.
 2. For strategy, board, investment, pitch, transformation, or full-deck work, read `references/consulting-thinking.md`.
-3. For full decks, read `references/full-decks.md`, then the closest `templates/full-decks/<slug>/README.md`, then inspect that exemplar's `index.html` before writing HTML.
-4. For single-page, partial-deck, or local page-composition work, read `references/pattern-index.md` or `templates/showcase/README.md` before choosing a layout + component combination.
+3. For full decks, read `references/full-decks.md`, then the closest `templates/full-decks/<slug>/README.md`, then inspect that archetype's `index.html` for inspiration before writing HTML.
+4. For single-page, partial-deck, or local page-composition work, read `references/pattern-index.md` or `templates/showcase/README.md` before choosing and recombining layout + component patterns.
 5. Start from `templates/starter-deck.html` or the user's existing deck. Do not start from a blank file.
 6. Extract an evidence inventory from the user's material: claims, numbers, comparisons, time periods, risks, decisions, and open gaps.
 7. Pass the source fidelity gate: every body slide must use user-provided evidence, clearly marked assumptions, or approved external data.
-8. Pass the pattern selection gate: choose audience, decision, output length, theme default, closest full-deck exemplar, and evidence-to-page route.
+8. Pass the pattern selection gate: choose audience, decision, output length, theme default, relevant full-deck archetype, and evidence-to-page route.
 9. Create a short slide plan before writing HTML: message, evidence source, evidence shape, layout, component, fallback, and output role.
 10. Use `references/layouts.md`, `references/components.md`, and `references/themes.md` only when choosing from those catalogs.
 11. Assemble slides using existing CSS layers, layout shells, components, and theme tokens.
@@ -52,9 +52,9 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 
 - Use `templates/starter-deck.html` as the minimal HTML PPT starting point.
 - Use `templates/deck.html` only as the design-system gallery and review tour.
-- Use `templates/full-decks/*/README.md` as the fast indexing layer, then `templates/full-decks/*/index.html` as first-class exemplars for storyline, page density, component coverage, and export packaging. Do not copy their content verbatim into user decks.
-- Treat `templates/full-decks/*/index.html` as the single editable full-deck source. `examples/*` are generated public demo output; do not use examples as the authoring source unless explicitly recovering newer content.
-- Use `templates/showcase/README.md` and `templates/showcase/*.html` for reusable theme + layout + component combinations, not full storyline templates.
+- Use `templates/full-decks/*/README.md` as the fast indexing layer, then `templates/full-decks/*/index.html` as first-class deck archetypes for storyline pacing, page roles, density, component coverage, and export packaging. Do not copy their page order or content verbatim into user decks.
+- Treat `templates/full-decks/*/index.html` as agent-facing archetype references. `examples/*` are independent public demo decks; do not use examples as the authoring source unless explicitly recovering newer content.
+- Use `templates/showcase/README.md` and `templates/showcase/*.html` for reusable page-level thinking patterns and theme + layout + component combinations, not full storyline templates.
 - Use the CSS layers in order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, then one file from `assets/themes/`.
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
@@ -66,8 +66,8 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Normalize relative asset paths after copying snippets into a deck.
 - Do not add CDN scripts, remote images, dynamic module loaders, or runtime dependencies that cannot be embedded into the final package. Use only the predownloaded local font files referenced by `assets/css/fonts.css`.
 - Do not copy proprietary logos, company names, confidentiality statements, or source-identifying marks from reference decks into generated HTML.
-- Do not add MBB Page Maker, exemplar, agency, or placeholder brand marks to user decks. Use no visible logo unless the user supplies one.
-- Keep footers minimal: page number and, if useful, a neutral deck title. Do not include "source", "prepared by", consulting-firm-style, or exemplar footer copy unless the user explicitly supplied that text.
+- Do not add MBB Page Maker, archetype, agency, or placeholder brand marks to user decks. Use no visible logo unless the user supplies one.
+- Keep footers minimal: page number and, if useful, a neutral deck title. Do not include "source", "prepared by", consulting-firm-style, or archetype footer copy unless the user explicitly supplied that text.
 
 ## Design System Layers
 
@@ -82,9 +82,9 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 1. Start from `templates/starter-deck.html` for generated decks; use skeleton files only as role-specific references.
 2. Infer the communication task from the user's prompt and source material.
 3. For strategy, board, investment, pitch, transformation, or full-deck work, apply `references/consulting-thinking.md`.
-4. For full decks, read `references/full-decks.md`, the closest full-deck README sidecar, and then inspect that `index.html`.
-5. For single-page or partial-deck combinations, read `references/pattern-index.md` or `templates/showcase/README.md` before composing.
-6. Apply the consulting authoring gate. If the user gives enough material, do not ask them to design pages; infer the audience, decision, output length, default theme, closest exemplar, and evidence routes. Ask only when the audience, decision, hard constraints, or permission to use external data are genuinely missing.
+4. For full decks, read `references/full-decks.md`, the closest full-deck README sidecar, and then inspect that `index.html` as an archetype reference.
+5. For single-page or partial-deck combinations, read `references/pattern-index.md` or `templates/showcase/README.md` before composing; adapt and recombine patterns based on the user's evidence.
+6. Apply the consulting authoring gate. If the user gives enough material, do not ask them to design pages; infer the audience, decision, output length, default theme, relevant archetype, and evidence routes. Ask only when the audience, decision, hard constraints, or permission to use external data are genuinely missing.
 7. Read `references/components.md` and create a slide plan before writing HTML. Each planned slide needs: message title, evidence source, evidence shape, layout, component(s), fallback, and output role.
 8. Write answer-first slide titles and build a coherent storyline before polishing visuals.
 9. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
@@ -120,7 +120,7 @@ If a slide has one compact component or compact region layout that only uses rou
 
 Dark or pitch-style pages must use `.dark`, `[data-mode="dark"]`, `[data-tone="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]` instead of only setting a dark background. The runtime includes a slide-level safety net for dark backgrounds, but generated decks must still pass the contrast audit.
 
-Page choice is compositional, not fixed. Infer the user's task and data shape, then combine the smallest suitable layout with the needed components. Use `references/layouts.md` and `references/components.md` for detailed selection guidance.
+Page choice is compositional, not fixed. Infer the user's task and data shape, then combine the smallest suitable layout with the needed components. Full-deck archetypes and showcase patterns are references, not constraints; diverge from them whenever the user's material calls for a better storyline or exhibit. Use `references/layouts.md` and `references/components.md` for detailed selection guidance.
 
 Do not force a specialized page. If the input is sparse, use a simpler page or ask for the missing data.
 

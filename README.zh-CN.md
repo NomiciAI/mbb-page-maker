@@ -45,8 +45,8 @@ npx skills add https://github.com/NomiciAI/mbb-page-maker --agent '*'
 - `SKILL.md`: AgentSkill 入口和调度规则。
 - `references/`: agent 兼容性、pattern index、主题、布局、咨询式思考流程、完整 deck 结构和写作流程。
 - `assets/`: 静态 HTML PPT runtime、CSS design system、主题 token。
-- `templates/`: `starter-deck.html`、design-system gallery、full-deck exemplars、showcase 组合案例、light/dark/mixed/neutral skeleton 和布局模板。
-- `scripts/`: 新建 deck、字体刷新、agent adapter 链接、full-deck demo 同步、可见性检查和导出 PNG/PDF/HTML。
+- `templates/`: `starter-deck.html`、design-system gallery、full-deck archetype、showcase 思维/组合案例、light/dark/mixed/neutral skeleton 和布局模板。
+- `scripts/`: 新建 deck、字体刷新、agent adapter 链接、可见性检查和导出 PNG/PDF/HTML。
 
 后续拿到真正的参考样张后，再把主题、字体比例、标题系统、图表样式和页面组件精修到更贴近目标格式。
 
@@ -72,7 +72,7 @@ CSS 按职责拆分：
 7. 交付前运行 `scripts/check-deck-contrast.sh path/to/deck.html`，检查深色背景、pitch 风格和图片叠字页面是否有文字不可见。
 8. 用户没有指定 HTML-only 时，运行 `scripts/render.sh path/to/deck.html` 默认导出自包含 HTML package、PDF 和 PNG 页面图。
 
-`templates/full-decks/` 放完整 deck authoring exemplars，并且是唯一可编辑 full-deck 源；每个 full-deck 目录用 README sidecar 给 agent 快速索引。`templates/showcase/` 放 theme + layout + component 的组合案例，用于单页或局部 deck 组合参考。`references/pattern-index.md` 负责告诉 agent 什么时候读 full-deck、showcase、layout 或 component。`examples/` 是公开 demo 输出，由 `scripts/sync-examples.sh` 从 templates 刷新，发布前用 `scripts/sync-examples.sh --check` 检查漂移。
+`templates/full-decks/` 放完整 deck archetype，给 agent 参考 storyline pacing、页面角色和组件组合，不是 `examples` 的生成源，也不是固定套版。每个 full-deck 目录用 README sidecar 给 agent 快速索引。`templates/showcase/` 放 page-level thinking pattern 和 theme + layout + component 的组合案例，用于单页或局部 deck 组合参考。`references/pattern-index.md` 负责告诉 agent 什么时候读 full-deck、showcase、layout 或 component，并提醒 agent 根据用户材料自由重组。`examples/` 是独立公开 demo。
 
 源 HTML 的 CSS/JS 保持静态分层：`fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, 一个 theme 文件，再加 `runtime.js`。不做源码 build。`assets/css/fonts.css` 指向 `assets/fonts/google/` 里的预下载字体。最终 `scripts/render.sh --package` 会把本地 CSS、JS、字体和媒体资源内联进 `package/index.html`，让这个 HTML 文件可以被浏览器单独打开。
 
