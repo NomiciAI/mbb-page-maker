@@ -57,6 +57,8 @@ CSS 按职责拆分：
 
 CSS/JS 输出保持静态分层：`fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, 一个 theme 文件，再加 `runtime.js`。不做 build，不做 CSS bundle。
 
+`starter-deck.html` 保持轻量：标题封面、简单 agenda/context、空白内容页、ending。普通内容页默认从空白内容页开始，再按用户数据组合 layout 和 component。各 skeleton 不需要页面完全一致，只需要遵守同一个 16:9 slide contract 和输出文件顺序。
+
 ## License & Author
 
 MIT. Copyright (c) 2026 Saitop at NomiciAI <saitop@nomici.ai>.

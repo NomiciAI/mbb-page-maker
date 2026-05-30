@@ -23,12 +23,14 @@ Generated decks must load the static files in that order: fonts, base, layouts, 
 
 ## Template Roles
 
-- `templates/starter-deck.html`: default generation starting point for new decks.
+- `templates/starter-deck.html`: default generation starting point for new decks. It stays light: title cover, simple agenda/context, blank content page, and ending page.
 - `templates/deck.html`: design-system gallery and review tour, not the default generation template.
 - `templates/neutral-skeleton.html`: structure-first baseline.
 - `templates/light-skeleton.html`: default analytical pages.
 - `templates/dark-skeleton.html`: dark cover, divider, and high-emphasis shell.
 - `templates/mixed-skeleton.html`: mixed dark/light narrative example.
+
+Skeletons do not need identical page inventories. They must share the same CSS/JS load order, 16:9 fit rules, and ordinary slide contract, and each should contain at least one page where a component can be inserted safely.
 
 ## Composition Order
 
@@ -129,7 +131,7 @@ Fit rules:
 
 - Ordinary slides use `section.slide > header + .content + footer`. Cover, ending, and full-bleed pages are deliberate variants.
 - Insert components only inside `.content`, `.region-body`, `.safe-fill`, or `.safe-stack`.
-- Prefer `blank-content.html` when one component owns the page.
+- Prefer `blank-content.html` when one component owns the page. Its `.blank-content-slot` is the default ordinary-page entry point for generated content.
 - Use region layouts only when the page needs separate zones.
 - Keep one primary component per region.
 - Use `safe-stack` only for small components that support the same message.

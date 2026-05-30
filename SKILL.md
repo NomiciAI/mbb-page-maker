@@ -44,7 +44,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 
 ## Composition Workflow
 
-1. Start from the neutral skeleton unless the user explicitly asks for a theme.
+1. Start from `templates/starter-deck.html` for generated decks; use skeleton files only as role-specific references.
 2. Infer the communication task from the user's prompt and source material.
 3. Write answer-first slide titles and build a coherent storyline before polishing visuals.
 4. Choose one page layout from `templates/layouts/` using `references/layouts.md`.

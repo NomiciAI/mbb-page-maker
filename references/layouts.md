@@ -27,6 +27,7 @@ Use:
 ## Simple Layout Families
 
 - Cover: title, subtitle, date/meta, optional client mark.
+- Starter deck: four-page generation base with title cover, simple agenda/context, blank content page, and ending.
 - Simple title cover: title, optional subtitle/meta, optional abstract visual. Must include a main title.
 - Default opening: simple first page with optional neutral visual treatment. Must include a main title.
 - Default opening with visual: title page with one image or product/context visual slot.
@@ -72,7 +73,9 @@ Use these when the page needs an ordinary business-slide shell before the exact 
 | `blank-right-rail.html` | Very wide exhibit plus a compact legend, caveat, or summary rail. |
 | `blank-three-column.html` | Three comparable segments, options, phases, or evidence groups. |
 
-These shells use `.region-layout`, `.region`, `.region-body`, and `.safe-stack`. Insert components from `templates/components/` inside `.region-body`.
+The simplest shell, `blank-content.html`, uses `.blank-content-slot` inside `.content`. Use it before adding sidebars, rails, or split regions.
+
+Structured blank shells use `.region-layout`, `.region`, `.region-body`, and `.safe-stack`. Insert components from `templates/components/` inside `.region-body`.
 
 Ordinary layout snippets should keep the contract `section.slide > header + .content + footer`. Use cover, ending, or full-bleed variants only when that page type requires it.
 
@@ -136,16 +139,16 @@ Use complex layouts only when the source material has enough structure. If the u
 - The illustration must support the title's business message.
 - Keep illustrations secondary to the conclusion unless the page is explicitly a conceptual visual.
 
-`templates/starter-deck.html` is the default generation base. It contains a cover, agenda/summary page, analytical placeholder page, and ending page.
+`templates/starter-deck.html` is the default generation base. It contains a cover, simple agenda/context page, blank content page, and ending page. The blank content page is the default ordinary page before the agent decides whether the source material needs a chart, table, matrix, diagram, or other component.
 
 Current gallery layouts live in `templates/deck.html`: cover, dark cover, section divider, agenda, split shell, content primitives, statement, media split, quote, table/roadmap, KPI strip, 2x2 matrix, issue tree, waterfall, roadmap swimlane, and profile primitives.
 
-Dedicated skeleton starters:
+Dedicated skeleton starters do not need identical pages; they demonstrate different roles while sharing the same output contract:
 
-- `templates/neutral-skeleton.html`
-- `templates/light-skeleton.html`
-- `templates/dark-skeleton.html`
-- `templates/mixed-skeleton.html`
+- `templates/neutral-skeleton.html`: opening, centered message, blank analytical shell, ending.
+- `templates/light-skeleton.html`: default analytical pages plus blank and simple evidence shells.
+- `templates/dark-skeleton.html`: dark cover, divider, dark blank emphasis page, split shell.
+- `templates/mixed-skeleton.html`: dark cover, light analytical page, evidence/implication, visual concept, roadmap, dark transition.
 
 Upcoming Conceptuals & Visuals components to extract in a later pass: `pyramid-stack`, `cause-effect`, `outcome-support`, `diverging-textboxes`, and `from-to-multi`.
 
