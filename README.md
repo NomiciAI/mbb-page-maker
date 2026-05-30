@@ -105,4 +105,4 @@ Inspired by [lewislulu/html-ppt-skill](https://github.com/lewislulu/html-ppt-ski
 
 ## License & Author
 
-MIT. Copyright (c) 2026 Saitop at NomiciAI <satiop@nomici.ai>.
+MIT. Copyright (c) 2026 Saitop at NomiciAI <saitop@nomici.ai>.
