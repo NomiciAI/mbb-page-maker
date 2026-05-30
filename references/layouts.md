@@ -28,6 +28,7 @@ Use:
 - KPI strip: 3-5 executive metrics with short labels.
 - Table plus roadmap: dense content with structured hierarchy.
 - 2x2 matrix: prioritization or segmentation.
+- Contact roster: only when the user provides enough real contact data.
 
 ## Complex Layouts
 
@@ -52,6 +53,8 @@ Dedicated skeleton starters:
 - `templates/light-skeleton.html`
 - `templates/dark-skeleton.html`
 - `templates/mixed-skeleton.html`
+
+Reusable layout snippets include `templates/layouts/contact-roster.html` for the contacts case.
 
 Layout and component CSS are separated:
 

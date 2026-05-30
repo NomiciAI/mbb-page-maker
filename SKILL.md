@@ -47,6 +47,16 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 5. Apply one theme file from `assets/themes/`.
 6. Verify that the assembled slide has one clear message, one dominant visual structure, and no copied source identifiers.
 
+Do not create filler pages. If the user input does not contain enough structured content for a specialized layout, use a simpler layout or omit the page.
+
+Content sufficiency examples:
+
+- Contact roster: require at least 3 contacts with names plus at least one of role, location, email, or team. Principal/contributor grouping requires an explicit group field or clear wording.
+- Chart: require numeric values with labels. Do not invent data.
+- Table: require comparable rows and columns. If only prose exists, use cards or a statement page instead.
+- Timeline/roadmap: require phases, dates, or ordered steps.
+- Matrix: require two meaningful dimensions.
+
 Default theme selection:
 
 - `mono.css`: structure-first drafts and neutral skeletons.
