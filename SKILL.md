@@ -28,6 +28,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
 - Read `references/layouts.md`, `references/themes.md`, or `references/full-decks.md` only when that catalog is needed.
+- Use `templates/layouts/default-*.html` for opening, centered transition, centered message, headline metric, and ending pages.
 - Use `templates/layouts/blank-*.html` for ordinary structure-first pages before adding specialized components.
 - Do not copy proprietary logos, company names, confidentiality statements, or source-identifying marks from reference decks into generated HTML.
 
@@ -55,6 +56,7 @@ If content overflows a region, reduce the number of components, choose a wider l
 Content sufficiency examples:
 
 - Contact roster: require at least 3 contacts with names plus at least one of role, location, email, or team. Principal/contributor grouping requires an explicit group field or clear wording.
+- Centered metric: require one verified numeric value and one sentence explaining the business meaning.
 - Chart: require numeric values with labels. Do not invent data.
 - Table: require comparable rows and columns. If only prose exists, use cards or a statement page instead.
 - Timeline/roadmap: require phases, dates, or ordered steps.

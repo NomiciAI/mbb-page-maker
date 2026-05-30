@@ -93,6 +93,8 @@ Authoring is composable:
 3. Fill it with components from `templates/components/`.
 4. Apply one theme from `assets/themes/`.
 
+Default simple pages are included for opening, centered message/list/metric, visual title, and ending slides. Use `blank-*` layouts when the slide structure is known but the component choice is still being composed.
+
 ## Acknowledgements
 
 Inspired by [lewislulu/html-ppt-skill](https://github.com/lewislulu/html-ppt-skill). This project is written from scratch with its own structure, templates, runtime, and design system.

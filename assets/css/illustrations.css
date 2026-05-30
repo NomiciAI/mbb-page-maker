@@ -26,6 +26,45 @@
   border-color: color-mix(in srgb, var(--color-accent) 18%, transparent);
 }
 
+.line-field.fan::before,
+.line-field.fan::after {
+  border: 0;
+  border-radius: 0;
+  background: repeating-linear-gradient(
+    78deg,
+    transparent 0 13px,
+    color-mix(in srgb, var(--color-accent) 24%, transparent) 13px 15px
+  );
+  transform-origin: 64% 52%;
+}
+
+.line-field.fan::before {
+  right: -260px;
+  top: -260px;
+  width: 980px;
+  height: 1180px;
+  clip-path: ellipse(34% 58% at 42% 54%);
+  transform: rotate(22deg);
+}
+
+.line-field.fan::after {
+  right: 132px;
+  top: 44px;
+  width: 640px;
+  height: 760px;
+  background: repeating-linear-gradient(
+    126deg,
+    transparent 0 14px,
+    color-mix(in srgb, var(--color-accent) 18%, transparent) 14px 16px
+  );
+  clip-path: ellipse(26% 62% at 74% 62%);
+  transform: rotate(-18deg);
+}
+
+.line-field.fan.is-subtle {
+  opacity: 0.62;
+}
+
 .illustration {
   position: relative;
   min-height: 360px;

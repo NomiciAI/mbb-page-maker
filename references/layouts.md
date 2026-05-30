@@ -16,10 +16,27 @@ Use:
 ## Simple Layouts
 
 - Cover: title, subtitle, date/meta, optional client mark.
+- Default opening: simple first page with optional line-field visual.
+- Default opening with visual: title page with one image or product/context visual slot.
+- Centered message: one conclusion centered on the page.
+- Centered list: 3-5 short points for a transition or focus page.
+- Centered metric: one headline number when there is not enough data for a chart.
+- Default ending: clean closing page with optional next-step or contact note.
 - Dark cover: section-opening or high-emphasis narrative page.
 - Statement: one conclusion, one support line, no exhibit.
 - Quote: stakeholder voice or customer evidence.
 - Media split: short message plus neutral illustration.
+
+Default simple layout snippets:
+
+| file | use when |
+| --- | --- |
+| `default-opening.html` | First slide for a deck or section. |
+| `default-opening-visual.html` | First slide when one supplied image or generated visual should support the title. |
+| `default-center-message.html` | One centered conclusion or transition message. |
+| `default-center-list.html` | Three to five short centered points. |
+| `default-center-metric.html` | One verified headline number with a short explanation. |
+| `default-ending.html` | Closing page, thank-you page, or next-step page. |
 
 ## Blank Structured Layouts
 
