@@ -48,7 +48,7 @@ If a new component needs color, add a semantic token to all themes rather than h
 
 ## Font Stack
 
-`assets/css/fonts.css` is CDN-only and bilingual by default:
+`assets/css/fonts.css` is bilingual by default:
 
 - Latin sans: Inter.
 - Latin serif: Libre Baskerville.
@@ -56,3 +56,5 @@ If a new component needs color, add a semantic token to all themes rather than h
 - Simplified Chinese serif fallback: Noto Serif SC plus system CJK serif fonts.
 
 Use `--font-sans` and `--font-serif` in layouts/components. Use `--font-cjk-sans` or `--font-cjk-serif` only when a page intentionally needs a CJK-specific override.
+
+Source decks may load Google Fonts through this shared file for browser preview. `scripts/render.sh --package` downloads, caches, and inlines those font files so delivered packages do not depend on remote font services.

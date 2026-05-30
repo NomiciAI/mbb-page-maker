@@ -11,6 +11,8 @@ Components should be structure-first:
 - Insert components only inside bounded slide slots: `.content`, `.region-body`, `.safe-fill`, or `.safe-stack`.
 - If a component does not fit inside its slot at 16:9, reduce rows/labels, use a wider layout, or split the content across slides.
 
+When adding a component, read `references/adding-patterns.md` first. A component is agent-ready only when it has a snippet, semantic CSS, sufficiency rules, data-router guidance when relevant, quality-check coverage when it represents evidence, and a 16:9 fit validation inside a bounded layout.
+
 ## Selection Rules
 
 Use the component catalog actively. Before authoring HTML, map each planned body slide to at least one component and one source-data shape. Do not default to prose cards when the source has numeric or tabular evidence.

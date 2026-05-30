@@ -335,6 +335,72 @@ html_path.write_text(text, encoding="utf-8")
 PY
 }
 
+inline_google_font_imports() {
+  local css_file="$1"
+  local cache_dir="$2"
+  python3 - "$css_file" "$cache_dir" <<'PY'
+import base64
+import hashlib
+import mimetypes
+import re
+import sys
+import urllib.request
+from pathlib import Path
+from urllib.parse import urlparse
+
+css_path = Path(sys.argv[1])
+cache_dir = Path(sys.argv[2])
+cache_dir.mkdir(parents=True, exist_ok=True)
+text = css_path.read_text(encoding="utf-8")
+
+IMPORT_RE = re.compile(r"@import\s+(?:url\()?['\"]?(https://fonts\.googleapis\.com/[^'\"\);]+)['\"]?\)?\s*;", re.I)
+URL_RE = re.compile(r"url\((['\"]?)(https://fonts\.gstatic\.com/[^)'\"\s]+)\1\)", re.I)
+UA = "Mozilla/5.0 AppleWebKit/537.36 Chrome Safari"
+
+def cache_name(url, suffix):
+    digest = hashlib.sha256(url.encode("utf-8")).hexdigest()
+    return cache_dir / f"{digest}{suffix}"
+
+def fetch_text(url):
+    path = cache_name(url, ".css")
+    if path.exists():
+        return path.read_text(encoding="utf-8")
+    request = urllib.request.Request(url, headers={"User-Agent": UA})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        payload = response.read()
+    path.write_bytes(payload)
+    return payload.decode("utf-8")
+
+def fetch_binary(url):
+    parsed = urlparse(url)
+    suffix = Path(parsed.path).suffix or ".bin"
+    path = cache_name(url, suffix)
+    if not path.exists():
+        request = urllib.request.Request(url, headers={"User-Agent": UA})
+        with urllib.request.urlopen(request, timeout=30) as response:
+            path.write_bytes(response.read())
+    return path
+
+def data_uri(path):
+    mime = mimetypes.guess_type(path.name)[0] or "font/woff2"
+    payload = base64.b64encode(path.read_bytes()).decode("ascii")
+    return f"data:{mime};base64,{payload}"
+
+def inline_font_urls(css):
+    def repl(match):
+        quote, url = match.groups()
+        return f"url({quote}{data_uri(fetch_binary(url))}{quote})"
+    return URL_RE.sub(repl, css)
+
+def replace_import(match):
+    url = match.group(1).replace("&amp;", "&")
+    css = inline_font_urls(fetch_text(url))
+    return f"/* Inlined Google Fonts for offline package */\n{css}"
+
+css_path.write_text(IMPORT_RE.sub(replace_import, text), encoding="utf-8")
+PY
+}
+
 verify_package_index() {
   local html_file="$1"
   python3 - "$html_file" <<'PY'
@@ -426,16 +492,11 @@ package_deck() {
     cp -R "${skill_root}/assets/media" "${package_dir}/assets/"
   fi
   if [[ -f "${package_dir}/assets/css/fonts.css" ]]; then
-    python3 - "${package_dir}/assets/css/fonts.css" <<'PY'
-from pathlib import Path
-import sys
-path = Path(sys.argv[1])
-lines = path.read_text(encoding="utf-8").splitlines()
-path.write_text("\n".join(line for line in lines if not line.lstrip().startswith("@import")) + "\n", encoding="utf-8")
-PY
+    inline_google_font_imports "${package_dir}/assets/css/fonts.css" "${skill_root}/.cache/google-fonts"
   fi
   rewrite_asset_paths "${package_dir}/index.html" "$input_dir" "$package_dir" "$skill_root"
   inline_package_assets "${package_dir}/index.html"
+  rm -rf "${package_dir}/assets"
   verify_package_index "${package_dir}/index.html"
   package_index="${package_dir}/index.html"
   echo "Package: ${package_dir}/index.html"

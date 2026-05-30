@@ -15,6 +15,19 @@ Use these complete decks as first-class authoring references before creating a n
 
 `examples/*` are public demo outputs. `templates/full-decks/*` are the authoring exemplars an agent should inspect when deciding how to structure a real deck. Keep the exemplar content fictional or generic; never copy it verbatim into user work. Do not copy exemplar footer text, placeholder brand marks, or deck-system labels into user decks.
 
+Editable source rule: change `templates/full-decks/<name>/index.html` first, then run `scripts/sync-examples.sh` to refresh public demos. Use `scripts/sync-examples.sh --check` before delivery to catch drift.
+
+## Exemplar Selection Matrix
+
+| user task | default route |
+| --- | --- |
+| Investment, thesis, diligence, product bet, pitch | Inspect `ai-application-investment-thesis`, then adapt the Investment Or Diligence Memo sequence. |
+| Board or executive update | Inspect `enterprise-intelligence-transformation`, then adapt the Board Or Executive Update sequence. |
+| Transformation, operating model, AI strategy, governance | Inspect `enterprise-intelligence-transformation`, then adapt the Operating Model Or Transformation sequence. |
+| Market, competitive, customer, or trend scan | Inspect `ai-application-investment-thesis` for market evidence density, then adapt the Market Or Competitive Scan sequence. |
+| Workshop or working session pack | Use the Workshop Pack sequence and component catalog; no current full-deck exemplar is a direct fit. |
+| Strategy recommendation or market entry | Use the Strategy Recommendation sequence and inspect the closest exemplar based on evidence type. |
+
 ## One-Shot Full-Deck Workflow
 
 When the user gives limited context, do not ask them to design the deck page by page. Extract structure from the source material:

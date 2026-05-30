@@ -8,6 +8,8 @@ Layouts are page shells. Components are inserted into layout content areas. Them
 
 The base layout and component library should stay visually neutral. Color, decorative line fields, image treatment, and dark/light effects belong to theme files, showcase pages, or deliberate layout variants.
 
+When adding a layout, read `references/adding-patterns.md` first. Add a new layout only when existing bounded slots cannot support a recurring communication job. Every ordinary layout must preserve the slide contract, provide safe insertion slots, and validate at 16:9 without relying on viewport reflow.
+
 Slides are fixed 16:9 canvases. Browser present mode scales the whole slide to the viewport; it must not reflow the slide internals based on viewport width. Do not add mobile breakpoints that collapse grids, sidebars, charts, or component layouts inside `.slide`.
 
 Line economy matters. The default page should not feel boxed in:

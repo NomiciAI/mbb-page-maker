@@ -3,7 +3,9 @@
   const params = new URLSearchParams(window.location.search);
   const printMode = params.get("print") === "1";
   const exportMode = params.get("export") === "1";
-  let index = Math.max(0, Math.min(slides.length - 1, Number(params.get("slide") || 1) - 1));
+  const previewMode = params.has("preview");
+  const requestedSlide = previewMode ? params.get("preview") : params.get("slide");
+  let index = Math.max(0, Math.min(slides.length - 1, Number(requestedSlide || 1) - 1));
   let status;
   let touchStartX = 0;
   let touchStartY = 0;
@@ -139,7 +141,7 @@
       }, { once: true });
     }
     if (status) status.textContent = `${index + 1} / ${slides.length}`;
-    history.replaceState(null, "", `#${index + 1}`);
+    if (!previewMode && !exportMode) history.replaceState(null, "", `#${index + 1}`);
   }
 
   function bump(direction) {
@@ -312,10 +314,11 @@
 
   const hashIndex = Number((window.location.hash || "").replace("#", ""));
   if (hashIndex > 0) index = Math.max(0, Math.min(slides.length - 1, hashIndex - 1));
-  if (exportMode) document.body.classList.add("is-export");
-  if (!exportMode) addControls();
+  if (previewMode) document.body.classList.add("is-preview");
+  if (exportMode || previewMode) document.body.classList.add("is-export");
+  if (!exportMode && !previewMode) addControls();
   show(index);
-  if (!exportMode) {
+  if (!exportMode && !previewMode) {
     bindKeys();
     bindSwipe();
   }

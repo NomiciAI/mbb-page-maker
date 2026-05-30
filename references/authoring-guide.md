@@ -17,11 +17,12 @@ The design system is layered by responsibility:
 5. `assets/css/illustrations.css`: neutral illustration primitives and asset slots.
 6. `assets/themes/*.css`: color tokens, light/dark mode values, accent behavior, and theme-level visual direction.
 7. `assets/media/`: optional static resources such as supplied images, screenshots, generated visuals, diagrams, and showcase-only filler assets.
-8. `templates/` and `examples/`: composed pages and decks that combine layout, components, theme, and optional assets.
+8. `templates/`: editable composed pages, snippets, and full-deck exemplars.
+9. `examples/`: generated public demo output refreshed from `templates/full-decks/`.
 
 Keep the base library structure-first. Components and blank layouts should not hard-code brand colors, image treatment, decorative effects, or source-specific marks. Themes and showcase/full-deck examples carry the visual treatment.
 
-Generated decks must load the static files in that order: fonts, base, layouts, components, illustrations, exactly one theme file, then `assets/js/runtime.js`. Do not create a CSS bundle, inline duplicate CSS, add remote font imports, or add a build step.
+Generated decks must load the static files in that order: fonts, base, layouts, components, illustrations, exactly one theme file, then `assets/js/runtime.js`. Do not create a CSS bundle, inline duplicate CSS, add deck-specific remote font imports, or add a build step. Use the shared Google Fonts import in `assets/css/fonts.css` for source preview; `scripts/render.sh --package` localizes it for delivery.
 
 Dark backgrounds must always activate a dark token context. Use `.dark`, `[data-mode="dark"]`, `[data-tone="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]`; do not set a dark background alone. The token context is what flips text, muted text, rules, panels, and accents for every theme.
 
@@ -31,6 +32,8 @@ The runtime adds a slide-level `auto-dark` safety class when it detects a dark s
 
 - `templates/starter-deck.html`: default generation starting point for new decks. It stays light: title cover, simple agenda/context, blank content page, and ending page.
 - `templates/deck.html`: design-system gallery and review tour, not the default generation template.
+- `templates/full-decks/`: single editable source for complete deck exemplars.
+- `examples/`: generated public demo output from `templates/full-decks/`; refresh with `scripts/sync-examples.sh`.
 - `templates/neutral-skeleton.html`: structure-first baseline.
 - `templates/light-skeleton.html`: default analytical pages.
 - `templates/dark-skeleton.html`: dark cover, divider, and high-emphasis shell.
@@ -54,7 +57,7 @@ Use this order when building a deck:
 10. Render and verify the slide at 16:9.
 11. Run `scripts/check-deck-quality.sh path/to/deck.html` and fix empty section pages or missing evidence components.
 12. Run `scripts/check-deck-contrast.sh path/to/deck.html` and fix any failed text/background contrast pairs.
-13. Render the default PDF with `scripts/render.sh path/to/deck.html` unless the user requested HTML only.
+13. Render the default package, PDF, and PNG with `scripts/render.sh path/to/deck.html` unless the user requested HTML only.
 
 Do not start from color, effects, or images. Start from message, data shape, layout, and component fit.
 
@@ -206,6 +209,7 @@ Alignment and visual balance:
 - Slide changes use a short transition and edge bump so click, keyboard, touch, and trackpad navigation feel responsive without adding dependencies.
 - `o` toggles overview thumbnails; Escape exits overview.
 - `?print=1` activates print/export mode, shows all slides, and hides controls.
+- `?preview=N&export=1` renders one slide without chrome for iframe galleries and screenshot automation.
 
 Present mode uses a fixed 1600x900 slide canvas that scales as a whole to the browser viewport. Do not add runtime behavior or CSS breakpoints that reflow slide internals for narrow browser widths.
 
@@ -253,12 +257,12 @@ Future passes should add only neutral, reusable patterns that are justified by r
 When copying snippets into a real deck, normalize asset paths to the deck location:
 
 - `templates/*.html`: usually `../assets/...`
-- `examples/<name>/index.html`: usually `../../assets/...`
+- `examples/<name>/index.html`: usually `../../assets/...`, generated from `templates/full-decks`.
 - generated deck folders from `scripts/new-deck.sh`: usually `assets/...`
 
 Before delivery, use `scripts/render.sh path/to/index.html`. The default export creates `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` for browser, WeChat file preview, and WeChat image preview use cases. The package step rewrites local paths and inlines local CSS, JavaScript, and media into `dist/package/index.html`, so that final HTML file can be opened directly by a browser without the source asset tree.
 
-The delivery package must not depend on remote runtime resources. Do not use CDN chart libraries, remote images, remote font imports, dynamic script/module loaders, or stylesheet imports in generated decks. The exporter intentionally fails if the package still contains external stylesheets, external scripts, CSS `@import`, or non-embedded media URLs.
+The delivery package must not depend on remote runtime resources. Do not use CDN chart libraries, remote images, deck-specific remote font imports, dynamic script/module loaders, or stylesheet imports in generated decks. The exporter intentionally fails if the package still contains external stylesheets, external scripts, CSS `@import`, remote font URLs, or non-embedded media URLs.
 
 ## Static Asset Rule
 

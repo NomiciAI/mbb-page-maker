@@ -11,7 +11,7 @@ Design constraints:
 - One-command install.
 - No build step.
 - Pure static HTML/CSS/JS.
-- System-font fallback by default; final packages must not depend on Google Fonts or other remote font services.
+- Google/Noto webfonts for source preview; final packages localize fonts and must not depend on remote font services.
 - Default export targets: self-contained HTML package, PDF, and PNG; PowerPoint later.
 
 ## Install
@@ -33,6 +33,7 @@ mbb-page-maker/
 ├── README.zh-CN.md
 ├── references/
 │   ├── authoring-guide.md
+│   ├── adding-patterns.md
 │   ├── components.md
 │   ├── layouts.md
 │   ├── themes.md
@@ -71,6 +72,7 @@ mbb-page-maker/
 │   ├── new-deck.sh
 │   ├── check-deck-quality.sh
 │   ├── check-deck-contrast.sh
+│   ├── sync-examples.sh
 │   └── render.sh
 └── examples/
     ├── enterprise-intelligence-transformation/
@@ -96,9 +98,9 @@ CSS is intentionally split by responsibility:
 - `assets/media/`: optional static images, SVGs, screenshots, and showcase-only filler headshots.
 - `references/asset-sourcing.md`: curated sources for consulting-style photos, SVG assets, icons, and pure JavaScript visual libraries.
 
-Generated source decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no source build step. Final `scripts/render.sh --package` output inlines local CSS, JavaScript, and media into `package/index.html` so the HTML file can be opened by a browser on its own.
+Generated source decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no source build step. Final `scripts/render.sh --package` output localizes Google Fonts and inlines local CSS, JavaScript, and media into `package/index.html` so the HTML file can be opened by a browser on its own.
 
-Final packages are verified as self-contained: no external stylesheet links, external scripts, remote font imports, CSS imports, or non-embedded media URLs. Use built-in static components instead of CDN chart/runtime dependencies.
+Final packages are verified as self-contained: no external stylesheet links, external scripts, remote font URLs, CSS imports, or non-embedded media URLs. Use built-in static components instead of CDN chart/runtime dependencies.
 
 The base layout and component library is structure-first. Themes, showcase pages, or deliberate variants carry color, image treatment, and decorative effects.
 
@@ -119,7 +121,7 @@ The starter deck stays intentionally light: title cover, simple agenda/context, 
 
 `templates/deck.html` is the design-system gallery and review tour, not the default generation template.
 
-`templates/full-decks/` contains complete authoring exemplars. Agents should inspect the closest exemplar before producing a real full deck; `examples/` remains the public demo output area.
+`templates/full-decks/` contains complete authoring exemplars and is the single editable full-deck source. Agents should inspect the closest exemplar before producing a real full deck. `examples/` is generated public demo output; refresh it with `scripts/sync-examples.sh` and verify with `scripts/sync-examples.sh --check`.
 
 ## Acknowledgements
 

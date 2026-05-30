@@ -1414,6 +1414,10 @@
   color: var(--color-muted);
 }
 
+.card .table th {
+  color: var(--color-text);
+}
+
 .table .highlight {
   background: var(--color-accent-soft);
   color: var(--color-text);
