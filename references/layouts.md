@@ -117,6 +117,7 @@ Overflow rules:
 - Heatmap assessment: capability/maturity/fit data with row and column categories.
 - Diverging heatmap: use blank-content and keep rows/columns bounded; split across pages if labels or cells overflow.
 - Data dashboard: headline metrics plus 1-2 supporting exhibits.
+- Conceptual pages: use blank-content for one framework or diagram, split-even for balanced contrasts, and right-sidebar only when implications must sit beside the concept.
 
 Medium pages usually combine one dominant component with supporting components. Keep the page logic top-down: title first, exhibit second, implications third.
 
@@ -129,8 +130,19 @@ Agenda and objectives snippets include `content-catalog.html`, `meeting-objectiv
 - Roadmap swimlane: workstreams across phases.
 - Split light/dark shell: contrast page or transition page.
 - Profile grid: team, expert, or stakeholder roster.
+- Framework map: one core concept with surrounding operating elements.
+- Compass choice: strategic directions around one decision.
+- From-to multi: multiple current-to-target shifts.
 
 Use complex layouts only when the source material has enough structure. If the user gives prose without drivers, values, phases, or dimensions, use cards, statement, or a blank structured shell instead.
+
+Conceptual composition rules:
+
+- Use `pyramid-stack` for hierarchy, not for unordered categories.
+- Use `cause-effect` only when the causal link is the point of the page.
+- Use `outcome-support` when the answer should lead and the support points are parallel.
+- Use `diverging-textboxes` for two prose positions; use `comparison-table` when criteria need row-level precision.
+- Use `framework-map` for conceptual systems; use `process-flow` or roadmap components later when sequence matters.
 
 ## Illustration Rules
 
@@ -143,6 +155,8 @@ Use complex layouts only when the source material has enough structure. If the u
 
 Current gallery layouts live in `templates/deck.html`: cover, dark cover, section divider, agenda, split shell, content primitives, statement, media split, quote, table/roadmap, KPI strip, 2x2 matrix, issue tree, waterfall, roadmap swimlane, and profile primitives.
 
+Conceptual showcase pages live in `templates/showcase/conceptuals.html`: pyramid stack, cause-effect, outcome-support, diverging textboxes, from-to multi, compass choice, and framework map.
+
 Dedicated skeleton starters do not need identical pages; they demonstrate different roles while sharing the same output contract:
 
 - `templates/neutral-skeleton.html`: opening, centered message, blank analytical shell, ending.
@@ -150,7 +164,7 @@ Dedicated skeleton starters do not need identical pages; they demonstrate differ
 - `templates/dark-skeleton.html`: dark cover, divider, dark blank emphasis page, split shell.
 - `templates/mixed-skeleton.html`: dark cover, light analytical page, evidence/implication, visual concept, roadmap, dark transition.
 
-Upcoming Conceptuals & Visuals components to extract in a later pass: `pyramid-stack`, `cause-effect`, `outcome-support`, `diverging-textboxes`, and `from-to-multi`.
+Upcoming Flows, Funnels & Filters components to extract in a later pass: `process-flow`, `stage-gate`, `funnel-steps`, `filter-cascade`, `loop-cycle`, and `value-chain`.
 
 Reusable layout snippets include `templates/layouts/contact-roster.html` for the contacts case.
 

@@ -40,6 +40,13 @@ Components should be structure-first:
 - Use `diverging-heatmap` when values can move below and above a neutral midpoint.
 - Use `scatter-plot` when the data has two numeric dimensions.
 - Use `comparison-table` when options must be compared across consistent criteria.
+- Use `pyramid-stack` when levels build toward a top outcome or narrow from foundation to focus.
+- Use `cause-effect` when one root cause, driver, or constraint leads to one primary effect.
+- Use `outcome-support` when the conclusion should appear above 2-4 supporting points.
+- Use `diverging-textboxes` when two positions, mindsets, models, or options need balanced prose comparison.
+- Use `from-to-multi` when several coordinated shifts move from current state to target state.
+- Use `compass-choice` when a decision space has up to four mutually distinct strategic directions.
+- Use `framework-map` when a core operating concept is surrounded by 3-6 related elements.
 
 ## Sufficiency Rules
 
@@ -69,6 +76,13 @@ Do not output components that add no information.
 - Pie chart: needs parts that sum to a meaningful total, ideally 2-5 slices. Use a table for more slices or small differences.
 - Donut chart: needs a center message or total that adds context. Otherwise use `pie-chart` or `stacked-bars`.
 - Diverging heatmap: needs a neutral midpoint and categorical rows/columns. Use regular `heatmap` for one-direction scores.
+- Pyramid stack: needs 2-4 levels with a clear hierarchy. Do not use it for unordered peer items.
+- Cause-effect: needs a specific driver and consequence. If there are many causes, use cards, an issue tree, or a table.
+- Outcome-support: needs one answer plus at least two supporting points. If the answer is missing, write the claim first.
+- Diverging textboxes: needs two sides that are comparable. If there are more than two options, use cards or a comparison table.
+- From-to multi: needs at least two current-to-target pairs. If there is only one shift, use `cause-effect` or a statement page.
+- Compass choice: needs 3-4 distinct choices around one decision. Do not use it for sequential steps.
+- Framework map: needs one core concept and related elements. If order matters, use a flow or roadmap instead.
 
 ## Data Display Router
 
@@ -93,9 +107,9 @@ Do not output components that add no information.
 - Demo data should prove the component shape without using so many rows, columns, or words that the default 16:9 content area overflows.
 - Use `safe-stack` only for small components that support one message. Do not stack unrelated exhibits.
 
-## Upcoming Conceptual Components
+## Next Component Families
 
-Do not implement these until the Conceptuals & Visuals extraction pass starts: `pyramid-stack`, `cause-effect`, `outcome-support`, `diverging-textboxes`, and `from-to-multi`.
+Flows, Funnels & Filters should add `process-flow`, `stage-gate`, `funnel-steps`, `filter-cascade`, `loop-cycle`, and `value-chain` in a later pass.
 
 ## Snippets
 
@@ -129,6 +143,13 @@ Do not implement these until the Conceptuals & Visuals extraction pass starts: `
 | `templates/components/heatmap.html` | Capability or assessment heatmap. |
 | `templates/components/scatter-plot.html` | Two-axis opportunity map. |
 | `templates/components/comparison-table.html` | Options compared against criteria. |
+| `templates/components/pyramid-stack.html` | Hierarchical levels building toward an outcome. |
+| `templates/components/cause-effect.html` | One driver linked to one consequence. |
+| `templates/components/outcome-support.html` | Top outcome with supporting proof points. |
+| `templates/components/diverging-textboxes.html` | Two balanced prose positions or models. |
+| `templates/components/from-to-multi.html` | Multiple current-to-target shifts. |
+| `templates/components/compass-choice.html` | Four-direction decision space. |
+| `templates/components/framework-map.html` | Core concept with surrounding operating elements. |
 
 ## Showcase-Only Assets
 
@@ -143,6 +164,15 @@ Bundled headshots in `assets/media/headshots/` are for showcase and full-deck de
 - Use `agenda-table` when the source has time blocks. Do not invent times.
 - Use `simple-agenda-grid` when the source has ordered agenda items without time blocks.
 - Keep agenda item labels short. Move explanatory text to a summary, notes, or outcome component.
+
+## Conceptuals Composition
+
+- Use conceptual components when the source is structured prose, operating logic, or decision framing rather than numeric data.
+- Prefer `blank-content` when the conceptual component owns the whole page.
+- Use `blank-split-even` only when the page compares two equal conceptual systems.
+- Use `blank-right-sidebar` when the primary concept needs 2-4 implications, caveats, or decision notes.
+- Keep conceptual labels short and parallel. Split the page if boxes require long paragraphs.
+- Do not use conceptual visuals to decorate sparse content; the component must clarify the page message.
 
 ## Minimal Blank-Page Composition
 
