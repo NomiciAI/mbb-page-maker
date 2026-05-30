@@ -1,13 +1,13 @@
 ---
 name: mbb-page-maker
-description: Create consulting-style HTML slide decks for strategy, board, investment, and executive presentations. Use this skill when the user asks to make, edit, export, or scaffold an HTML PPT/deck with static HTML/CSS/JS.
+description: Create, edit, package, or export consulting-style HTML slide decks for strategy, board, investment, pitch, and executive presentations. Use when the user asks for an HTML PPT, slide deck, pitch deck, investment memo deck, board report, static browser-openable presentation, WeChat-shareable PDF/PNG previews, or updates to an existing MBB Page Maker deck.
 ---
 
 # MBB Page Maker
 
 This AgentSkill produces static HTML presentation decks with consulting-grade page logic: clear titles, tight storylines, exhibit-first layouts, and executive-ready visual hierarchy.
 
-The output must run without a build step: plain HTML, CSS, and JavaScript, with only CDN webfonts allowed.
+The source deck must run without a build step: plain HTML, CSS, and JavaScript. The delivered package must be self-contained: no remote runtime scripts, remote images, stylesheet imports, or non-embedded media.
 
 ## Install
 
@@ -19,6 +19,21 @@ npx skills add https://github.com/NomiciAI/mbb-page-maker
 
 Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker)
 
+## Golden Path
+
+For real deck work, follow this path in order:
+
+1. Read `references/authoring-guide.md` before creating or materially rewriting a deck.
+2. Start from `templates/starter-deck.html` or the user's existing deck. Do not start from a blank file.
+3. Create a short slide plan before writing HTML: page message, evidence, layout, component, and output purpose.
+4. Use `references/layouts.md`, `references/components.md`, and `references/themes.md` only when choosing from those catalogs.
+5. Assemble slides using existing CSS layers, layout shells, components, and theme tokens.
+6. Run `scripts/check-deck-quality.sh path/to/index.html` and `scripts/check-deck-contrast.sh path/to/index.html`; fix failures.
+7. Run `scripts/render.sh path/to/index.html` unless the user explicitly asks for source HTML only.
+8. Deliver `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` as the default share set.
+
+If any export step fails, fix the source deck or dependency problem and rerun the same command. Do not hand-wave missing package assets, PDF, PNGs, or audit failures.
+
 ## Current Scope
 
 This is the foundational HTML skeleton phase. Use the starter deck as the base page system, then expand case-by-case references later.
@@ -28,7 +43,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Use the CSS layers in order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, then one file from `assets/themes/`.
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
-- Read `references/layouts.md`, `references/themes.md`, or `references/full-decks.md` only when that catalog is needed.
+- Read `references/layouts.md`, `references/components.md`, `references/themes.md`, `references/full-decks.md`, or `references/asset-sourcing.md` only when that catalog is needed.
 - Run `scripts/check-deck-quality.sh path/to/deck.html` and `scripts/check-deck-contrast.sh path/to/deck.html` before final delivery.
 - Unless the user asks for HTML only, run `scripts/render.sh path/to/deck.html` and deliver the self-contained package `index.html`, PDF, and PNG slide images.
 - Use `templates/layouts/default-*.html` for opening, centered transition, centered message, headline metric, and ending pages.
@@ -57,6 +72,8 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 8. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
 9. Run the deck quality and contrast audits; fix empty section pages, missing evidence components, and failed text/background pairs.
 10. Render the default self-contained HTML package, PDF, and PNG slide images unless the user explicitly asked for HTML only.
+
+Prefer editing the deck and rerunning deterministic scripts over explaining how the user could do it manually.
 
 Do not create filler pages. If the user input does not contain enough structured content for a specialized layout, use a simpler layout or omit the page.
 
