@@ -456,6 +456,12 @@
   align-content: center;
 }
 
+.region-body.is-compact {
+  gap: 14px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
 .region-body.is-bottom {
   align-content: end;
 }
@@ -481,6 +487,14 @@
   min-width: 0;
   min-height: 0;
   overflow: hidden;
+}
+
+.safe-stack > .framework-map,
+.safe-stack > .outcome-support,
+.safe-stack > .process-flow,
+.safe-stack > .timeline-track,
+.safe-stack > .phase-roadmap {
+  height: auto;
 }
 
 .safe-fill {

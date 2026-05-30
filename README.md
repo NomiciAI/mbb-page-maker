@@ -50,6 +50,7 @@ mbb-page-maker/
 │   ├── agent-compatibility.md
 │   ├── consulting-thinking.md
 │   ├── adding-patterns.md
+│   ├── pattern-index.md
 │   ├── components.md
 │   ├── layouts.md
 │   ├── themes.md
@@ -84,6 +85,7 @@ mbb-page-maker/
 │   ├── dark-skeleton.html
 │   ├── mixed-skeleton.html
 │   ├── full-decks/
+│   ├── showcase/
 │   ├── components/
 │   └── layouts/
 ├── scripts/
@@ -142,7 +144,7 @@ The starter deck stays intentionally light: title cover, simple agenda/context, 
 
 `templates/deck.html` is the design-system gallery and review tour, not the default generation template.
 
-`templates/full-decks/` contains complete authoring exemplars and is the single editable full-deck source. Agents should inspect the closest exemplar before producing a real full deck. `examples/` is generated public demo output; refresh it with `scripts/sync-examples.sh` and verify with `scripts/sync-examples.sh --check`.
+`templates/full-decks/` contains complete authoring exemplars and is the single editable full-deck source. Each full-deck folder includes a README sidecar for fast agent indexing before inspecting the HTML. `templates/showcase/` contains theme + layout + component combination references for single pages and partial decks. Agents should use `references/pattern-index.md` to choose the right reference path. `examples/` is generated public demo output; refresh it with `scripts/sync-examples.sh` and verify with `scripts/sync-examples.sh --check`.
 
 ## Acknowledgements
 

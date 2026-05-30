@@ -14,6 +14,8 @@ Use these complete decks as first-class authoring references before creating a n
 | `templates/full-decks/enterprise-intelligence-transformation/index.html` | transformation, operating model, AI strategy, capability build, roadmap, governance, or board update decks | executive answer, flywheel/story model, capability heatmap, roadmap, governance, decision pages |
 | `templates/full-decks/agent-technology-outlook/index.html` | agent technology outlook, AI platform strategy, agent architecture, technical market scan, interoperability, or governance decks | public-evidence synthesis, technical outlook pacing, green strategic style, architecture stack, risk framing, roadmap |
 
+Read the exemplar's `README.md` sidecar before inspecting `index.html`. The sidecar is the fast index for visual traits, when-to-use guidance, storyline pattern, layout + component stack, source inspiration, evidence shape, and related showcase patterns.
+
 `examples/*` are public demo outputs. `templates/full-decks/*` are the authoring exemplars an agent should inspect when deciding how to structure a real deck. Keep the exemplar content fictional or generic; never copy it verbatim into user work. Do not copy exemplar footer text, placeholder brand marks, or deck-system labels into user decks.
 
 Editable source rule: change `templates/full-decks/<name>/index.html` first, then run `scripts/sync-examples.sh` to refresh public demos. Use `scripts/sync-examples.sh --check` before delivery to catch drift.

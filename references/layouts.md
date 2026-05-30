@@ -112,6 +112,7 @@ Composition examples:
 - `blank-right-sidebar` + primary component + supporting component: evidence on the left, implications or decisions on the right.
 - `blank-right-rail` + wide component + compact support: wide table/chart/timeline with legend, caveat, or source note.
 - `blank-three-column` + comparable components: segments, options, phases, or profile groups.
+- Add `.region-body.is-compact` only when multiple lightweight components share one region and the default region padding crowds the content.
 
 Overflow rules:
 
