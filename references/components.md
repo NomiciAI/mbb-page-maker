@@ -12,6 +12,7 @@ Components are composable blocks used inside layout templates. Pick components a
 - Use `illustration-orbit` when the page needs neutral visual support without external assets.
 - Use `profile` for team, expert, or stakeholder pages.
 - Use `contact-card` only when the input contains real contact records.
+- Use bundled filler headshots only for examples or draft placeholders; replace them when the user supplies real photos.
 - Use `chart-bars` when the input contains labeled numeric categories.
 - Use `ranked-bars` for ordered categorical ranking.
 - Use `stacked-bars` for composition across categories.
@@ -26,6 +27,7 @@ Do not output components that add no information.
 - Contact card: needs a name plus at least one supporting field such as role, location, team, email, or responsibility.
 - Contact roster page: needs at least 3 usable contact records. If fewer, use a compact card group inside another page or omit.
 - Principal contacts: only mark contacts as principal when the user supplies that grouping or a clear equivalent.
+- Filler headshots: use `assets/media/headshots/headshot-male-01.jpg` and `assets/media/headshots/headshot-female-01.jpg` for demo data only. Do not imply they are real people.
 - Bar chart: needs at least 2 labeled numeric values. If exact numeric values matter more than visual comparison, use a table.
 - Ranked bars: needs sortable numeric values.
 - Stacked bars: needs category parts that sum to a meaningful total.

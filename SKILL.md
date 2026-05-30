@@ -30,6 +30,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Read `references/layouts.md`, `references/themes.md`, or `references/full-decks.md` only when that catalog is needed.
 - Use `templates/layouts/default-*.html` for opening, centered transition, centered message, headline metric, and ending pages.
 - Use `templates/layouts/blank-*.html` for ordinary structure-first pages before adding specialized components.
+- Normalize relative asset paths after copying snippets into a deck.
 - Do not copy proprietary logos, company names, confidentiality statements, or source-identifying marks from reference decks into generated HTML.
 
 ## Design System Layers
@@ -56,6 +57,7 @@ If content overflows a region, reduce the number of components, choose a wider l
 Content sufficiency examples:
 
 - Contact roster: require at least 3 contacts with names plus at least one of role, location, email, or team. Principal/contributor grouping requires an explicit group field or clear wording.
+- Filler headshots may be used for draft/demo contact pages only. Do not imply bundled filler images are real people.
 - Centered metric: require one verified numeric value and one sentence explaining the business meaning.
 - Chart: require numeric values with labels. Do not invent data.
 - Table: require comparable rows and columns. If only prose exists, use cards or a statement page instead.

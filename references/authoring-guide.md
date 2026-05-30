@@ -22,3 +22,13 @@ Examples:
 - Exact multi-field data: use a table.
 - Sparse prose: use statement, cards, or callout.
 - Ordered phases: use timeline or roadmap.
+
+## Asset Path Rule
+
+When copying snippets into a real deck, normalize asset paths to the deck location:
+
+- `templates/*.html`: usually `../assets/...`
+- `examples/<name>/index.html`: usually `../../assets/...`
+- generated deck folders from `scripts/new-deck.sh`: usually `assets/...`
+
+Bundled filler headshots live in `assets/media/headshots/` and are for examples or draft placeholders only. Replace them with supplied real photos when available.
