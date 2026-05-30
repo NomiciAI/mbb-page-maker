@@ -2,6 +2,13 @@
 
 Components are composable blocks used inside layout templates. Pick components after choosing the layout and before choosing the final theme.
 
+Components should be structure-first:
+
+- Do not bake theme-specific colors, image choices, decorative effects, or brand marks into component selection.
+- Use semantic classes and theme tokens only. Themes decide color, emphasis, dark/light mode, and visual effects.
+- Images belong in user content, `assets/media/`, or showcase/full-deck examples, not generic component rules.
+- If a component needs highlighting, use structural states such as `.is-active`, `.is-focus`, or `.highlight`; the theme decides how that state looks.
+
 ## Selection Rules
 
 - Use `card` for repeated, comparable ideas.
@@ -92,6 +99,56 @@ Bundled headshots in `assets/media/headshots/` are for showcase and full-deck de
 - Use `agenda-table` when the source has time blocks. Do not invent times.
 - Use `simple-agenda-grid` when the source has ordered agenda items without time blocks.
 - Keep agenda item labels short. Move explanatory text to a summary, notes, or outcome component.
+
+## Minimal Blank-Page Composition
+
+Use `templates/layouts/blank-content.html` when one component owns the whole content area:
+
+```html
+<section class="slide" data-title="Agenda">
+  <header>
+    <h2 class="slide-title">Agenda</h2>
+    <div class="slide-rule"></div>
+  </header>
+  <div class="content">
+    <!-- paste templates/components/simple-agenda-grid.html here -->
+  </div>
+  <footer class="footer">
+    <span>Source or note</span>
+    <span class="page-number"></span>
+  </footer>
+</section>
+```
+
+Use one content area with a small stack when components support the same message:
+
+```html
+<div class="content">
+  <div class="safe-stack">
+    <!-- paste templates/components/objective-list.html here -->
+    <!-- paste templates/components/objective-summary.html here -->
+  </div>
+</div>
+```
+
+Use blank region layouts only when the page needs separate zones:
+
+```html
+<div class="content no-top">
+  <div class="region-layout right-sidebar">
+    <main class="region has-frame-lines">
+      <div class="region-body">
+        <!-- paste primary component here -->
+      </div>
+    </main>
+    <aside class="region is-muted has-frame-lines">
+      <div class="region-body">
+        <!-- paste supporting component here -->
+      </div>
+    </aside>
+  </div>
+</div>
+```
 
 ## Composition Order
 

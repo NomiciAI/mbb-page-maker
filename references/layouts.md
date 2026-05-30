@@ -6,6 +6,8 @@ Use simple layouts when the message is the point. Use complex layouts only when 
 
 Layouts are page shells. Components are inserted into layout content areas. Themes are applied last.
 
+The base layout and component library should stay visually neutral. Color, decorative line fields, image treatment, and dark/light effects belong to theme files, showcase pages, or deliberate layout variants.
+
 Choose pages by communication job and data shape, not by a fixed template map. A layout can host many component combinations:
 
 - A `blank-right-sidebar` page can hold a chart plus implications, a table plus decisions, or a diagram plus risks.
@@ -16,15 +18,16 @@ Choose pages by communication job and data shape, not by a fixed template map. A
 Use:
 
 1. `templates/neutral-skeleton.html` for structure-first drafting.
-2. `templates/layouts/*.html` for page shells.
-3. `templates/components/*.html` for reusable blocks.
-4. `assets/themes/*.css` for final color direction.
+2. `templates/layouts/blank-content.html` for the simplest full-content component page.
+3. `templates/layouts/*.html` for page shells.
+4. `templates/components/*.html` for reusable blocks.
+5. `assets/themes/*.css` for final color direction.
 
 ## Simple Layout Families
 
 - Cover: title, subtitle, date/meta, optional client mark.
 - Simple title cover: title, optional subtitle/meta, optional abstract visual. Must include a main title.
-- Default opening: simple first page with optional line-field visual. Must include a main title.
+- Default opening: simple first page with optional neutral visual treatment. Must include a main title.
 - Default opening with visual: title page with one image or product/context visual slot.
 - Centered message: one conclusion centered on the page.
 - Centered list: 3-5 short points for a transition or focus page.
@@ -39,6 +42,7 @@ Default simple snippets:
 
 | file | use when |
 | --- | --- |
+| `blank-content.html` | One component or a small component stack should occupy the main content area. |
 | `simple-title-cover.html` | Basic deck title page. Do not use a brand-only page as the default title cover. |
 | `default-opening.html` | Deck or section start. |
 | `default-opening-visual.html` | Opening page with one relevant supplied/generated visual. |
@@ -71,11 +75,14 @@ These shells use `.region-layout`, `.region`, `.region-body`, and `.safe-stack`.
 
 Composition examples:
 
-- Left rail + chart/table: context filters on the left, primary exhibit on the right.
-- Even split + cards/tables/charts: compare two things with parallel evidence.
-- Right sidebar + callouts: primary evidence on the left, implications or decisions on the right.
-- Right rail + legend/source/caveat: very wide exhibit with a compact supporting rail.
-- Three columns + cards/metrics/profiles: comparable segments, options, or phases.
+- `blank-content` + `catalog-grid`: one contents/catalog component owns the page.
+- `blank-content` + `agenda-table`: one timed workshop agenda owns the page.
+- `blank-content` + `safe-stack`: several small components support the same message in one content area.
+- `blank-left-rail` + `objective-list` + primary exhibit: context/navigation on the left, evidence on the right.
+- `blank-split-even` + parallel components: compare two options, markets, operating models, or evidence blocks.
+- `blank-right-sidebar` + primary component + supporting component: evidence on the left, implications or decisions on the right.
+- `blank-right-rail` + wide component + compact support: wide table/chart/timeline with legend, caveat, or source note.
+- `blank-three-column` + comparable components: segments, options, phases, or profile groups.
 
 Overflow rules:
 

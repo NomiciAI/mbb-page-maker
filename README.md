@@ -86,6 +86,8 @@ CSS is intentionally split by responsibility:
 - `themes/*.css`: color tokens only, with light and dark mode values.
 - `assets/media/`: optional static images, SVGs, screenshots, and showcase-only filler headshots.
 
+The base layout and component library is structure-first. Themes, showcase pages, or deliberate variants should carry color, image treatment, and decorative effects.
+
 Authoring is composable:
 
 1. Choose a skeleton: neutral, light, dark, or mixed.
