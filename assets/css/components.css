@@ -1908,6 +1908,79 @@
   font-weight: 800;
 }
 
+.weighted-scorecard,
+.sensitivity-grid {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 13px;
+  line-height: 1.22;
+}
+
+.weighted-scorecard th,
+.weighted-scorecard td,
+.sensitivity-grid th,
+.sensitivity-grid td {
+  min-width: 0;
+  border: 1px solid var(--color-line);
+  padding: 10px 11px;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.weighted-scorecard th,
+.sensitivity-grid th {
+  background: color-mix(in srgb, var(--color-panel) 82%, #fff);
+  color: var(--color-text);
+  font-size: 11px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.weighted-scorecard .row-head,
+.sensitivity-grid .row-head {
+  color: var(--color-muted);
+  font-weight: 850;
+}
+
+.weighted-scorecard .weight {
+  width: 76px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.weighted-scorecard .score {
+  text-align: center;
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+}
+
+.weighted-scorecard .is-best,
+.sensitivity-grid .is-upside {
+  background: var(--color-accent-soft);
+  color: var(--color-text);
+  font-weight: 850;
+}
+
+.weighted-scorecard .is-risk,
+.sensitivity-grid .is-risk {
+  background: color-mix(in srgb, var(--color-danger) 12%, var(--color-bg));
+  color: var(--color-text);
+  font-weight: 850;
+}
+
+.weighted-scorecard .total-row td,
+.sensitivity-grid .total-row td {
+  border-top: 2px solid var(--color-accent);
+  background: color-mix(in srgb, var(--color-panel) 74%, var(--color-bg));
+  font-weight: 850;
+}
+
+.weighted-scorecard .recommendation {
+  color: var(--color-accent);
+}
+
 .heatmap {
   display: grid;
   grid-template-columns: 180px repeat(5, 1fr);

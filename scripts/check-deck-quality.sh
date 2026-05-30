@@ -20,7 +20,7 @@ perl -0ne '
   my $i = 0;
   my $component_re = qr/
     table|metric-strip|column-chart|ranked-bars|chart-block|heatmap|
-    comparison-table|outcome-support|process-flow|phase-roadmap|
+    comparison-table|weighted-scorecard|sensitivity-grid|outcome-support|process-flow|phase-roadmap|
     numbered-list-grid|decision-log|pros-cons-table|filter-cascade|
     framework-map|risk-matrix|range-competency-chart|range-comparison-plot|
     dot-scale-comparison|pie-chart|donut-chart|stacked-bars|scatter-plot|

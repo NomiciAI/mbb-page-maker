@@ -13,12 +13,18 @@ Use these complete deck skeletons as first-class authoring references before cre
 | `templates/full-decks/ai-application-investment-thesis/index.html` | investment, pitch, thesis, market map, funding, product bet, or diligence-style decks | evidence extraction, thesis flow, market/peer pages, risk framing, pitch-style density |
 | `templates/full-decks/enterprise-intelligence-transformation/index.html` | transformation, operating model, AI strategy, capability build, roadmap, governance, or board update decks | executive answer, flywheel/story model, capability heatmap, roadmap, governance, decision pages |
 | `templates/full-decks/agent-technology-outlook/index.html` | agent technology outlook, AI platform strategy, agent architecture, technical market scan, interoperability, or governance decks | technical outlook pacing, green strategic style, architecture stack, risk framing, roadmap |
+| `templates/full-decks/technical-implementation-plan/index.html` | technical implementation, architecture rollout, platform modernization, integration, or delivery governance decks | target architecture, release gates, dependency/risk framing, implementation roadmap |
+| `templates/full-decks/vendor-selection-scorecard/index.html` | vendor selection, platform evaluation, RFP synthesis, solution shortlist, or build/buy recommendation decks | requirements, shortlist comparison, weighted scorecard, TCO/risk, decision close |
+| `templates/full-decks/workshop-decision-pack/index.html` | workshop, working session, leadership alignment, decision meeting, or planning pack decks | objectives, agenda, pre-read, option debate, decision capture, next steps |
+| `templates/full-decks/cxo-steerco-progress-update/index.html` | CXO update, SteerCo, leadership operating plan, work progress, PMO, or board-adjacent status decks | KPI status, milestones, risks/blockers, decision asks, forward plan |
+| `templates/full-decks/mna-investment-decision/index.html` | acquisition, M&A, investment committee, strategic partnership, or capital allocation decision decks | rationale, value creation, risk, sensitivity, decision conditions |
+| `templates/full-decks/advanced-analytics-readout/index.html` | advanced analytics, model result, driver analysis, cohort/segment readout, scenario analysis, or insight-to-action decks | method/data foundation, driver ranking, segment implications, sensitivity, actions |
 
 Read the archetype's `README.md` sidecar before inspecting `index.html`. The sidecar is the fast index for visual traits, when-to-use guidance, storyline pattern, layout + component stack, source inspiration, evidence shape, related showcase patterns, flexible swaps, and when to diverge.
 
 `examples/*` are independent public demo decks. `templates/full-decks/*` are agent-facing archetypes an agent may inspect when deciding how to structure a real deck. Keep archetype content fictional, generic, and reusable; never copy it verbatim into user work. Do not copy archetype footer text, placeholder brand marks, or deck-system labels into user decks.
 
-## Exemplar Selection Matrix
+## Archetype Selection Matrix
 
 | user task | default route |
 | --- | --- |
@@ -27,7 +33,12 @@ Read the archetype's `README.md` sidecar before inspecting `index.html`. The sid
 | Transformation, operating model, AI strategy, governance | Inspect `enterprise-intelligence-transformation`, then adapt the Operating Model Or Transformation sequence. |
 | Market, competitive, customer, or trend scan | Inspect `ai-application-investment-thesis` for market evidence density, then adapt the Market Or Competitive Scan sequence. |
 | Agent technology outlook, AI platform strategy, agent architecture, or technical market scan | Inspect `agent-technology-outlook`, then adapt the Technology Outlook Or Agent Architecture sequence. |
-| Workshop or working session pack | Use the Workshop Pack sequence and component catalog; no current full-deck archetype is a direct fit. |
+| Technical implementation, architecture rollout, or platform modernization | Inspect `technical-implementation-plan`, then adapt the Technical Implementation Plan sequence. |
+| Vendor selection, RFP synthesis, solution shortlist, or build/buy decision | Inspect `vendor-selection-scorecard`, then adapt the Vendor Selection sequence. |
+| Workshop or working session pack | Inspect `workshop-decision-pack`, then adapt the Workshop Pack sequence. |
+| CXO, SteerCo, LOP, PMO, progress update, or board-adjacent status | Inspect `cxo-steerco-progress-update`, then adapt the CXO SteerCo Progress Update sequence. |
+| M&A, acquisition, investment committee, strategic partnership, or capital allocation decision | Inspect `mna-investment-decision`, then adapt the M&A Investment Decision sequence. |
+| Advanced analytics, data analysis readout, model result, driver analysis, or cohort/segment analysis | Inspect `advanced-analytics-readout`, then adapt the Advanced Analytics Readout sequence. |
 | Strategy recommendation or market entry | Use the Strategy Recommendation sequence and inspect the most relevant archetype based on evidence type. |
 
 ## One-Shot Full-Deck Workflow
@@ -125,6 +136,23 @@ Typical sequence:
 
 Useful components: `metric-strip`, `data-dashboard`, `table`, `heatmap`, `roadmap-swimlane`, `callout`.
 
+## CXO SteerCo Progress Update
+
+Use when the audience needs a status read, sponsor decisions, blocker resolution, or progress against an operating plan.
+
+Typical sequence:
+
+1. Title page.
+2. Executive status: what changed, what is at risk, and what decisions are needed.
+3. KPI snapshot.
+4. Progress vs plan and milestone status.
+5. Risks, blockers, and owner actions.
+6. Decision asks.
+7. Forward plan and next governance cycle.
+8. Appendix or open items.
+
+Useful components: `metric-strip`, `milestone-track`, `risk-matrix-register`, `decision-log`, `phase-roadmap`, `dense-list`.
+
 ## Technology Outlook Or Agent Architecture
 
 Use when the user asks for a technology outlook, platform strategy, architecture recommendation, agent roadmap, interoperability view, or technical market scan.
@@ -144,6 +172,40 @@ Typical sequence:
 11. Evidence base or appendix.
 
 Useful components: `metric-strip`, `framework-map`, `process-flow`, `comparison-table`, `ranked-bars`, `timeline`, `risk-matrix-register`, `phase-roadmap`, `decision-log`, `outcome-support`.
+
+## Technical Implementation Plan
+
+Use when the user asks how to implement a target architecture, platform, product capability, integration, or technical operating model.
+
+Typical sequence:
+
+1. Title page.
+2. Build answer and implementation principles.
+3. Target architecture or implementation spine.
+4. Integration and data plan.
+5. Release model and gates.
+6. Risks, controls, and dependencies.
+7. Roadmap.
+8. Architecture and delivery decisions.
+
+Useful components: `framework-map`, `comparison-table`, `process-flow`, `risk-matrix-register`, `phase-roadmap`, `decision-log`.
+
+## Vendor Selection Or Build/Buy Recommendation
+
+Use when the user needs to select, pilot, negotiate with, or reject a vendor, platform, or solution option.
+
+Typical sequence:
+
+1. Title page.
+2. Recommendation and decision conditions.
+3. Requirements and criteria.
+4. Shortlist comparison.
+5. Weighted scorecard.
+6. Commercial, TCO, and risk readout.
+7. Implementation fit and pilot gate.
+8. Decision close.
+
+Useful components: `weighted-scorecard`, `comparison-table`, `sensitivity-grid`, `risk-matrix-register`, `decision-log`, `pros-cons-table`.
 
 ## Market Or Competitive Scan
 
@@ -197,6 +259,23 @@ Typical sequence:
 
 Useful components: `objective-list`, `objective-summary`, `agenda-table`, `simple-agenda-grid`, `table`, `callout`.
 
+## Advanced Analytics Readout
+
+Use when the user needs to explain analytical results, model output, driver analysis, segment/cohort patterns, or scenario implications.
+
+Typical sequence:
+
+1. Title page.
+2. Analytical answer and business implication.
+3. Method and data foundation.
+4. Headline patterns or KPI results.
+5. Driver analysis.
+6. Segment or cohort readout.
+7. Scenario or sensitivity.
+8. Actions, owners, and next tests.
+
+Useful components: `metric-strip`, `comparison-table`, `ranked-bars`, `scatter-plot`, `sensitivity-grid`, `decision-log`, `callout`.
+
 ## Investment Or Diligence Memo
 
 Use when the deck evaluates an investment, acquisition, product bet, or major resource allocation.
@@ -214,3 +293,21 @@ Typical sequence:
 9. Appendix.
 
 Useful components: `metric-strip`, `chart-bars`, `waterfall-bridge`, `comparison-table`, `table`, `callout`.
+
+## M&A Investment Decision
+
+Use when the deck recommends whether to acquire, invest, partner, continue diligence, or stop.
+
+Typical sequence:
+
+1. Title page.
+2. Decision answer.
+3. Strategic rationale.
+4. Target attractiveness or option scorecard.
+5. Value creation thesis or value bridge.
+6. Financial and operating evidence.
+7. Risks and diligence tests.
+8. Sensitivity and downside case.
+9. Recommendation and conditions.
+
+Useful components: `weighted-scorecard`, `waterfall-bridge`, `comparison-table`, `risk-matrix-register`, `sensitivity-grid`, `decision-log`.

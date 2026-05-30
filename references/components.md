@@ -17,17 +17,17 @@ When adding a component, read `references/adding-patterns.md` first. A component
 
 Use the component catalog actively. Before authoring HTML, map each planned body slide to at least one component, one evidence shape, one evidence source, and one fallback if the evidence is insufficient. Do not default to prose cards when the source has numeric or tabular evidence.
 
-- Numeric section data should become `metric-strip`, `column-chart`, `ranked-bars`, `chart-bars`, `stacked-bars`, `table`, `comparison-table`, `heatmap`, `range-comparison-plot`, or `dot-scale-comparison`.
-- Peer/company/industry comparisons should become `comparison-table`, `ranked-bars`, `column-chart`, `quadrant-matrix`, `range-comparison-plot`, or `heatmap`.
+- Numeric section data should become `metric-strip`, `column-chart`, `ranked-bars`, `chart-bars`, `stacked-bars`, `table`, `comparison-table`, `sensitivity-grid`, `heatmap`, `range-comparison-plot`, or `dot-scale-comparison`.
+- Peer/company/industry comparisons should become `comparison-table`, `weighted-scorecard`, `ranked-bars`, `column-chart`, `quadrant-matrix`, `range-comparison-plot`, or `heatmap`.
 - Ordered or phased content should become `timeline`, `phase-roadmap`, `milestone-track`, `process-flow`, or `stage-gate`.
 - Qualification logic should become `funnel-steps` or `filter-cascade`.
-- Decisions and recommendations should become `decision-log`, `pros-cons-table`, `outcome-support`, or `callout` paired with evidence.
+- Decisions and recommendations should become `weighted-scorecard`, `decision-log`, `pros-cons-table`, `outcome-support`, or `callout` paired with evidence.
 
 Evidence shape router:
 
 - Numeric: use metrics, charts, ranked bars, ranges, heatmaps, or tables only when values and labels are present.
 - Categorical: use cards, catalog grids, bars, heatmaps, or tables depending on whether categories are prose, scored, or measured.
-- Comparison: use comparison tables, split-even pages, ranked bars, quadrant matrices, dot-scale comparisons, or range plots.
+- Comparison: use comparison tables, weighted scorecards, split-even pages, ranked bars, quadrant matrices, dot-scale comparisons, or range plots.
 - Time: use timelines for dated events, phase roadmaps for implementation, milestone tracks for status, and horizon bands for uncertainty.
 - Risk: use risk matrix register when placement and actions matter; use decision log, pros-cons, callout, or table when only prose risk records exist.
 - Decision: use outcome-support, decision-log, comparison-table, compass-choice, pros-cons, or callout paired with evidence.
@@ -62,6 +62,8 @@ Fallback rule: if the evidence shape lacks required fields, switch to the simple
 - Use `diverging-heatmap` when values can move below and above a neutral midpoint.
 - Use `scatter-plot` when the data has two numeric dimensions.
 - Use `comparison-table` when options must be compared across consistent criteria.
+- Use `weighted-scorecard` when options have weighted criteria, scores, and a recommendation.
+- Use `sensitivity-grid` when a decision depends on low/base/high cases or scenario assumptions.
 - Use `pyramid-stack` when levels build toward a top outcome or narrow from foundation to focus.
 - Use `cause-effect` when one root cause, driver, or constraint leads to one primary effect.
 - Use `outcome-support` when the conclusion should appear above 2-4 supporting points.
@@ -102,6 +104,8 @@ Do not output components that add no information.
 - Heatmap: needs row labels, column labels, and cell ratings or scores.
 - Scatter plot: needs x and y values for each point.
 - Comparison table: needs options and shared criteria.
+- Weighted scorecard: needs at least 3 criteria, 2 options, explicit weights or a clearly stated unweighted scoring rule, and a recommendation readout.
+- Sensitivity grid: needs at least 2 assumptions or scenarios and at least 2 cases such as low/base/high, downside/base/upside, or conservative/target/stretch.
 - Metric strip: needs 3-5 high-signal metrics. If there is only one number, use a statement or callout.
 - Table: needs consistent row/column structure. Do not force prose into a table.
 - Catalog grid: needs at least 3 sections. If there are more than 9 sections, split the catalog or use a denser list.
@@ -153,7 +157,8 @@ Do not output components that add no information.
 - Benchmark spread: use `range-comparison-plot` for min/max, confidence interval, peer range, or low/base/high inputs.
 - Relative scorecard: use `dot-scale-comparison` when every row can share the same left-to-right scale.
 - Diverging categorical data: use `diverging-heatmap` for negative-to-positive movement or below/above-neutral measures.
-- Option evaluation: use `comparison-table`.
+- Option evaluation: use `weighted-scorecard` when criteria have weights or scores; use `comparison-table` when exact scoring is not justified.
+- Scenario or sensitivity: use `sensitivity-grid` when assumptions change the answer; use a plain table when the cases are only descriptive.
 - Few headline KPIs: use `metric-strip`.
 - Many records with mixed fields: use `table`.
 - No numeric data: do not create a chart.
@@ -213,6 +218,8 @@ Future passes should expand CV/face-page primitives, richer full-deck examples, 
 | `templates/components/heatmap.html` | Capability or assessment heatmap. |
 | `templates/components/scatter-plot.html` | Two-axis opportunity map. |
 | `templates/components/comparison-table.html` | Options compared against criteria. |
+| `templates/components/weighted-scorecard.html` | Weighted option scoring with recommendation. |
+| `templates/components/sensitivity-grid.html` | Low/base/high scenario or assumption sensitivity. |
 | `templates/components/pyramid-stack.html` | Hierarchical levels building toward an outcome. |
 | `templates/components/cause-effect.html` | One driver linked to one consequence. |
 | `templates/components/outcome-support.html` | Top outcome with supporting proof points. |
