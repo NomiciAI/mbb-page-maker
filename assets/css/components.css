@@ -1,0 +1,345 @@
+.layout-note {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  align-self: start;
+  min-height: 24px;
+  margin-bottom: 14px;
+  padding: 0 8px;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 42%, #fff);
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.agenda-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 44px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.agenda-list li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.agenda-num {
+  color: var(--color-accent);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.agenda-copy strong {
+  display: block;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.agenda-copy span {
+  display: block;
+  margin-top: 7px;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.callout {
+  border-left: 5px solid var(--color-accent);
+  background: var(--color-accent-soft);
+  padding: 22px 24px;
+  font-size: 21px;
+  line-height: 1.35;
+}
+
+.card {
+  border: 1px solid var(--color-line);
+  background: color-mix(in srgb, var(--color-bg) 92%, var(--color-accent) 8%);
+  padding: 24px;
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.card p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.table th,
+.table td {
+  border-bottom: 1px solid var(--color-line);
+  padding: 13px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.table .highlight {
+  background: var(--color-accent-soft);
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.timeline-step {
+  border-top: 3px solid var(--color-accent);
+  padding-top: 16px;
+}
+
+.timeline-step strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.timeline-step span {
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.metric-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.metric {
+  min-height: 136px;
+  padding: 22px 20px;
+}
+
+.metric + .metric {
+  border-left: 1px solid var(--color-line);
+}
+
+.metric strong {
+  display: block;
+  color: var(--color-accent);
+  font-size: 42px;
+  line-height: 1;
+}
+
+.metric span {
+  display: block;
+  margin-top: 12px;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.quote-mark {
+  color: var(--color-accent);
+  font-family: var(--font-serif);
+  font-size: 160px;
+  line-height: 0.8;
+}
+
+.quote-layout blockquote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 38px;
+  line-height: 1.22;
+}
+
+.quote-layout cite {
+  display: block;
+  margin-top: 22px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-style: normal;
+}
+
+.matrix-2x2 {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 100%;
+  border: 1px solid var(--color-line);
+}
+
+.matrix-cell {
+  padding: 26px;
+  border-right: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.matrix-cell:nth-child(2n) {
+  border-right: 0;
+}
+
+.matrix-cell:nth-child(n + 3) {
+  border-bottom: 0;
+}
+
+.matrix-cell.is-focus {
+  background: var(--color-accent-soft);
+  outline: 4px solid color-mix(in srgb, var(--color-accent) 72%, #fff);
+  outline-offset: -4px;
+}
+
+.matrix-cell strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.matrix-cell span {
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.tree-node {
+  position: relative;
+  display: flex;
+  min-height: 88px;
+  align-items: center;
+  border: 1px solid var(--color-line);
+  background: var(--color-bg);
+  padding: 18px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.tree-root {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.wf-step {
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  gap: 10px;
+  height: 100%;
+}
+
+.wf-bar {
+  align-self: end;
+  min-height: 48px;
+  height: var(--h);
+  background: var(--color-accent);
+}
+
+.wf-bar.positive {
+  background: var(--color-success);
+}
+
+.wf-bar.negative {
+  background: var(--color-danger);
+}
+
+.wf-value {
+  color: var(--color-text);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.wf-label {
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.swimlane > div {
+  min-height: 78px;
+  border-right: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  padding: 14px;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.swimlane > div:nth-child(5n) {
+  border-right: 0;
+}
+
+.lane-label {
+  color: var(--color-text);
+  font-weight: 800;
+}
+
+.lane-item {
+  background: color-mix(in srgb, var(--color-accent-soft) 72%, #fff);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 18px;
+  align-items: center;
+  border-top: 1px solid var(--color-line);
+  padding-top: 20px;
+}
+
+.avatar {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 35%, #d9e2ea 0 18%, transparent 19%),
+    radial-gradient(circle at 50% 78%, #c3ced8 0 34%, transparent 35%),
+    #eef2f5;
+  border: 1px solid var(--color-line);
+}
+
+.profile strong {
+  display: block;
+  font-size: 18px;
+}
+
+.profile span {
+  display: block;
+  margin-top: 5px;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .agenda-list,
+  .metric-strip,
+  .timeline,
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}

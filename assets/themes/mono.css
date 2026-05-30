@@ -1,0 +1,12 @@
+:root {
+  --theme-accent: #111827;
+  --theme-accent-soft: #f1f3f5;
+  --theme-accent-strong: #000000;
+  --theme-success: #3f6f61;
+  --theme-danger: #7d4038;
+  --theme-dark-bg: #0b0f14;
+  --theme-dark-accent: #ffffff;
+  --theme-dark-bg-gradient:
+    radial-gradient(circle at 86% 80%, rgba(255, 255, 255, 0.12), transparent 28%),
+    linear-gradient(135deg, #050608 0%, #111827 62%, #000000 100%);
+}

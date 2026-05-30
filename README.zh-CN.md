@@ -30,11 +30,22 @@ GitHub 仓库：[NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-m
 
 - `SKILL.md`: AgentSkill 入口和调度规则。
 - `references/`: 主题、布局、完整 deck 结构和写作流程。
-- `assets/`: 静态 HTML PPT runtime、CSS token、主题。
-- `templates/`: starter deck、light/dark skeleton 和布局模板。
+- `assets/`: 静态 HTML PPT runtime、CSS design system、主题 token。
+- `templates/`: starter deck、light/dark/mixed skeleton 和布局模板。
 - `scripts/`: 新建 deck 和导出 PNG/PDF/HTML。
 
 后续拿到真正的参考样张后，再把主题、字体比例、标题系统、图表样式和页面组件精修到更贴近目标格式。
+
+## Design System
+
+CSS 按职责拆分：
+
+- `base.css`: 画布、基础字体层级、runtime controls、print 规则。
+- `layouts.css`: 页面级 layout shell。
+- `components.css`: 表格、卡片、指标、agenda、矩阵、roadmap、profile blocks。
+- `illustrations.css`: 中性插图 primitives 和静态资源插槽。
+- `themes/*.css`: 只放颜色 token，每个主题同时支持 light/dark mode。
+- `assets/media/`: 可选静态图片、SVG、截图和头像素材。
 
 ## License & Author
 

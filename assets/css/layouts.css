@@ -1,0 +1,248 @@
+.slide.cover {
+  justify-content: flex-start;
+}
+
+.slide.cover .slide-title {
+  max-width: 980px;
+  font-size: 66px;
+  line-height: 1.02;
+}
+
+.brand-mark {
+  position: relative;
+  z-index: 1;
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-size: 30px;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.slide.dark .brand-mark,
+.slide[data-mode="dark"] .brand-mark {
+  color: #fff;
+}
+
+.cover-main {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 66%);
+  margin-top: 152px;
+}
+
+.cover-meta {
+  margin-top: 22px;
+  color: var(--color-muted);
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.cover-client {
+  position: relative;
+  z-index: 1;
+  width: 260px;
+  min-height: 108px;
+  margin-top: 34px;
+  border: 1px solid color-mix(in srgb, var(--color-line) 72%, transparent);
+  padding: 18px;
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.cover-client strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--color-text);
+  font-size: 14px;
+}
+
+.slide.dark .cover-client strong,
+.slide[data-mode="dark"] .cover-client strong {
+  color: #fff;
+}
+
+.frame-lines {
+  position: relative;
+  height: 100%;
+}
+
+.frame-lines::before,
+.frame-lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-line);
+}
+
+.frame-lines::before {
+  top: 0;
+}
+
+.frame-lines::after {
+  bottom: 0;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
+
+.slide.full-bleed {
+  padding: 0;
+}
+
+.slide.full-bleed > .footer {
+  position: absolute;
+  left: var(--page-x);
+  right: var(--page-x);
+  bottom: var(--page-y);
+  z-index: 2;
+}
+
+.split-panel {
+  position: relative;
+  padding: var(--page-y) var(--page-x);
+}
+
+.split-panel + .split-panel {
+  border-left: 1px solid var(--color-line);
+}
+
+.split-panel.dark,
+.split-panel[data-mode="dark"] {
+  --color-bg: var(--theme-dark-bg);
+  --color-text: var(--theme-dark-text);
+  --color-muted: var(--theme-dark-muted);
+  --color-line: var(--theme-dark-line);
+  --color-accent: var(--theme-dark-accent);
+  --color-accent-soft: color-mix(in srgb, var(--theme-dark-accent) 14%, var(--theme-dark-bg));
+  background: var(--theme-dark-bg);
+  color: var(--theme-dark-text);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.statement {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  max-width: 1120px;
+}
+
+.statement h2 {
+  margin: 0;
+  font-size: 58px;
+  line-height: 1.06;
+}
+
+.statement p {
+  margin: 22px 0 0;
+  max-width: 760px;
+  color: var(--color-muted);
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.media-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.68fr);
+  gap: 54px;
+  align-items: center;
+  height: 100%;
+}
+
+.media-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.media-copy h3 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.12;
+}
+
+.media-copy p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 19px;
+  line-height: 1.38;
+}
+
+.quote-layout {
+  display: grid;
+  grid-template-columns: 0.35fr 1fr;
+  gap: 42px;
+  align-items: center;
+  height: 100%;
+}
+
+.issue-tree {
+  display: grid;
+  grid-template-columns: 0.8fr 1.1fr 1.1fr;
+  gap: 26px;
+  height: 100%;
+}
+
+.tree-column {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+}
+
+.waterfall {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: end;
+  gap: 18px;
+  height: calc(100% - 44px);
+  padding-top: 18px;
+  padding-bottom: 42px;
+}
+
+.swimlane {
+  display: grid;
+  grid-template-columns: 180px repeat(4, 1fr);
+  border-top: 1px solid var(--color-line);
+}
+
+@media (max-width: 900px) {
+  .slide.cover .slide-title {
+    font-size: 42px;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .media-split,
+  .quote-layout,
+  .issue-tree,
+  .swimlane,
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .split {
+    min-height: 100%;
+  }
+}

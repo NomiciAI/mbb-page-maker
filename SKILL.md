@@ -24,11 +24,19 @@ Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker
 This is the foundational HTML skeleton phase. Use the starter deck as the base page system, then expand case-by-case references later.
 
 - Use `templates/deck.html` as the minimal HTML PPT starting point.
-- Use `assets/css/base.css` for shared slide primitives.
+- Use the CSS layers in order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, then one file from `assets/themes/`.
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
 - Read `references/layouts.md`, `references/themes.md`, or `references/full-decks.md` only when that catalog is needed.
 - Do not copy proprietary logos, company names, confidentiality statements, or source-identifying marks from reference decks into generated HTML.
+
+## Design System Layers
+
+- `assets/css/base.css`: slide canvas, typography primitives, light/dark mode tokens, runtime controls, print rules.
+- `assets/css/layouts.css`: page-level layout shells.
+- `assets/css/components.css`: reusable content components inside layouts.
+- `assets/css/illustrations.css`: neutral CSS/SVG-friendly illustration primitives and asset slots.
+- `assets/themes/*.css`: color tokens only. Keep theme names neutral.
 
 ## HTML Slide Contract
 

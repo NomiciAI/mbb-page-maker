@@ -39,3 +39,10 @@ Dedicated skeleton starters:
 
 - `templates/light-skeleton.html`
 - `templates/dark-skeleton.html`
+- `templates/mixed-skeleton.html`
+
+Layout and component CSS are separated:
+
+- Layout shells: `assets/css/layouts.css`
+- Components used inside layouts: `assets/css/components.css`
+- Illustration primitives and asset slots: `assets/css/illustrations.css`

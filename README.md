@@ -39,15 +39,24 @@ mbb-page-maker/
 ├── assets/
 │   ├── css/
 │   │   ├── base.css
+│   │   ├── components.css
+│   │   ├── illustrations.css
+│   │   ├── layouts.css
 │   │   └── fonts.css
 │   ├── js/
 │   │   └── runtime.js
+│   ├── media/
 │   └── themes/
+│       ├── blue.css
+│       ├── green.css
+│       ├── red.css
+│       ├── mono.css
 │       └── classic.css
 ├── templates/
 │   ├── deck.html
 │   ├── light-skeleton.html
 │   ├── dark-skeleton.html
+│   ├── mixed-skeleton.html
 │   └── layouts/
 ├── scripts/
 │   ├── new-deck.sh
@@ -62,6 +71,17 @@ mbb-page-maker/
 2. Add case-by-case reference guidance after approved examples are selected.
 3. Add PNG/PDF export.
 4. Research PowerPoint export.
+
+## Design System
+
+CSS is intentionally split by responsibility:
+
+- `base.css`: canvas, typography primitives, runtime controls, print rules.
+- `layouts.css`: page-level layout shells.
+- `components.css`: tables, cards, metrics, agenda, matrix, roadmap, profile blocks.
+- `illustrations.css`: neutral illustration primitives and asset slots.
+- `themes/*.css`: color tokens only, with light and dark mode values.
+- `assets/media/`: optional static images, SVGs, screenshots, and headshots.
 
 ## License & Author
 
