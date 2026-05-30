@@ -23,7 +23,8 @@ Use:
 ## Simple Layout Families
 
 - Cover: title, subtitle, date/meta, optional client mark.
-- Default opening: simple first page with optional line-field visual.
+- Simple title cover: title, optional subtitle/meta, optional abstract visual. Must include a main title.
+- Default opening: simple first page with optional line-field visual. Must include a main title.
 - Default opening with visual: title page with one image or product/context visual slot.
 - Centered message: one conclusion centered on the page.
 - Centered list: 3-5 short points for a transition or focus page.
@@ -38,6 +39,7 @@ Default simple snippets:
 
 | file | use when |
 | --- | --- |
+| `simple-title-cover.html` | Basic deck title page. Do not use a brand-only page as the default title cover. |
 | `default-opening.html` | Deck or section start. |
 | `default-opening-visual.html` | Opening page with one relevant supplied/generated visual. |
 | `default-center-message.html` | One conclusion, transition, or decision prompt. |
@@ -50,6 +52,7 @@ Selection guidance:
 - Use simple pages when the point is stronger than the exhibit.
 - Use centered pages for emphasis, not for dense explanation.
 - Use visual opening pages only when the visual adds meaning. Otherwise keep the opening clean.
+- A blank/brand-only cover is not a valid default cover. Use it only as a deliberate divider or showcase page.
 
 ## Blank Structured Layouts
 
@@ -84,6 +87,10 @@ Overflow rules:
 ## Medium Layouts
 
 - Agenda: 3-9 numbered sections.
+- Content catalog: numbered section grid for a deck table of contents.
+- Meeting objectives: objective list plus optional summary/objectives panel.
+- Workshop agenda: time/topic/outcome agenda table.
+- Simple agenda: numbered agenda grid without time blocks.
 - Content primitives: cards, callouts, and evidence blocks.
 - KPI strip: 3-5 executive metrics with short labels.
 - Table plus roadmap: dense content with structured hierarchy.
@@ -94,6 +101,8 @@ Overflow rules:
 - Data dashboard: headline metrics plus 1-2 supporting exhibits.
 
 Medium pages usually combine one dominant component with supporting components. Keep the page logic top-down: title first, exhibit second, implications third.
+
+Agenda and objectives snippets include `content-catalog.html`, `meeting-objectives-list.html`, `workshop-agenda.html`, and `simple-agenda.html`. They should be treated as examples of component composition, not fixed outputs.
 
 ## Complex Layouts
 

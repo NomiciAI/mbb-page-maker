@@ -79,6 +79,13 @@
   line-height: 1.08;
 }
 
+.simple-title-cover .default-opening-main .slide-title {
+  font-family: var(--font-serif);
+  font-size: 62px;
+  line-height: 1.02;
+  font-weight: 760;
+}
+
 .default-opening-main .slide-subtitle {
   max-width: 720px;
 }
@@ -537,6 +544,7 @@
   }
 
   .default-opening-main .slide-title,
+  .simple-title-cover .default-opening-main .slide-title,
   .center-stage h1,
   .center-stage h2,
   .ending-note h2 {

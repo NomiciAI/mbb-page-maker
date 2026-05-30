@@ -9,6 +9,10 @@ Components are composable blocks used inside layout templates. Pick components a
 - Use `metric-strip` when the page needs 3-5 headline numbers.
 - Use `table` when comparison needs row/column precision.
 - Use `agenda-list` for narrative structure.
+- Use `catalog-grid` for section catalogs or contents pages.
+- Use `objective-list` plus `objective-summary` for meeting objectives and decision framing.
+- Use `agenda-table` for timed workshops with topics and outcomes.
+- Use `simple-agenda-grid` for non-timed agendas with numbered modules.
 - Use `illustration-orbit` when the page needs neutral visual support without external assets.
 - Use `profile` for team, expert, or stakeholder pages.
 - Use `contact-card` only when the input contains real contact records.
@@ -34,6 +38,10 @@ Do not output components that add no information.
 - Comparison table: needs options and shared criteria.
 - Metric strip: needs 3-5 high-signal metrics. If there is only one number, use a statement or callout.
 - Table: needs consistent row/column structure. Do not force prose into a table.
+- Catalog grid: needs at least 3 sections. If there are more than 9 sections, split the catalog or use a denser list.
+- Objective list: needs at least 3 objectives or agenda items. Highlight only one item unless the user asks for multiple focus areas.
+- Agenda table: needs time blocks plus topic, outcome, owner, or speaker fields. If times are missing, use `simple-agenda-grid`.
+- Simple agenda grid: use for 3-9 items with short parallel labels.
 
 ## Data Display Router
 
@@ -55,6 +63,11 @@ Do not output components that add no information.
 | `templates/components/callout.html` | One implication or decision statement. |
 | `templates/components/metric-strip.html` | Four headline metrics. |
 | `templates/components/agenda-list.html` | Three-item agenda list starter. |
+| `templates/components/catalog-grid.html` | Contents or section catalog grid. |
+| `templates/components/objective-list.html` | Objective list with optional active marker. |
+| `templates/components/objective-summary.html` | Summary/objectives text block. |
+| `templates/components/agenda-table.html` | Timed workshop agenda rows. |
+| `templates/components/simple-agenda-grid.html` | Numbered agenda grid. |
 | `templates/components/table.html` | Compact comparison table. |
 | `templates/components/illustration-orbit.html` | Neutral abstract illustration. |
 | `templates/components/profile.html` | Profile row with generated avatar placeholder. |
@@ -69,6 +82,16 @@ Do not output components that add no information.
 ## Showcase-Only Assets
 
 Bundled headshots in `assets/media/headshots/` are for showcase and full-deck demo pages only. Do not use them in generated user decks unless the user explicitly asks for placeholder demo contacts.
+
+## Agenda And Objectives Composition
+
+- A title cover must include a real title. A brand-only or blank visual page is not a default title cover.
+- Use `catalog-grid` when the user provides section names or a deck table of contents.
+- Use `objective-list` alone for a compact left rail or transition page.
+- Combine `objective-list` with `objective-summary` inside a split layout when the page needs both agenda navigation and meeting purpose.
+- Use `agenda-table` when the source has time blocks. Do not invent times.
+- Use `simple-agenda-grid` when the source has ordered agenda items without time blocks.
+- Keep agenda item labels short. Move explanatory text to a summary, notes, or outcome component.
 
 ## Composition Order
 
