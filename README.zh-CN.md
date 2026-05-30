@@ -24,15 +24,29 @@ GitHub 仓库：[NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-m
 
 现在 repo 可以继续 private。等开源后，这条命令可以直接从 GitHub 安装。
 
+为了让更多 agent 自动发现，推荐安装到所有检测到的客户端：
+
+```bash
+npx skills add https://github.com/NomiciAI/mbb-page-maker --agent '*'
+```
+
+如果 Claude Code、Cursor、Codex、OpenClaw、Hermes 或其他客户端显示 `Unknown skill`，但 `.agents/skills/mbb-page-maker/` 已存在，说明包已经安装，只是没有链接到该客户端自己的 skill 目录。运行：
+
+```bash
+.agents/skills/mbb-page-maker/scripts/link-agent-adapters.sh .
+```
+
+具体项目级/全局路径和 Claude Code 排查见 `references/agent-compatibility.md`。
+
 ## 当前结构
 
 核心结构分成五层：
 
 - `SKILL.md`: AgentSkill 入口和调度规则。
-- `references/`: 主题、布局、咨询式思考流程、完整 deck 结构和写作流程。
+- `references/`: agent 兼容性、主题、布局、咨询式思考流程、完整 deck 结构和写作流程。
 - `assets/`: 静态 HTML PPT runtime、CSS design system、主题 token。
 - `templates/`: `starter-deck.html`、design-system gallery、full-deck exemplars、light/dark/mixed/neutral skeleton 和布局模板。
-- `scripts/`: 新建 deck、字体刷新、full-deck demo 同步、可见性检查和导出 PNG/PDF/HTML。
+- `scripts/`: 新建 deck、字体刷新、agent adapter 链接、full-deck demo 同步、可见性检查和导出 PNG/PDF/HTML。
 
 后续拿到真正的参考样张后，再把主题、字体比例、标题系统、图表样式和页面组件精修到更贴近目标格式。
 

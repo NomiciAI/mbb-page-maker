@@ -24,6 +24,20 @@ Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker
 
 The repository can stay private during development. When it is public, the command above can install the AgentSkill directly from GitHub.
 
+For broad agent discovery, install to all detected clients:
+
+```bash
+npx skills add https://github.com/NomiciAI/mbb-page-maker --agent '*'
+```
+
+If Claude Code, Cursor, Codex, OpenClaw, Hermes, or another client reports `Unknown skill` while `.agents/skills/mbb-page-maker/` exists, the package is installed but not linked into that client's skill directory. Run:
+
+```bash
+.agents/skills/mbb-page-maker/scripts/link-agent-adapters.sh .
+```
+
+See `references/agent-compatibility.md` for project/global paths and Claude Code-specific troubleshooting.
+
 ## What Is Included
 
 ```text
@@ -33,6 +47,7 @@ mbb-page-maker/
 ├── README.zh-CN.md
 ├── references/
 │   ├── authoring-guide.md
+│   ├── agent-compatibility.md
 │   ├── consulting-thinking.md
 │   ├── adding-patterns.md
 │   ├── components.md
@@ -76,6 +91,7 @@ mbb-page-maker/
 │   ├── check-deck-quality.sh
 │   ├── check-deck-contrast.sh
 │   ├── fetch-fonts.sh
+│   ├── link-agent-adapters.sh
 │   ├── sync-examples.sh
 │   └── render.sh
 └── examples/

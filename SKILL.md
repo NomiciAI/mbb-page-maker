@@ -1,6 +1,10 @@
 ---
 name: mbb-page-maker
 description: Create, edit, package, or export consulting-style HTML slide decks for strategy, board, investment, pitch, and executive presentations. Use when the user asks for an HTML PPT, slide deck, pitch deck, investment memo deck, board report, static browser-openable presentation, WeChat-shareable PDF/PNG previews, or updates to an existing MBB Page Maker deck.
+license: MIT
+compatibility: Agent Skills-compatible coding agents. Claude Code requires the skill to be visible under .claude/skills or ~/.claude/skills; use references/agent-compatibility.md if an agent reports Unknown skill.
+metadata:
+  author: "Saitop at NomiciAI <saitop@nomici.ai>"
 ---
 
 # MBB Page Maker
@@ -18,6 +22,8 @@ npx skills add https://github.com/NomiciAI/mbb-page-maker
 ```
 
 Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker)
+
+If an agent reports "Unknown skill" after installation, read `references/agent-compatibility.md`. Some clients install the canonical package under `.agents/skills/` but require a symlink or copy under their own skill directory.
 
 ## Golden Path
 
@@ -50,7 +56,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Use the CSS layers in order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, then one file from `assets/themes/`.
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
-- Read `references/consulting-thinking.md`, `references/layouts.md`, `references/components.md`, `references/themes.md`, `references/full-decks.md`, `references/adding-patterns.md`, or `references/asset-sourcing.md` only when that catalog is needed.
+- Read `references/agent-compatibility.md`, `references/consulting-thinking.md`, `references/layouts.md`, `references/components.md`, `references/themes.md`, `references/full-decks.md`, `references/adding-patterns.md`, or `references/asset-sourcing.md` only when that catalog is needed.
 - Run `scripts/check-deck-quality.sh path/to/deck.html` and `scripts/check-deck-contrast.sh path/to/deck.html` before final delivery.
 - Unless the user asks for HTML only, run `scripts/render.sh path/to/deck.html` and deliver the self-contained package `index.html`, PDF, and PNG slide images.
 - Use `templates/layouts/default-*.html` for opening, centered transition, centered message, headline metric, and ending pages.

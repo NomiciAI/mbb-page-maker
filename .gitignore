@@ -19,6 +19,13 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Runtime and export output
+.agents/
+.claude/
+.codex/
+.cursor/
+.hermes/
+.openclaw/
+.opencode/
 dist/
 build/
 output/
