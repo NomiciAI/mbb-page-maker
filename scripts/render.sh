@@ -4,10 +4,10 @@ set -euo pipefail
 usage() {
   cat >&2 <<'EOF'
 Usage:
-  scripts/render.sh <deck.html-or-url> [out-dir] [--pdf] [--png] [--all]
+  scripts/render.sh <deck.html-or-url> [out-dir] [--pdf] [--png] [--package] [--all]
 
 Defaults:
-  Creates a PDF in <deck-dir>/dist. The HTML file itself remains the source deck.
+  Creates a self-contained share package and PDF in <deck-dir>/dist.
 
 Examples:
   scripts/render.sh examples/demo-deck/index.html
@@ -27,6 +27,8 @@ shift || true
 out_dir=""
 render_pdf=0
 render_png=0
+render_package=0
+package_index=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -36,9 +38,13 @@ while [[ $# -gt 0 ]]; do
     --png)
       render_png=1
       ;;
+    --package)
+      render_package=1
+      ;;
     --all)
       render_pdf=1
       render_png=1
+      render_package=1
       ;;
     -h|--help)
       usage
@@ -57,8 +63,9 @@ while [[ $# -gt 0 ]]; do
   shift || true
 done
 
-if [[ "$render_pdf" -eq 0 && "$render_png" -eq 0 ]]; then
+if [[ "$render_pdf" -eq 0 && "$render_png" -eq 0 && "$render_package" -eq 0 ]]; then
   render_pdf=1
+  render_package=1
 fi
 
 if [[ -n "${CHROME_BIN:-}" ]]; then
@@ -76,9 +83,14 @@ else
   exit 2
 fi
 
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+skill_root="$(cd "${script_dir}/.." && pwd)"
+
 if [[ "$target" =~ ^https?:// || "$target" =~ ^file:// ]]; then
   input_url="$target"
   input_name="deck"
+  input_path=""
+  input_dir="$(pwd)"
   default_out="dist"
 else
   input_path="$(cd "$(dirname "$target")" && pwd)/$(basename "$target")"
@@ -109,9 +121,7 @@ append_query() {
 }
 
 count_slides() {
-  if [[ "$target" =~ ^https?:// || "$target" =~ ^file:// ]]; then
-    echo "${SLIDE_COUNT:-1}"
-  else
+  if [[ -n "$input_path" ]]; then
     local count
     count="$(rg -o '<section[^>]+class="[^"]*slide' "$input_path" | wc -l | tr -d ' ')"
     if [[ -z "$count" || "$count" == "0" ]]; then
@@ -119,7 +129,107 @@ count_slides() {
     else
       echo "$count"
     fi
+  else
+    echo "${SLIDE_COUNT:-1}"
   fi
+}
+
+relative_path() {
+  python3 - "$1" "$2" <<'PY'
+import os
+import sys
+print(os.path.relpath(sys.argv[1], start=sys.argv[2]))
+PY
+}
+
+rewrite_asset_paths() {
+  local html_file="$1"
+  local from_dir="$2"
+  local to_dir="$3"
+  local skill_root_path="$4"
+  python3 - "$html_file" "$from_dir" "$to_dir" "$skill_root_path" <<'PY'
+import os
+import re
+import sys
+from pathlib import Path
+
+html_path = Path(sys.argv[1])
+html_dir = html_path.parent.resolve()
+from_dir = Path(sys.argv[2]).resolve()
+to_dir = Path(sys.argv[3]).resolve()
+skill_root = Path(sys.argv[4]).resolve()
+text = html_path.read_text(encoding="utf-8")
+
+def repl(match):
+    attr, quote, value = match.groups()
+    if value.startswith(("http://", "https://", "data:", "#", "mailto:", "tel:")):
+        return match.group(0)
+    if not value:
+        return match.group(0)
+    raw = value.split("?", 1)[0].split("#", 1)[0]
+    suffix = value[len(raw):]
+    candidates = []
+    if raw.startswith("/"):
+        candidates.append(Path(raw))
+    else:
+        candidates.append((from_dir / raw).resolve())
+    if "/.agents/skills/mbb-page-maker/" in raw:
+        tail = raw.split("/.agents/skills/mbb-page-maker/", 1)[1]
+        candidates.insert(0, skill_root / tail)
+    if "mbb-page-maker/" in raw:
+        tail = raw.split("mbb-page-maker/", 1)[1]
+        candidates.append(skill_root / tail)
+    source = next((path for path in candidates if path.exists()), None)
+    if not source:
+        return match.group(0)
+    if skill_root in source.parents or source == skill_root:
+        dest = to_dir / "assets" / source.relative_to(skill_root / "assets") if (skill_root / "assets") in source.parents else to_dir / source.name
+    else:
+        try:
+            rel = source.relative_to(from_dir)
+            dest = to_dir / rel
+        except ValueError:
+            dest = to_dir / "assets" / "media" / source.name
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    if source.is_file():
+        if not dest.exists():
+            dest.write_bytes(source.read_bytes())
+    new_value = os.path.relpath(dest.resolve(), start=html_dir).replace(os.sep, "/") + suffix
+    return f"{attr}={quote}{new_value}{quote}"
+
+pattern = re.compile(r'\b(src|href)=(["\'])([^"\']+)\2')
+html_path.write_text(pattern.sub(repl, text), encoding="utf-8")
+PY
+}
+
+package_deck() {
+  if [[ -z "$input_path" ]]; then
+    echo "Package output requires a local HTML file input." >&2
+    exit 2
+  fi
+  local package_dir="${out_dir}/package"
+  rm -rf "$package_dir"
+  mkdir -p "$package_dir"
+  cp "$input_path" "${package_dir}/index.html"
+  mkdir -p "${package_dir}/assets"
+  cp -R "${skill_root}/assets/css" "${package_dir}/assets/"
+  cp -R "${skill_root}/assets/js" "${package_dir}/assets/"
+  cp -R "${skill_root}/assets/themes" "${package_dir}/assets/"
+  if [[ -d "${skill_root}/assets/media" ]]; then
+    cp -R "${skill_root}/assets/media" "${package_dir}/assets/"
+  fi
+  if [[ -f "${package_dir}/assets/css/fonts.css" ]]; then
+    python3 - "${package_dir}/assets/css/fonts.css" <<'PY'
+from pathlib import Path
+import sys
+path = Path(sys.argv[1])
+lines = path.read_text(encoding="utf-8").splitlines()
+path.write_text("\n".join(line for line in lines if not line.lstrip().startswith("@import")) + "\n", encoding="utf-8")
+PY
+  fi
+  rewrite_asset_paths "${package_dir}/index.html" "$input_dir" "$package_dir" "$skill_root"
+  package_index="${package_dir}/index.html"
+  echo "Package: ${package_dir}/index.html"
 }
 
 chrome_common=(
@@ -131,10 +241,21 @@ chrome_common=(
   --virtual-time-budget=2500
 )
 
+if [[ "$render_package" -eq 1 ]]; then
+  package_deck
+  input_url="file://${package_index}"
+fi
+
 if [[ "$render_pdf" -eq 1 ]]; then
   pdf_file="${out_dir}/${input_name}.pdf"
   pdf_url="$(append_query "$input_url" "print=1")"
-  "$chrome" "${chrome_common[@]}" --print-to-pdf="$pdf_file" --print-to-pdf-no-header "$pdf_url" >/dev/null 2>&1
+  "$chrome" \
+    "${chrome_common[@]}" \
+    --run-all-compositor-stages-before-draw \
+    --disable-dev-shm-usage \
+    --print-to-pdf="$pdf_file" \
+    --print-to-pdf-no-header \
+    "$pdf_url" >/dev/null 2>&1
   echo "PDF: $pdf_file"
 fi
 
