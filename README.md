@@ -33,6 +33,7 @@ mbb-page-maker/
 ├── README.zh-CN.md
 ├── references/
 │   ├── authoring-guide.md
+│   ├── components.md
 │   ├── layouts.md
 │   ├── themes.md
 │   └── full-decks.md
@@ -54,9 +55,11 @@ mbb-page-maker/
 │       └── classic.css
 ├── templates/
 │   ├── deck.html
+│   ├── neutral-skeleton.html
 │   ├── light-skeleton.html
 │   ├── dark-skeleton.html
 │   ├── mixed-skeleton.html
+│   ├── components/
 │   └── layouts/
 ├── scripts/
 │   ├── new-deck.sh
@@ -82,6 +85,13 @@ CSS is intentionally split by responsibility:
 - `illustrations.css`: neutral illustration primitives and asset slots.
 - `themes/*.css`: color tokens only, with light and dark mode values.
 - `assets/media/`: optional static images, SVGs, screenshots, and headshots.
+
+Authoring is composable:
+
+1. Choose a skeleton: neutral, light, dark, or mixed.
+2. Choose a layout from `templates/layouts/`.
+3. Fill it with components from `templates/components/`.
+4. Apply one theme from `assets/themes/`.
 
 ## License & Author
 

@@ -38,6 +38,22 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - `assets/css/illustrations.css`: neutral CSS/SVG-friendly illustration primitives and asset slots.
 - `assets/themes/*.css`: color tokens only. Keep theme names neutral.
 
+## Composition Workflow
+
+1. Start from the neutral skeleton unless the user explicitly asks for a theme.
+2. Infer the communication task from the user's prompt and source material.
+3. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
+4. Choose reusable components from `templates/components/` using `references/components.md`.
+5. Apply one theme file from `assets/themes/`.
+6. Verify that the assembled slide has one clear message, one dominant visual structure, and no copied source identifiers.
+
+Default theme selection:
+
+- `mono.css`: structure-first drafts and neutral skeletons.
+- `blue.css`: default executive consulting style.
+- `red.css`: urgency, turnaround, risk, commercial action.
+- `green.css`: growth, sustainability, operations, transformation.
+
 ## HTML Slide Contract
 
 Decks should be composed from self-contained slide sections:

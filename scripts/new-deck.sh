@@ -11,7 +11,7 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 repo_dir="$(cd "$script_dir/.." && pwd)"
 
 mkdir -p "$target"
-cp "$repo_dir/templates/deck.html" "$target/index.html"
+cp "$repo_dir/templates/neutral-skeleton.html" "$target/index.html"
 
 if [[ ! -e "$target/assets" ]]; then
   ln -s "$repo_dir/assets" "$target/assets" 2>/dev/null || cp -R "$repo_dir/assets" "$target/assets"

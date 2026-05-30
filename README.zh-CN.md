@@ -47,6 +47,13 @@ CSS 按职责拆分：
 - `themes/*.css`: 只放颜色 token，每个主题同时支持 light/dark mode。
 - `assets/media/`: 可选静态图片、SVG、截图和头像素材。
 
+页面生成按组合方式进行：
+
+1. 选择 skeleton: neutral、light、dark 或 mixed。
+2. 从 `templates/layouts/` 选择页面 layout。
+3. 从 `templates/components/` 选择组件填入 layout。
+4. 从 `assets/themes/` 选择一个主题 token。
+
 ## License & Author
 
 MIT. Copyright (c) 2026 Saitop at NomiciAI <support@nomici.ai>.

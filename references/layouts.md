@@ -2,6 +2,17 @@
 
 Use simple layouts when the message is the point. Use complex layouts only when the audience must understand multiple moving parts on one page.
 
+## Composition Model
+
+Layouts are page shells. Components are inserted into layout content areas. Themes are applied last.
+
+Use:
+
+1. `templates/neutral-skeleton.html` for structure-first drafting.
+2. `templates/layouts/*.html` for page shells.
+3. `templates/components/*.html` for reusable blocks.
+4. `assets/themes/*.css` for final color direction.
+
 ## Simple Layouts
 
 - Cover: title, subtitle, date/meta, optional client mark.
@@ -37,6 +48,7 @@ Current starter layouts live in `templates/deck.html`: cover, dark cover, sectio
 
 Dedicated skeleton starters:
 
+- `templates/neutral-skeleton.html`
 - `templates/light-skeleton.html`
 - `templates/dark-skeleton.html`
 - `templates/mixed-skeleton.html`
