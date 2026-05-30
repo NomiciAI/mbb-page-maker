@@ -56,4 +56,4 @@ CSS 按职责拆分：
 
 ## License & Author
 
-MIT. Copyright (c) 2026 Saitop at NomiciAI <support@nomici.ai>.
+MIT. Copyright (c) 2026 Saitop at NomiciAI <satiop@nomici.ai>.

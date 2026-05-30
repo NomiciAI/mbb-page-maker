@@ -93,6 +93,10 @@ Authoring is composable:
 3. Fill it with components from `templates/components/`.
 4. Apply one theme from `assets/themes/`.
 
+## Acknowledgements
+
+Inspired by [lewislulu/html-ppt-skill](https://github.com/lewislulu/html-ppt-skill). This project is written from scratch with its own structure, templates, runtime, and design system.
+
 ## License & Author
 
-MIT. Copyright (c) 2026 Saitop at NomiciAI <support@nomici.ai>.
+MIT. Copyright (c) 2026 Saitop at NomiciAI <satiop@nomici.ai>.
