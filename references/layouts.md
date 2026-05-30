@@ -202,11 +202,11 @@ Current gallery layouts live in `templates/deck.html`: cover, dark cover, sectio
 
 Structure-pattern showcase pages live in `templates/showcase/structure-patterns.html`: pyramid stack, cause-effect, outcome-support, diverging textboxes, from-to multi, compass choice, and framework map.
 
-Process-pattern showcase pages live in `templates/showcase/process-patterns.html`: process flow, stage gate, funnel steps, filter cascade, loop cycle, and value chain.
+Process-pattern showcase pages live in `templates/showcase/process-patterns.html`: process flow, stage gate, funnel steps, filter cascade, loop cycle, value chain, cycle/cascading flow, decision flowchart, fishbone, vertical process takeaway, process deep dive, triangle steps, and screen filter grid.
 
-Time-pattern showcase pages live in `templates/showcase/time-patterns.html`: timeline track, horizon bands, journey map, phase roadmap, and milestone track.
+Time-pattern showcase pages live in `templates/showcase/time-patterns.html`: timeline track, horizon bands, journey map, phase roadmap, milestone track, horizon curve, journey arc/wave, Gantt workplan, stair-step timeline, calendar workplan, and schedule list.
 
-Text-pattern showcase pages live in `templates/showcase/text-patterns.html`: large quote, small quote, quote insight, numbered list grid, dense list, decision log, and pros-cons table.
+Text-pattern showcase pages live in `templates/showcase/text-patterns.html`: large quote, small quote, quote insight, quote grid, numbered list grid, dense list, contents card grid, six-column list, conversion list, story block list, step explanation strip, icon outcome grid, wide data table, status table, decision log, and pros-cons table.
 
 Dedicated skeleton starters do not need identical pages; they demonstrate different roles while sharing the same output contract:
 

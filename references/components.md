@@ -19,8 +19,8 @@ Use the component catalog actively. Before authoring HTML, map each planned body
 
 - Numeric section data should become `metric-strip`, `column-chart`, `ranked-bars`, `chart-bars`, `stacked-bars`, `table`, `comparison-table`, `sensitivity-grid`, `heatmap`, `range-comparison-plot`, or `dot-scale-comparison`.
 - Peer/company/industry comparisons should become `comparison-table`, `weighted-scorecard`, `ranked-bars`, `column-chart`, `quadrant-matrix`, `range-comparison-plot`, or `heatmap`.
-- Ordered or phased content should become `timeline`, `phase-roadmap`, `milestone-track`, `process-flow`, `stage-gate`, `cascading-flow`, `cycle-flow`, or `gantt-workplan`.
-- Qualification logic should become `funnel-steps`, `filter-cascade`, or `decision-flowchart`.
+- Ordered or phased content should become `timeline`, `phase-roadmap`, `milestone-track`, `process-flow`, `stage-gate`, `vertical-process-takeaway`, `process-deep-dive`, `cascading-flow`, `cycle-flow`, `step-explanation-strip`, or `gantt-workplan`.
+- Qualification logic should become `funnel-steps`, `filter-cascade`, `screen-filter-grid`, or `decision-flowchart`.
 - Root-cause logic should become `fishbone-cause-effect` when several cause categories explain one effect.
 - Decisions and recommendations should become `weighted-scorecard`, `decision-log`, `pros-cons-table`, `outcome-support`, or `callout` paired with evidence.
 - Portfolio, initiative, or market-option choices should become `portfolio-prioritization-matrix`, `weighted-scorecard`, `quadrant-matrix`, or `comparison-table` depending on whether the evidence is directional, scored, or tabular.
@@ -31,12 +31,12 @@ Evidence shape router:
 - Numeric: use metrics, charts, ranked bars, ranges, heatmaps, or tables only when values and labels are present.
 - Categorical: use cards, catalog grids, bars, heatmaps, or tables depending on whether categories are prose, scored, or measured.
 - Comparison: use comparison tables, weighted scorecards, split-even pages, ranked bars, quadrant matrices, dot-scale comparisons, or range plots.
-- Time: use timelines for dated events, phase roadmaps for implementation, milestone tracks for status, horizon bands or horizon curves for uncertainty and ambition, journey maps or journey arcs for stakeholder progression, and Gantt workplans for workstreams over time.
+- Time: use timelines for dated events, phase roadmaps for implementation, milestone tracks for status, horizon bands or horizon curves for uncertainty and ambition, journey maps, journey arcs, or journey waves for stakeholder progression, stair-step timelines for maturity buildup, calendar workplans for short-cycle day/week plans, schedule lists for timed sessions, and Gantt workplans for workstreams over time.
 - Risk: use risk matrix register when placement and actions matter; use decision log, pros-cons, callout, or table when only prose risk records exist.
 - Decision: use outcome-support, decision-log, comparison-table, compass-choice, pros-cons, or callout paired with evidence.
 - Portfolio: use portfolio-prioritization-matrix when options can be mapped by strategic value and feasibility; use weighted-scorecard when criteria are explicit.
 - Governance: use raci-governance-grid when decisions, roles, forums, and cadence are known; use decision-log when only asks/status are known.
-- Qualitative: use outcome-support, framework-map, issue tree, cause-effect, from-to, numbered-list-grid, dense-list, or callout.
+- Qualitative: use outcome-support, framework-map, issue tree, cause-effect, from-to, numbered-list-grid, dense-list, conversion-list, story-block-list, icon-outcome-grid, or callout.
 
 Fallback rule: if the evidence shape lacks required fields, switch to the simpler qualitative component named in the slide plan or omit the page. Do not invent the missing values to keep a specialized component.
 
@@ -89,9 +89,13 @@ Fallback rule: if the evidence shape lacks required fields, switch to the simple
 - Use `filter-cascade` when each filter explains why options are removed or advanced.
 - Use `loop-cycle` when the work is iterative and learning changes the next cycle.
 - Use `cycle-flow` when the operating loop has 3-5 recurring actions around one core rhythm.
+- Use `vertical-process-takeaway` when ordered steps each need a takeaway, obstacle, or implication.
+- Use `process-deep-dive` when one stage needs detail while the full process remains visible.
 - Use `cascading-flow` when work moves through handoffs or dependencies in a stepped sequence.
 - Use `decision-flowchart` when pass/fail, yes/no, approval, or triage logic changes the path.
 - Use `fishbone-cause-effect` when multiple cause categories explain one performance, risk, or quality effect.
+- Use `triangle-steps` when exactly three mutually reinforcing moves support one outcome.
+- Use `screen-filter-grid` when multiple inputs pass through 2-4 screens into one outcome.
 - Use `value-chain` when activities create, transfer, and improve value across a chain.
 - Use `timeline` for simple chronological events or period markers.
 - Use `horizon-bands` for near/mid/long-term opportunity framing.
@@ -99,6 +103,10 @@ Fallback rule: if the evidence shape lacks required fields, switch to the simple
 - Use `journey-map` when stakeholder experience changes across phases.
 - Use `journey-arc` when adoption, maturity, or user progression improves across named stages.
 - Use `gantt-workplan` when workstreams are mapped across periods and bars show duration.
+- Use `stair-step-timeline` when maturity increases through 4-6 visible steps.
+- Use `journey-wave` when the journey has rises and dips, not a simple upward arc.
+- Use `calendar-workplan` when short-cycle dates or days own the workplan.
+- Use `schedule-list` when a workshop, day plan, or session has time blocks.
 - Use `phase-roadmap` when the implementation path has 3-5 named phases.
 - Use `milestone-track` when status across major milestones is the message.
 - Use `quote-large` when a sourced voice should own the page.
@@ -106,6 +114,10 @@ Fallback rule: if the evidence shape lacks required fields, switch to the simple
 - Use `quote-insight` when the page must translate a quote into an implication.
 - Use `numbered-list-grid` for 4-9 short parallel steps or principles.
 - Use `dense-list` for compact records that do not need a table's column precision.
+- Use `conversion-list` when a sequence converts inputs into signals, actions, and outcomes.
+- Use `story-block-list` when one governing statement needs 3-4 compact proof blocks.
+- Use `step-explanation-strip` when ordered steps need longer explanation than a simple numbered grid.
+- Use `icon-outcome-grid` when 3-6 parallel outcome categories need compact summaries.
 - Use `decision-log` when decisions need owner, timing, and status tracking.
 - Use `pros-cons-table` when options can be compared across pros, cons, and implication.
 
@@ -153,6 +165,10 @@ Do not output components that add no information.
 - Funnel steps: needs a narrowing set, qualification logic, or count reduction. Do not use a funnel for unrelated categories.
 - Filter cascade: needs explicit filter criteria and a resulting set or decision output.
 - Loop cycle: needs repeated iteration. If the process ends once, use `process-flow`.
+- Vertical process takeaway: needs 3-5 ordered steps plus a takeaway, obstacle, or implication that applies across or beside the steps.
+- Process deep dive: needs 3-5 stages and one stage with enough detail to justify the deep-dive panel.
+- Triangle steps: needs exactly 3 mutually reinforcing items around one outcome. Use cards when there are more or fewer items.
+- Screen filter grid: needs 3+ inputs or option sources, 2-4 filter criteria, and one outcome or shortlist.
 - Value chain: needs activities that are linked by value creation or handoff. Avoid it for generic department lists.
 - Timeline: needs dated, period-based, or sequential events. Use `phase-roadmap` if work packages matter more than dates.
 - Horizon bands: needs distinct time horizons or uncertainty horizons. Do not use it for equal peer options.
@@ -178,6 +194,14 @@ Do not output components that add no information.
 - Horizon curve: needs 3-4 horizons that build over time or ambition. Use `horizon-bands` when horizons are equal buckets.
 - Journey arc: needs 4-5 staged progression steps. Use `journey-map` when the key message is high/mid/low experience by phase.
 - Gantt workplan: needs at least 3 workstreams and 3 time periods. Use `phase-roadmap` when exact timing is not known.
+- Stair-step timeline: needs 4-6 ordered maturity or progression steps. Use `timeline` if the message is chronology rather than increasing maturity.
+- Journey wave: needs 4-6 journey stages with explicit rises, dips, friction, or recovery points.
+- Calendar workplan: needs named days, dates, or short-cycle periods plus tasks in each period.
+- Schedule list: needs time blocks plus activity, owner, outcome, or discussion detail. If times are missing, use `simple-agenda-grid`.
+- Conversion list: needs 3-6 conversion nodes that turn one input type into a signal, action, or outcome.
+- Story block list: needs one governing statement plus 3-4 supporting proof blocks. Do not use it for unrelated points.
+- Step explanation strip: needs 4-6 ordered steps with a support sentence for each step.
+- Icon outcome grid: needs 3-6 parallel outcomes with short labels and compact support text.
 
 ## Data Display Router
 
@@ -201,11 +225,11 @@ Do not output components that add no information.
 
 ## Text And Structure Router
 
-- Sequential work: use `process-flow` for ordered steps, `stage-gate` for decision checkpoints, `cascading-flow` for handoffs, `cycle-flow` or `loop-cycle` for iteration, and `value-chain` for handoffs across an operating chain.
-- Narrowing logic: use `funnel-steps` when the set visibly shrinks, `filter-cascade` when criteria explanation matters, and `decision-flowchart` when the path branches.
+- Sequential work: use `process-flow` for ordered steps, `vertical-process-takeaway` when steps need implications, `process-deep-dive` when one stage needs detail, `stage-gate` for decision checkpoints, `cascading-flow` for handoffs, `cycle-flow` or `loop-cycle` for iteration, and `value-chain` for handoffs across an operating chain.
+- Narrowing logic: use `funnel-steps` when the set visibly shrinks, `filter-cascade` when criteria explanation matters, `screen-filter-grid` when multiple inputs pass through screens, and `decision-flowchart` when the path branches.
 - Root-cause logic: use `fishbone-cause-effect` when multiple categories lead to one effect.
-- Time and phases: use `timeline` for chronological events, `phase-roadmap` for implementation phases, `milestone-track` for progress status, `horizon-bands` or `horizon-curve` for near/mid/long-term framing, `journey-map` or `journey-arc` for stakeholder experience, and `gantt-workplan` for workstreams across periods.
-- Lists and decisions: use `numbered-list-grid` for short parallel steps, `contents-card-grid` for module catalogs, `six-column-list` for exactly six compact categories, `dense-list` for compact repeated records, `status-table` for progress records, `decision-log` for governance tracking, and `pros-cons-table` for option tradeoffs.
+- Time and phases: use `timeline` for chronological events, `phase-roadmap` for implementation phases, `milestone-track` for progress status, `horizon-bands` or `horizon-curve` for near/mid/long-term framing, `journey-map`, `journey-arc`, or `journey-wave` for stakeholder experience, `stair-step-timeline` for maturity steps, `calendar-workplan` for short-cycle workplans, `schedule-list` for timed sessions, and `gantt-workplan` for workstreams across periods.
+- Lists and decisions: use `numbered-list-grid` for short parallel steps, `step-explanation-strip` for longer step support, `contents-card-grid` for module catalogs, `six-column-list` for exactly six compact categories, `icon-outcome-grid` for parallel outcomes, `conversion-list` for input-to-outcome sequences, `story-block-list` for one message plus proof, `dense-list` for compact repeated records, `status-table` for progress records, `decision-log` for governance tracking, and `pros-cons-table` for option tradeoffs.
 - Governance: use `raci-governance-grid` when the page must show accountable/responsible/consulted/informed roles plus forum and cadence.
 - Quotes: use `quote-large` only when the quote is the evidence, `quote-small` when the quote supports an exhibit, and `quote-insight` when the implication should be stated beside the quote.
 
@@ -273,17 +297,25 @@ Future passes should expand CV/face-page primitives, richer full-deck examples, 
 | `templates/components/filter-cascade.html` | Filter criteria leading to a shortlist or result. |
 | `templates/components/loop-cycle.html` | Iterative cycle with four repeated actions. |
 | `templates/components/cycle-flow.html` | Recurring operating loop around one core rhythm. |
+| `templates/components/vertical-process-takeaway.html` | Ordered steps paired with a takeaway, obstacle, or implication panel. |
+| `templates/components/process-deep-dive.html` | Stage strip with one highlighted stage and supporting detail. |
 | `templates/components/cascading-flow.html` | Stepped handoff or dependency flow. |
 | `templates/components/decision-flowchart.html` | Branching approval, screening, or triage logic. |
 | `templates/components/fishbone-cause-effect.html` | Multiple cause categories leading to one effect. |
+| `templates/components/triangle-steps.html` | Three mutually reinforcing moves around one outcome. |
+| `templates/components/screen-filter-grid.html` | Multiple inputs, screen criteria, and resulting outcome. |
 | `templates/components/value-chain.html` | Linked value creation activities. |
 | `templates/components/timeline.html` | Chronological events using `.timeline-track`. |
 | `templates/components/horizon-bands.html` | Near/mid/long-term horizon framing. |
 | `templates/components/horizon-curve.html` | Horizons building toward a larger ambition. |
 | `templates/components/journey-map.html` | Stakeholder or customer journey phases. |
 | `templates/components/journey-arc.html` | Upward adoption or maturity progression. |
+| `templates/components/journey-wave.html` | Journey with rises, dips, friction, and recovery points. |
 | `templates/components/phase-roadmap.html` | Four-phase implementation roadmap. |
 | `templates/components/gantt-workplan.html` | Workstreams mapped across time periods. |
+| `templates/components/stair-step-timeline.html` | Maturity or progression steps rising over time. |
+| `templates/components/calendar-workplan.html` | Short-cycle workplan organized by day or date. |
+| `templates/components/schedule-list.html` | Timed agenda or working-session schedule. |
 | `templates/components/milestone-track.html` | Milestones with completion/current states. |
 | `templates/components/quote-large.html` | Full-page quote evidence. |
 | `templates/components/quote-small.html` | Compact supporting quote. |
@@ -293,6 +325,10 @@ Future passes should expand CV/face-page primitives, richer full-deck examples, 
 | `templates/components/contents-card-grid.html` | Module or section catalog cards. |
 | `templates/components/six-column-list.html` | Six compact parallel categories. |
 | `templates/components/dense-list.html` | Compact repeated text records. |
+| `templates/components/conversion-list.html` | Input-to-signal-to-action-to-outcome conversion records. |
+| `templates/components/story-block-list.html` | One governing story block plus compact proof blocks. |
+| `templates/components/step-explanation-strip.html` | Ordered steps with longer support text. |
+| `templates/components/icon-outcome-grid.html` | Parallel outcome categories with compact icon markers. |
 | `templates/components/wide-data-table.html` | Dense analytical table with 5-7 fields. |
 | `templates/components/status-table.html` | Workstream status, risk, and next-action table. |
 | `templates/components/decision-log.html` | Decisions with owner, timing, and status. |
@@ -325,14 +361,14 @@ Bundled headshots in `assets/media/headshots/` are for showcase and full-deck de
 
 - Prefer `blank-content` when the flow owns the page.
 - Use `blank-right-rail` or `blank-right-sidebar` only when the flow needs a compact implication, result, or caveat beside it.
-- Keep step labels parallel and short. Use at most six flow steps, five value-chain links, four funnel bands, five cycle nodes, and five cascading steps unless the page is intentionally dense.
-- Use `process-flow` for sequence, `stage-gate` for approval checkpoints, `filter-cascade` for criteria, `decision-flowchart` for branching, `cycle-flow` or `loop-cycle` only for repeated iteration, and `fishbone-cause-effect` only for cause categories that lead to one effect.
+- Keep step labels parallel and short. Use at most six flow steps, five value-chain links, four funnel bands, five cycle nodes, five cascading steps, five vertical-process steps, and four screen filters unless the page is intentionally dense.
+- Use `process-flow` for sequence, `vertical-process-takeaway` for sequence plus implication, `process-deep-dive` for one highlighted stage, `stage-gate` for approval checkpoints, `filter-cascade` or `screen-filter-grid` for criteria, `decision-flowchart` for branching, `triangle-steps` for three mutually reinforcing moves, `cycle-flow` or `loop-cycle` only for repeated iteration, and `fishbone-cause-effect` only for cause categories that lead to one effect.
 
 ## Time Patterns Composition
 
-- Prefer `blank-content` for `timeline`, `horizon-bands`, `horizon-curve`, `journey-arc`, `phase-roadmap`, `gantt-workplan`, and `milestone-track`.
+- Prefer `blank-content` for `timeline`, `horizon-bands`, `horizon-curve`, `journey-arc`, `journey-wave`, `phase-roadmap`, `gantt-workplan`, `calendar-workplan`, `schedule-list`, `stair-step-timeline`, and `milestone-track`.
 - Use `blank-split-even` only when comparing two timelines or two journey states.
-- Keep roadmaps to 3-5 phases, milestone tracks to 4-6 milestones, journey arcs to 4-5 stages, and Gantt workplans to 3-5 workstreams. Split the page if labels require more than two short lines.
+- Keep roadmaps to 3-5 phases, milestone tracks to 4-6 milestones, journey arcs/waves to 4-5 stages, stair-step timelines to 4-6 steps, calendar workplans to 5-7 periods, and Gantt workplans to 3-5 workstreams. Split the page if labels require more than two short lines.
 - `templates/components/timeline.html` uses `.timeline-track` to avoid changing legacy `.timeline` examples.
 
 ## Text Patterns Composition
@@ -343,6 +379,7 @@ Bundled headshots in `assets/media/headshots/` are for showcase and full-deck de
 - Use `quote-grid` when 3-4 stakeholder voices support a synthesized page message.
 - Use `numbered-list-grid` for short parallel items and `dense-list` for compact repeated records.
 - Use `contents-card-grid` for section catalogs and `six-column-list` for exactly six short parallel categories.
+- Use `conversion-list` when records move from one state to another, `story-block-list` when one message needs proof blocks, `step-explanation-strip` when steps need support text, and `icon-outcome-grid` for compact parallel outcome categories.
 - Use `wide-data-table` and `status-table` only when fields are consistent and the table remains readable inside the safe area.
 - Use `decision-log` and `pros-cons-table` inside `blank-content` or a wide region. Do not put dense tables into narrow sidebars.
 

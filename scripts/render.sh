@@ -235,6 +235,7 @@ inline_package_assets() {
   python3 - "$html_file" <<'PY'
 import base64
 import html as html_lib
+import json
 import mimetypes
 import re
 import sys
@@ -308,8 +309,54 @@ def inline_css_urls(css_text, css_path):
 
     return pattern.sub(repl, css_text)
 
+def html_classes(html_text):
+    classes = set()
+    for match in re.finditer(r"\bclass\s*=\s*(['\"])(.*?)\1", html_text, flags=re.I | re.S):
+        for name in re.split(r"\s+", match.group(2).strip()):
+            if name:
+                classes.add(name)
+    return classes
+
+def component_family_css(path):
+    if path.name != "components.css":
+        return None
+    manifest_path = path.parent / "components" / "manifest.json"
+    if not manifest_path.is_file():
+        return None
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    component_map = manifest.get("components", {})
+    family_map = manifest.get("families", {})
+    used_classes = html_classes(text)
+    used_families = {
+        family
+        for klass, family in component_map.items()
+        if klass in used_classes and family in family_map
+    }
+    if not used_families:
+        return None
+    ordered = ["shared"] + sorted(family for family in used_families if family != "shared")
+    chunks = []
+    for family in ordered:
+        family_path = path.parent / "components" / f"{family}.css"
+        if not family_path.is_file():
+            return None
+        css = family_path.read_text(encoding="utf-8")
+        chunks.append(inline_css_urls(css, family_path))
+    combined = "\n\n".join(chunks).strip()
+    if len(combined) < 500:
+        return None
+    return (
+        f"/* Component CSS families inlined for package: {', '.join(ordered)} */\n"
+        f"{combined}"
+    )
+
 def read_css(path):
-    css = path.read_text(encoding="utf-8")
+    css = component_family_css(path)
+    if css is None:
+        css = path.read_text(encoding="utf-8")
     return inline_css_urls(css, path).replace("</style", "<\\/style")
 
 def read_js(path):
