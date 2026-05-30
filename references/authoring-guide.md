@@ -156,9 +156,9 @@ Alignment and visual balance:
 - `o` toggles overview; Escape exits overview.
 - `?print=1` activates print/export mode, shows all slides, and hides controls.
 
-## Next Conceptual Components
+## Next Pattern Pass
 
-The next Conceptuals & Visuals extraction pass should add these neutral components before theme styling: `pyramid-stack`, `cause-effect`, `outcome-support`, `diverging-textboxes`, and `from-to-multi`.
+Future passes should add only neutral, reusable patterns that are justified by real deck-generation cases. Keep source-inspired taxonomy out of visible page headers and public showcase titles.
 
 ## Asset Path Rule
 

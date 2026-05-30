@@ -227,30 +227,30 @@ Bundled headshots in `assets/media/headshots/` are for showcase and full-deck de
 - Use `simple-agenda-grid` when the source has ordered agenda items without time blocks.
 - Keep agenda item labels short. Move explanatory text to a summary, notes, or outcome component.
 
-## Conceptuals Composition
+## Structure Patterns Composition
 
-- Use conceptual components when the source is structured prose, operating logic, or decision framing rather than numeric data.
-- Prefer `blank-content` when the conceptual component owns the whole page.
+- Use structure components when the source is structured prose, operating logic, or decision framing rather than numeric data.
+- Prefer `blank-content` when the structure component owns the whole page.
 - Use `blank-split-even` only when the page compares two equal conceptual systems.
 - Use `blank-right-sidebar` when the primary concept needs 2-4 implications, caveats, or decision notes.
-- Keep conceptual labels short and parallel. Split the page if boxes require long paragraphs.
-- Do not use conceptual visuals to decorate sparse content; the component must clarify the page message.
+- Keep structure labels short and parallel. Split the page if boxes require long paragraphs.
+- Do not use structure visuals to decorate sparse content; the component must clarify the page message.
 
-## Flows And Filters Composition
+## Process Patterns Composition
 
 - Prefer `blank-content` when the flow owns the page.
 - Use `blank-right-rail` or `blank-right-sidebar` only when the flow needs a compact implication, result, or caveat beside it.
 - Keep step labels parallel and short. Use at most six flow steps, five value-chain links, and four funnel bands unless the page is intentionally dense.
 - Use `process-flow` for sequence, `stage-gate` for approval checkpoints, `filter-cascade` for criteria, and `loop-cycle` only for repeated iteration.
 
-## Timelines And Journeys Composition
+## Time Patterns Composition
 
 - Prefer `blank-content` for `timeline`, `horizon-bands`, `phase-roadmap`, and `milestone-track`.
 - Use `blank-split-even` only when comparing two timelines or two journey states.
 - Keep roadmaps to 3-5 phases and milestone tracks to 4-6 milestones. Split the page if labels require more than two short lines.
 - `templates/components/timeline.html` uses `.timeline-track` to avoid changing legacy `.timeline` examples.
 
-## Tables, Lists, And Quotes Composition
+## Text Patterns Composition
 
 - Use `quote-large` on a full blank page when the quote is the main evidence.
 - Use `quote-small` inside a sidebar, rail, or small stack when another exhibit owns the page.

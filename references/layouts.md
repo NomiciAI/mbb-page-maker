@@ -117,7 +117,7 @@ Overflow rules:
 - Heatmap assessment: capability/maturity/fit data with row and column categories.
 - Diverging heatmap: use blank-content and keep rows/columns bounded; split across pages if labels or cells overflow.
 - Data dashboard: headline metrics plus 1-2 supporting exhibits.
-- Conceptual pages: use blank-content for one framework or diagram, split-even for balanced contrasts, and right-sidebar only when implications must sit beside the concept.
+- Structure pages: use blank-content for one framework or diagram, split-even for balanced contrasts, and right-sidebar only when implications must sit beside the concept.
 - Flows and funnels: use blank-content for the main sequence, right-rail only for a compact result or caveat.
 - Timelines and journeys: use blank-content for one chronology or roadmap, split-even only for side-by-side comparisons.
 - Tables, lists, and quotes: use wide blank-content for tables, sidebars for small quotes, and full blank pages for large quotes.
@@ -144,7 +144,7 @@ Agenda and objectives snippets include `content-catalog.html`, `meeting-objectiv
 
 Use complex layouts only when the source material has enough structure. If the user gives prose without drivers, values, phases, or dimensions, use cards, statement, or a blank structured shell instead.
 
-Conceptual composition rules:
+Structure composition rules:
 
 - Use `pyramid-stack` for hierarchy, not for unordered categories.
 - Use `cause-effect` only when the causal link is the point of the page.
@@ -155,7 +155,7 @@ Conceptual composition rules:
 - Use `funnel-steps` or `filter-cascade` only when the source has narrowing logic.
 - Use `timeline`, `phase-roadmap`, `milestone-track`, or `horizon-bands` when timing or staged progress is the organizing logic.
 
-Flow, timeline, and table composition rules:
+Process, time, and text composition rules:
 
 - `blank-content` is the default safe shell for a single flow, funnel, roadmap, table, or large quote.
 - `blank-right-rail` works when a wide exhibit needs a compact legend, implication, or result note.
@@ -174,13 +174,13 @@ Flow, timeline, and table composition rules:
 
 Current gallery layouts live in `templates/deck.html`: cover, dark cover, section divider, agenda, split shell, content primitives, statement, media split, quote, table/roadmap, KPI strip, 2x2 matrix, issue tree, waterfall, roadmap swimlane, and profile primitives.
 
-Conceptual showcase pages live in `templates/showcase/conceptuals.html`: pyramid stack, cause-effect, outcome-support, diverging textboxes, from-to multi, compass choice, and framework map.
+Structure-pattern showcase pages live in `templates/showcase/structure-patterns.html`: pyramid stack, cause-effect, outcome-support, diverging textboxes, from-to multi, compass choice, and framework map.
 
-Flow showcase pages live in `templates/showcase/flows.html`: process flow, stage gate, funnel steps, filter cascade, loop cycle, and value chain.
+Process-pattern showcase pages live in `templates/showcase/process-patterns.html`: process flow, stage gate, funnel steps, filter cascade, loop cycle, and value chain.
 
-Timeline showcase pages live in `templates/showcase/timelines.html`: timeline track, horizon bands, journey map, phase roadmap, and milestone track.
+Time-pattern showcase pages live in `templates/showcase/time-patterns.html`: timeline track, horizon bands, journey map, phase roadmap, and milestone track.
 
-Tables/lists/quotes showcase pages live in `templates/showcase/tables-lists-quotes.html`: large quote, small quote, quote insight, numbered list grid, dense list, decision log, and pros-cons table.
+Text-pattern showcase pages live in `templates/showcase/text-patterns.html`: large quote, small quote, quote insight, numbered list grid, dense list, decision log, and pros-cons table.
 
 Dedicated skeleton starters do not need identical pages; they demonstrate different roles while sharing the same output contract:
 
