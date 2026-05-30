@@ -23,6 +23,7 @@ Components should be structure-first:
 - Use `illustration-orbit` when the page needs neutral visual support without external assets.
 - Use `profile` for team, expert, or stakeholder pages.
 - Use `contact-card` only when the input contains real contact records.
+- Use `column-chart` for one categorical series when vertical comparison is appropriate and labels are short.
 - Use `chart-bars` when the input contains labeled numeric categories.
 - Use `ranked-bars` for ordered categorical ranking.
 - Use `stacked-bars` for composition across categories.
@@ -37,6 +38,7 @@ Do not output components that add no information.
 - Contact card: needs a name plus at least one supporting field such as role, location, team, email, or responsibility.
 - Contact roster page: needs at least 3 usable contact records. If fewer, use a compact card group inside another page or omit.
 - Principal contacts: only mark contacts as principal when the user supplies that grouping or a clear equivalent.
+- Column chart: needs at least 2 labeled numeric values. Use at most one `.is-highlight` item unless the user explicitly asks to compare multiple focus categories.
 - Bar chart: needs at least 2 labeled numeric values. If exact numeric values matter more than visual comparison, use a table.
 - Ranked bars: needs sortable numeric values.
 - Stacked bars: needs category parts that sum to a meaningful total.
@@ -53,7 +55,7 @@ Do not output components that add no information.
 ## Data Display Router
 
 - Time series: use a line chart pattern when available; until then, use a table or bar chart only if it remains honest.
-- Categorical comparison: use `ranked-bars` for visual ranking, `chart-bars` for unsorted categories, or `table` for exact values and many fields.
+- Categorical comparison: use `column-chart` for a compact single-series vertical comparison with short labels, `ranked-bars` for visual ranking, `chart-bars` for horizontal category labels, or `table` for exact values and many fields.
 - Part-to-whole: use `stacked-bars` for category composition; use a table when percentages need exact auditability.
 - Two-dimensional opportunity: use `scatter-plot` if both axes are numeric, or `matrix-prioritization` if the axes are qualitative.
 - Capability/maturity assessment: use `heatmap`.
@@ -79,6 +81,7 @@ Do not output components that add no information.
 | `templates/components/illustration-orbit.html` | Neutral abstract illustration. |
 | `templates/components/profile.html` | Profile row with generated avatar placeholder. |
 | `templates/components/contact-card.html` | Single contact with optional photo. |
+| `templates/components/column-chart.html` | Single-series vertical category chart with optional highlighted column. |
 | `templates/components/chart-bars.html` | Static categorical bar chart. |
 | `templates/components/ranked-bars.html` | Ordered categorical ranking. |
 | `templates/components/stacked-bars.html` | Composition bars. |
@@ -119,6 +122,16 @@ Use `templates/layouts/blank-content.html` when one component owns the whole con
   </footer>
 </section>
 ```
+
+For a single-series chart page:
+
+```html
+<div class="content">
+  <!-- paste templates/components/column-chart.html here -->
+</div>
+```
+
+Use `.is-highlight` on one column only when the title or narrative calls attention to that category. The theme controls the highlight color.
 
 Use one content area with a small stack when components support the same message:
 

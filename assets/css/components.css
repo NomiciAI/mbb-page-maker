@@ -599,6 +599,91 @@
   background: color-mix(in srgb, var(--color-panel) 82%, #fff);
 }
 
+.chart-block {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 24px;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.chart-heading {
+  display: grid;
+  gap: 4px;
+}
+
+.chart-heading h3 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.14;
+}
+
+.chart-heading p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.column-chart {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 14px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.column-plot,
+.column-labels {
+  display: grid;
+  grid-template-columns: repeat(var(--count, 6), minmax(0, 1fr));
+  gap: clamp(14px, 3vw, 56px);
+}
+
+.column-plot {
+  min-height: 260px;
+  border-bottom: 1px solid var(--color-line);
+  padding: 16px 18px 0;
+  overflow: hidden;
+}
+
+.column-item {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.column-value {
+  margin-bottom: 8px;
+  font-size: 19px;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.column-bar {
+  width: min(76px, 72%);
+  height: var(--value);
+  min-height: 2px;
+  background: var(--chart-series-1, var(--color-text));
+}
+
+.column-item.is-highlight .column-bar {
+  background: var(--chart-highlight, var(--color-accent));
+}
+
+.column-label {
+  min-width: 0;
+  color: var(--color-text);
+  font-size: 18px;
+  line-height: 1.15;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
 .bar-chart {
   display: grid;
   gap: 14px;
@@ -843,6 +928,8 @@
   .agenda-table,
   .simple-agenda,
   .simple-agenda-grid,
+  .column-plot,
+  .column-labels,
   .metric-strip,
   .timeline,
   .profile-grid,
