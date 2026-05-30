@@ -189,6 +189,29 @@ body:not(.is-print):not(.is-overview) .slide {
   overflow: hidden;
 }
 
+.content.is-vertically-centered,
+.content[data-align-y="center"] {
+  display: grid;
+  align-content: center;
+}
+
+.content.is-vertically-centered > *,
+.content[data-align-y="center"] > * {
+  min-width: 0;
+  max-height: 100%;
+}
+
+.content.is-vertically-centered > .framework-map,
+.content.is-vertically-centered > .process-flow,
+.content.is-vertically-centered > .timeline-track,
+.content.is-vertically-centered > .phase-roadmap,
+.content[data-align-y="center"] > .framework-map,
+.content[data-align-y="center"] > .process-flow,
+.content[data-align-y="center"] > .timeline-track,
+.content[data-align-y="center"] > .phase-roadmap {
+  height: auto;
+}
+
 .footer {
   display: flex;
   align-items: center;

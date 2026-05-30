@@ -294,7 +294,7 @@ Use `templates/layouts/blank-content.html` when one component owns the whole con
     <h2 class="slide-title">Agenda</h2>
     <div class="slide-rule"></div>
   </header>
-  <div class="content">
+  <div class="content is-vertically-centered">
     <!-- paste templates/components/simple-agenda-grid.html here -->
   </div>
   <footer class="footer">
@@ -307,12 +307,14 @@ Use `templates/layouts/blank-content.html` when one component owns the whole con
 For a single-series chart page:
 
 ```html
-<div class="content">
+<div class="content is-vertically-centered">
   <!-- paste templates/components/column-chart.html here -->
 </div>
 ```
 
 Use `.is-highlight` on one column only when the title or narrative calls attention to that category. The theme controls the highlight color.
+
+Use `.content.is-vertically-centered` for compact single-component pages when the component would otherwise sit near the top with a large empty lower half. Do not use it for dense dashboards or multi-region pages that already fill the safe area.
 
 Use one content area with a small stack when components support the same message:
 
