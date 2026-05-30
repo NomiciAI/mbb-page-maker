@@ -102,9 +102,14 @@ Overflow rules:
 - KPI strip: 3-5 executive metrics with short labels.
 - Table plus roadmap: dense content with structured hierarchy.
 - 2x2 matrix: prioritization or segmentation.
+- Risk matrix plus register: use a wide content area or right-sidebar shell only when action tracking is needed.
+- Range/competency chart: use a wide content area because row labels, gaps, and scale markers need horizontal space.
+- Dot-scale or range comparison: use a wide content area; add a sidebar only for interpretation notes.
+- Pie/donut split: use split-even or blank-content when the total and legend can remain legible.
 - Contact roster: only when the user provides enough real contact data.
 - Chart and takeaways: one chart plus 2-4 implications.
 - Heatmap assessment: capability/maturity/fit data with row and column categories.
+- Diverging heatmap: use blank-content and keep rows/columns bounded; split across pages if labels or cells overflow.
 - Data dashboard: headline metrics plus 1-2 supporting exhibits.
 
 Medium pages usually combine one dominant component with supporting components. Keep the page logic top-down: title first, exhibit second, implications third.

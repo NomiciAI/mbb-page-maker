@@ -24,10 +24,18 @@ Components should be structure-first:
 - Use `profile` for team, expert, or stakeholder pages.
 - Use `contact-card` only when the input contains real contact records.
 - Use `column-chart` for one categorical series when vertical comparison is appropriate and labels are short.
+- Use `quadrant-matrix` for qualitative 2x2 prioritization, segmentation, or portfolio positioning.
+- Use `risk-matrix-register` when risk placement must be paired with owners, mitigations, scores, or next actions.
+- Use `range-competency-chart` when capabilities have current and target levels on the same numeric scale.
+- Use `dot-scale-comparison` for relative positioning on a shared scale when exact axis precision is secondary.
+- Use `range-comparison-plot` for benchmark ranges, peer min/max bands, or confidence intervals with a current marker.
+- Use `pie-chart` only for a small number of part-to-whole splits where the total is explicit.
+- Use `donut-chart` when the center message matters as much as the part-to-whole split.
 - Use `chart-bars` when the input contains labeled numeric categories.
 - Use `ranked-bars` for ordered categorical ranking.
 - Use `stacked-bars` for composition across categories.
 - Use `heatmap` for capability, maturity, fit, or assessment scores across two categorical dimensions.
+- Use `diverging-heatmap` when values can move below and above a neutral midpoint.
 - Use `scatter-plot` when the data has two numeric dimensions.
 - Use `comparison-table` when options must be compared across consistent criteria.
 
@@ -51,14 +59,26 @@ Do not output components that add no information.
 - Objective list: needs at least 3 objectives or agenda items. Highlight only one item unless the user asks for multiple focus areas.
 - Agenda table: needs time blocks plus topic, outcome, owner, or speaker fields. If times are missing, use `simple-agenda-grid`.
 - Simple agenda grid: use for 3-9 items with short parallel labels.
+- Quadrant matrix: needs two meaningful dimensions and at least one point, option, segment, or initiative. Do not use a quadrant when only a ranked list is needed.
+- Risk matrix with register: needs risk names plus at least one of owner, mitigation, status, score, likelihood, or impact. Use a plain table if the user only provides a risk list.
+- Range competency chart: needs a shared numeric or ordinal scale and at least two capabilities. Current and target markers must mean the same thing across rows.
+- Dot-scale comparison: needs a common left-to-right interpretation for every row. If rows use different scales, use a table.
+- Range comparison plot: needs min/max or low/high values plus a marker or target. Do not invent ranges from single-point data.
+- Pie chart: needs parts that sum to a meaningful total, ideally 2-5 slices. Use a table for more slices or small differences.
+- Donut chart: needs a center message or total that adds context. Otherwise use `pie-chart` or `stacked-bars`.
+- Diverging heatmap: needs a neutral midpoint and categorical rows/columns. Use regular `heatmap` for one-direction scores.
 
 ## Data Display Router
 
 - Time series: use a line chart pattern when available; until then, use a table or bar chart only if it remains honest.
 - Categorical comparison: use `column-chart` for a compact single-series vertical comparison with short labels, `ranked-bars` for visual ranking, `chart-bars` for horizontal category labels, or `table` for exact values and many fields.
-- Part-to-whole: use `stacked-bars` for category composition; use a table when percentages need exact auditability.
-- Two-dimensional opportunity: use `scatter-plot` if both axes are numeric, or `matrix-prioritization` if the axes are qualitative.
-- Capability/maturity assessment: use `heatmap`.
+- Part-to-whole: use `pie-chart` or `donut-chart` for one or two simple splits, `stacked-bars` for composition across many categories, and `table` when percentages need exact auditability.
+- Two-dimensional opportunity: use `scatter-plot` if both axes are numeric, or `quadrant-matrix` if the axes are qualitative.
+- Risk view: use `risk-matrix-register` when likelihood/impact placement and action tracking both matter.
+- Capability/maturity assessment: use `heatmap` for one-direction scores or `range-competency-chart` when current-vs-target gaps are the message.
+- Benchmark spread: use `range-comparison-plot` for min/max, confidence interval, peer range, or low/base/high inputs.
+- Relative scorecard: use `dot-scale-comparison` when every row can share the same left-to-right scale.
+- Diverging categorical data: use `diverging-heatmap` for negative-to-positive movement or below/above-neutral measures.
 - Option evaluation: use `comparison-table`.
 - Few headline KPIs: use `metric-strip`.
 - Many records with mixed fields: use `table`.
@@ -82,6 +102,14 @@ Do not output components that add no information.
 | `templates/components/profile.html` | Profile row with generated avatar placeholder. |
 | `templates/components/contact-card.html` | Single contact with optional photo. |
 | `templates/components/column-chart.html` | Single-series vertical category chart with optional highlighted column. |
+| `templates/components/quadrant-matrix.html` | Qualitative 2x2 matrix with points and legend. |
+| `templates/components/risk-matrix-register.html` | Impact/likelihood matrix plus action-oriented register. |
+| `templates/components/range-competency-chart.html` | Current vs. target capability rows on a shared scale. |
+| `templates/components/dot-scale-comparison.html` | Dot-on-line relative comparison rows. |
+| `templates/components/range-comparison-plot.html` | Benchmark range bands with current markers and notes. |
+| `templates/components/pie-chart.html` | One or two compact part-to-whole pie splits. |
+| `templates/components/donut-chart.html` | Donut split with a center message and legend. |
+| `templates/components/diverging-heatmap.html` | Negative-neutral-positive heatmap with legend. |
 | `templates/components/chart-bars.html` | Static categorical bar chart. |
 | `templates/components/ranked-bars.html` | Ordered categorical ranking. |
 | `templates/components/stacked-bars.html` | Composition bars. |
