@@ -97,6 +97,8 @@ CSS is intentionally split by responsibility:
 
 Generated source decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no source build step. Final `scripts/render.sh --package` output inlines local CSS, JavaScript, and media into `package/index.html` so the HTML file can be opened by a browser on its own.
 
+Final packages are verified as self-contained: no external stylesheet links, external scripts, CSS imports, or non-embedded media URLs. Use built-in static components instead of CDN chart/runtime dependencies.
+
 The base layout and component library is structure-first. Themes, showcase pages, or deliberate variants carry color, image treatment, and decorative effects.
 
 Authoring is composable:

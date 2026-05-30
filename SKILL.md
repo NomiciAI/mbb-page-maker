@@ -34,6 +34,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Use `templates/layouts/default-*.html` for opening, centered transition, centered message, headline metric, and ending pages.
 - Use `templates/layouts/blank-*.html` for ordinary structure-first pages before adding specialized components.
 - Normalize relative asset paths after copying snippets into a deck.
+- Do not add CDN scripts, remote images, dynamic module loaders, or runtime dependencies that cannot be embedded into the final package.
 - Do not copy proprietary logos, company names, confidentiality statements, or source-identifying marks from reference decks into generated HTML.
 
 ## Design System Layers
@@ -60,6 +61,8 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 Do not create filler pages. If the user input does not contain enough structured content for a specialized layout, use a simpler layout or omit the page.
 
 Do not bury structured data in prose. If the source material contains usable numbers, comparisons, rankings, time phases, risks, decisions, or categories, route them to an appropriate component. A data-rich section should not become only cards or a section divider.
+
+Delivery must fail fast instead of shipping partial files. The package exporter verifies that `dist/package/index.html` has no external stylesheets, external scripts, or non-embedded media resources. If that check fails, replace the dependency with static HTML/CSS/SVG, local media that can be inlined, or a built-in component before delivery.
 
 Avoid pure section-divider pages in short generated decks. When the user asks for only a few sections, either omit dividers or turn them into useful section-intro pages with 2-4 data signals, a catalog, or a summary component. A divider is acceptable only when it creates needed pacing in a longer deck.
 

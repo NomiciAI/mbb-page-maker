@@ -114,22 +114,43 @@ mkdir -p "$out_dir"
 append_query() {
   local url="$1"
   local query="$2"
-  if [[ "$url" == *"?"* ]]; then
-    printf '%s&%s' "$url" "$query"
+  local base="$url"
+  local hash=""
+  if [[ "$base" == *"#"* ]]; then
+    hash="#${base#*#}"
+    base="${base%%#*}"
+  fi
+  if [[ "$base" == *"?"* ]]; then
+    printf '%s&%s%s' "$base" "$query" "$hash"
   else
-    printf '%s?%s' "$url" "$query"
+    printf '%s?%s%s' "$base" "$query" "$hash"
   fi
 }
 
 count_slides() {
   if [[ -n "$input_path" ]]; then
-    local count
-    count="$(rg -o '<section[^>]+class="[^"]*slide' "$input_path" | wc -l | tr -d ' ')"
-    if [[ -z "$count" || "$count" == "0" ]]; then
-      echo 1
-    else
-      echo "$count"
-    fi
+    python3 - "$input_path" <<'PY'
+from html.parser import HTMLParser
+from pathlib import Path
+import sys
+
+class SlideCounter(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.count = 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() != "section":
+            return
+        values = dict(attrs)
+        classes = values.get("class", "")
+        if "slide" in classes.split():
+            self.count += 1
+
+parser = SlideCounter()
+parser.feed(Path(sys.argv[1]).read_text(encoding="utf-8"))
+print(parser.count or 1)
+PY
   else
     echo "${SLIDE_COUNT:-1}"
   fi
@@ -301,11 +322,90 @@ def replace_media_tag(match):
     replacement = f"src={quote}{data_uri(path)}{quote}"
     return tag[:src_match.start()] + replacement + tag[src_match.end():]
 
+def replace_style_block(match):
+    open_tag, css, close_tag = match.groups()
+    return open_tag + inline_css_urls(css, html_dir).replace("</style", "<\\/style") + close_tag
+
 text = re.sub(r"<link\b[^>]*>", replace_link, text, flags=re.I | re.S)
 text = re.sub(r"<script\b[^>]*\bsrc\s*=\s*(['\"]).*?\1[^>]*>\s*</script>", replace_script, text, flags=re.I | re.S)
 text = re.sub(r"<(?:img|source|video|audio|track|iframe|embed)\b[^>]*>", replace_media_tag, text, flags=re.I | re.S)
+text = re.sub(r"(<style\b[^>]*>)(.*?)(</style>)", replace_style_block, text, flags=re.I | re.S)
 
 html_path.write_text(text, encoding="utf-8")
+PY
+}
+
+verify_package_index() {
+  local html_file="$1"
+  python3 - "$html_file" <<'PY'
+import re
+import sys
+from html.parser import HTMLParser
+from pathlib import Path
+
+html_path = Path(sys.argv[1])
+text = html_path.read_text(encoding="utf-8")
+failures = []
+
+def resource_value_is_embedded(value):
+    if not value:
+        return True
+    value = value.strip()
+    return value.startswith(("data:", "#", "mailto:", "tel:"))
+
+def check_srcset(value, label):
+    for item in value.split(","):
+        candidate = item.strip().split()
+        if candidate and not resource_value_is_embedded(candidate[0]):
+            failures.append(f"{label} uses non-embedded srcset resource: {candidate[0]}")
+
+class ResourceChecker(HTMLParser):
+    resource_tags = {"img", "source", "video", "audio", "track", "iframe", "embed", "object"}
+
+    def handle_starttag(self, tag, attrs):
+        tag = tag.lower()
+        values = {name.lower(): value for name, value in attrs}
+        if tag == "link":
+            rel = (values.get("rel") or "").lower().split()
+            if "stylesheet" in rel or "icon" in rel or "preload" in rel:
+                href = values.get("href")
+                if not resource_value_is_embedded(href):
+                    failures.append(f"<link rel='{values.get('rel')}'> is not embedded: {href}")
+        if tag == "script":
+            src = values.get("src")
+            if src:
+                failures.append(f"<script> uses external src: {src}")
+        if tag in self.resource_tags:
+            attr = "data" if tag == "object" else "src"
+            value = values.get(attr)
+            if value and not resource_value_is_embedded(value):
+                failures.append(f"<{tag}> uses non-embedded {attr}: {value}")
+            if values.get("srcset"):
+                check_srcset(values["srcset"], f"<{tag}>")
+        if values.get("style"):
+            for url in re.findall(r"url\((['\"]?)(.*?)\1\)", values["style"], flags=re.I):
+                raw = url[1].strip()
+                if raw and not resource_value_is_embedded(raw):
+                    failures.append(f"inline style uses non-embedded url(): {raw}")
+
+parser = ResourceChecker()
+parser.feed(text)
+
+for style in re.findall(r"<style\b[^>]*>(.*?)</style>", text, flags=re.I | re.S):
+    if re.search(r"@import\b", style, flags=re.I):
+        failures.append("<style> contains @import")
+    for url in re.findall(r"url\((['\"]?)(.*?)\1\)", style, flags=re.I):
+        raw = url[1].strip()
+        if raw and not resource_value_is_embedded(raw):
+            failures.append(f"<style> uses non-embedded url(): {raw}")
+
+if failures:
+    print("Package verification failed:", file=sys.stderr)
+    for failure in failures[:20]:
+        print(f"- {failure}", file=sys.stderr)
+    if len(failures) > 20:
+        print(f"- ... {len(failures) - 20} more", file=sys.stderr)
+    sys.exit(1)
 PY
 }
 
@@ -336,6 +436,7 @@ PY
   fi
   rewrite_asset_paths "${package_dir}/index.html" "$input_dir" "$package_dir" "$skill_root"
   inline_package_assets "${package_dir}/index.html"
+  verify_package_index "${package_dir}/index.html"
   package_index="${package_dir}/index.html"
   echo "Package: ${package_dir}/index.html"
 }

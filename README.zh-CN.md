@@ -60,6 +60,8 @@ CSS 按职责拆分：
 
 源 HTML 的 CSS/JS 保持静态分层：`fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, 一个 theme 文件，再加 `runtime.js`。不做源码 build。最终 `scripts/render.sh --package` 会把本地 CSS、JS 和媒体资源内联进 `package/index.html`，让这个 HTML 文件可以被浏览器单独打开。
 
+最终 package 会校验为自包含文件：不允许外部 stylesheet、外部 script、CSS `@import` 或未内联的媒体 URL。图表和视觉组件优先使用内置静态 HTML/CSS/SVG，不依赖 CDN runtime。
+
 `starter-deck.html` 保持轻量：标题封面、简单 agenda/context、空白内容页、ending。普通内容页默认从空白内容页开始，再按用户数据组合 layout 和 component。各 skeleton 不需要页面完全一致，只需要遵守同一个 16:9 slide contract 和输出文件顺序。
 
 ## 致谢
