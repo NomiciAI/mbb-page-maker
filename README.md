@@ -17,7 +17,7 @@ Design constraints:
 ## Install
 
 ```bash
-npx skills add NomiciAI/mbb-page-maker
+npx skills add https://github.com/NomiciAI/mbb-page-maker
 ```
 
 Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker)

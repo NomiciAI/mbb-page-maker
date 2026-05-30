@@ -17,7 +17,7 @@
 ## 安装
 
 ```bash
-npx skills add NomiciAI/mbb-page-maker
+npx skills add https://github.com/NomiciAI/mbb-page-maker
 ```
 
 GitHub 仓库：[NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker)
