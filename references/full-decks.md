@@ -34,11 +34,12 @@ When the user gives limited context, do not ask them to design the deck page by 
 
 1. Identify the audience and likely decision: investor, board, executive, workshop, operating team, or diligence reader.
 2. Build an evidence inventory: numeric values, percentages, rankings, comparisons, time periods, risks, customer/market claims, and named uncertainties.
-3. Group the evidence into 2-5 mutually distinct sections.
-4. Pick the closest deck archetype below and inspect the closest `templates/full-decks/*` exemplar for pacing and page density.
-5. Draft an answer-first storyline: answer, why now, proof, implications, risks, and next decisions.
-6. Map every body slide to one layout and at least one component. If a slide has data but no component, revise the plan before writing HTML.
-7. Build, audit, package, and export.
+3. Separate user-provided evidence from assumptions and any approved external data.
+4. Group the evidence into 2-5 mutually distinct sections.
+5. Pick the closest deck archetype below and inspect the closest `templates/full-decks/*` exemplar for pacing and page density.
+6. Draft an answer-first storyline: answer, why now, proof, implications, risks, and next decisions.
+7. Map every body slide to one layout, at least one component, and one fallback if evidence is insufficient. If a slide has data but no component, revise the plan before writing HTML.
+8. Build, audit, package, and export.
 
 Evidence-to-page routing:
 
@@ -57,6 +58,7 @@ No-data fallback:
 - If there are no comparable records, do not create tables or matrices.
 - If there are no dates or ordered phases, do not create timelines or roadmaps.
 - Use qualitative layouts for sparse inputs, and label open questions as assumptions, risks, or decisions to validate.
+- Do not browse for external data unless the user explicitly requests it or grants permission after being asked.
 
 ## Deck-Level Rules
 

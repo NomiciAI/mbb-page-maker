@@ -29,7 +29,7 @@ GitHub 仓库：[NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-m
 核心结构分成五层：
 
 - `SKILL.md`: AgentSkill 入口和调度规则。
-- `references/`: 主题、布局、完整 deck 结构和写作流程。
+- `references/`: 主题、布局、咨询式思考流程、完整 deck 结构和写作流程。
 - `assets/`: 静态 HTML PPT runtime、CSS design system、主题 token。
 - `templates/`: `starter-deck.html`、design-system gallery、full-deck exemplars、light/dark/mixed/neutral skeleton 和布局模板。
 - `scripts/`: 新建 deck、字体刷新、full-deck demo 同步、可见性检查和导出 PNG/PDF/HTML。

@@ -33,6 +33,7 @@ mbb-page-maker/
 ├── README.zh-CN.md
 ├── references/
 │   ├── authoring-guide.md
+│   ├── consulting-thinking.md
 │   ├── adding-patterns.md
 │   ├── components.md
 │   ├── layouts.md

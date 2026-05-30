@@ -24,16 +24,18 @@ Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker
 For real deck work, follow this path in order:
 
 1. Read `references/authoring-guide.md` before creating or materially rewriting a deck.
-2. For full decks, read `references/full-decks.md` and inspect the closest exemplar in `templates/full-decks/` before writing HTML.
-3. Start from `templates/starter-deck.html` or the user's existing deck. Do not start from a blank file.
-4. Extract an evidence inventory from the user's material: claims, numbers, comparisons, time periods, risks, decisions, and open gaps.
-5. Pass the pattern selection gate: choose audience, decision, output length, theme default, closest full-deck exemplar, and evidence-to-page route.
-6. Create a short slide plan before writing HTML: page message, evidence, layout, component, and output purpose.
-7. Use `references/layouts.md`, `references/components.md`, and `references/themes.md` only when choosing from those catalogs.
-8. Assemble slides using existing CSS layers, layout shells, components, and theme tokens.
-9. Run `scripts/check-deck-quality.sh path/to/index.html` and `scripts/check-deck-contrast.sh path/to/index.html`; fix failures.
-10. Run `scripts/render.sh path/to/index.html` unless the user explicitly asks for source HTML only.
-11. Deliver `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` as the default share set.
+2. For strategy, board, investment, pitch, transformation, or full-deck work, read `references/consulting-thinking.md`.
+3. For full decks, read `references/full-decks.md` and inspect the closest exemplar in `templates/full-decks/` before writing HTML.
+4. Start from `templates/starter-deck.html` or the user's existing deck. Do not start from a blank file.
+5. Extract an evidence inventory from the user's material: claims, numbers, comparisons, time periods, risks, decisions, and open gaps.
+6. Pass the source fidelity gate: every body slide must use user-provided evidence, clearly marked assumptions, or approved external data.
+7. Pass the pattern selection gate: choose audience, decision, output length, theme default, closest full-deck exemplar, and evidence-to-page route.
+8. Create a short slide plan before writing HTML: message, evidence source, evidence shape, layout, component, fallback, and output role.
+9. Use `references/layouts.md`, `references/components.md`, and `references/themes.md` only when choosing from those catalogs.
+10. Assemble slides using existing CSS layers, layout shells, components, and theme tokens.
+11. Run `scripts/check-deck-quality.sh path/to/index.html` and `scripts/check-deck-contrast.sh path/to/index.html`; fix failures.
+12. Run `scripts/render.sh path/to/index.html` unless the user explicitly asks for source HTML only.
+13. Deliver `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` as the default share set.
 
 If any export step fails, fix the source deck or dependency problem and rerun the same command. Do not hand-wave missing package assets, PDF, PNGs, or audit failures.
 
@@ -48,7 +50,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Use the CSS layers in order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, then one file from `assets/themes/`.
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
-- Read `references/layouts.md`, `references/components.md`, `references/themes.md`, `references/full-decks.md`, `references/adding-patterns.md`, or `references/asset-sourcing.md` only when that catalog is needed.
+- Read `references/consulting-thinking.md`, `references/layouts.md`, `references/components.md`, `references/themes.md`, `references/full-decks.md`, `references/adding-patterns.md`, or `references/asset-sourcing.md` only when that catalog is needed.
 - Run `scripts/check-deck-quality.sh path/to/deck.html` and `scripts/check-deck-contrast.sh path/to/deck.html` before final delivery.
 - Unless the user asks for HTML only, run `scripts/render.sh path/to/deck.html` and deliver the self-contained package `index.html`, PDF, and PNG slide images.
 - Use `templates/layouts/default-*.html` for opening, centered transition, centered message, headline metric, and ending pages.
@@ -71,16 +73,17 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 
 1. Start from `templates/starter-deck.html` for generated decks; use skeleton files only as role-specific references.
 2. Infer the communication task from the user's prompt and source material.
-3. For full decks, read `references/full-decks.md` and inspect the closest full-deck exemplar under `templates/full-decks/`.
-4. Apply the consulting authoring gate. If the user gives enough material, do not ask them to design pages; infer the audience, decision, output length, default theme, closest exemplar, and evidence routes. Ask only when the audience, decision, or constraints are genuinely missing.
-5. Read `references/components.md` and create a slide plan before writing HTML. Each planned slide needs: message title, source evidence used, layout, component(s), and output purpose.
-6. Write answer-first slide titles and build a coherent storyline before polishing visuals.
-7. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
-8. Choose reusable components from `templates/components/` using `references/components.md`.
-9. Apply one theme file from `assets/themes/`.
-10. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
-11. Run the deck quality and contrast audits; fix empty section pages, missing evidence components, and failed text/background pairs.
-12. Render the default self-contained HTML package, PDF, and PNG slide images unless the user explicitly asked for HTML only.
+3. For strategy, board, investment, pitch, transformation, or full-deck work, apply `references/consulting-thinking.md`.
+4. For full decks, read `references/full-decks.md` and inspect the closest full-deck exemplar under `templates/full-decks/`.
+5. Apply the consulting authoring gate. If the user gives enough material, do not ask them to design pages; infer the audience, decision, output length, default theme, closest exemplar, and evidence routes. Ask only when the audience, decision, hard constraints, or permission to use external data are genuinely missing.
+6. Read `references/components.md` and create a slide plan before writing HTML. Each planned slide needs: message title, evidence source, evidence shape, layout, component(s), fallback, and output role.
+7. Write answer-first slide titles and build a coherent storyline before polishing visuals.
+8. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
+9. Choose reusable components from `templates/components/` using `references/components.md`.
+10. Apply one theme file from `assets/themes/`.
+11. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
+12. Run the deck quality and contrast audits; fix empty section pages, missing evidence components, and failed text/background pairs.
+13. Render the default self-contained HTML package, PDF, and PNG slide images unless the user explicitly asked for HTML only.
 
 Prefer editing the deck and rerunning deterministic scripts over explaining how the user could do it manually.
 
@@ -89,6 +92,10 @@ Do not create filler pages. If the user input does not contain enough structured
 Do not bury structured data in prose. If the source material contains usable numbers, comparisons, rankings, time phases, risks, decisions, or categories, route them to an appropriate component. A data-rich section should not become only cards or a section divider.
 
 Do not create fake data exhibits. If the input lacks numeric values, categories, dates, or comparable records, choose a qualitative component such as outcome-support, framework-map, issue-tree, cause-effect, numbered-list-grid, callout, or decision-log. Never invent numbers to justify a chart, table, matrix, or metric page.
+
+Do not automatically browse for external data. Use only the user's material unless the user explicitly asks for current/public/online research or grants permission after you ask. If external data is approved, keep it separate from user-provided material in the slide plan and use it only where it materially improves the argument.
+
+Do not ask users to choose layouts, components, or page sequences. Ask only for audience, decision, hard constraints, permission to use external data, or missing fields required for a promised exhibit. If the user does not answer, continue with a clear default and mark gaps as assumptions or open questions.
 
 Delivery must fail fast instead of shipping partial files. The package exporter verifies that `dist/package/index.html` has no external stylesheets, external scripts, or non-embedded media resources. If that check fails, replace the dependency with static HTML/CSS/SVG, local media that can be inlined, or a built-in component before delivery.
 

@@ -26,6 +26,17 @@ Choose pages by communication job and data shape, not by a fixed template map. A
 - A `data-dashboard` page can combine metrics, charts, tables, and callouts depending on the user's data.
 - A simple centered page can be better than a specialized page when the input is sparse.
 
+Layout selection router:
+
+- Single exhibit: use `blank-content.html` when one chart, table, matrix, diagram, quote, or roadmap owns the page.
+- Evidence plus implication: use `blank-right-sidebar.html`, `blank-right-rail.html`, or `mixed-evidence-implication.html` when the exhibit needs interpretation beside it.
+- Balanced comparison: use `blank-split-even.html` when two options, segments, markets, or operating models need equal weight.
+- Wide table or chart: use `blank-content.html` or `blank-right-rail.html`; do not place dense tables or long-axis charts in narrow sidebars.
+- Decision page: use `blank-content.html` or `blank-right-sidebar.html` with `decision-log`, `comparison-table`, `pros-cons-table`, `outcome-support`, or `callout`.
+- Roadmap page: use `blank-content.html`, `roadmap-swimlane.html`, `phase-roadmap`, `milestone-track`, or a right-rail layout for compact risks or decisions.
+
+If the source evidence is sparse, choose a simpler statement, callout, cards, or outcome-support page rather than forcing a complex layout.
+
 Use:
 
 1. `templates/starter-deck.html` for a new generated deck.

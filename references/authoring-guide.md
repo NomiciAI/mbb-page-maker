@@ -46,18 +46,19 @@ Skeletons do not need identical page inventories. They must share the same CSS/J
 Use this order when building a deck:
 
 1. Inspect the user's material and identify the communication task.
-2. Draft the storyline and answer-first page messages.
-3. Check whether the input has enough data for specialized components.
-4. For full decks, inspect the closest exemplar in `templates/full-decks/` after reading `references/full-decks.md`.
-5. Create a slide plan before writing HTML.
-6. Choose the simplest layout that can hold the message.
-7. Place one primary component, or a small stack of related components, inside the layout's content slot.
-8. Apply one theme file.
-9. Add static assets only when the user supplies them or the deck explicitly needs them.
-10. Render and verify the slide at 16:9.
-11. Run `scripts/check-deck-quality.sh path/to/deck.html` and fix empty section pages or missing evidence components.
-12. Run `scripts/check-deck-contrast.sh path/to/deck.html` and fix any failed text/background contrast pairs.
-13. Render the default package, PDF, and PNG with `scripts/render.sh path/to/deck.html` unless the user requested HTML only.
+2. For strategy, board, investment, pitch, transformation, or full-deck work, use `references/consulting-thinking.md` to define the audience, decision, answer, evidence, and action.
+3. Draft the storyline and answer-first page messages.
+4. Check whether the input has enough data for specialized components.
+5. For full decks, inspect the closest exemplar in `templates/full-decks/` after reading `references/full-decks.md`.
+6. Create a slide plan before writing HTML.
+7. Choose the simplest layout that can hold the message.
+8. Place one primary component, or a small stack of related components, inside the layout's content slot.
+9. Apply one theme file.
+10. Add static assets only when the user supplies them, approves external data use, or the deck explicitly needs them.
+11. Render and verify the slide at 16:9.
+12. Run `scripts/check-deck-quality.sh path/to/deck.html` and fix empty section pages or missing evidence components.
+13. Run `scripts/check-deck-contrast.sh path/to/deck.html` and fix any failed text/background contrast pairs.
+14. Render the default package, PDF, and PNG with `scripts/render.sh path/to/deck.html` unless the user requested HTML only.
 
 Do not start from color, effects, or images. Start from message, data shape, layout, and component fit.
 
@@ -66,9 +67,11 @@ Do not start from color, effects, or images. Start from message, data shape, lay
 Before writing deck HTML, make a compact internal plan. For every slide, define:
 
 - Message: the answer-first title or section purpose.
-- Source evidence: the exact source fields, numbers, claims, or records used.
+- Evidence source: user-provided material, clearly marked assumption, or approved external data.
+- Evidence shape: numeric, categorical, comparison, time, risk, decision, qualitative, quote, contact, or mixed.
 - Layout: the shell from `templates/layouts/` or starter/skeleton variant.
 - Components: the reusable component(s) from `templates/components/`.
+- Fallback: the simpler qualitative component or omitted page to use if evidence is insufficient.
 - Output role: cover, executive answer, data evidence, comparison, roadmap, decision, appendix, or closing.
 
 Do not proceed to HTML when a body slide has no component choice. The only valid component-light pages are cover, closing, and deliberate section dividers in longer decks. Deliberate pure dividers must use `data-allow-divider="true"` so quality checks can distinguish intent from accidental empty pages.
@@ -86,6 +89,31 @@ If useful structured data exists, do not replace it with only prose cards. Cards
 
 If structured data does not exist, do not fabricate it. Pick a qualitative layout and make the uncertainty explicit through a callout, issue tree, decision log, or hypothesis page. A sparse source should become a clear qualitative deck, not a data-looking deck with invented metrics.
 
+## Source Fidelity And External Data
+
+The user's material is the primary source of truth. Every claim, number, comparison, risk, decision, date, quote, owner, and contact used in the deck must trace to one of these:
+
+- user-provided material
+- a clearly marked assumption, hypothesis, risk, or open question
+- external data the user explicitly requested or approved
+
+Do not browse or add public market data by default. If public or current data would materially improve the deck and the user has not authorized it, ask for permission before searching. If permission is not granted, proceed with the supplied context and make the gap visible as an assumption or open question.
+
+When external data is approved, keep it separate in the slide plan and use it only to support the specific page where it improves the argument. Do not add generic source footers or consulting-style provenance text. If provenance is necessary, use a compact appendix, assumption page, or user-supplied note.
+
+## Question Gate
+
+Do not ask the user to choose page layouts, component names, or full-deck page sequences. Those are authoring decisions the skill should infer.
+
+Ask only when the missing answer materially changes the deck:
+
+- audience or decision
+- hard constraints such as length, language, confidentiality, format, deadline, or tone
+- permission to use external data
+- required fields for a promised chart, table, timeline, matrix, quote, or contact page
+
+If the user provides enough material, continue without asking and choose conservative defaults.
+
 ## Evidence Extraction
 
 When the user provides a report, notes, transcript, or raw text file, extract the deck substance before choosing slides:
@@ -97,6 +125,8 @@ When the user provides a report, notes, transcript, or raw text file, extract th
 - Uncertainty: missing verification, rumors, assumptions, dependencies, or conflicting signals.
 - Decisions: what the audience should approve, monitor, defer, or investigate.
 
+If external data is approved, extract it separately from the user's material and label it as external in the slide plan.
+
 Then compress the material into a storyline. Use the strongest evidence as exhibits and put weaker or repetitive details into notes, appendix, or omit them. Do not make a slide for every paragraph in the source.
 
 ## Storyline Logic
@@ -107,7 +137,7 @@ Storyline workflow:
 
 1. Define the audience and decision: who is reading, what decision or understanding do they need, and what will they do next?
 2. State the governing answer: the top-level recommendation, finding, or conclusion.
-3. Group supporting points into 2-5 mutually distinct pillars.
+3. Group supporting points into 2-5 mutually distinct, non-overlapping pillars.
 4. Sequence pages so each page advances the argument.
 5. Use exhibits to prove or clarify claims, not to decorate.
 6. End with implications, decisions, next steps, or appendix as appropriate.

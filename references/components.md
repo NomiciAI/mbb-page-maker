@@ -15,13 +15,25 @@ When adding a component, read `references/adding-patterns.md` first. A component
 
 ## Selection Rules
 
-Use the component catalog actively. Before authoring HTML, map each planned body slide to at least one component and one source-data shape. Do not default to prose cards when the source has numeric or tabular evidence.
+Use the component catalog actively. Before authoring HTML, map each planned body slide to at least one component, one evidence shape, one evidence source, and one fallback if the evidence is insufficient. Do not default to prose cards when the source has numeric or tabular evidence.
 
 - Numeric section data should become `metric-strip`, `column-chart`, `ranked-bars`, `chart-bars`, `stacked-bars`, `table`, `comparison-table`, `heatmap`, `range-comparison-plot`, or `dot-scale-comparison`.
 - Peer/company/industry comparisons should become `comparison-table`, `ranked-bars`, `column-chart`, `quadrant-matrix`, `range-comparison-plot`, or `heatmap`.
 - Ordered or phased content should become `timeline`, `phase-roadmap`, `milestone-track`, `process-flow`, or `stage-gate`.
 - Qualification logic should become `funnel-steps` or `filter-cascade`.
 - Decisions and recommendations should become `decision-log`, `pros-cons-table`, `outcome-support`, or `callout` paired with evidence.
+
+Evidence shape router:
+
+- Numeric: use metrics, charts, ranked bars, ranges, heatmaps, or tables only when values and labels are present.
+- Categorical: use cards, catalog grids, bars, heatmaps, or tables depending on whether categories are prose, scored, or measured.
+- Comparison: use comparison tables, split-even pages, ranked bars, quadrant matrices, dot-scale comparisons, or range plots.
+- Time: use timelines for dated events, phase roadmaps for implementation, milestone tracks for status, and horizon bands for uncertainty.
+- Risk: use risk matrix register when placement and actions matter; use decision log, pros-cons, callout, or table when only prose risk records exist.
+- Decision: use outcome-support, decision-log, comparison-table, compass-choice, pros-cons, or callout paired with evidence.
+- Qualitative: use outcome-support, framework-map, issue tree, cause-effect, from-to, numbered-list-grid, dense-list, or callout.
+
+Fallback rule: if the evidence shape lacks required fields, switch to the simpler qualitative component named in the slide plan or omit the page. Do not invent the missing values to keep a specialized component.
 
 - Use `card` for repeated, comparable ideas.
 - Use `callout` for a single implication or decision ask.
