@@ -54,7 +54,9 @@ CSS 按职责拆分：
 3. 从 `templates/layouts/` 选择页面 layout。
 4. 从 `templates/components/` 选择组件填入 layout。
 5. 从 `assets/themes/` 选择一个主题 token。
-6. 交付前运行 `scripts/check-deck-contrast.sh path/to/deck.html`，检查深色背景、pitch 风格和图片叠字页面是否有文字不可见。
+6. 交付前运行 `scripts/check-deck-quality.sh path/to/deck.html`，检查是否有空 section 页或缺少组件的数据页。
+7. 交付前运行 `scripts/check-deck-contrast.sh path/to/deck.html`，检查深色背景、pitch 风格和图片叠字页面是否有文字不可见。
+8. 用户没有指定 HTML-only 时，运行 `scripts/render.sh path/to/deck.html` 默认导出 PDF。
 
 CSS/JS 输出保持静态分层：`fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, 一个 theme 文件，再加 `runtime.js`。不做 build，不做 CSS bundle。
 

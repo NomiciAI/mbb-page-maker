@@ -13,6 +13,14 @@ Components should be structure-first:
 
 ## Selection Rules
 
+Use the component catalog actively. Before authoring HTML, map each planned body slide to at least one component and one source-data shape. Do not default to prose cards when the source has numeric or tabular evidence.
+
+- Numeric section data should become `metric-strip`, `column-chart`, `ranked-bars`, `chart-bars`, `stacked-bars`, `table`, `comparison-table`, `heatmap`, `range-comparison-plot`, or `dot-scale-comparison`.
+- Peer/company/industry comparisons should become `comparison-table`, `ranked-bars`, `column-chart`, `quadrant-matrix`, `range-comparison-plot`, or `heatmap`.
+- Ordered or phased content should become `timeline`, `phase-roadmap`, `milestone-track`, `process-flow`, or `stage-gate`.
+- Qualification logic should become `funnel-steps` or `filter-cascade`.
+- Decisions and recommendations should become `decision-log`, `pros-cons-table`, `outcome-support`, or `callout` paired with evidence.
+
 - Use `card` for repeated, comparable ideas.
 - Use `callout` for a single implication or decision ask.
 - Use `metric-strip` when the page needs 3-5 headline numbers.

@@ -29,7 +29,8 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
 - Read `references/layouts.md`, `references/themes.md`, or `references/full-decks.md` only when that catalog is needed.
-- Run `scripts/check-deck-contrast.sh path/to/deck.html` before final delivery, especially for dark, pitch, or image-heavy decks.
+- Run `scripts/check-deck-quality.sh path/to/deck.html` and `scripts/check-deck-contrast.sh path/to/deck.html` before final delivery.
+- Unless the user asks for HTML only, run `scripts/render.sh path/to/deck.html` and deliver both `index.html` and a PDF.
 - Use `templates/layouts/default-*.html` for opening, centered transition, centered message, headline metric, and ending pages.
 - Use `templates/layouts/blank-*.html` for ordinary structure-first pages before adding specialized components.
 - Normalize relative asset paths after copying snippets into a deck.
@@ -47,14 +48,22 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 
 1. Start from `templates/starter-deck.html` for generated decks; use skeleton files only as role-specific references.
 2. Infer the communication task from the user's prompt and source material.
-3. Write answer-first slide titles and build a coherent storyline before polishing visuals.
-4. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
-5. Choose reusable components from `templates/components/` using `references/components.md`.
-6. Apply one theme file from `assets/themes/`.
-7. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
-8. Run the deck contrast audit and fix any failed text/background pairs before delivery.
+3. Read `references/components.md` and create a slide plan before writing HTML. Each planned slide needs: message title, source evidence used, layout, component(s), and output purpose.
+4. Write answer-first slide titles and build a coherent storyline before polishing visuals.
+5. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
+6. Choose reusable components from `templates/components/` using `references/components.md`.
+7. Apply one theme file from `assets/themes/`.
+8. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
+9. Run the deck quality and contrast audits; fix empty section pages, missing evidence components, and failed text/background pairs.
+10. Render the default PDF output unless the user explicitly asked for HTML only.
 
 Do not create filler pages. If the user input does not contain enough structured content for a specialized layout, use a simpler layout or omit the page.
+
+Do not bury structured data in prose. If the source material contains usable numbers, comparisons, rankings, time phases, risks, decisions, or categories, route them to an appropriate component. A data-rich section should not become only cards or a section divider.
+
+Avoid pure section-divider pages in short generated decks. When the user asks for only a few sections, either omit dividers or turn them into useful section-intro pages with 2-4 data signals, a catalog, or a summary component. A divider is acceptable only when it creates needed pacing in a longer deck.
+
+If a pure divider is deliberately needed, mark it with `data-allow-divider="true"` and keep it out of short evidence-driven decks.
 
 Avoid generic slide titles such as "Overview", "Analysis", or "Findings" unless they are section labels. Content slide titles should state the page's message as a complete, meaningful sentence.
 
@@ -81,6 +90,7 @@ Default theme selection:
 - `blue.css`: default executive consulting style.
 - `red.css`: urgency, turnaround, risk, commercial action.
 - `green.css`: growth, sustainability, operations, transformation.
+- `pitch.css`: investor, board, fundraising, and VC-style dark/light pitch decks.
 
 ## HTML Slide Contract
 

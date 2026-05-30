@@ -66,6 +66,7 @@ Selection guidance:
 
 - Use simple pages when the point is stronger than the exhibit.
 - Use centered pages for emphasis, not for dense explanation.
+- In short generated decks, do not use centered section dividers as a substitute for content pages. If a section has data, open it with a data-bearing page or a compact section-intro page.
 - Use visual opening pages only when the visual adds meaning. Otherwise keep the opening clean.
 - A blank/brand-only cover is not a valid default cover. Use it only as a deliberate divider or showcase page.
 

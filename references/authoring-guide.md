@@ -43,14 +43,40 @@ Use this order when building a deck:
 1. Inspect the user's material and identify the communication task.
 2. Draft the storyline and answer-first page messages.
 3. Check whether the input has enough data for specialized components.
-4. Choose the simplest layout that can hold the message.
-5. Place one primary component, or a small stack of related components, inside the layout's content slot.
-6. Apply one theme file.
-7. Add static assets only when the user supplies them or the deck explicitly needs them.
-8. Render and verify the slide at 16:9.
-9. Run `scripts/check-deck-contrast.sh path/to/deck.html` and fix any failed text/background contrast pairs.
+4. Create a slide plan before writing HTML.
+5. Choose the simplest layout that can hold the message.
+6. Place one primary component, or a small stack of related components, inside the layout's content slot.
+7. Apply one theme file.
+8. Add static assets only when the user supplies them or the deck explicitly needs them.
+9. Render and verify the slide at 16:9.
+10. Run `scripts/check-deck-quality.sh path/to/deck.html` and fix empty section pages or missing evidence components.
+11. Run `scripts/check-deck-contrast.sh path/to/deck.html` and fix any failed text/background contrast pairs.
+12. Render the default PDF with `scripts/render.sh path/to/deck.html` unless the user requested HTML only.
 
 Do not start from color, effects, or images. Start from message, data shape, layout, and component fit.
+
+## Slide Planning Gate
+
+Before writing deck HTML, make a compact internal plan. For every slide, define:
+
+- Message: the answer-first title or section purpose.
+- Source evidence: the exact source fields, numbers, claims, or records used.
+- Layout: the shell from `templates/layouts/` or starter/skeleton variant.
+- Components: the reusable component(s) from `templates/components/`.
+- Output role: cover, executive answer, data evidence, comparison, roadmap, decision, appendix, or closing.
+
+Do not proceed to HTML when a body slide has no component choice. The only valid component-light pages are cover, closing, and deliberate section dividers in longer decks. Deliberate pure dividers must use `data-allow-divider="true"` so quality checks can distinguish intent from accidental empty pages.
+
+For short decks, avoid pure section dividers. If the user asks for three sections, each section should usually start with an evidence page or a section-intro page that contains 2-4 metrics, a mini catalog, or a clear summary. A page that only says "Section 02 / Data support" is too weak when the source contains enough data to chart, rank, compare, or tabulate.
+
+Component coverage expectations:
+
+- Data section: at least one chart, ranked bar, table, heatmap, matrix, range plot, or metric strip.
+- Industry or market section: at least one comparison, ranking, matrix, heatmap, timeline, or table.
+- Fundamental analysis section: at least one table, metric strip, outcome-support, issue tree, or comparison component.
+- Execution or recommendation section: roadmap, decision-log, process-flow, stage-gate, pros-cons, or milestone-track.
+
+If useful structured data exists, do not replace it with only prose cards. Cards are acceptable for synthesis, but evidence pages should show the data structure.
 
 ## Storyline Logic
 
@@ -164,6 +190,24 @@ Alignment and visual balance:
 - `?print=1` activates print/export mode, shows all slides, and hides controls.
 
 Present mode uses a fixed 1600x900 slide canvas that scales as a whole to the browser viewport. Do not add runtime behavior or CSS breakpoints that reflow slide internals for narrow browser widths.
+
+## Contrast Audit
+
+## Quality Audit
+
+Run the quality audit before contrast and export:
+
+```bash
+scripts/check-deck-quality.sh path/to/index.html
+```
+
+The script fails section-like or low-density body slides that have no evidence/component structure. This catches the common failure mode where an agent creates a page such as "Section 02 / Data support" even though the section should contain charts, tables, rankings, matrices, or metrics.
+
+When the audit fails:
+
+- Add a real evidence component to the slide.
+- Merge the divider into the next evidence page.
+- Or, only for longer decks where pacing genuinely needs a pure divider, add `data-allow-divider="true"`.
 
 ## Contrast Audit
 
