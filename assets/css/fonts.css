@@ -1,0 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&display=swap");
+
+:root {
+  --font-sans: "Inter", Arial, Helvetica, sans-serif;
+  --font-serif: "Libre Baskerville", Georgia, serif;
+}
