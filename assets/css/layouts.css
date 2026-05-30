@@ -352,8 +352,11 @@
   height: 100%;
   min-height: 0;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--color-line) 86%, transparent);
   background: var(--color-bg);
+}
+
+.region-layout.has-border {
+  border: 1px solid color-mix(in srgb, var(--color-line) 70%, transparent);
 }
 
 .region-layout.left-rail {

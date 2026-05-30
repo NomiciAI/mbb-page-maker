@@ -6,6 +6,7 @@
   let status;
   let touchStartX = 0;
   let touchStartY = 0;
+  let lastWheelAt = 0;
 
   function readPxVar(name, fallback) {
     const value = window.getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -39,10 +40,38 @@
   function show(nextIndex) {
     if (!slides.length || document.body.classList.contains("is-overview")) return;
     syncSlideScale();
-    index = Math.max(0, Math.min(slides.length - 1, nextIndex));
-    slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+    const previousIndex = index;
+    const boundedIndex = Math.max(0, Math.min(slides.length - 1, nextIndex));
+    if (boundedIndex === index && nextIndex !== index) {
+      bump(nextIndex < index ? "left" : "right");
+      return;
+    }
+    index = boundedIndex;
+    slides.forEach((slide) => {
+      slide.classList.remove("active", "is-enter-next", "is-enter-prev", "is-bump-left", "is-bump-right");
+    });
+    const active = slides[index];
+    active.classList.add("active");
+    if (index !== previousIndex) {
+      active.classList.add(index > previousIndex ? "is-enter-next" : "is-enter-prev");
+      active.addEventListener("animationend", () => {
+        active.classList.remove("is-enter-next", "is-enter-prev");
+      }, { once: true });
+    }
     if (status) status.textContent = `${index + 1} / ${slides.length}`;
     history.replaceState(null, "", `#${index + 1}`);
+  }
+
+  function bump(direction) {
+    const active = slides[index];
+    if (!active) return;
+    const className = direction === "left" ? "is-bump-left" : "is-bump-right";
+    active.classList.remove("is-bump-left", "is-bump-right");
+    active.offsetHeight;
+    active.classList.add(className);
+    active.addEventListener("animationend", () => {
+      active.classList.remove(className);
+    }, { once: true });
   }
 
   function toggleOverview() {
@@ -121,6 +150,9 @@
     document.addEventListener("wheel", (event) => {
       if (document.body.classList.contains("is-overview")) return;
       if (Math.abs(event.deltaX) < 80 || Math.abs(event.deltaX) < Math.abs(event.deltaY) * 1.2) return;
+      const now = Date.now();
+      if (now - lastWheelAt < 460) return;
+      lastWheelAt = now;
       show(event.deltaX > 0 ? index + 1 : index - 1);
     }, { passive: true });
   }

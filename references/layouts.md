@@ -10,6 +10,13 @@ The base layout and component library should stay visually neutral. Color, decor
 
 Slides are fixed 16:9 canvases. Browser present mode scales the whole slide to the viewport; it must not reflow the slide internals based on viewport width. Do not add mobile breakpoints that collapse grids, sidebars, charts, or component layouts inside `.slide`.
 
+Line economy matters. The default page should not feel boxed in:
+
+- The title rule is a subtle separator below the title, not a tight underline.
+- Region layouts do not draw an outside border by default. Add `.has-border` only when the page needs a deliberate framed tool surface.
+- Prefer whitespace and alignment over extra box outlines.
+- Use internal separators only when they clarify comparison, table structure, or region boundaries.
+
 Choose pages by communication job and data shape, not by a fixed template map. A layout can host many component combinations:
 
 - A `blank-right-sidebar` page can hold a chart plus implications, a table plus decisions, or a diagram plus risks.

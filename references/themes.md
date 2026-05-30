@@ -16,7 +16,9 @@ Each theme defines both light and dark tokens:
 
 - Light mode: default `.slide`.
 - Dark mode: `.slide.dark` or `.slide[data-mode="dark"]`.
-- Dark cover: `.slide.dark-cover` or `.slide[data-variant="dark-cover"]`.
+- Dark cover: `.slide.dark-cover` or `.slide[data-variant="dark-cover"]`; these selectors automatically apply dark text, muted, line, panel, and accent tokens.
+
+Never put a dark background on a slide, region, split panel, or custom block without also activating the matching dark token context. Use `.dark`, `[data-mode="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]` instead of only changing `background`. This prevents dark text from appearing on dark backgrounds across blue, red, green, mono, and custom themes.
 
 Use one theme file per deck. Do not mix theme files in one production deck unless the user explicitly wants a theme comparison.
 

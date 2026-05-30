@@ -21,6 +21,8 @@ Keep the base library structure-first. Components and blank layouts should not h
 
 Generated decks must load the static files in that order: fonts, base, layouts, components, illustrations, exactly one theme file, then `assets/js/runtime.js`. Do not create a CSS bundle, inline duplicate CSS, or add a build step.
 
+Dark backgrounds must always activate a dark token context. Use `.dark`, `[data-mode="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]`; do not set a dark background alone. The token context is what flips text, muted text, rules, panels, and accents for every theme.
+
 ## Template Roles
 
 - `templates/starter-deck.html`: default generation starting point for new decks. It stays light: title cover, simple agenda/context, blank content page, and ending page.
@@ -142,6 +144,7 @@ Alignment and visual balance:
 
 - Keep title, content, and footer aligned to the same page grid unless the layout deliberately creates separate regions.
 - Preserve enough whitespace around dense tables, charts, and agendas.
+- Keep separator lines sparse. The title rule should have breathing room below the title, and ordinary region layouts should not use an outer border unless framing is the point.
 - Do not let a small component float alone in a large region; use a simpler centered page or add a relevant supporting component.
 - Do not fill empty space with invented content.
 - Keep repeated components visually consistent: same heading length, similar line count, and parallel field order.
@@ -153,8 +156,11 @@ Alignment and visual balance:
 - Arrow keys, PageUp/PageDown, and Space move through slides.
 - Left/right click areas move backward or forward.
 - Touch horizontal swipe and trackpad horizontal wheel move slides.
-- `o` toggles overview; Escape exits overview.
+- Slide changes use a short transition and edge bump so click, keyboard, touch, and trackpad navigation feel responsive without adding dependencies.
+- `o` toggles overview thumbnails; Escape exits overview.
 - `?print=1` activates print/export mode, shows all slides, and hides controls.
+
+Present mode uses a fixed 1600x900 slide canvas that scales as a whole to the browser viewport. Do not add runtime behavior or CSS breakpoints that reflow slide internals for narrow browser widths.
 
 ## Next Pattern Pass
 

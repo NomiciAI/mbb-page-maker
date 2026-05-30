@@ -118,7 +118,9 @@ body:not(.is-print):not(.is-overview) .slide {
 }
 
 .slide.dark,
-.slide[data-mode="dark"] {
+.slide[data-mode="dark"],
+.slide.dark-cover,
+.slide[data-variant="dark-cover"] {
   --color-bg: var(--theme-dark-bg);
   --color-text: var(--theme-dark-text);
   --color-muted: var(--theme-dark-muted);
@@ -160,6 +162,7 @@ body:not(.is-print):not(.is-overview) .slide {
 }
 
 .slide-rule {
+  margin-top: 18px;
   height: 1px;
   background: var(--color-line);
 }
@@ -242,21 +245,85 @@ body.is-print .deck-controls {
 }
 
 body.is-overview .deck {
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  min-height: 100vh;
+  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  gap: 32px;
   align-items: start;
+  justify-items: center;
+  padding: 32px;
 }
 
 body.is-overview .slide {
   display: flex;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  width: var(--slide-width);
+  height: var(--slide-height);
+  box-shadow: 0 18px 40px rgba(18, 25, 38, 0.08);
   cursor: pointer;
+  zoom: 0.31;
 }
 
 body.is-overview .slide.active {
   outline: 4px solid var(--theme-dark-accent);
   outline-offset: 4px;
+}
+
+.slide.is-enter-next {
+  animation: slide-enter-next 220ms cubic-bezier(0.18, 0.88, 0.28, 1);
+}
+
+.slide.is-enter-prev {
+  animation: slide-enter-prev 220ms cubic-bezier(0.18, 0.88, 0.28, 1);
+}
+
+.slide.is-bump-left {
+  animation: slide-bump-left 180ms cubic-bezier(0.22, 0.9, 0.32, 1);
+}
+
+.slide.is-bump-right {
+  animation: slide-bump-right 180ms cubic-bezier(0.22, 0.9, 0.32, 1);
+}
+
+@keyframes slide-enter-next {
+  from {
+    opacity: 0.72;
+    translate: 28px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes slide-enter-prev {
+  from {
+    opacity: 0.72;
+    translate: -28px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes slide-bump-left {
+  50% {
+    translate: 14px 0;
+  }
+}
+
+@keyframes slide-bump-right {
+  50% {
+    translate: -14px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide.is-enter-next,
+  .slide.is-enter-prev,
+  .slide.is-bump-left,
+  .slide.is-bump-right {
+    animation: none;
+  }
 }
 
 @page {

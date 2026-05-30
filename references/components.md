@@ -151,6 +151,7 @@ Do not output components that add no information.
 - Component wrappers should preserve `min-width: 0`, `min-height: 0`, and bounded overflow behavior.
 - Demo data should prove the component shape without using so many rows, columns, or words that the default 16:9 content area overflows.
 - Use `safe-stack` only for small components that support one message. Do not stack unrelated exhibits.
+- Components should not draw heavy outer boxes by default. Use borders for tables, matrices, heatmaps, true cards, or intentional separators; otherwise rely on spacing, type hierarchy, and theme tokens.
 
 Full-deck showcase files should combine multiple component families in one coherent storyline to validate fit, not to define new generation rules. Keep visible headers neutral and business-oriented rather than exposing internal component taxonomy.
 
