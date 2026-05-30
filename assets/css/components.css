@@ -651,7 +651,7 @@
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 28px;
-  align-items: center;
+  align-items: stretch;
   height: 100%;
   min-width: 0;
   min-height: 0;

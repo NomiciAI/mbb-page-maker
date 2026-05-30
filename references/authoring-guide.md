@@ -224,8 +224,8 @@ Alignment and visual balance:
 
 - Keep title, content, and footer aligned to the same page grid unless the layout deliberately creates separate regions.
 - Preserve enough whitespace around dense tables, charts, and agendas.
-- Vertically center compact single-component pages with `.content.is-vertically-centered` or `.content[data-align-y="center"]` when the component would otherwise sit in the top half of the slide.
-- For sparse split or sidebar regions, use `.region-body.is-centered` so cards, callouts, and supporting notes sit in the visual middle of their safe slot.
+- Vertically center compact single-component pages and compact region layouts with `.content.is-vertically-centered` or `.content[data-align-y="center"]` when the content would otherwise sit in the top half of the slide.
+- For sparse individual regions, use `.region-body.is-centered` so cards, callouts, and supporting notes sit in the visual middle of their safe slot.
 - Keep separator lines sparse. The title rule should have breathing room below the title, and ordinary region layouts should not use an outer border unless framing is the point.
 - Do not let a small component float alone in a large region; use a simpler centered page or add a relevant supporting component.
 - Do not fill empty space with invented content.

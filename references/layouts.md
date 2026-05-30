@@ -119,8 +119,8 @@ Overflow rules:
 - If a table, chart, or profile grid does not fit, choose a wider shell, split the page, or reduce the visible data.
 - Do not shrink text below legible slide scale just to force content into a region.
 - Do not add filler content to occupy empty regions. If the user did not provide enough data, use a simpler layout.
-- If a single table, timeline, roadmap, flow, or framework only occupies the upper half of an otherwise blank content area, use `.content.is-vertically-centered` or `.content[data-align-y="center"]`.
-- For split or sidebar layouts with sparse supporting regions, use `.region-body.is-centered`.
+- If a single table, timeline, roadmap, flow, framework, or compact region layout only occupies the upper half of the content area, use `.content.is-vertically-centered` or `.content[data-align-y="center"]`.
+- For sparse individual regions, use `.region-body.is-centered`.
 
 ## Medium Layouts
 

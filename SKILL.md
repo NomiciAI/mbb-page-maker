@@ -113,7 +113,7 @@ Avoid generic slide titles such as "Overview", "Analysis", or "Findings" unless 
 
 If content overflows a region, reduce the number of components, choose a wider layout, or split the content into another slide. Do not solve overflow by making text too small to read.
 
-If a slide has one compact component that only uses roughly the top half of the content area, vertically center it with `.content.is-vertically-centered` or `.content[data-align-y="center"]`. For split/region layouts, use `.region-body.is-centered` on sparse regions. Do not leave a short table, roadmap, timeline, or flow pinned to the top with a large empty lower half.
+If a slide has one compact component or compact region layout that only uses roughly the top half of the content area, vertically center it with `.content.is-vertically-centered` or `.content[data-align-y="center"]`. For sparse individual regions, use `.region-body.is-centered`. Do not leave a short table, roadmap, timeline, flow, or right-rail layout pinned to the top with a large empty lower half.
 
 Dark or pitch-style pages must use `.dark`, `[data-mode="dark"]`, `[data-tone="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]` instead of only setting a dark background. The runtime includes a slide-level safety net for dark backgrounds, but generated decks must still pass the contrast audit.
 

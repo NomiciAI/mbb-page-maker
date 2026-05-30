@@ -203,12 +203,25 @@ body:not(.is-print):not(.is-overview) .slide {
 
 .content.is-vertically-centered > .framework-map,
 .content.is-vertically-centered > .process-flow,
+.content.is-vertically-centered > .region-layout,
 .content.is-vertically-centered > .timeline-track,
 .content.is-vertically-centered > .phase-roadmap,
 .content[data-align-y="center"] > .framework-map,
 .content[data-align-y="center"] > .process-flow,
+.content[data-align-y="center"] > .region-layout,
 .content[data-align-y="center"] > .timeline-track,
 .content[data-align-y="center"] > .phase-roadmap {
+  height: auto;
+}
+
+.content.is-vertically-centered > .region-layout .framework-map,
+.content.is-vertically-centered > .region-layout .process-flow,
+.content.is-vertically-centered > .region-layout .timeline-track,
+.content.is-vertically-centered > .region-layout .phase-roadmap,
+.content[data-align-y="center"] > .region-layout .framework-map,
+.content[data-align-y="center"] > .region-layout .process-flow,
+.content[data-align-y="center"] > .region-layout .timeline-track,
+.content[data-align-y="center"] > .region-layout .phase-roadmap {
   height: auto;
 }
 
