@@ -423,6 +423,7 @@
 .bar-chart {
   display: grid;
   gap: 14px;
+  align-content: start;
 }
 
 .bar-row {
@@ -452,6 +453,210 @@
   text-align: right;
 }
 
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 14px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  border: 1px solid var(--color-line);
+  padding: 12px;
+  vertical-align: top;
+}
+
+.comparison-table th {
+  background: color-mix(in srgb, var(--color-panel) 80%, #fff);
+  color: var(--color-text);
+  font-weight: 800;
+}
+
+.comparison-table .row-head {
+  width: 18%;
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
+.comparison-table .is-best {
+  background: var(--color-accent-soft);
+  font-weight: 800;
+}
+
+.heatmap {
+  display: grid;
+  grid-template-columns: 180px repeat(5, 1fr);
+  border-top: 1px solid var(--color-line);
+  border-left: 1px solid var(--color-line);
+}
+
+.heatmap > div {
+  min-height: 48px;
+  border-right: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  padding: 11px;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.heat-head {
+  color: var(--color-muted);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.heat-label {
+  font-weight: 800;
+}
+
+.heat-1 { background: color-mix(in srgb, var(--color-accent) 8%, #fff); }
+.heat-2 { background: color-mix(in srgb, var(--color-accent) 18%, #fff); }
+.heat-3 { background: color-mix(in srgb, var(--color-accent) 30%, #fff); }
+.heat-4 { background: color-mix(in srgb, var(--color-accent) 46%, #fff); color: #fff; }
+.heat-5 { background: color-mix(in srgb, var(--color-accent) 68%, #000); color: #fff; }
+
+.ranked-bars {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.rank-row {
+  display: grid;
+  grid-template-columns: 34px 210px 1fr 64px;
+  gap: 14px;
+  align-items: center;
+}
+
+.rank-num {
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
+.rank-track {
+  height: 26px;
+  background: color-mix(in srgb, var(--color-panel) 88%, #fff);
+}
+
+.rank-fill {
+  height: 100%;
+  width: var(--value);
+  background: var(--color-accent);
+}
+
+.stacked-bars {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+
+.stack-row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.stack {
+  display: flex;
+  height: 30px;
+  background: color-mix(in srgb, var(--color-panel) 88%, #fff);
+}
+
+.seg {
+  width: var(--w);
+  background: var(--c, var(--color-accent));
+}
+
+.seg:nth-child(2) {
+  --c: color-mix(in srgb, var(--color-accent) 64%, #fff);
+}
+
+.seg:nth-child(3) {
+  --c: color-mix(in srgb, var(--color-accent) 28%, #fff);
+}
+
+.scatter {
+  position: relative;
+  height: 100%;
+  min-height: 380px;
+  border-left: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  background:
+    linear-gradient(to right, transparent 49.8%, var(--color-line) 50%, transparent 50.2%),
+    linear-gradient(to bottom, transparent 49.8%, var(--color-line) 50%, transparent 50.2%);
+}
+
+.point {
+  position: absolute;
+  left: var(--x);
+  bottom: var(--y);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  transform: translate(-50%, 50%);
+}
+
+.point::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 22px;
+  top: -3px;
+  white-space: nowrap;
+  color: var(--color-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.axis-x,
+.axis-y {
+  position: absolute;
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.axis-x {
+  right: 0;
+  bottom: -28px;
+}
+
+.axis-y {
+  left: -8px;
+  top: -26px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-rows: auto 1fr;
+  gap: 18px;
+  height: 100%;
+}
+
+.dashboard-grid .metric-strip {
+  grid-column: 1 / -1;
+}
+
+.dashboard-grid .card {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.dashboard-grid .scatter {
+  min-height: 250px;
+  height: 270px;
+  margin-top: 18px;
+}
+
+.dashboard-grid .axis-y {
+  left: 0;
+  top: 8px;
+}
+
 @media (max-width: 900px) {
   .agenda-list,
   .metric-strip,
@@ -460,6 +665,13 @@
   .contact-roster,
   .contact-main,
   .bar-row {
+    grid-template-columns: 1fr;
+  }
+
+  .heatmap,
+  .rank-row,
+  .stack-row,
+  .dashboard-grid {
     grid-template-columns: 1fr;
   }
 

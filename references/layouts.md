@@ -29,6 +29,9 @@ Use:
 - Table plus roadmap: dense content with structured hierarchy.
 - 2x2 matrix: prioritization or segmentation.
 - Contact roster: only when the user provides enough real contact data.
+- Chart and takeaways: one chart plus 2-4 implications.
+- Heatmap assessment: capability/maturity/fit data with row and column categories.
+- Data dashboard: headline metrics plus 1-2 supporting exhibits.
 
 ## Complex Layouts
 
