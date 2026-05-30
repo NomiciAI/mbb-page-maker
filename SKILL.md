@@ -54,6 +54,10 @@ Do not create filler pages. If the user input does not contain enough structured
 
 If content overflows a region, reduce the number of components, choose a wider layout, or split the content into another slide. Do not solve overflow by making text too small to read.
 
+Page choice is compositional, not fixed. Infer the user's task and data shape, then combine the smallest suitable layout with the needed components. Use `references/layouts.md` and `references/components.md` for detailed selection guidance.
+
+Do not force a specialized page. If the input is sparse, use a simpler page or ask for the missing data.
+
 Content sufficiency examples:
 
 - Contact roster: require at least 3 contacts with names plus at least one of role, location, email, or team. Principal/contributor grouping requires an explicit group field or clear wording.
