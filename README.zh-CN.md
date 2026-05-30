@@ -56,7 +56,7 @@ CSS 按职责拆分：
 5. 从 `assets/themes/` 选择一个主题 token。
 6. 交付前运行 `scripts/check-deck-quality.sh path/to/deck.html`，检查是否有空 section 页或缺少组件的数据页。
 7. 交付前运行 `scripts/check-deck-contrast.sh path/to/deck.html`，检查深色背景、pitch 风格和图片叠字页面是否有文字不可见。
-8. 用户没有指定 HTML-only 时，运行 `scripts/render.sh path/to/deck.html` 默认导出自包含 HTML package 和 PDF。
+8. 用户没有指定 HTML-only 时，运行 `scripts/render.sh path/to/deck.html` 默认导出自包含 HTML package、PDF 和 PNG 页面图。
 
 源 HTML 的 CSS/JS 保持静态分层：`fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, 一个 theme 文件，再加 `runtime.js`。不做源码 build。最终 `scripts/render.sh --package` 会把本地 CSS、JS 和媒体资源内联进 `package/index.html`，让这个 HTML 文件可以被浏览器单独打开。
 

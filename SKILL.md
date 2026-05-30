@@ -30,7 +30,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Read `references/authoring-guide.md` before creating a real deck.
 - Read `references/layouts.md`, `references/themes.md`, or `references/full-decks.md` only when that catalog is needed.
 - Run `scripts/check-deck-quality.sh path/to/deck.html` and `scripts/check-deck-contrast.sh path/to/deck.html` before final delivery.
-- Unless the user asks for HTML only, run `scripts/render.sh path/to/deck.html` and deliver both the self-contained package `index.html` and a PDF.
+- Unless the user asks for HTML only, run `scripts/render.sh path/to/deck.html` and deliver the self-contained package `index.html`, PDF, and PNG slide images.
 - Use `templates/layouts/default-*.html` for opening, centered transition, centered message, headline metric, and ending pages.
 - Use `templates/layouts/blank-*.html` for ordinary structure-first pages before adding specialized components.
 - Normalize relative asset paths after copying snippets into a deck.
@@ -55,7 +55,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 7. Apply one theme file from `assets/themes/`.
 8. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
 9. Run the deck quality and contrast audits; fix empty section pages, missing evidence components, and failed text/background pairs.
-10. Render the default self-contained HTML package and PDF output unless the user explicitly asked for HTML only.
+10. Render the default self-contained HTML package, PDF, and PNG slide images unless the user explicitly asked for HTML only.
 
 Do not create filler pages. If the user input does not contain enough structured content for a specialized layout, use a simpler layout or omit the page.
 
@@ -111,7 +111,7 @@ Decks should be composed from self-contained slide sections:
 
 Ordinary slides use `header + .content + footer`. Cover, ending, and full-bleed slides may use deliberate variants. Insert components only into `.content`, `.region-body`, `.safe-fill`, or `.safe-stack`.
 
-Export targets: self-contained HTML package, PDF, PNG, and eventually PowerPoint after the HTML system is stable.
+Default export targets: self-contained HTML package, PDF, and PNG slide images. Future export target: PowerPoint after the HTML system is stable.
 
 ## License & Author
 

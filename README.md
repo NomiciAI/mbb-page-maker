@@ -110,7 +110,7 @@ Authoring is composable:
 7. Render-check alignment, visual balance, and overflow.
 8. Run `scripts/check-deck-quality.sh path/to/deck.html` before delivery.
 9. Run `scripts/check-deck-contrast.sh path/to/deck.html` before delivery.
-10. Unless HTML-only is requested, run `scripts/render.sh path/to/deck.html` to create the self-contained HTML package and default PDF output.
+10. Unless HTML-only is requested, run `scripts/render.sh path/to/deck.html` to create the self-contained HTML package, PDF, and PNG slide images.
 
 The starter deck stays intentionally light: title cover, simple agenda/context, blank content page, and ending page. Default simple pages are included for opening, centered message/list/metric, visual title, and ending slides. Use `blank-*` layouts when the slide structure is known but the component choice is still being composed.
 

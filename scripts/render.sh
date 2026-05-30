@@ -7,7 +7,7 @@ Usage:
   scripts/render.sh <deck.html-or-url> [out-dir] [--pdf] [--png] [--package] [--all]
 
 Defaults:
-  Creates a self-contained share package and PDF in <deck-dir>/dist.
+  Creates a self-contained share package, PDF, and PNG slides in <deck-dir>/dist.
 
 Examples:
   scripts/render.sh examples/demo-deck/index.html
@@ -65,6 +65,7 @@ done
 
 if [[ "$render_pdf" -eq 0 && "$render_png" -eq 0 && "$render_package" -eq 0 ]]; then
   render_pdf=1
+  render_png=1
   render_package=1
 fi
 
