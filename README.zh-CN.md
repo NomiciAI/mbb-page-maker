@@ -59,6 +59,10 @@ CSS/JS 输出保持静态分层：`fonts.css`, `base.css`, `layouts.css`, `compo
 
 `starter-deck.html` 保持轻量：标题封面、简单 agenda/context、空白内容页、ending。普通内容页默认从空白内容页开始，再按用户数据组合 layout 和 component。各 skeleton 不需要页面完全一致，只需要遵守同一个 16:9 slide contract 和输出文件顺序。
 
+## 致谢
+
+受 [lewislulu/html-ppt-skill](https://github.com/lewislulu/html-ppt-skill) 启发。本项目为从零编写，拥有独立的结构、模板、运行时和设计系统。
+
 ## License & Author
 
 MIT. Copyright (c) 2026 Saitop at NomiciAI <saitop@nomici.ai>.
