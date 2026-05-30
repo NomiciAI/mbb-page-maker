@@ -20,7 +20,7 @@
 
 .slide.dark .brand-mark,
 .slide[data-mode="dark"] .brand-mark {
-  color: #fff;
+  color: var(--color-inverse);
 }
 
 .cover-main {
@@ -397,7 +397,7 @@
 }
 
 .region.is-muted {
-  background: color-mix(in srgb, var(--color-panel) 88%, #fff);
+  background: color-mix(in srgb, var(--color-panel) 88%, var(--color-bg));
 }
 
 .region.is-dark,
@@ -406,7 +406,10 @@
   --color-text: var(--theme-dark-text);
   --color-muted: var(--theme-dark-muted);
   --color-line: var(--theme-dark-line);
-  --color-panel: color-mix(in srgb, var(--theme-dark-bg) 82%, #fff);
+  --color-panel: var(--theme-dark-panel);
+  --color-panel-muted: var(--theme-dark-panel-muted);
+  --color-elevated: color-mix(in srgb, var(--theme-dark-bg) 88%, var(--theme-dark-inverse));
+  --color-inverse: var(--theme-dark-inverse);
   --color-accent: var(--theme-dark-accent);
   --color-accent-soft: color-mix(in srgb, var(--theme-dark-accent) 14%, var(--theme-dark-bg));
   background: var(--color-bg);

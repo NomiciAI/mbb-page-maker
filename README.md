@@ -36,7 +36,8 @@ mbb-page-maker/
 │   ├── components.md
 │   ├── layouts.md
 │   ├── themes.md
-│   └── full-decks.md
+│   ├── full-decks.md
+│   └── asset-sourcing.md
 ├── assets/
 │   ├── css/
 │   │   ├── base.css
@@ -86,6 +87,7 @@ CSS is intentionally split by responsibility:
 - `illustrations.css`: neutral illustration primitives and asset slots.
 - `themes/*.css`: color tokens only, with light and dark mode values.
 - `assets/media/`: optional static images, SVGs, screenshots, and showcase-only filler headshots.
+- `references/asset-sourcing.md`: curated sources for consulting-style photos, SVG assets, icons, and pure JavaScript visual libraries.
 
 Generated decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no CSS bundle and no build step.
 

@@ -456,7 +456,7 @@
   justify-self: center;
   width: min(720px, 78%);
   border: 1px solid var(--color-line);
-  background: color-mix(in srgb, var(--color-bg) 92%, var(--color-accent) 8%);
+  background: color-mix(in srgb, var(--color-elevated) 92%, var(--color-accent) 8%);
   padding: 28px 34px;
   text-align: center;
 }
@@ -1693,7 +1693,7 @@
 }
 
 .contact-card.is-principal {
-  background: color-mix(in srgb, var(--color-panel) 82%, #fff);
+  background: color-mix(in srgb, var(--color-panel) 82%, var(--color-bg));
   padding: 18px;
 }
 
@@ -1744,7 +1744,7 @@
   content: "";
   width: 18px;
   height: 18px;
-  background: color-mix(in srgb, var(--color-panel) 82%, #fff);
+  background: color-mix(in srgb, var(--color-panel) 82%, var(--color-bg));
 }
 
 .chart-block {

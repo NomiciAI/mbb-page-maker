@@ -12,6 +12,9 @@
   --theme-light-muted: #667085;
   --theme-light-line: #d7dce2;
   --theme-light-panel: #f6f8fb;
+  --theme-light-panel-muted: #eef1f5;
+  --theme-light-elevated: #ffffff;
+  --theme-light-inverse: #ffffff;
   --theme-accent: #0b3a75;
   --theme-accent-soft: #e8f5fb;
   --theme-accent-strong: #063b78;
@@ -40,6 +43,9 @@
   --theme-dark-text: #f7fbff;
   --theme-dark-muted: #a6b6c1;
   --theme-dark-line: rgba(255, 255, 255, 0.42);
+  --theme-dark-panel: color-mix(in srgb, var(--theme-dark-bg) 82%, #ffffff);
+  --theme-dark-panel-muted: color-mix(in srgb, var(--theme-dark-bg) 70%, #ffffff);
+  --theme-dark-inverse: #ffffff;
   --theme-dark-accent: #16a6d9;
   --theme-dark-bg-gradient:
     radial-gradient(circle at 86% 80%, rgba(33, 84, 255, 0.55), transparent 28%),
@@ -50,6 +56,9 @@
   --color-muted: var(--theme-light-muted);
   --color-line: var(--theme-light-line);
   --color-panel: var(--theme-light-panel);
+  --color-panel-muted: var(--theme-light-panel-muted);
+  --color-elevated: var(--theme-light-elevated);
+  --color-inverse: var(--theme-light-inverse);
   --color-accent: var(--theme-accent);
   --color-accent-soft: var(--theme-accent-soft);
   --color-success: var(--theme-success);
@@ -125,7 +134,10 @@ body:not(.is-print):not(.is-overview) .slide {
   --color-text: var(--theme-dark-text);
   --color-muted: var(--theme-dark-muted);
   --color-line: var(--theme-dark-line);
-  --color-panel: color-mix(in srgb, var(--theme-dark-bg) 82%, #fff);
+  --color-panel: var(--theme-dark-panel);
+  --color-panel-muted: var(--theme-dark-panel-muted);
+  --color-elevated: color-mix(in srgb, var(--theme-dark-bg) 88%, var(--theme-dark-inverse));
+  --color-inverse: var(--theme-dark-inverse);
   --color-accent: var(--theme-dark-accent);
   --color-accent-soft: color-mix(in srgb, var(--theme-dark-accent) 14%, var(--theme-dark-bg));
   background: var(--color-bg);
