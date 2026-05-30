@@ -67,7 +67,8 @@ mbb-page-maker/
 │   ├── new-deck.sh
 │   └── render.sh
 └── examples/
-    └── demo-deck/
+    ├── enterprise-intelligence-transformation/
+    └── ai-application-investment-thesis/
 ```
 
 ## Roadmap
