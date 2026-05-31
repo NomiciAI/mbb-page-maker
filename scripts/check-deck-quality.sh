@@ -14,10 +14,17 @@ if [[ ! -f "$deck" ]]; then
 fi
 
 perl -0ne '
+  my $file = $_;
   my @slides = split(/<section\b/i, $_);
   shift @slides;
   my $failed = 0;
   my $i = 0;
+  if ($file =~ /<(script|link|img|source|video|audio|iframe)\b[^>]*(src|href)=["\x27]https?:\/\//i
+      || $file =~ /@import\s+(url\()?["\x27]?https?:\/\//i
+      || $file =~ /url\(["\x27]?https?:\/\//i) {
+    print STDERR "Quality check failed: deck contains a remote runtime, stylesheet, image, font, or media reference. Use local or embedded assets only.\n";
+    $failed = 1;
+  }
   my $component_re = qr/
     table|metric-strip|column-chart|ranked-bars|chart-block|heatmap|
     comparison-table|weighted-scorecard|sensitivity-grid|portfolio-prioritization-matrix|raci-governance-grid|outcome-support|process-flow|phase-roadmap|
@@ -51,6 +58,19 @@ perl -0ne '
     $plain =~ s/\s+/ /g;
     my $has_component = $slide =~ /class=["][^"]*($component_re)[^"]*["]/i;
     my $has_visual = $slide =~ /class=["][^"]*($visual_re)[^"]*["]/i;
+    my $title = "";
+    if ($slide =~ /data-title=["\x27]([^"\x27]+)["\x27]/i) {
+      $title = $1;
+    } elsif ($slide =~ /<h[12]\b[^>]*>(.*?)<\/h[12]>/is) {
+      $title = $1;
+      $title =~ s/<[^>]+>/ /g;
+      $title =~ s/\s+/ /g;
+      $title =~ s/^\s+|\s+$//g;
+    }
+    if ($title =~ /^(overview|analysis|findings|data|chart|discussion|market overview|cost analysis)$/i) {
+      print STDERR "Quality check failed: slide $i uses a generic body-slide title \"$title\". Use an answer-first message title.\n";
+      $failed = 1;
+    }
     my $is_sectionish = $slide =~ /data-title=["][^"]*section/i
       || $plain =~ /\bSection\s*\d+/i
       || $plain =~ /数据支撑|基本面分析|板块与行业分析|行业分析|Section\s+/i;

@@ -33,9 +33,14 @@ Layout selection router:
 - Balanced comparison: use `blank-split-even.html` when two options, segments, markets, or operating models need equal weight.
 - Wide table or chart: use `blank-content.html` or `blank-right-rail.html`; do not place dense tables or long-axis charts in narrow sidebars.
 - Decision page: use `blank-content.html` or `blank-right-sidebar.html` with `decision-log`, `comparison-table`, `pros-cons-table`, `outcome-support`, or `callout`.
-- Roadmap page: use `blank-content.html`, `roadmap-swimlane.html`, `phase-roadmap`, `milestone-track`, or a right-rail layout for compact risks or decisions.
+- Roadmap/workplan page: use `blank-content.html`, `roadmap-swimlane.html`, `phase-roadmap`, `milestone-track`, `gantt-workplan`, or a right-rail layout for compact risks or decisions.
+- Sparse concept page: use `statement`, `default-center-message`, `outcome-support`, `framework-map`, `cause-effect`, or `callout`; do not force a chart, table, matrix, or roadmap without required fields.
+- Data dashboard: use `data-dashboard` only when the page has multiple related metrics or exhibits that support one message. If the page has one exhibit, use `blank-content.html`.
+- Section-intro page: in long decks, use a divider only for pacing; in short decks, prefer a section intro with 2-4 proof points, assumptions, or decisions.
 
 If the source evidence is sparse, choose a simpler statement, callout, cards, or outcome-support page rather than forcing a complex layout.
+
+Alignment rule: the component's visual mass should match the slide grid. Compact tables, short roadmaps, small scorecards, and paired lightweight exhibits should be vertically centered rather than pinned to the top with empty lower space. Dense tables, tall timelines, dashboards, and pages with deliberate top/bottom staging should stay top-aligned.
 
 Use:
 

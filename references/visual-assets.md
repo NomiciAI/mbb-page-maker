@@ -30,9 +30,11 @@ Use visual assets to clarify a page message, improve visual balance, or create a
 ## Authoring Rules
 
 - Data-rich pages should use charts, tables, matrices, scorecards, metrics, or risk/status components before visual primitives.
+- Data pages, table pages, chart pages, scorecard pages, and risk/register pages should not receive decorative illustrations by default. The exhibit is the visual.
 - A visual page still needs an answer-first title. The visual supports the claim; it is not the claim.
 - A body slide with a visual primitive must also have a real component or explicit explanatory structure. Visual-only body slides fail the quality gate unless deliberately marked `data-allow-visual="true"` for a showcase or section moment.
 - Do not place fake platform, orbit, stack, map, or abstract system visuals in content pages when a framework, table, scorecard, roadmap, risk register, or process component would communicate the point more clearly.
+- Before adding a generated or abstract visual to an interior page, ask whether removing it would weaken the reasoning. If not, remove it and let the component own the page.
 - Keep visuals inside safe slots: `.content`, `.region-body`, `.safe-fill`, `.safe-stack`, `.cover-art`, or `.cover-visual-slot`.
 - Use `.content.is-vertically-centered` when a single visual primitive is compact and would otherwise sit at the top.
 - Dark pages must use dark slide tokens and pass `scripts/check-deck-contrast.sh`.

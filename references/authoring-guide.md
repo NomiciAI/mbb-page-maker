@@ -62,6 +62,21 @@ Use this order when building a deck:
 
 Do not start from color, effects, or images. Start from message, data shape, layout, and component fit.
 
+## One-Shot Authoring Standard
+
+When the user supplies enough material, author the deck instead of asking the user to design it. The agent should infer the audience, decision, storyline, page sequence, layout, component, and theme from the source content. Ask only for missing facts that materially change the decision, evidence permission, or a promised exhibit.
+
+The expected behavior for a real deck request is:
+
+1. Build the decision context from the prompt and source material.
+2. Extract the evidence inventory.
+3. Draft an internal slide plan.
+4. Generate the complete HTML deck.
+5. Run quality and contrast checks.
+6. Render the self-contained package, PDF, and PNGs unless the user requested source HTML only.
+
+Do not stop at recommendations, a suggested outline, or a page-by-page menu when the source is sufficient to produce the deck. Do not ask the user to pick a layout, component, page order, or archetype; those are authoring decisions.
+
 ## Slide Planning Gate
 
 Before writing deck HTML, make a compact internal plan. For every slide, define:
@@ -128,6 +143,21 @@ When the user provides a report, notes, transcript, or raw text file, extract th
 If external data is approved, extract it separately from the user's material and label it as external in the slide plan.
 
 Then compress the material into a storyline. Use the strongest evidence as exhibits and put weaker or repetitive details into notes, appendix, or omit them. Do not make a slide for every paragraph in the source.
+
+Evidence inventory fields:
+
+| field | extract | use for |
+| --- | --- | --- |
+| Claims | conclusions, recommendations, promises, pain points, and stated asks | answer-first titles, outcome-support, executive summaries |
+| Numbers | revenue, growth, margin, share, valuation, counts, percentages, ranges, rankings, dates, and timing | charts, metrics, rankings, sensitivity, tables |
+| Comparisons | options, peers, regions, segments, customers, channels, vendors, time periods, current-vs-target | scorecards, matrices, comparison tables, heatmaps |
+| Time | phases, milestones, deadlines, launch windows, roadmap steps, dependencies, cadence | timelines, roadmaps, Gantt, milestone tracks |
+| Risks | blockers, uncertainties, dependencies, red flags, downside cases, controls | risk register, decision log, status table, callout |
+| Decisions | approvals, tradeoffs, owners, conditions, gates, next actions | decision pages, scorecards, pros-cons, action plan |
+| Voices | quotes, customer statements, stakeholder objections, user-supplied testimonials | quote components, quote-insight, implication callouts |
+| Gaps | missing proof, assumptions, unresolved questions, permission boundaries | assumption pages, open questions, validation plan |
+
+For sparse prompts, produce a qualitative deck with explicit assumptions, open questions, and decision points. Do not manufacture numeric-looking exhibits. For data-rich prompts, make the structure visible with charts, tables, matrices, rankings, metrics, heatmaps, roadmaps, scorecards, or risk/status components instead of flattening the material into prose cards.
 
 ## Storyline Logic
 
@@ -260,11 +290,17 @@ scripts/check-deck-quality.sh path/to/index.html
 
 The script fails section-like or low-density body slides that have no evidence/component structure. This catches the common failure mode where an agent creates a page such as "Section 02 / Data support" even though the section should contain charts, tables, rankings, matrices, or metrics.
 
+The script also fails obvious generic body-slide titles such as "Overview", "Analysis", "Findings", "Data", "Chart", "Discussion", "Market overview", or "Cost analysis". A content page title must communicate the conclusion or decision implication, not just name the topic or exhibit type.
+
+The script fails remote runtime, stylesheet, image, font, or media references in the source deck file. Generated decks and delivery packages must remain self-contained.
+
 When the audit fails:
 
 - Add a real evidence component to the slide.
 - Merge the divider into the next evidence page.
 - Or, only for longer decks where pacing genuinely needs a pure divider, add `data-allow-divider="true"`.
+- Rewrite generic content titles as answer-first messages.
+- Replace remote dependencies with local, embedded, generated, or repo-native assets.
 
 ## Contrast Audit
 

@@ -17,6 +17,8 @@ When adding a component, read `references/adding-patterns.md` first. A component
 
 Use the component catalog actively. Before authoring HTML, map each planned body slide to at least one component, one evidence shape, one evidence source, and one fallback if the evidence is insufficient. Do not default to prose cards when the source has numeric or tabular evidence.
 
+Components are not decoration. Each component must do a communication job: prove a claim, compare alternatives, show movement over time, expose risk, clarify a decision, or structure qualitative reasoning. If the component would still look plausible after replacing the user's material with generic filler, it is probably the wrong component.
+
 - Numeric section data should become `metric-strip`, `column-chart`, `ranked-bars`, `chart-bars`, `stacked-bars`, `table`, `comparison-table`, `sensitivity-grid`, `heatmap`, `range-comparison-plot`, or `dot-scale-comparison`.
 - Peer/company/industry comparisons should become `comparison-table`, `weighted-scorecard`, `ranked-bars`, `column-chart`, `quadrant-matrix`, `range-comparison-plot`, or `heatmap`.
 - Ordered or phased content should become `timeline`, `phase-roadmap`, `milestone-track`, `process-flow`, `stage-gate`, `vertical-process-takeaway`, `process-deep-dive`, `cascading-flow`, `cycle-flow`, `step-explanation-strip`, or `gantt-workplan`.
@@ -39,6 +41,16 @@ Evidence shape router:
 - Qualitative: use outcome-support, framework-map, issue tree, cause-effect, from-to, numbered-list-grid, dense-list, conversion-list, story-block-list, icon-outcome-grid, or callout.
 
 Fallback rule: if the evidence shape lacks required fields, switch to the simpler qualitative component named in the slide plan or omit the page. Do not invent the missing values to keep a specialized component.
+
+Communication-job router:
+
+- Prove a numeric claim: `metric-strip`, `column-chart`, `ranked-bars`, `chart-bars`, `stacked-bars`, `range-comparison-plot`, `sensitivity-grid`, or `table`.
+- Compare options: `comparison-table`, `weighted-scorecard`, `quadrant-matrix`, `portfolio-prioritization-matrix`, `pros-cons-table`, or `dot-scale-comparison`.
+- Explain timing or sequencing: `phase-roadmap`, `timeline`, `milestone-track`, `gantt-workplan`, `stage-gate`, `process-flow`, or `calendar-workplan`.
+- Manage risk: `risk-matrix-register`, `status-table`, `decision-log`, `pros-cons-table`, or a `callout` paired with evidence.
+- Capture decisions: `decision-log`, `weighted-scorecard`, `outcome-support`, `pros-cons-table`, `compass-choice`, or `comparison-table`.
+- Structure qualitative logic: `outcome-support`, `framework-map`, `cause-effect`, `fishbone-cause-effect`, `from-to-multi`, `pyramid-stack`, `numbered-list-grid`, `dense-list`, or `story-block-list`.
+- Support a concept visually: use visual primitives only after checking `references/visual-assets.md`, and pair them with an explanatory structure or implication.
 
 - Use `card` for repeated, comparable ideas.
 - Use `callout` for a single implication or decision ask.

@@ -4,6 +4,16 @@ Full decks should have one coherent storyline. Choose a deck pattern based on th
 
 Do not treat these as fixed templates. Add, remove, reorder, or combine pages based on the user's material. The archetypes are there to calibrate storyline pacing, page roles, and component fit, not to constrain agent creativity.
 
+Routing priority:
+
+1. Audience decision: what the reader must approve, fund, stop, choose, understand, or investigate.
+2. Evidence shape: numeric, comparison, time, risk, decision, qualitative, quote, contact, or mixed.
+3. Storyline role: executive answer, context, proof, tradeoff, risk, roadmap, decision, appendix, or closing.
+4. Archetype reference: the closest full-deck pattern for pacing and page-role inspiration.
+5. Showcase reference: optional page-level composition help for one exhibit.
+
+The selected archetype is a starting hypothesis, not a page order. If the user's evidence implies a better sequence, use the user's evidence.
+
 ## First-Class Archetypes
 
 Use these complete deck skeletons as first-class authoring references before creating a new full deck:
