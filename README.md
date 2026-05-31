@@ -11,7 +11,6 @@ Design constraints:
 - One-command install.
 - No build step.
 - Pure static HTML/CSS/JS.
-- Predownloaded Google Latin fonts for source preview; CJK uses system font fallbacks to keep the installable skill small.
 - Default export targets: self-contained HTML package, PDF, and PNG; PowerPoint later.
 
 ## Install
@@ -37,6 +36,17 @@ If Claude Code, Cursor, Codex, OpenClaw, Hermes, or another client reports `Unkn
 ```
 
 See `references/agent-compatibility.md` for project/global paths and Claude Code-specific troubleshooting.
+
+## Example Gallery
+
+<p align="center">
+  <a href="examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.gif" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="420"></a>
+  <a href="examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.gif" alt="Agent Technology Outlook" width="420"></a>
+</p>
+<p align="center">
+  <a href="examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.gif" alt="AI-Era Enterprise Intelligence Transformation" width="420"></a>
+  <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="420"></a>
+</p>
 
 ## What Is Included
 
@@ -148,17 +158,6 @@ The starter deck stays intentionally light: title cover, simple agenda/context, 
 `templates/deck.html` is the design-system gallery and review tour, not the default generation template.
 
 `templates/full-decks/` contains complete agent-facing deck archetypes for storyline pacing, page roles, and component composition. Each folder includes a README sidecar for fast indexing before inspecting the HTML. `templates/showcase/` contains page-level thinking patterns and theme + layout + component combinations for single pages and partial decks. Agents should use `references/pattern-index.md` to choose useful references, then adapt or recombine them. `examples/` contains independent public demo decks maintained separately from templates.
-
-## Example Gallery
-
-<p align="center">
-  <a href="examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.webp" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="420"></a>
-  <a href="examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.webp" alt="Agent Technology Outlook" width="420"></a>
-</p>
-<p align="center">
-  <a href="examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.webp" alt="AI-Era Enterprise Intelligence Transformation" width="420"></a>
-  <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.webp" alt="AI Application Software Investment Thesis" width="420"></a>
-</p>
 
 ## Contributing
 

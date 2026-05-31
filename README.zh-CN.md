@@ -11,7 +11,6 @@
 - 一条命令安装。
 - 不需要 build。
 - 纯静态 HTML/CSS/JS。
-- 源码预览使用预下载的 Google 拉丁字体；中文走系统字体 fallback，避免 skill 安装包过大。
 - 默认导出自包含 HTML package、PDF 和 PNG；PowerPoint 最后研究。
 
 ## 安装
@@ -37,6 +36,17 @@ npx skills add https://github.com/NomiciAI/mbb-page-maker --agent '*'
 ```
 
 具体项目级/全局路径和 Claude Code 排查见 `references/agent-compatibility.md`。
+
+## 示例 Gallery
+
+<p align="center">
+  <a href="examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.gif" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="420"></a>
+  <a href="examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.gif" alt="Agent Technology Outlook" width="420"></a>
+</p>
+<p align="center">
+  <a href="examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.gif" alt="AI-Era Enterprise Intelligence Transformation" width="420"></a>
+  <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="420"></a>
+</p>
 
 ## 当前结构
 
@@ -82,17 +92,6 @@ CSS 按职责拆分：
 网络开放素材默认只作为 reference / seed / mood input，不直接把第三方原图打进仓库。进入 `assets/media/` 的通用视觉资产应为自生成或 repo-native，并保留 manifest/provenance 记录。
 
 `starter-deck.html` 保持轻量：标题封面、简单 agenda/context、空白内容页、ending。普通内容页默认从空白内容页开始，再按用户数据组合 layout 和 component。各 skeleton 不需要页面完全一致，只需要遵守同一个 16:9 slide contract 和输出文件顺序。
-
-## 示例 Gallery
-
-<p align="center">
-  <a href="examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.webp" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="420"></a>
-  <a href="examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.webp" alt="Agent Technology Outlook" width="420"></a>
-</p>
-<p align="center">
-  <a href="examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.webp" alt="AI-Era Enterprise Intelligence Transformation" width="420"></a>
-  <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.webp" alt="AI Application Software Investment Thesis" width="420"></a>
-</p>
 
 ## 贡献
 
