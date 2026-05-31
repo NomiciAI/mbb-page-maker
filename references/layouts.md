@@ -123,6 +123,7 @@ Overflow rules:
 - Do not shrink text below legible slide scale just to force content into a region.
 - Do not add filler content to occupy empty regions. If the user did not provide enough data, use a simpler layout.
 - If a single table, timeline, roadmap, flow, framework, or compact region layout only occupies the upper half of the content area, use `.content.is-vertically-centered` or `.content[data-align-y="center"]`.
+- If both sides of a two-column content page are compact primary exhibits, center the pair vertically as one block. For custom split wrappers, add `data-fit-height="content"` or `.is-fit-content` and avoid `height: 100%`.
 - For sparse individual regions, use `.region-body.is-centered`.
 
 ## Medium Layouts

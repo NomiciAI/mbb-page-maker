@@ -225,6 +225,9 @@ Alignment and visual balance:
 - Keep title, content, and footer aligned to the same page grid unless the layout deliberately creates separate regions.
 - Preserve enough whitespace around dense tables, charts, and agendas.
 - Vertically center compact single-component pages and compact region layouts with `.content.is-vertically-centered` or `.content[data-align-y="center"]` when the content would otherwise sit in the top half of the slide.
+- Treat paired short exhibits as compact too. If both sides of a two-column body page are primary content and both are short, such as a 3-5 row table beside a 3-4 row ranked bar chart, two compact scorecards, or a small roadmap beside a short implication stack, center the whole content block vertically.
+- When a custom split wrapper sits inside centered content, do not let the wrapper or its direct child stacks force `height: 100%`; use `height: auto`, `.is-fit-content`, or `data-fit-height="content"` so the centered content height is based on the exhibit, not the full safe area.
+- Keep dense tables, tall timelines, multi-section dashboards, and pages with intentional top/bottom staging top-aligned.
 - For sparse individual regions, use `.region-body.is-centered` so cards, callouts, and supporting notes sit in the visual middle of their safe slot.
 - Keep separator lines sparse. The title rule should have breathing room below the title, and ordinary region layouts should not use an outer border unless framing is the point.
 - Do not let a small component float alone in a large region; use a simpler centered page or add a relevant supporting component.

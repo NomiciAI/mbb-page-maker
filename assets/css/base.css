@@ -207,13 +207,28 @@ body:not(.is-print):not(.is-overview) .slide {
 .content.is-vertically-centered > .framework-map,
 .content.is-vertically-centered > .process-flow,
 .content.is-vertically-centered > .region-layout,
+.content.is-vertically-centered > .split,
 .content.is-vertically-centered > .timeline-track,
 .content.is-vertically-centered > .phase-roadmap,
 .content[data-align-y="center"] > .framework-map,
 .content[data-align-y="center"] > .process-flow,
 .content[data-align-y="center"] > .region-layout,
+.content[data-align-y="center"] > .split,
 .content[data-align-y="center"] > .timeline-track,
 .content[data-align-y="center"] > .phase-roadmap {
+  height: auto;
+}
+
+.content.is-vertically-centered > .is-fit-content,
+.content.is-vertically-centered > [data-fit-height="content"],
+.content.is-vertically-centered > .compact-split,
+.content.is-vertically-centered > .data-split,
+.content.is-vertically-centered > .evidence-split,
+.content[data-align-y="center"] > .is-fit-content,
+.content[data-align-y="center"] > [data-fit-height="content"],
+.content[data-align-y="center"] > .compact-split,
+.content[data-align-y="center"] > .data-split,
+.content[data-align-y="center"] > .evidence-split {
   height: auto;
 }
 
