@@ -405,6 +405,7 @@
 .diverging-box h3,
 .outcome-card strong,
 .from-to-row strong {
+  display: block;
   margin: 0;
   color: var(--color-text);
   font-size: 29px;
