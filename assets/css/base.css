@@ -7,7 +7,7 @@
   --overview-scale: 0.31;
   --overview-frame-width: calc(var(--slide-width) * var(--overview-scale));
   --overview-frame-height: calc(var(--slide-height) * var(--overview-scale));
-  --page-x: 72px;
+  --page-x: 64px;
   --page-y-top: 36px;
   --page-y-bottom: 36px;
 
@@ -125,6 +125,32 @@ body.is-print .slide {
   flex-direction: column;
 }
 
+.slide.is-dense {
+  --dense-header-height: 150px;
+  --dense-content-bottom-clearance: 24px;
+}
+
+.slide.is-dense.active,
+body.is-print .slide.is-dense {
+  display: grid;
+  grid-template-rows: minmax(var(--dense-header-height), auto) minmax(0, 1fr) auto;
+}
+
+.slide.is-dense > header {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.slide.is-dense > header .slide-rule {
+  height: 19px;
+  margin-top: auto;
+  border-bottom: 1px solid var(--color-line);
+  background: transparent;
+  box-sizing: border-box;
+}
+
 body:not(.is-print):not(.is-overview) .slide {
   transform: scale(var(--deck-scale));
   transform-origin: top left;
@@ -191,6 +217,11 @@ body:not(.is-print):not(.is-overview) .slide {
   min-height: 0;
   margin-top: 28px;
   overflow: hidden;
+}
+
+.slide.is-dense .content {
+  box-sizing: border-box;
+  padding-bottom: var(--dense-content-bottom-clearance);
 }
 
 .content > * {

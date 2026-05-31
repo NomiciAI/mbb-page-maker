@@ -66,6 +66,7 @@ Fallback rule: if the evidence shape lacks required fields, switch to the simple
 - Use `column-chart` for one categorical series when vertical comparison is appropriate and labels are short.
 - Use `quadrant-matrix` for qualitative 2x2 prioritization, segmentation, or portfolio positioning.
 - Use `risk-matrix-register` when risk placement must be paired with owners, mitigations, scores, or next actions.
+- Components with bottom x-axis labels or bottom captions, including risk/register matrices, portfolio matrices, quadrant/scatter plots, and similar charts, should sit in `section.slide.is-dense` when they run close to the footer. Dense mode provides the axis clearance; do not add arbitrary bottom padding to ordinary heatmaps or tables.
 - Use `range-competency-chart` when capabilities have current and target levels on the same numeric scale.
 - Use `dot-scale-comparison` for relative positioning on a shared scale when exact axis precision is secondary.
 - Use `range-comparison-plot` for benchmark ranges, peer min/max bands, or confidence intervals with a current marker.

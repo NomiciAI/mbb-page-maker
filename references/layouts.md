@@ -12,7 +12,9 @@ When adding a layout, read `references/adding-patterns.md` first. Add a new layo
 
 Slides are fixed 16:9 canvases. Browser present mode scales the whole slide to the viewport; it must not reflow the slide internals based on viewport width. Do not add mobile breakpoints that collapse grids, sidebars, charts, or component layouts inside `.slide`.
 
-Default ordinary slides use a 72px horizontal safe area and 36px top/bottom safe area. A single direct child inside `.content` should normally fill the available content height so the page has a clear bottom boundary near the footer. Multi-child content areas should let the component own vertical allocation. Use `.content.is-vertically-centered`, `.content[data-align-y="center"]`, `.is-fit-content`, or `data-fit-height="content"` only for deliberately compact exhibits.
+Default ordinary slides use a 64px horizontal safe area and 36px top/bottom safe area. A single direct child inside `.content` should normally fill the available content height so the page has a clear bottom boundary near the footer. Multi-child content areas should let the component own vertical allocation. Use `.content.is-vertically-centered`, `.content[data-align-y="center"]`, `.is-fit-content`, or `data-fit-height="content"` only for deliberately compact exhibits.
+
+Dense evidence pages can opt into `section.slide.is-dense` or `templates/layouts/dense-content.html`. Use this for chart, table, matrix, risk-register, and similar pages that need a stable header band, body band, and footer rule. Dense content keeps the footer border as the bottom seal and reserves 24px of bottom clearance so x-axis labels or bottom captions do not touch the footer line. Do not use dense mode for sparse, centered, or small narrative pages.
 
 Line economy matters. The default page should not feel boxed in:
 
@@ -75,6 +77,7 @@ Default simple snippets:
 | file | use when |
 | --- | --- |
 | `blank-content.html` | One component or a small component stack should occupy the main content area. |
+| `dense-content.html` | One dense chart, table, matrix, or register needs a fixed body band and footer clearance. |
 | `simple-title-cover.html` | Basic deck title page. Do not use a brand-only page as the default title cover. |
 | `default-opening.html` | Deck or section start. |
 | `default-opening-visual.html` | Opening page with one relevant supplied/generated visual. |
