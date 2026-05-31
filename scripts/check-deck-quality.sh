@@ -39,7 +39,8 @@ perl -0ne '
     stair-step-timeline|journey-wave|calendar-workplan|schedule-list|
     contents-card-grid|six-column-list|milestone-track|pyramid-stack|
     conversion-list|story-block-list|step-explanation-strip|icon-outcome-grid|
-    cause-effect|diverging-textboxes|from-to-multi|compass-choice
+    cause-effect|diverging-textboxes|from-to-multi|compass-choice|
+    profile|contact-card|contact-roster|contact-network
   /x;
   my $visual_re = qr/
     visual-architecture-stack|visual-operating-system|visual-market-map|visual-value-bridge|

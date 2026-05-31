@@ -1904,6 +1904,111 @@
   line-height: 1.22;
 }
 
+.contact-network {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-content: start;
+  gap: 42px 52px;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.contact-group {
+  grid-column: span 6;
+  min-width: 0;
+}
+
+.contact-group.is-narrow {
+  grid-column: span 5;
+}
+
+.contact-group.is-wide {
+  grid-column: span 7;
+}
+
+.contact-group.is-full {
+  grid-column: 1 / -1;
+}
+
+.contact-group-title {
+  margin: 0 0 24px;
+  color: var(--color-text);
+  font-size: 32px;
+  font-weight: 850;
+  line-height: 1.05;
+}
+
+.contact-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 34px 42px;
+}
+
+.contact-strip.is-four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.contact-strip.is-five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.contact-strip.is-six {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.contact-mini-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.contact-mini-card .contact-photo {
+  width: 132px;
+  height: 132px;
+}
+
+.contact-mini-card .contact-name {
+  margin-top: 12px;
+  font-size: 20px;
+  font-weight: 750;
+  line-height: 1.1;
+}
+
+.contact-mini-card .contact-meta {
+  margin-top: 6px;
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.contact-network.is-compact {
+  gap: 32px 46px;
+}
+
+.contact-network.is-compact .contact-group-title {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.contact-network.is-compact .contact-strip {
+  gap: 28px 36px;
+}
+
+.contact-network.is-compact .contact-mini-card .contact-photo {
+  width: 118px;
+  height: 118px;
+}
+
+.contact-network.is-compact .contact-mini-card .contact-name {
+  font-size: 18px;
+}
+
+.contact-network.is-compact .contact-mini-card .contact-meta {
+  font-size: 15px;
+}
+
 .chart-block {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);

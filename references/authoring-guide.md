@@ -193,13 +193,15 @@ If a page has evidence without a claim, write the claim before choosing the layo
 Before selecting a specialized page, inspect the user's input:
 
 1. Identify the data type: contacts, metrics, time series, categorical values, prose themes, decisions, roadmap steps, or mixed records.
-2. Check whether required fields exist.
-3. If fields are missing, choose a simpler layout or omit the page.
-4. Never invent names, numbers, roles, dates, sources, or group labels.
+2. Choose the component family, then choose the variant from record count, group labels, semantic roles, density, and layout hierarchy.
+3. Check whether required fields exist.
+4. If fields are missing, choose a simpler layout or omit the page.
+5. Never invent names, numbers, roles, dates, sources, or group labels.
 
 Examples:
 
 - Contacts: use a contact roster only with enough contact records.
+- Contact networks: use grouped sections when people are organized by region, practice, capability, or expertise; use a sidebar roster only when one group is clearly secondary.
 - Numeric categories: use a bar chart only with labels and values.
 - Exact multi-field data: use a table.
 - Sparse prose: use statement, cards, or callout.

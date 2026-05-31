@@ -151,7 +151,8 @@ Overflow rules:
 - Range/competency chart: use a wide content area because row labels, gaps, and scale markers need horizontal space.
 - Dot-scale or range comparison: use a wide content area; add a sidebar only for interpretation notes.
 - Pie/donut split: use split-even or blank-content when the total and legend can remain legible.
-- Contact roster: only when the user provides enough real contact data.
+- Contact roster: only when the user provides enough real contact data and one group is clearly primary while another is supporting.
+- Contact network: when the user provides named experts or contacts grouped by geography, practice, capability, industry, function, or expertise. Use peer group sections rather than a sidebar when the groups have equal weight.
 - Chart and takeaways: one chart plus 2-4 implications.
 - Heatmap assessment: capability/maturity/fit data with row and column categories.
 - Diverging heatmap: use blank-content and keep rows/columns bounded; split across pages if labels or cells overflow.
@@ -232,7 +233,7 @@ Upcoming validation work should use full-deck examples to test cross-section com
 
 Current full-deck validation files live in `templates/showcase/full-deck-operating-case-mono.html` and `templates/showcase/full-deck-operating-case-blue.html`. They are review fixtures, not the default generated demo deck.
 
-Reusable layout snippets include `templates/layouts/contact-roster.html` for the contacts case.
+Reusable layout snippets include `templates/layouts/contact-roster.html` for primary/supporting contact pages and `templates/layouts/contact-network.html` for grouped expert-network pages.
 
 Blank structured layout snippets include `templates/layouts/blank-left-rail.html`, `blank-split-even.html`, `blank-left-sidebar.html`, `blank-right-sidebar.html`, `blank-right-rail.html`, and `blank-three-column.html`.
 

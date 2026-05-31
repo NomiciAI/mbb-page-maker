@@ -98,6 +98,9 @@
     "illustration": "shared",
     "orbit": "shared",
     "profile": "people",
-    "contact-card": "people"
+    "contact-card": "people",
+    "contact-roster": "people",
+    "contact-network": "people",
+    "contact-mini-card": "people"
   }
 }

@@ -42,6 +42,24 @@ Evidence shape router:
 
 Fallback rule: if the evidence shape lacks required fields, switch to the simpler qualitative component named in the slide plan or omit the page. Do not invent the missing values to keep a specialized component.
 
+## Variant Assembly
+
+Choose the component family first, then assemble the variant from the data shape. Snippets are starting points, not fixed outputs.
+
+- Record count controls density: few records can use compact cards; many records need grids, tables, or split pages.
+- Group labels control structure: use the user's labels for section titles, legends, sidebars, and axes instead of keeping demo copy.
+- Data roles control emphasis: only use visual emphasis such as `.is-principal`, `.is-active`, or `.is-focus` when the source marks a primary, current, recommended, or otherwise special item.
+- Layout controls hierarchy: if one group is supporting context, use a sidebar or rail; if groups are peers, use parallel regions or a grouped grid.
+
+Contact variants:
+
+- `contact-roster`: use for named primary contacts plus secondary contributors, advisors, or support contacts. Replace `.contact-section-title`, `.contact-sidebar h3`, and `.contact-legend` with supplied labels such as Contacts / Contributors, Owners / Support team, or Principal contacts / Advisors.
+- `contact-network`: use for expert networks grouped by geography, practice, capability, industry, function, or expertise. Use multiple `.contact-group-title` sections and compact `.contact-mini-card` records. Do not force a sidebar when groups are peers.
+- `contact-card` / `profile`: use inside another page when there are only 1-2 people or when people support a larger exhibit.
+- Owner maps without named people should usually use `raci-governance-grid`, `decision-log`, or a table instead of fake contact cards.
+
+This same variant logic applies across component families: tables vary by fields and row count; charts vary by data shape and axis needs; process components vary by sequence versus gates versus loops; governance components vary by whether the source has decisions, owners, cadence, or only unresolved asks.
+
 - Use `card` for repeated, comparable ideas.
 - Use `callout` for a single implication or decision ask.
 - Use `metric-strip` when the page needs 3-5 headline numbers.
@@ -64,6 +82,7 @@ Fallback rule: if the evidence shape lacks required fields, switch to the simple
 - Use `profile` for team, expert, or stakeholder pages.
 - Use `contact-card` only when the input contains real contact records.
 - Contact roster labels are semantic fields, not fixed copy. Set `.contact-section-title`, `.contact-sidebar h3`, and `.contact-legend` from the supplied grouping, such as Contacts / Contributors, Owners / Support team, Executive sponsors / Working team, or Principal contacts / Advisors.
+- Use `contact-network` when the input describes a network of experts grouped by region, function, practice, capability, or expertise. Use the group labels as visible section headings.
 - Use `column-chart` for one categorical series when vertical comparison is appropriate and labels are short.
 - Use `quadrant-matrix` for qualitative 2x2 prioritization, segmentation, or portfolio positioning.
 - Use `risk-matrix-register` when risk placement must be paired with owners, mitigations, scores, or next actions.
@@ -288,6 +307,8 @@ Future passes should expand CV/face-page primitives, richer full-deck examples, 
 | `templates/components/visual-data-flywheel.html` | Supportive visual for learning loops and compounding reuse. |
 | `templates/components/profile.html` | Profile row with generated avatar placeholder. |
 | `templates/components/contact-card.html` | Single contact with optional photo. |
+| `templates/layouts/contact-roster.html` | Primary contacts plus sidebar contributors or support contacts. |
+| `templates/layouts/contact-network.html` | Expert or contact network grouped by geography, practice, capability, or expertise. |
 | `templates/components/column-chart.html` | Single-series vertical category chart with optional highlighted column. |
 | `templates/components/quadrant-matrix.html` | Qualitative 2x2 matrix with points and legend. |
 | `templates/components/risk-matrix-register.html` | Impact/likelihood matrix plus action-oriented register. |
