@@ -24,7 +24,7 @@ perl -0ne '
     numbered-list-grid|decision-log|pros-cons-table|filter-cascade|
     framework-map|risk-matrix|range-competency-chart|range-comparison-plot|
     dot-scale-comparison|pie-chart|donut-chart|stacked-bars|scatter-plot|
-    quote-insight|quote-large|quote-small|quote-grid|dense-list|card-grid|card\b|
+    quote-insight|quote-large|quote-small|quote-grid|dense-list|callout|card-grid|card\b|
     quadrant-matrix|waterfall|roadmap|timeline|stage-gate|value-chain|
     funnel-steps|loop-cycle|cycle-flow|cascading-flow|decision-flowchart|fishbone-cause-effect|
     vertical-process-takeaway|process-deep-dive|triangle-steps|screen-filter-grid|
@@ -32,7 +32,9 @@ perl -0ne '
     stair-step-timeline|journey-wave|calendar-workplan|schedule-list|
     contents-card-grid|six-column-list|milestone-track|pyramid-stack|
     conversion-list|story-block-list|step-explanation-strip|icon-outcome-grid|
-    cause-effect|diverging-textboxes|from-to-multi|compass-choice|
+    cause-effect|diverging-textboxes|from-to-multi|compass-choice
+  /x;
+  my $visual_re = qr/
     visual-architecture-stack|visual-operating-system|visual-market-map|visual-value-bridge|
     visual-risk-control|visual-customer-journey|visual-team-network|visual-data-flywheel
   /x;
@@ -48,9 +50,14 @@ perl -0ne '
     $plain =~ s/<[^>]+>/ /g;
     $plain =~ s/\s+/ /g;
     my $has_component = $slide =~ /class=["][^"]*($component_re)[^"]*["]/i;
+    my $has_visual = $slide =~ /class=["][^"]*($visual_re)[^"]*["]/i;
     my $is_sectionish = $slide =~ /data-title=["][^"]*section/i
       || $plain =~ /\bSection\s*\d+/i
       || $plain =~ /数据支撑|基本面分析|板块与行业分析|行业分析|Section\s+/i;
+    if ($has_visual && !$has_component && $slide !~ /data-allow-visual=["]true["]/i) {
+      print STDERR "Quality check failed: slide $i uses a visual primitive without an evidence/component structure. Add a real component, remove the visual, or mark a deliberate exception with data-allow-visual=\"true\".\n";
+      $failed = 1;
+    }
     if (($is_sectionish || length($plain) < 220) && !$has_component) {
       print STDERR "Quality check failed: slide $i has no evidence/component structure. Add a real component or mark an intentional divider with data-allow-divider=\"true\".\n";
       $failed = 1;

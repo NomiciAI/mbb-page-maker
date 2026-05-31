@@ -92,7 +92,7 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 9. Choose one page layout from `templates/layouts/` using `references/layouts.md`.
 10. Choose reusable components from `templates/components/` using `references/components.md`.
 11. Apply one theme file from `assets/themes/`.
-12. Verify that the assembled slide has one clear message, one dominant visual structure, no visible overflow, and no copied source identifiers.
+12. Verify that the assembled slide has one clear message, one dominant communication structure, no visible overflow, and no copied source identifiers.
 13. Run the deck quality and contrast audits; fix empty section pages, missing evidence components, and failed text/background pairs.
 14. Render the default self-contained HTML package, PDF, and PNG slide images unless the user explicitly asked for HTML only.
 
@@ -124,7 +124,7 @@ Dark or pitch-style pages must use `.dark`, `[data-mode="dark"]`, `[data-tone="d
 
 Page choice is compositional, not fixed. Infer the user's task and data shape, then combine the smallest suitable layout with the needed components. Full-deck archetypes and showcase patterns are references, not constraints; diverge from them whenever the user's material calls for a better storyline or exhibit. For flows, funnels, filters, horizons, timelines, journeys, tables, lists, and quotes, inspect the relevant process/time/text showcase before inventing ad hoc HTML. Use `references/layouts.md` and `references/components.md` for detailed selection guidance.
 
-Visual choice is also compositional. Use visuals only when they support the answer-first message, improve visual balance, or create a deliberate cover/section moment. Do not add illustration to data-rich pages by default; charts, tables, scorecards, matrices, metrics, and risk/status components remain primary when evidence exists. Before using bitmap media or interior visual primitives, inspect `references/visual-assets.md` and `templates/showcase/visual-patterns.html`.
+Visual choice is also compositional. Use visuals only when they support the answer-first message, improve visual balance, or create a deliberate cover/section moment. Do not add illustration to data-rich pages by default; charts, tables, scorecards, matrices, metrics, and risk/status components remain primary when evidence exists. Visual primitives and generated images are not evidence and do not count as the page's content component by themselves. Never use abstract visuals to fill empty space on a body slide; if the visual can be removed without weakening the argument, remove it. Before using bitmap media or interior visual primitives, inspect `references/visual-assets.md` and `templates/showcase/visual-patterns.html`.
 
 Do not force a specialized page. If the input is sparse, use a simpler page or ask for the missing data.
 
