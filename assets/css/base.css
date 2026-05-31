@@ -4,6 +4,9 @@
   --deck-scale: 1;
   --deck-frame-width: var(--slide-width);
   --deck-frame-height: var(--slide-height);
+  --overview-scale: 0.31;
+  --overview-frame-width: calc(var(--slide-width) * var(--overview-scale));
+  --overview-frame-height: calc(var(--slide-height) * var(--overview-scale));
   --page-x: 72px;
   --page-y: 48px;
 
@@ -301,7 +304,7 @@ body.is-export .deck-controls {
 
 body.is-overview .deck {
   min-height: 100vh;
-  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--overview-frame-width)), 1fr));
   gap: 32px;
   align-items: start;
   justify-items: center;
@@ -310,11 +313,15 @@ body.is-overview .deck {
 
 body.is-overview .slide {
   display: flex;
+  flex-direction: column;
   width: var(--slide-width);
   height: var(--slide-height);
   box-shadow: 0 18px 40px rgba(18, 25, 38, 0.08);
   cursor: pointer;
-  zoom: 0.31;
+  transform: scale(var(--overview-scale));
+  transform-origin: top left;
+  margin-right: calc(var(--overview-frame-width) - var(--slide-width));
+  margin-bottom: calc(var(--overview-frame-height) - var(--slide-height));
 }
 
 body.is-overview .slide.active {
