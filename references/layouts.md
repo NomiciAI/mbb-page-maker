@@ -216,11 +216,21 @@ Current gallery layouts live in `templates/deck.html`: cover, dark cover, sectio
 
 Structure-pattern showcase pages live in `templates/showcase/structure-patterns.html`: pyramid stack, cause-effect, outcome-support, diverging textboxes, from-to multi, compass choice, and framework map.
 
+Conceptual-variant showcase pages live in `templates/showcase/conceptual-variants.html`: issue tree, iceberg model, capability coverage map, and framework-map comparison.
+
 Process-pattern showcase pages live in `templates/showcase/process-patterns.html`: process flow, stage gate, funnel steps, filter cascade, loop cycle, value chain, cycle/cascading flow, decision flowchart, fishbone, vertical process takeaway, process deep dive, triangle steps, and screen filter grid.
+
+Flow and workplan variant showcase pages live in `templates/showcase/flow-workplan-variants.html`: chevron ribbon, swimlane process map, customer journey loop, input-process-output layers, dense Gantt, and phase meeting plan.
 
 Time-pattern showcase pages live in `templates/showcase/time-patterns.html`: timeline track, horizon bands, journey map, phase roadmap, milestone track, horizon curve, journey arc/wave, Gantt workplan, stair-step timeline, calendar workplan, and schedule list.
 
+Data-visualization variant showcase pages live in `templates/showcase/data-visualization-variants.html`: line chart, combo chart, paired bars, Likert bars, waterfall bridge, and checkmark-bar table.
+
 Text-pattern showcase pages live in `templates/showcase/text-patterns.html`: large quote, small quote, quote insight, quote grid, numbered list grid, dense list, contents card grid, six-column list, conversion list, story block list, step explanation strip, icon outcome grid, wide data table, status table, decision log, and pros-cons table.
+
+Analysis-table variant showcase pages live in `templates/showcase/analysis-table-variants.html`: ranked evidence table, driver recap columns, matrix table, and wide analytical table.
+
+People-variant showcase pages live in `templates/showcase/people-variants.html`: contact roster, contact network, team wall, and bio card grid.
 
 Dedicated skeleton starters do not need identical pages; they demonstrate different roles while sharing the same output contract:
 

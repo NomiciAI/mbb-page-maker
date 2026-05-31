@@ -40,7 +40,11 @@ perl -0ne '
     contents-card-grid|six-column-list|milestone-track|pyramid-stack|
     conversion-list|story-block-list|step-explanation-strip|icon-outcome-grid|
     cause-effect|diverging-textboxes|from-to-multi|compass-choice|
-    profile|contact-card|contact-roster|contact-network
+    profile|contact-card|contact-roster|contact-network|
+    line-chart|combo-chart|paired-bars|likert-bars|waterfall-bridge|checkmark-bar-table|
+    ranked-evidence-table|driver-recap-columns|matrix-table|issue-tree|iceberg-model|
+    capability-coverage-map|chevron-process-ribbon|swimlane-process-map|customer-journey-loop|
+    input-process-output-layers|phase-meeting-plan|team-wall|bio-card-grid
   /x;
   my $visual_re = qr/
     visual-architecture-stack|visual-operating-system|visual-market-map|visual-value-bridge|

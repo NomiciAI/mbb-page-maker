@@ -312,3 +312,73 @@
 .contact-network.is-compact .contact-mini-card .contact-meta {
   font-size: 15px;
 }
+
+.team-wall {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 30px 36px;
+  align-content: start;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.team-wall-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.team-wall-card .contact-photo {
+  width: 112px;
+  height: 112px;
+}
+
+.team-wall-card .contact-name {
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+.team-wall-card .contact-meta {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.bio-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px 42px;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.bio-card {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 22px;
+  min-width: 0;
+  border-top: 1px solid var(--color-line);
+  padding-top: 20px;
+  overflow: hidden;
+}
+
+.bio-card .contact-photo {
+  width: 112px;
+  height: 112px;
+}
+
+.bio-card h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 23px;
+  line-height: 1.1;
+}
+
+.bio-card p {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.32;
+}

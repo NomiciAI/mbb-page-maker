@@ -23,6 +23,8 @@ Use these complete deck skeletons as first-class authoring references before cre
 | `templates/full-decks/ai-application-investment-thesis/index.html` | investment, pitch, thesis, market map, funding, product bet, or diligence-style decks | evidence extraction, thesis flow, market/peer pages, risk framing, pitch-style density |
 | `templates/full-decks/enterprise-intelligence-transformation/index.html` | transformation, operating model, AI strategy, capability build, roadmap, governance, or board update decks | executive answer, flywheel/story model, capability heatmap, roadmap, governance, decision pages |
 | `templates/full-decks/agent-technology-outlook/index.html` | agent technology outlook, AI platform strategy, agent architecture, technical market scan, interoperability, or governance decks | technical outlook pacing, green strategic style, architecture stack, risk framing, roadmap |
+| `templates/full-decks/board-decision-recommendation/index.html` | board approval, executive committee decision, investment committee, funding, go/no-go, or strategic option recommendation decks | board decision pacing, option gates, value proof, risk conditions, explicit approval close |
+| `templates/full-decks/technical-architecture-decision/index.html` | architecture option selection, platform path decision, build-vs-extend choice, or technical governance approval decks | architecture tradeoff logic, option matrix, capability coverage, proof path, architecture decision close |
 | `templates/full-decks/technical-implementation-plan/index.html` | technical implementation, architecture rollout, platform modernization, integration, or delivery governance decks | target architecture, release gates, dependency/risk framing, implementation roadmap |
 | `templates/full-decks/vendor-selection-scorecard/index.html` | vendor selection, platform evaluation, RFP synthesis, solution shortlist, or build/buy recommendation decks | requirements, shortlist comparison, weighted scorecard, TCO/risk, decision close |
 | `templates/full-decks/workshop-decision-pack/index.html` | workshop, working session, leadership alignment, decision meeting, or planning pack decks | objectives, agenda, pre-read, option debate, decision capture, next steps |
@@ -49,10 +51,12 @@ Read the archetype's `README.md` sidecar before inspecting `index.html`. The sid
 | user task | default route |
 | --- | --- |
 | Investment, thesis, diligence, product bet, pitch | Inspect `ai-application-investment-thesis`, then adapt the Investment Or Diligence Memo sequence. |
+| Board approval, executive committee choice, investment committee, or go/no-go recommendation | Inspect `board-decision-recommendation`, then adapt the Board Decision Recommendation sequence. |
 | Board or executive update | Inspect `enterprise-intelligence-transformation`, then adapt the Board Or Executive Update sequence. |
 | Transformation, operating model, AI strategy, governance | Inspect `enterprise-intelligence-transformation`, then adapt the Operating Model Or Transformation sequence. |
 | Market, competitive, customer, or trend scan | Inspect `ai-application-investment-thesis` for market evidence density, then adapt the Market Or Competitive Scan sequence. |
 | Agent technology outlook, AI platform strategy, agent architecture, or technical market scan | Inspect `agent-technology-outlook`, then adapt the Technology Outlook Or Agent Architecture sequence. |
+| Architecture option selection, platform path decision, or technical governance approval | Inspect `technical-architecture-decision`, then adapt the Technical Architecture Decision sequence. |
 | Technical implementation, architecture rollout, or platform modernization | Inspect `technical-implementation-plan`, then adapt the Technical Implementation Plan sequence. |
 | Vendor selection, RFP synthesis, solution shortlist, or build/buy decision | Inspect `vendor-selection-scorecard`, then adapt the Vendor Selection sequence. |
 | Workshop or working session pack | Inspect `workshop-decision-pack`, then adapt the Workshop Pack sequence. |
@@ -165,6 +169,22 @@ Typical sequence:
 8. Appendix.
 
 Useful components: `metric-strip`, `data-dashboard`, `table`, `heatmap`, `roadmap-swimlane`, `callout`.
+
+## Board Decision Recommendation
+
+Use when the audience must approve, fund, stop, gate, or choose a strategic option. This is different from a board update: the deck should drive one explicit decision, not merely synchronize status.
+
+Typical sequence:
+
+1. Title page.
+2. Recommendation answer and approval ask.
+3. Option gate score or weighted evidence.
+4. Value bridge, business case, or approval conditions.
+5. Risks, mitigations, and board gates.
+6. Decision log, owners, and next checkpoint.
+7. Appendix or supporting analyses.
+
+Useful components: `outcome-support`, `metric-strip`, `checkmark-bar-table`, `weighted-scorecard`, `waterfall-bridge`, `sensitivity-grid`, `risk-matrix-register`, `decision-log`, `phase-meeting-plan`.
 
 ## CXO SteerCo Progress Update
 
@@ -321,6 +341,22 @@ Typical sequence:
 8. Architecture and delivery decisions.
 
 Useful components: `framework-map`, `comparison-table`, `process-flow`, `risk-matrix-register`, `phase-roadmap`, `decision-log`.
+
+## Technical Architecture Decision
+
+Use when the audience must choose the architecture path, platform pattern, integration model, or technical governance default before implementation planning begins.
+
+Typical sequence:
+
+1. Title page.
+2. Architecture recommendation and decision frame.
+3. Option comparison by control, reuse, speed, and burden.
+4. Capability coverage and unresolved gaps.
+5. Proof path across product, platform, risk, and operations.
+6. Decisions, proof checkpoints, and scale trigger.
+7. Appendix or detailed requirements.
+
+Useful components: `input-process-output-layers`, `matrix-table`, `weighted-scorecard`, `capability-coverage-map`, `heatmap`, `swimlane-process-map`, `phase-roadmap`, `decision-log`, `phase-meeting-plan`.
 
 ## Vendor Selection Or Build/Buy Recommendation
 

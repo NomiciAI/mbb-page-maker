@@ -21,12 +21,12 @@ components = manifest["components"]
 families = {name: [] for name in manifest["families"]}
 
 family_patterns = [
-    ("process", re.compile(r"^(process|stage|funnel|filter|loop|cycle|cascade|flow|fishbone|screen|triangle|value|vertical|takeaway|deep-dive)")),
-    ("time", re.compile(r"^(timeline|horizon|journey|phase|milestone|gantt|stair|calendar|schedule)")),
+    ("process", re.compile(r"^(process|stage|funnel|filter|loop|cycle|cascade|flow|fishbone|screen|triangle|value|vertical|takeaway|deep-dive|chevron|swimlane|customer-journey|journey-loop|input-process|ipo)")),
+    ("time", re.compile(r"^(timeline|horizon|journey|phase|meeting-phase|milestone|gantt|stair|calendar|schedule)")),
     ("text", re.compile(r"^(quote|numbered-list|dense-list|contents-card|six-column|conversion|story|step-explanation|icon-outcome|outcome-icon|decision-log|pros-cons|status|agenda|catalog|objective|simple-agenda)")),
-    ("data", re.compile(r"^(metric|chart|bar|heatmap|scatter|table|scorecard|sensitivity|portfolio|risk|quadrant|competency|dot|range|pie|donut|stacked|waterfall|axis|plot|part-to-whole|dual-pie|benchmark)")),
-    ("structure", re.compile(r"^(pyramid|cause-effect|outcome|support-stack|diverging|from-to|compass|framework|raci|concept-box|concept-connector|transition-marker)")),
-    ("people", re.compile(r"^(profile|contact|avatar|headshot)")),
+    ("data", re.compile(r"^(metric|chart|bar|heatmap|scatter|table|scorecard|sensitivity|portfolio|risk|quadrant|competency|dot|range|pie|donut|stacked|waterfall|axis|plot|part-to-whole|dual-pie|benchmark|line|combo|paired|likert|checkmark|ranked-evidence|driver-recap|matrix|inline-bar|rank-cell)")),
+    ("structure", re.compile(r"^(pyramid|cause-effect|outcome|support-stack|diverging|from-to|compass|framework|raci|concept-box|concept-connector|transition-marker|issue-tree|tree|iceberg|capability|coverage)")),
+    ("people", re.compile(r"^(profile|contact|avatar|headshot|team-wall|bio-card)")),
     ("shared", re.compile(r"^(callout|card|concept-label|layout-note|viz-)")),
 ]
 

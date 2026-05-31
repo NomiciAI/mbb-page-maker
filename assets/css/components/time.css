@@ -275,6 +275,53 @@
   line-height: 1.35;
 }
 
+.gantt-workplan.is-dense {
+  grid-template-columns: 170px repeat(12, minmax(0, 1fr));
+  font-size: 12px;
+}
+
+.gantt-workplan.is-dense .gantt-workstream {
+  font-size: 13px;
+}
+
+.phase-meeting-plan {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-top: 1px solid var(--color-line);
+  border-left: 1px solid var(--color-line);
+}
+
+.meeting-phase {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-width: 0;
+  border-right: 1px solid var(--color-line);
+}
+
+.meeting-phase h3 {
+  margin: 0;
+  border-bottom: 1px solid var(--color-line);
+  padding: 16px;
+  font-size: 20px;
+  line-height: 1.12;
+}
+
+.meeting-phase ul {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  margin: 0;
+  padding: 18px 18px 18px 34px;
+  color: var(--color-text);
+  font-size: 15px;
+  line-height: 1.28;
+}
+
 .horizon-curve {
   position: relative;
   height: 100%;
