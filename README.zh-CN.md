@@ -1,17 +1,15 @@
 # MBB Page Maker
 
-这是一个用来生成咨询公司风格 HTML PPT 的 skill package：战略汇报、董事会材料、投资 memo、管理层决策页等。
+MBB Page Maker 给 coding agent 提供一套开箱即用的系统，用来生成咨询公司风格 HTML PPT：战略汇报、董事会材料、投资 memo、管理层决策页等。
 
-目标是让 AI coding agent 能通过一个可安装的静态包，稳定地生成、预览，并导出高质量管理层汇报材料。
+安装一次后，可以在 Codex、Claude Code、Cursor、OpenClaw、Hermes 或任何能读取本地 skill package 的 agent 里使用。Deck 保持静态、可检查，并可导出为自包含 HTML、PDF 和 PNG。
 
-设计约束：
-
-```txt
-- 一条命令安装。
-- 不需要 build。
-- 纯静态 HTML/CSS/JS。
-- 默认导出自包含 HTML package、PDF 和 PNG。
-```
+> 设计约束：
+>
+> - 一条命令安装。
+> - 不需要 build。
+> - 纯静态 HTML/CSS/JS。
+> - 默认导出自包含 HTML package、PDF 和 PNG。
 
 ## 示例 Gallery
 
@@ -24,7 +22,7 @@
   <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
 </p>
 
-## 设计理念
+## Design System
 
 MBB Page Maker 的核心原则很简单：源 deck 应该可读、可编辑、可迁移。生成结果就是 HTML、CSS、JavaScript 和本地静态资源。最终 package 不依赖框架 runtime、不需要 build，也不依赖 CDN。
 

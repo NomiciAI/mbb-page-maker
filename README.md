@@ -1,17 +1,15 @@
 # MBB Page Maker
 
-This is a skill package for creating consulting-style HTML PPT decks: strategy pages, board updates, investment memos, and executive narratives.
+MBB Page Maker gives coding agents a ready-to-use system for producing consulting-style HTML PPT decks: strategy pages, board updates, investment memos, and executive narratives.
 
-The goal is to give AI coding agents a reliable, installable way to author, preview, and export executive-grade HTML presentations from a static package.
+Install it once, then use it from Codex, Claude Code, Cursor, OpenClaw, Hermes, or any agent that can read a local skill package. Decks stay static, inspectable, and exportable to self-contained HTML, PDF, and PNG.
 
-Design constraints:
-
-```txt
-- One-command install.
-- No build step.
-- Pure static HTML/CSS/JS.
-- Default export targets: self-contained HTML package, PDF, and PNG.
-```
+> Design constraints:
+>
+> - One-command install.
+> - No build step.
+> - Pure static HTML/CSS/JS.
+> - Default exports to self-contained HTML package, PDF, and PNG.
 
 [中文 README](README.zh-CN.md)
 
@@ -26,7 +24,7 @@ Design constraints:
   <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
 </p>
 
-## Design Philosophy
+## Design System
 
 MBB Page Maker is built around a simple constraint: the source deck should stay readable, editable, and portable. A generated deck is just HTML, CSS, JavaScript, and local assets. There is no framework runtime, no build step, and no CDN dependency in the final package.
 
