@@ -15,18 +15,15 @@ The source deck must run without a build step: plain HTML, CSS, and JavaScript. 
 
 ## Authoring Philosophy
 
-Treat every deck as a decision tool, not a styled page collection. The agent owns the authoring judgment: infer the audience, decision, evidence shape, storyline, layout, component, and theme from the user's material instead of asking the user to design the deck.
+Treat every deck as a decision tool, not a styled page collection. The agent owns the authoring judgment: infer the audience, decision, storyline, layout, component, and theme from the user's material instead of asking the user to design the deck.
 
 Hard rules:
 
-- Start decision-backwards: audience, decision, answer, evidence, implication, and action.
-- Write answer-first titles for content pages. A title should state the conclusion, not name the exhibit.
-- Preserve source fidelity. Claims, numbers, comparisons, risks, decisions, owners, dates, and quotes must come from user input, clearly marked assumptions, or user-approved external research.
-- Do not fabricate evidence. No invented market sizes, growth rates, rankings, scores, dates, owners, quotes, or contact records.
-- Let evidence shape drive components. Numeric, comparison, time, risk, decision, and qualitative evidence route to different exhibits.
-- Use full-deck archetypes and showcase pages as inspiration for storyline and composition, not as fixed templates or copied content.
-- Treat visuals as support. A generated image or visual primitive is not evidence and must not replace a chart, table, matrix, scorecard, roadmap, risk register, or decision component.
-- If the material is sufficient, complete the deck and exports instead of stopping at an outline. Do not ask the user to pick layouts, components, or page sequence.
+- Start decision-backwards: audience, decision, answer, evidence, implication, action.
+- Keep source fidelity: use user material, marked assumptions, or approved external data; never invent evidence.
+- Let evidence shape drive components; if evidence is sparse, use qualitative pages and visible assumptions.
+- Use answer-first titles and visuals only when they support the argument.
+- Treat archetypes and showcases as references, not templates; complete the deck and exports when material is sufficient.
 
 ## Install
 
@@ -46,21 +43,15 @@ For real deck work, follow this path in order:
 
 1. Read `references/authoring-guide.md` before creating or materially rewriting a deck.
 2. For strategy, board, investment, pitch, transformation, or full-deck work, read `references/consulting-thinking.md`.
-3. Infer the decision context: audience, decision or action needed, likely answer, hard constraints, output length, language, and whether external data is allowed.
-4. Extract an evidence inventory from the user's material: claims, numbers, comparisons, segments, time periods, risks, decisions, owners, quotes, assumptions, and open gaps.
-5. Pass the source fidelity gate: every body slide must use user-provided evidence, clearly marked assumptions, or approved external data.
-6. Pass the evidence-shape gate: route numeric, comparison, time, risk, decision, and qualitative evidence to appropriate components; do not fabricate missing fields to force a chart, metric, table, matrix, or roadmap.
-7. For full decks, read `references/full-decks.md`, then the closest `templates/full-decks/<slug>/README.md`, then inspect that archetype's `index.html` for storyline and page-role inspiration before writing HTML.
-8. For single-page, partial-deck, or local page-composition work, read `references/pattern-index.md` or `templates/showcase/README.md` before choosing and recombining layout + component patterns.
-9. If a page needs cover art, a section visual, or an interior visual support pattern, read `references/visual-assets.md` before choosing bitmap media or visual primitives.
-10. Start from `templates/starter-deck.html` or the user's existing deck. Do not start from a blank file.
-11. Pass the pattern selection gate: choose audience, decision scenario, output length, theme default, relevant full-deck archetype, optional showcase page pattern, component mix, and evidence-to-page route. Common scenarios include strategy recommendation, board update, investment thesis, pitch, transformation, technical implementation, vendor selection, workshop, CXO/SteerCo update, LOP, initiative recommendation, market entry, pricing, org design, diligence findings, PMI, turnaround, portfolio allocation, M&A decision, and analytics readout.
-12. Create a short slide plan before writing HTML: message, evidence source, evidence shape, layout, component, fallback, and output role.
-13. Use `references/layouts.md`, `references/components.md`, and `references/themes.md` only when choosing from those catalogs.
-14. Assemble slides using existing CSS layers, layout shells, components, and theme tokens.
-15. Run `scripts/check-deck-quality.sh path/to/index.html` and `scripts/check-deck-contrast.sh path/to/index.html`; fix failures.
-16. Run `scripts/render.sh path/to/index.html` unless the user explicitly asks for source HTML only.
-17. Deliver `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` as the default share set.
+3. Infer audience, decision, likely answer, constraints, and external-data permission.
+4. Extract evidence: claims, numbers, comparisons, timing, risks, decisions, assumptions, and gaps.
+5. Choose references only as needed: `references/full-decks.md` for full storylines, `templates/showcase/README.md` for page patterns, `references/visual-assets.md` for visual support.
+6. Start from `templates/starter-deck.html` or the user's existing deck. Do not start from a blank file.
+7. Create a compact internal slide plan: message, evidence source, evidence shape, layout, component, fallback, and output role.
+8. Assemble slides using existing CSS layers, layout shells, components, and theme tokens.
+9. Run `scripts/check-deck-quality.sh path/to/index.html` and `scripts/check-deck-contrast.sh path/to/index.html`; fix failures.
+10. Run `scripts/render.sh path/to/index.html` unless the user explicitly asks for source HTML only.
+11. Deliver `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` as the default share set.
 
 If any export step fails, fix the source deck or dependency problem and rerun the same command. Do not hand-wave missing package assets, PDF, PNGs, or audit failures.
 

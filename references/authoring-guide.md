@@ -82,14 +82,7 @@ Do not proceed to HTML when a body slide has no component choice. The only valid
 
 For short decks, avoid pure section dividers. If the user asks for three sections, each section should usually start with an evidence page or a section-intro page that contains 2-4 metrics, a mini catalog, or a clear summary. A page that only says "Section 02 / Data support" is too weak when the source contains enough data to chart, rank, compare, or tabulate.
 
-Component coverage expectations:
-
-- Data section: at least one chart, ranked bar, table, heatmap, matrix, range plot, or metric strip.
-- Industry or market section: at least one comparison, ranking, matrix, heatmap, timeline, or table.
-- Fundamental analysis section: at least one table, metric strip, outcome-support, issue tree, or comparison component.
-- Execution or recommendation section: roadmap, decision-log, process-flow, stage-gate, pros-cons, or milestone-track.
-
-If useful structured data exists, do not replace it with only prose cards. Cards are acceptable for synthesis, but evidence pages should show the data structure.
+If useful structured data exists, do not replace it with only prose cards. Cards are acceptable for synthesis, but evidence pages should show the data structure with an appropriate component.
 
 If structured data does not exist, do not fabricate it. Pick a qualitative layout and make the uncertainty explicit through a callout, issue tree, decision log, or hypothesis page. A sparse source should become a clear qualitative deck, not a data-looking deck with invented metrics.
 
@@ -128,25 +121,13 @@ When the user provides a report, notes, transcript, or raw text file, extract th
 - Causal drivers: why performance changed, why the opportunity exists, why risk matters.
 - Uncertainty: missing verification, rumors, assumptions, dependencies, or conflicting signals.
 - Decisions: what the audience should approve, monitor, defer, or investigate.
+- Voices and gaps: real quotes, stakeholder objections, missing proof, and open questions.
 
 If external data is approved, extract it separately from the user's material and label it as external in the slide plan.
 
 Then compress the material into a storyline. Use the strongest evidence as exhibits and put weaker or repetitive details into notes, appendix, or omit them. Do not make a slide for every paragraph in the source.
 
-Evidence inventory fields:
-
-| field | extract | use for |
-| --- | --- | --- |
-| Claims | conclusions, recommendations, promises, pain points, and stated asks | answer-first titles, outcome-support, executive summaries |
-| Numbers | revenue, growth, margin, share, valuation, counts, percentages, ranges, rankings, dates, and timing | charts, metrics, rankings, sensitivity, tables |
-| Comparisons | options, peers, regions, segments, customers, channels, vendors, time periods, current-vs-target | scorecards, matrices, comparison tables, heatmaps |
-| Time | phases, milestones, deadlines, launch windows, roadmap steps, dependencies, cadence | timelines, roadmaps, Gantt, milestone tracks |
-| Risks | blockers, uncertainties, dependencies, red flags, downside cases, controls | risk register, decision log, status table, callout |
-| Decisions | approvals, tradeoffs, owners, conditions, gates, next actions | decision pages, scorecards, pros-cons, action plan |
-| Voices | quotes, customer statements, stakeholder objections, user-supplied testimonials | quote components, quote-insight, implication callouts |
-| Gaps | missing proof, assumptions, unresolved questions, permission boundaries | assumption pages, open questions, validation plan |
-
-For sparse prompts, produce a qualitative deck with explicit assumptions, open questions, and decision points. Do not manufacture numeric-looking exhibits. For data-rich prompts, make the structure visible with charts, tables, matrices, rankings, metrics, heatmaps, roadmaps, scorecards, or risk/status components instead of flattening the material into prose cards.
+For sparse prompts, produce a qualitative deck with explicit assumptions, open questions, and decision points. For data-rich prompts, make the structure visible with evidence components instead of flattening the material into prose cards.
 
 ## Storyline Logic
 

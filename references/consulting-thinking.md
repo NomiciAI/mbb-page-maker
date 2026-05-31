@@ -18,15 +18,11 @@ If the audience or decision is unclear but the user gave enough material, infer 
 
 ## Consulting-Grade Page Logic
 
-Every body slide should earn its place in the deck:
+Every body slide should answer a decision question:
 
-- Question: what decision question or sub-question does this page answer?
-- Message: what is the answer-first conclusion?
-- Proof: what user-provided, assumed, or approved external evidence supports it?
-- So what: what does this mean for the audience's decision?
-- Now what: what action, risk, owner, gate, or next step follows?
-
-Do not create pages whose only job is to look like analysis. A chart without an implication is unfinished; a claim without traceable support should become an assumption, hypothesis, risk, or open question.
+- Message: the answer-first conclusion.
+- Proof: user-provided evidence, marked assumption, or approved external data.
+- Implication: what the audience should decide, test, manage, or do next.
 
 ## Storyline Patterns
 
@@ -40,16 +36,6 @@ Do not create pages whose only job is to look like analysis. A chart without an 
 - Risk framing: pair risks with impact, mitigation, owner, timing, or decision trigger.
 - Roadmap framing: use when the answer requires sequenced execution, not just analysis.
 - Decision log: use when the deck must clarify what is already decided, what remains open, who owns it, and by when.
-
-Preferred full-deck arc:
-
-1. Set the decision context and why it matters now.
-2. State the answer or recommendation early.
-3. Prove the answer with the minimum necessary exhibits.
-4. Expose risks, assumptions, and tradeoffs honestly.
-5. Close with the decision ask, next actions, owners, or validation plan.
-
-For a sparse source, the answer can be a hypothesis with assumptions and open questions. For a data-rich source, the answer should be supported by visible evidence components instead of prose-only synthesis.
 
 ## Source Fidelity
 

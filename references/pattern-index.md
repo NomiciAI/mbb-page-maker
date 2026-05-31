@@ -40,12 +40,3 @@ Do not turn showcase files into duplicate full decks. Showcase files validate co
 4. Components and layouts for implementation details.
 
 `examples/*` are independent public demo decks, not authoring sources and maintained separately from templates.
-
-## Routing Discipline
-
-Use this index to find references, not to lock the answer. Start with the user's decision context and evidence inventory, then inspect only the archetype or showcase pages that help with that context.
-
-- If the source is data-rich, route to evidence components first and use showcase pages only to improve composition.
-- If the source is sparse, route to qualitative components with assumptions and open questions instead of data-looking exhibits.
-- If two archetypes fit, choose the one closest to the audience's decision, then borrow local page patterns from the other only where the evidence shape justifies it.
-- Do not use `examples/*` to infer authoring rules, page counts, contacts pages, ending pages, or demo-specific styling.
