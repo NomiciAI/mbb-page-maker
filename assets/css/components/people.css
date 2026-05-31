@@ -40,8 +40,8 @@
 
 .contact-roster {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
-  gap: 54px;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 52px;
   height: 100%;
   min-width: 0;
   min-height: 0;
@@ -49,20 +49,45 @@
 }
 
 .contact-legend + .contact-roster {
-  height: calc(100% - 40px);
+  height: calc(100% - 44px);
 }
 
 .contact-main {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 44px 58px;
+  grid-template-rows: auto repeat(2, minmax(0, 1fr));
+  gap: 34px 58px;
   align-content: start;
   min-width: 0;
   min-height: 0;
   overflow: hidden;
 }
 
+.contact-section-title,
+.contact-main:not(:has(.contact-section-title))::before,
+.contact-sidebar h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 32px;
+  font-weight: 850;
+  line-height: 1.05;
+}
+
+.contact-section-title,
+.contact-main:not(:has(.contact-section-title))::before {
+  grid-column: 1 / -1;
+}
+
+.contact-main:not(:has(.contact-section-title))::before {
+  content: "Contacts";
+}
+
 .contact-sidebar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 34px;
   border-left: 1px solid var(--color-line);
   padding-left: 46px;
   min-width: 0;
@@ -71,14 +96,13 @@
 }
 
 .contact-sidebar h3 {
-  margin: 0 0 26px;
-  font-size: 34px;
-  line-height: 1.1;
+  margin: 0;
 }
 
 .contact-card {
   position: relative;
-  min-height: 238px;
+  align-self: start;
+  min-height: 210px;
   min-width: 0;
   overflow: hidden;
   isolation: isolate;
@@ -95,8 +119,8 @@
 }
 
 .contact-photo {
-  width: 148px;
-  height: 148px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   border: 1px solid var(--color-line);
   background:
@@ -132,44 +156,45 @@
   justify-content: flex-end;
   gap: 10px;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   color: var(--color-text);
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .contact-legend::before {
   content: "";
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   background: color-mix(in srgb, var(--color-accent) 18%, var(--color-panel));
 }
 
 .contact-roster.is-compact {
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 46px;
-  height: auto;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 42px;
 }
 
 .contact-roster.is-compact .contact-main {
-  gap: 34px 54px;
+  gap: 28px 48px;
 }
 
 .contact-roster.is-compact .contact-sidebar {
+  gap: 28px;
   padding-left: 38px;
 }
 
+.contact-roster.is-compact .contact-section-title,
+.contact-roster.is-compact .contact-main:not(:has(.contact-section-title))::before,
 .contact-roster.is-compact .contact-sidebar h3 {
-  margin-bottom: 18px;
   font-size: 30px;
 }
 
 .contact-roster.is-compact .contact-card {
-  min-height: 198px;
+  min-height: 178px;
 }
 
 .contact-roster.is-compact .contact-photo {
-  width: 126px;
-  height: 126px;
+  width: 118px;
+  height: 118px;
 }
 
 .contact-roster.is-compact .contact-name {
