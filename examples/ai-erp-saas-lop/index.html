@@ -10,10 +10,56 @@
   <link rel="stylesheet" href="../../assets/css/components.css">
   <link rel="stylesheet" href="../../assets/css/illustrations.css">
   <link rel="stylesheet" href="../../assets/themes/blue.css">
+  <style>
+    .ai-erp-cover .default-opening-main {
+      width: min(900px, 60%);
+      margin-bottom: 116px;
+    }
+
+    .ai-erp-cover .slide-title {
+      max-width: 860px;
+      font-size: 56px;
+      line-height: 1.12;
+    }
+
+    .ai-erp-contacts .content {
+      padding-top: 10px;
+    }
+
+    .ai-erp-ending-art {
+      position: absolute;
+      top: 76px;
+      right: 72px;
+      bottom: 86px;
+      z-index: 0;
+      width: min(520px, 40%);
+      border-left: 1px solid var(--color-line);
+      overflow: hidden;
+    }
+
+    .ai-erp-ending-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 62% 50%;
+      filter: saturate(0.9) contrast(1.04);
+    }
+
+    .ai-erp-ending-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0));
+    }
+
+    .ai-erp-ending .ending-note {
+      max-width: 700px;
+    }
+  </style>
 </head>
 <body>
   <main class="deck" data-deck-title="AI Product Operating Plan for an ERP SaaS Incumbent">
-    <section class="slide dark cover simple-title-cover dark-cover" data-title="Cover">
+    <section class="slide dark cover simple-title-cover dark-cover ai-erp-cover" data-title="Cover">
       <div class="cover-art" aria-hidden="true">
         <img src="../../assets/media/covers/strategy-architecture-cover.jpg" alt="">
       </div>
@@ -716,27 +762,61 @@
       </footer>
     </section>
 
-    <section class="slide" data-title="Key contacts">
+    <section class="slide ai-erp-contacts" data-title="Key contacts">
       <header>
         <div class="slide-kicker">Key contacts</div>
         <h2 class="slide-title">The AI product LOP needs named executive owners across product, platform, risk, and adoption</h2>
         <div class="slide-rule"></div>
       </header>
-      <div class="content is-vertically-centered">
-        <table class="wide-data-table">
-          <thead>
-            <tr><th>Contact role</th><th>Named owner to fill</th><th>Primary responsibility</th><th>Standing forum</th><th>Escalation trigger</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="row-head">Executive sponsor</td><td>CEO / CPO delegate</td><td>Funding posture, product ambition, executive tradeoffs</td><td>Quarterly investment review</td><td>Scope, funding, or strategic priority conflict</td></tr>
-            <tr><td class="row-head">AI product lead</td><td>ERP intelligence roadmap owner</td><td>First-wave product scope, adoption outcomes, release readiness</td><td>Monthly AI product council</td><td>Customer signal or roadmap dependency blocks release</td></tr>
-            <tr><td class="row-head">Platform owner</td><td>AI platform engineering lead</td><td>Context layer, evaluation services, telemetry, reusable domain memory</td><td>Architecture review</td><td>Duplicate build, platform dependency, or service reliability issue</td></tr>
-            <tr><td class="row-head">Trust and security lead</td><td>Security / risk delegate</td><td>Permissioned actions, auditability, customer trust, release controls</td><td>Release-risk forum</td><td>Failed eval, control gap, or sensitive customer workflow</td></tr>
-            <tr><td class="row-head">Customer adoption lead</td><td>Customer success / design partner lead</td><td>Design partner cohort, enablement, feedback, behavior change</td><td>Customer proof review</td><td>Low activation, high override, or trust issue</td></tr>
-            <tr><td class="row-head">Finance partner</td><td>Strategic finance lead</td><td>Benefits case, capacity envelope, quarterly funding gates</td><td>Investment review</td><td>Spend trend diverges from adoption or margin signal</td></tr>
-            <tr><td class="row-head">AI LOP PMO</td><td>Program office lead</td><td>Decision log, milestone tracking, cross-workstream dependency control</td><td>Weekly mobilization sync</td><td>Decision latency or cross-functional blocker</td></tr>
-          </tbody>
-        </table>
+      <div class="content">
+        <div class="contact-legend">Illustrative operating roles for mobilization</div>
+        <div class="contact-roster is-compact">
+          <div class="contact-main">
+            <article class="contact-card is-principal">
+              <div class="contact-photo" aria-hidden="true"></div>
+              <div class="contact-name">Executive sponsor</div>
+              <div class="contact-meta">CEO / CPO delegate<br>Investment owner</div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-photo" aria-hidden="true"></div>
+              <div class="contact-name">AI product lead</div>
+              <div class="contact-meta">ERP intelligence roadmap<br>Scope and outcomes</div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-photo" aria-hidden="true"></div>
+              <div class="contact-name">Platform owner</div>
+              <div class="contact-meta">Context, evals, telemetry<br>Shared AI services</div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-photo" aria-hidden="true"></div>
+              <div class="contact-name">Trust and security lead</div>
+              <div class="contact-meta">Permissions, auditability<br>Release-risk forum</div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-photo" aria-hidden="true"></div>
+              <div class="contact-name">Customer adoption lead</div>
+              <div class="contact-meta">Design partners, enablement<br>Success motion</div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-photo" aria-hidden="true"></div>
+              <div class="contact-name">Finance partner</div>
+              <div class="contact-meta">Funding gates, benefits case<br>Quarterly review</div>
+            </article>
+          </div>
+          <aside class="contact-sidebar">
+            <h3>Program office</h3>
+            <article class="contact-card">
+              <div class="contact-photo" aria-hidden="true"></div>
+              <div class="contact-name">AI LOP PMO</div>
+              <div class="contact-meta">Decision log, milestone tracking<br>Risk escalation</div>
+            </article>
+            <article class="contact-card">
+              <div class="contact-photo" aria-hidden="true"></div>
+              <div class="contact-name">Customer proof lead</div>
+              <div class="contact-meta">Cohort metrics, feedback loop<br>Adoption evidence</div>
+            </article>
+          </aside>
+        </div>
       </div>
       <footer class="footer">
         <span>Synthetic role map; replace with real owners before use</span>
@@ -744,8 +824,10 @@
       </footer>
     </section>
 
-    <section class="slide default-ending" data-title="Closing">
-      <div class="line-field fan is-subtle"></div>
+    <section class="slide default-ending ai-erp-ending" data-title="Closing">
+      <div class="ai-erp-ending-art" aria-hidden="true">
+        <img src="../../assets/media/covers/strategy-architecture-cover.jpg" alt="">
+      </div>
       <div class="ending-note">
         <h2>Move from AI experiments to an AI product operating plan</h2>
         <p>Approve the first-wave products, shared platform foundations, and executive governance needed to make AI a repeatable ERP product advantage.</p>

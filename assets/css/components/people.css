@@ -81,11 +81,17 @@
   min-height: 238px;
   min-width: 0;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .contact-card.is-principal {
-  background: color-mix(in srgb, var(--color-panel) 82%, var(--color-bg));
   padding: 18px;
+  background: color-mix(in srgb, var(--color-accent) 18%, var(--color-panel));
+}
+
+.contact-card.is-principal .contact-photo {
+  margin-top: -18px;
+  margin-left: -18px;
 }
 
 .contact-photo {
@@ -135,5 +141,44 @@
   content: "";
   width: 18px;
   height: 18px;
-  background: color-mix(in srgb, var(--color-panel) 82%, var(--color-bg));
+  background: color-mix(in srgb, var(--color-accent) 18%, var(--color-panel));
+}
+
+.contact-roster.is-compact {
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 46px;
+  height: auto;
+}
+
+.contact-roster.is-compact .contact-main {
+  gap: 34px 54px;
+}
+
+.contact-roster.is-compact .contact-sidebar {
+  padding-left: 38px;
+}
+
+.contact-roster.is-compact .contact-sidebar h3 {
+  margin-bottom: 18px;
+  font-size: 30px;
+}
+
+.contact-roster.is-compact .contact-card {
+  min-height: 198px;
+}
+
+.contact-roster.is-compact .contact-photo {
+  width: 126px;
+  height: 126px;
+}
+
+.contact-roster.is-compact .contact-name {
+  margin-top: 12px;
+  font-size: 22px;
+}
+
+.contact-roster.is-compact .contact-meta {
+  margin-top: 8px;
+  font-size: 17px;
+  line-height: 1.22;
 }
