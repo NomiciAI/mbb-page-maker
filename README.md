@@ -98,6 +98,7 @@ mbb-page-maker/
 │   ├── link-agent-adapters.sh
 │   └── render.sh
 └── examples/
+    ├── ai-erp-saas-lop/
     ├── agent-technology-outlook/
     ├── enterprise-intelligence-transformation/
     └── ai-application-investment-thesis/
@@ -147,6 +148,8 @@ The starter deck stays intentionally light: title cover, simple agenda/context, 
 `templates/deck.html` is the design-system gallery and review tour, not the default generation template.
 
 `templates/full-decks/` contains complete agent-facing deck archetypes for storyline pacing, page roles, and component composition. Each folder includes a README sidecar for fast indexing before inspecting the HTML. `templates/showcase/` contains page-level thinking patterns and theme + layout + component combinations for single pages and partial decks. Agents should use `references/pattern-index.md` to choose useful references, then adapt or recombine them. `examples/` contains independent public demo decks maintained separately from templates.
+
+Public demos include `examples/ai-erp-saas-lop/`, a synthetic 24-slide AI product LOP for a traditional ERP SaaS company using the blue executive theme and broad component coverage.
 
 ## Contributing
 
