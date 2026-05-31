@@ -275,6 +275,14 @@
   border-radius: 50%;
 }
 
+.part-legend-item:nth-child(1) .viz-swatch { --swatch: var(--part-1-color); }
+
+.part-legend-item:nth-child(2) .viz-swatch { --swatch: var(--part-2-color); }
+
+.part-legend-item:nth-child(3) .viz-swatch { --swatch: var(--part-3-color); }
+
+.part-legend-item:nth-child(4) .viz-swatch { --swatch: var(--part-4-color); }
+
 .part-legend-item strong {
   display: block;
   font-size: 20px;

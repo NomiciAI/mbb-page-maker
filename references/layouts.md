@@ -224,7 +224,7 @@ Flow and workplan variant showcase pages live in `templates/showcase/flow-workpl
 
 Time-pattern showcase pages live in `templates/showcase/time-patterns.html`: timeline track, horizon bands, journey map, phase roadmap, milestone track, horizon curve, journey arc/wave, Gantt workplan, stair-step timeline, calendar workplan, and schedule list.
 
-Data-visualization variant showcase pages live in `templates/showcase/data-visualization-variants.html`: line chart, combo chart, paired bars, Likert bars, waterfall bridge, and checkmark-bar table.
+Data-visualization variant showcase pages live in `templates/showcase/data-visualization-variants.html`: line chart, combo chart, paired bars, Likert bars, waterfall bridge, and checkmark-bar table. Classic consulting data story variants live in `templates/showcase/data-classic-consulting-variants.html`: competency gap range table, benchmark range narrative, tornado bars, chart pairs, stacked bridges, and part-to-whole explanation pages.
 
 Text-pattern showcase pages live in `templates/showcase/text-patterns.html`: large quote, small quote, quote insight, quote grid, numbered list grid, dense list, contents card grid, six-column list, conversion list, story block list, step explanation strip, icon outcome grid, wide data table, status table, decision log, and pros-cons table.
 

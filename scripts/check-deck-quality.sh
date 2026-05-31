@@ -44,7 +44,9 @@ perl -0ne '
     line-chart|combo-chart|paired-bars|likert-bars|waterfall-bridge|checkmark-bar-table|
     ranked-evidence-table|driver-recap-columns|matrix-table|issue-tree|iceberg-model|
     capability-coverage-map|chevron-process-ribbon|swimlane-process-map|customer-journey-loop|
-    input-process-output-layers|phase-meeting-plan|team-wall|bio-card-grid
+    input-process-output-layers|phase-meeting-plan|team-wall|bio-card-grid|
+    competency-gap-range-table|tornado-bars|stacked-waterfall-bridge|
+    part-to-whole-comparison|donut-explanation
   /x;
   my $visual_re = qr/
     visual-architecture-stack|visual-operating-system|visual-market-map|visual-value-bridge|

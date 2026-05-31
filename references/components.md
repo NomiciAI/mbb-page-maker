@@ -21,7 +21,7 @@ Use the component catalog actively. Before authoring HTML, map each planned body
 
 Components are not decoration. Each component must prove a claim, compare alternatives, show movement over time, expose risk, clarify a decision, or structure qualitative reasoning.
 
-- Numeric section data should become `metric-strip`, `line-chart`, `combo-chart`, `column-chart`, `ranked-bars`, `chart-bars`, `stacked-bars`, `paired-bars`, `likert-bars`, `waterfall-bridge`, `table`, `comparison-table`, `checkmark-bar-table`, `sensitivity-grid`, `heatmap`, `range-comparison-plot`, or `dot-scale-comparison`.
+- Numeric section data should become `metric-strip`, `line-chart`, `combo-chart`, `column-chart`, `ranked-bars`, `chart-bars`, `stacked-bars`, `paired-bars`, `likert-bars`, `waterfall-bridge`, `stacked-waterfall-bridge`, `tornado-bars`, `table`, `comparison-table`, `checkmark-bar-table`, `sensitivity-grid`, `heatmap`, `range-comparison-plot`, `competency-gap-range-table`, or `dot-scale-comparison`.
 - Peer/company/industry comparisons should become `comparison-table`, `weighted-scorecard`, `ranked-bars`, `column-chart`, `quadrant-matrix`, `range-comparison-plot`, or `heatmap`.
 - Ordered or phased content should become `timeline`, `phase-roadmap`, `milestone-track`, `process-flow`, `stage-gate`, `vertical-process-takeaway`, `process-deep-dive`, `cascading-flow`, `cycle-flow`, `step-explanation-strip`, or `gantt-workplan`.
 - Qualification logic should become `funnel-steps`, `filter-cascade`, `screen-filter-grid`, or `decision-flowchart`.
@@ -87,15 +87,18 @@ This same variant logic applies across component families: tables vary by fields
 - Use `contact-network` when the input describes a network of experts grouped by region, function, practice, capability, or expertise. Use the group labels as visible section headings.
 - Use `team-wall` for compact many-person views when names and roles matter more than hierarchy. Use `bio-card-grid` when each person needs a short credential, responsibility, or biography.
 - Use `column-chart` for one categorical series when vertical comparison is appropriate and labels are short.
-- Use `line-chart` for ordered trends, `combo-chart` for volume plus rate/index, `paired-bars` for two values per category, `likert-bars` for ordered response distributions, `waterfall-bridge` for additive movement, and `checkmark-bar-table` for pass/fail gates plus a score bar.
+- Use `line-chart` for ordered trends, `combo-chart` for volume plus rate/index, `paired-bars` for two values per category, `likert-bars` for ordered response distributions, `waterfall-bridge` for additive movement, `stacked-waterfall-bridge` for base-plus-uplift bridges, and `checkmark-bar-table` for pass/fail gates plus a score bar.
 - Use `quadrant-matrix` for qualitative 2x2 prioritization, segmentation, or portfolio positioning.
 - Use `risk-matrix-register` when risk placement must be paired with owners, mitigations, scores, or next actions.
 - Components with bottom x-axis labels or bottom captions, including risk/register matrices, portfolio matrices, quadrant/scatter plots, and similar charts, should sit in `section.slide.is-dense` when they run close to the footer. Dense mode provides the axis clearance; do not add arbitrary bottom padding to ordinary heatmaps or tables.
 - Use `range-competency-chart` when capabilities have current and target levels on the same numeric scale.
+- Use `competency-gap-range-table` when capability rows need group labels, exact gap cells, and current/desired markers in one dense exhibit.
 - Use `dot-scale-comparison` for relative positioning on a shared scale when exact axis precision is secondary.
 - Use `range-comparison-plot` for benchmark ranges, peer min/max bands, or confidence intervals with a current marker.
+- Use `tornado-bars` when two opposing numeric series should read from a shared center axis.
 - Use `pie-chart` only for a small number of part-to-whole splits where the total is explicit.
 - Use `donut-chart` when the center message matters as much as the part-to-whole split.
+- Use `part-to-whole-comparison` for two related pie/donut splits; use `donut-explanation` when one large split needs an explanatory legend/list.
 - Use `chart-bars` when the input contains labeled numeric categories.
 - Use `ranked-bars` for ordered categorical ranking.
 - Use `stacked-bars` for composition across categories.
@@ -270,12 +273,16 @@ Do not output components that add no information.
 - Categorical comparison: use `column-chart` for a compact single-series vertical comparison with short labels, `ranked-bars` for visual ranking, `paired-bars` for current-vs-target or before-vs-after pairs, `chart-bars` for horizontal category labels, or `table` for exact values and many fields.
 - Survey or ordered response distribution: use `likert-bars`.
 - Additive movement: use `waterfall-bridge` only when the drivers reconcile from start to end.
+- Base plus uplift bridge: use `stacked-waterfall-bridge` when each step has both an existing/base value and an incremental opportunity segment.
 - Binary gates plus score: use `checkmark-bar-table`.
 - Part-to-whole: use `pie-chart` or `donut-chart` for one or two simple splits, `stacked-bars` for composition across many categories, and `table` when percentages need exact auditability.
+- Part-to-whole story pages: use `part-to-whole-comparison` for two related splits and `donut-explanation` for one large split with explanatory labels.
+- Opposing series: use `tornado-bars` for left-versus-right quantities on a shared centerline.
 - Two-dimensional opportunity: use `scatter-plot` if both axes are numeric, or `quadrant-matrix` if the axes are qualitative.
 - Initiative or portfolio prioritization: use `portfolio-prioritization-matrix` for directional value-vs-feasibility choices, `weighted-scorecard` for criteria scoring, or `comparison-table` when exact fields matter.
 - Risk view: use `risk-matrix-register` when likelihood/impact placement and action tracking both matter.
 - Capability/maturity assessment: use `heatmap` for one-direction scores or `range-competency-chart` when current-vs-target gaps are the message.
+- Capability gap diagnostic: use `competency-gap-range-table` when the page must preserve group labels, gap sizing, current level, and desired level together.
 - Benchmark spread: use `range-comparison-plot` for min/max, confidence interval, peer range, or low/base/high inputs.
 - Relative scorecard: use `dot-scale-comparison` when every row can share the same left-to-right scale.
 - Diverging categorical data: use `diverging-heatmap` for negative-to-positive movement or below/above-neutral measures.
@@ -347,6 +354,11 @@ Future passes should expand CV/face-page primitives, richer full-deck examples, 
 | `templates/components/paired-bars.html` | Two-value comparison bars across categories. |
 | `templates/components/likert-bars.html` | Ordered response distribution bars. |
 | `templates/components/waterfall-bridge.html` | Start-to-end bridge across additive drivers. |
+| `templates/components/competency-gap-range-table.html` | Dense capability gap table with group labels, gap cells, and current/desired markers. |
+| `templates/components/tornado-bars.html` | Opposing quantitative bars around a shared center axis. |
+| `templates/components/stacked-waterfall-bridge.html` | Bridge view with base economics and uplift/saving potential in each step. |
+| `templates/components/part-to-whole-comparison.html` | Side-by-side part-to-whole comparison panels. |
+| `templates/components/donut-explanation.html` | Large donut split with an explanatory legend/list. |
 | `templates/components/checkmark-bar-table.html` | Option gate table with binary checks and score bars. |
 | `templates/components/column-chart.html` | Single-series vertical category chart with optional highlighted column. |
 | `templates/components/quadrant-matrix.html` | Qualitative 2x2 matrix with points and legend. |
