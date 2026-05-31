@@ -63,6 +63,7 @@ Fallback rule: if the evidence shape lacks required fields, switch to the simple
 - Use `visual-data-flywheel` for learning loops, telemetry, and compounding reuse.
 - Use `profile` for team, expert, or stakeholder pages.
 - Use `contact-card` only when the input contains real contact records.
+- Contact roster labels are semantic fields, not fixed copy. Set `.contact-section-title`, `.contact-sidebar h3`, and `.contact-legend` from the supplied grouping, such as Contacts / Contributors, Owners / Support team, Executive sponsors / Working team, or Principal contacts / Advisors.
 - Use `column-chart` for one categorical series when vertical comparison is appropriate and labels are short.
 - Use `quadrant-matrix` for qualitative 2x2 prioritization, segmentation, or portfolio positioning.
 - Use `risk-matrix-register` when risk placement must be paired with owners, mitigations, scores, or next actions.
@@ -139,7 +140,7 @@ Do not output components that add no information.
 
 - Contact card: needs a name plus at least one supporting field such as role, location, team, email, or responsibility.
 - Contact roster page: needs at least 3 usable contact records. If fewer, use a compact card group inside another page or omit.
-- Principal contacts: only mark contacts as principal when the user supplies that grouping or a clear equivalent.
+- Contact roster headings and legend: use the user's group names when provided; otherwise choose neutral labels from the content. Only use "Principal contacts" and `.is-principal` when the input supplies that grouping or a clear equivalent.
 - Column chart: needs at least 2 labeled numeric values. Use at most one `.is-highlight` item unless the user explicitly asks to compare multiple focus categories.
 - Bar chart: needs at least 2 labeled numeric values. If exact numeric values matter more than visual comparison, use a table.
 - Ranked bars: needs sortable numeric values.
