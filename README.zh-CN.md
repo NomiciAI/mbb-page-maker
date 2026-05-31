@@ -13,25 +13,25 @@ MBB Page Maker 给 coding agent 提供一套开箱即用的系统，用来生成
 
 ## 示例 Gallery
 
-<table border="0" cellspacing="0" cellpadding="0" style="border:0;border-collapse:collapse;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="width:100%;border:0;border-collapse:collapse;">
   <tr>
     <td align="center" width="50%" style="border:0;">
-      <a href="https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.gif" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="360"></a><br>
-      <a href="https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html">ERP SaaS LOP</a>
+      <a href="https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html" target="_blank" rel="noopener noreferrer"><img src="assets/media/readme/ai-erp-saas-lop.gif" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="360"></a><br>
+      <a href="https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html" target="_blank" rel="noopener noreferrer">ERP SaaS LOP</a>
     </td>
     <td align="center" width="50%" style="border:0;">
-      <a href="https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.gif" alt="Agent Technology Outlook" width="360"></a><br>
-      <a href="https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html">Agent Technology Outlook</a>
+      <a href="https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html" target="_blank" rel="noopener noreferrer"><img src="assets/media/readme/agent-technology-outlook.gif" alt="Agent Technology Outlook" width="360"></a><br>
+      <a href="https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html" target="_blank" rel="noopener noreferrer">Agent Technology Outlook</a>
     </td>
   </tr>
   <tr>
     <td align="center" width="50%" style="border:0;">
-      <a href="https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.gif" alt="AI-Era Enterprise Intelligence Transformation" width="360"></a><br>
-      <a href="https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html">Enterprise Intelligence Transformation</a>
+      <a href="https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html" target="_blank" rel="noopener noreferrer"><img src="assets/media/readme/enterprise-intelligence-transformation.gif" alt="AI-Era Enterprise Intelligence Transformation" width="360"></a><br>
+      <a href="https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html" target="_blank" rel="noopener noreferrer">Enterprise Intelligence Transformation</a>
     </td>
     <td align="center" width="50%" style="border:0;">
-      <a href="https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a><br>
-      <a href="https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html">AI Application Investment Thesis</a>
+      <a href="https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html" target="_blank" rel="noopener noreferrer"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a><br>
+      <a href="https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html" target="_blank" rel="noopener noreferrer">AI Application Investment Thesis</a>
     </td>
   </tr>
 </table>
