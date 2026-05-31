@@ -1,6 +1,7 @@
 # MBB Page Maker
 
-This is a skill package for creating consulting-style HTML PPT decks: strategy pages, board updates, investment memos, and executive narratives. [中文 README](README.zh-CN.md)
+This is a skill package for creating consulting-style HTML PPT decks: strategy pages, board updates, investment memos, and executive narratives.
+
 The goal is to give AI coding agents a reliable, installable way to author, preview, and export executive-grade HTML presentations from a static package.
 
 Design constraints:
@@ -11,6 +12,8 @@ Design constraints:
 - Pure static HTML/CSS/JS.
 - Default export targets: self-contained HTML package, PDF, and PNG.
 ```
+
+[中文 README](README.zh-CN.md)
 
 ## Example Gallery
 
@@ -23,31 +26,79 @@ Design constraints:
   <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
 </p>
 
+## Design Philosophy
+
+MBB Page Maker is built around a simple constraint: the source deck should stay readable, editable, and portable. A generated deck is just HTML, CSS, JavaScript, and local assets. There is no framework runtime, no build step, and no CDN dependency in the final package.
+
+The design system separates structure from styling:
+
+- `base.css`: slide canvas, typography, runtime controls, and print rules.
+- `layouts.css`: page-level layout shells.
+- `components.css`: reusable tables, cards, metrics, roadmaps, matrices, and profile blocks.
+- `illustrations.css`: neutral visual primitives and asset slots.
+- `themes/*.css`: color tokens for blue, green, red, pitch, mono, and classic themes.
+- `assets/media/`: optional static images, covers, screenshots, and showcase assets.
+
+The intended workflow is compositional. The agent starts from a simple deck shell, chooses the message structure, picks layouts and components, applies a theme, then render-checks the result. Templates are references, not rigid slide masters: `templates/full-decks/` teaches storyline pacing, `templates/showcase/` shows page-level patterns, and `examples/` shows public finished demos.
+
+Export is deliberately boring. `scripts/render.sh` creates a self-contained HTML package, PDF, and PNG slide images. Final packages inline local CSS, JavaScript, fonts, and media so `package/index.html` can be opened directly in a browser.
+
 ## Install
+
+Install the skill package from GitHub:
 
 ```bash
 npx skills add https://github.com/NomiciAI/mbb-page-maker
 ```
 
-Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker)
-
-The command above installs the skill package directly from the public GitHub repository.
-
-For broad agent discovery, install to all detected clients:
+For broad agent discovery, install it into all detected clients:
 
 ```bash
 npx skills add https://github.com/NomiciAI/mbb-page-maker --agent '*'
 ```
 
-If Claude Code, Cursor, Codex, OpenClaw, Hermes, or another client reports `Unknown skill` while `.agents/skills/mbb-page-maker/` exists, the package is installed but not linked into that client's skill directory. Run:
+This is the recommended path when you use more than one coding agent, such as Codex, Claude Code, Cursor, OpenClaw, Hermes, or similar clients.
+
+If a client reports `Unknown skill` while `.agents/skills/mbb-page-maker/` exists, the package is installed but not linked into that client's skill directory. Run:
 
 ```bash
 .agents/skills/mbb-page-maker/scripts/link-agent-adapters.sh .
 ```
 
-See `references/agent-compatibility.md` for project/global paths and Claude Code-specific troubleshooting.
+See `references/agent-compatibility.md` for project/global paths and client-specific troubleshooting.
 
-## Quick Start
+## Use With An Agent
+
+After installation, ask your coding agent to use `mbb-page-maker` by name and describe the audience, decision, source material, and desired output.
+
+```text
+Use mbb-page-maker to create a 10-slide board update from the notes below.
+Audience: CEO and direct reports.
+Goal: align on the next two-quarter AI product investment plan.
+Use the blue executive theme. Produce the HTML deck, then render the package, PDF, and PNG slides.
+```
+
+```text
+Use mbb-page-maker to turn this investment memo into an IC-ready deck.
+Make the storyline recommendation-led, include market structure, underwriting logic, risks, and decision asks.
+Use a red investment style. Keep the deck concise and executive-facing.
+```
+
+```text
+Use mbb-page-maker to improve this existing deck.
+Tighten the storyline, replace weak pages with stronger consulting-style layouts, check for overflow,
+and render a self-contained HTML package when done.
+```
+
+Good prompts usually include:
+
+- Audience and decision context.
+- Source material or data.
+- Target page count or time limit.
+- Theme preference, if any.
+- Required outputs: HTML only, or HTML package plus PDF and PNG.
+
+## Manual Quick Start
 
 ```bash
 # Open a public demo deck locally
@@ -61,25 +112,6 @@ open my-talk/index.html
 ./scripts/render.sh my-talk/index.html
 open my-talk/dist/package/index.html
 ```
-
-## Design System
-
-MBB Page Maker is plain static HTML/CSS/JS. The source deck stays readable and editable, while `scripts/render.sh` can package it into a single self-contained HTML file for sharing.
-
-CSS is split by responsibility:
-
-- `base.css`: slide canvas, typography, runtime controls, and print rules.
-- `layouts.css`: page-level layout shells.
-- `components.css`: reusable tables, cards, metrics, roadmaps, matrices, and profile blocks.
-- `illustrations.css`: neutral visual primitives and asset slots.
-- `themes/*.css`: color tokens for blue, green, red, pitch, mono, and classic themes.
-- `assets/media/`: optional static images, covers, screenshots, and showcase assets.
-
-Generated decks use the same static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no source build step.
-
-Use `templates/starter-deck.html` for a new deck. `templates/deck.html` is the design-system gallery and component tour. `templates/full-decks/` contains complete storyline archetypes, while `templates/showcase/` contains page-level patterns and theme/layout/component combinations. Public demos live in `examples/` and are maintained separately from templates.
-
-Run `scripts/render.sh path/to/deck.html` to export a self-contained HTML package, PDF, and PNG slide images. Final packages inline local CSS, JavaScript, fonts, and media so `package/index.html` can be opened directly in a browser. Detailed authoring rules live in `SKILL.md` and `references/`.
 
 ## Project Structure
 
