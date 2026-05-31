@@ -62,20 +62,7 @@ Use this order when building a deck:
 
 Do not start from color, effects, or images. Start from message, data shape, layout, and component fit.
 
-## One-Shot Authoring Standard
-
-When the user supplies enough material, author the deck instead of asking the user to design it. The agent should infer the audience, decision, storyline, page sequence, layout, component, and theme from the source content. Ask only for missing facts that materially change the decision, evidence permission, or a promised exhibit.
-
-The expected behavior for a real deck request is:
-
-1. Build the decision context from the prompt and source material.
-2. Extract the evidence inventory.
-3. Draft an internal slide plan.
-4. Generate the complete HTML deck.
-5. Run quality and contrast checks.
-6. Render the self-contained package, PDF, and PNGs unless the user requested source HTML only.
-
-Do not stop at recommendations, a suggested outline, or a page-by-page menu when the source is sufficient to produce the deck. Do not ask the user to pick a layout, component, page order, or archetype; those are authoring decisions.
+When the user's material is sufficient, infer the authoring choices and generate the complete deck plus default exports. Do not stop at recommendations, a suggested outline, or a page-by-page menu unless the user explicitly asks for planning output.
 
 ## Slide Planning Gate
 
@@ -88,6 +75,8 @@ Before writing deck HTML, make a compact internal plan. For every slide, define:
 - Components: the reusable component(s) from `templates/components/`.
 - Fallback: the simpler qualitative component or omitted page to use if evidence is insufficient.
 - Output role: cover, executive answer, data evidence, comparison, roadmap, decision, appendix, or closing.
+
+The slide plan is an internal authoring aid unless the user explicitly asks to see or approve a plan.
 
 Do not proceed to HTML when a body slide has no component choice. The only valid component-light pages are cover, closing, and deliberate section dividers in longer decks. Deliberate pure dividers must use `data-allow-divider="true"` so quality checks can distinguish intent from accidental empty pages.
 

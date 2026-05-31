@@ -26,7 +26,7 @@ Hard rules:
 - Let evidence shape drive components. Numeric, comparison, time, risk, decision, and qualitative evidence route to different exhibits.
 - Use full-deck archetypes and showcase pages as inspiration for storyline and composition, not as fixed templates or copied content.
 - Treat visuals as support. A generated image or visual primitive is not evidence and must not replace a chart, table, matrix, scorecard, roadmap, risk register, or decision component.
-- If the user provides enough material, produce the complete deck and exports in one pass. Do not stop at an outline or ask the user to pick layouts, components, or page sequence.
+- If the material is sufficient, complete the deck and exports instead of stopping at an outline. Do not ask the user to pick layouts, components, or page sequence.
 
 ## Install
 
