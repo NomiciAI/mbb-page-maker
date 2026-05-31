@@ -15,22 +15,30 @@ Install it once, then use it from Codex, Claude Code, Cursor, OpenClaw, Hermes, 
 
 ## Example Gallery
 
-<p align="center">
-  <a href="https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.gif" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="360"></a>
-  <a href="https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.gif" alt="Agent Technology Outlook" width="360"></a>
-</p>
-<p align="center">
-  <a href="https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html">ERP SaaS LOP</a> ·
-  <a href="https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html">Agent Technology Outlook</a>
-</p>
-<p align="center">
-  <a href="https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.gif" alt="AI-Era Enterprise Intelligence Transformation" width="360"></a>
-  <a href="https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
-</p>
-<p align="center">
-  <a href="https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html">Enterprise Intelligence Transformation</a> ·
-  <a href="https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html">AI Application Investment Thesis</a>
-</p>
+<div align="center">
+  <p>
+    <span>
+      <a href="https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.gif" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="360"></a><br>
+      <a href="https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html">ERP SaaS LOP</a>
+    </span>
+    &nbsp;&nbsp;
+    <span>
+      <a href="https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.gif" alt="Agent Technology Outlook" width="360"></a><br>
+      <a href="https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html">Agent Technology Outlook</a>
+    </span>
+  </p>
+  <p>
+    <span>
+      <a href="https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.gif" alt="AI-Era Enterprise Intelligence Transformation" width="360"></a><br>
+      <a href="https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html">Enterprise Intelligence Transformation</a>
+    </span>
+    &nbsp;&nbsp;
+    <span>
+      <a href="https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a><br>
+      <a href="https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html">AI Application Investment Thesis</a>
+    </span>
+  </p>
+</div>
 
 Quick links: [Full-Deck Index](https://nomici.ai/mbb-page-maker/templates/full-decks/index.html)
 
