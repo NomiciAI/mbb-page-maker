@@ -88,8 +88,18 @@ Use mbb-page-maker，优化这个已有 deck。
 ## 手动 Quick Start
 
 ```bash
-# 本地打开一个公开 demo deck
+# 下载仓库
+git clone https://github.com/NomiciAI/mbb-page-maker.git
+cd mbb-page-maker
+
+# 用浏览器打开公开 demo decks
 open examples/ai-erp-saas-lop/index.html
+open examples/agent-technology-outlook/index.html
+open examples/enterprise-intelligence-transformation/index.html
+open examples/ai-application-investment-thesis/index.html
+
+# 打开 full-deck template 汇总页
+open templates/full-decks/index.html
 
 # 从 starter template 新建一个 deck
 ./scripts/new-deck.sh my-talk

@@ -90,8 +90,18 @@ Good prompts usually include:
 ## Manual Quick Start
 
 ```bash
-# Open a public demo deck locally
+# Get the repo
+git clone https://github.com/NomiciAI/mbb-page-maker.git
+cd mbb-page-maker
+
+# Browse public demo decks
 open examples/ai-erp-saas-lop/index.html
+open examples/agent-technology-outlook/index.html
+open examples/enterprise-intelligence-transformation/index.html
+open examples/ai-application-investment-thesis/index.html
+
+# Browse the full-deck template index
+open templates/full-decks/index.html
 
 # Scaffold a new deck from the starter template
 ./scripts/new-deck.sh my-talk
