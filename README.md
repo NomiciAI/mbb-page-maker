@@ -24,7 +24,7 @@ Install it once, then use it from Codex, Claude Code, Cursor, OpenClaw, Hermes, 
   <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
 </p>
 
-Quick links: [ERP SaaS LOP](https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/) · [Agent Technology Outlook](https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/) · [Enterprise Intelligence Transformation](https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/) · [AI Application Investment Thesis](https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/) · [Full-Deck Index](https://nomici.ai/mbb-page-maker/templates/full-decks/)
+Quick links: [ERP SaaS LOP](https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html) · [Agent Technology Outlook](https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html) · [Enterprise Intelligence Transformation](https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html) · [AI Application Investment Thesis](https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html) · [Full-Deck Index](https://nomici.ai/mbb-page-maker/templates/full-decks/index.html)
 
 > Tell your agent what to do:
 >
