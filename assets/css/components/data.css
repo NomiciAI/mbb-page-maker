@@ -643,6 +643,10 @@
   vertical-align: top;
 }
 
+.risk-register-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .risk-register-table th {
   color: var(--color-muted);
   font-size: 12px;
