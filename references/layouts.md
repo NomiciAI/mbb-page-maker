@@ -61,6 +61,7 @@ Use:
 - Statement: one conclusion, one support line, no exhibit.
 - Quote: stakeholder voice or customer evidence.
 - Media split: short message plus neutral illustration.
+- Visual support page: one repo-native visual primitive plus a short implication, caveat, or use rule.
 
 Default simple snippets:
 
@@ -82,6 +83,7 @@ Selection guidance:
 - In short generated decks, do not use centered section dividers as a substitute for content pages. If a section has data, open it with a data-bearing page or a compact section-intro page.
 - Use visual opening pages only when the visual adds meaning. Otherwise keep the opening clean.
 - A blank/brand-only cover is not a valid default cover. Use it only as a deliberate divider or showcase page.
+- Use `templates/showcase/visual-patterns.html` when a page needs a supportive visual. Do not add visuals to data-rich pages by default; use evidence components first.
 
 ## Blank Structured Layouts
 

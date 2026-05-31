@@ -50,6 +50,15 @@ Fallback rule: if the evidence shape lacks required fields, switch to the simple
 - Use `agenda-table` for timed workshops with topics and outcomes.
 - Use `simple-agenda-grid` for non-timed agendas with numbered modules.
 - Use `illustration-orbit` when the page needs neutral visual support without external assets.
+- Use visual primitives only when the page needs supportive imagery and the source does not justify a data/process/time exhibit. Read `references/visual-assets.md` before using them.
+- Use `visual-architecture-stack` for platform layers, architecture depth, or integration systems.
+- Use `visual-operating-system` for a core operating capability coordinating surrounding routines.
+- Use `visual-market-map` for directional opportunity spaces when scored evidence is not available.
+- Use `visual-value-bridge` for directional value movement before exact financials are available.
+- Use `visual-risk-control` for safeguards and control framing before risks become a register.
+- Use `visual-customer-journey` for unlabeled journey support when the page is conceptual.
+- Use `visual-team-network` for collaboration shape when real people records are not supplied.
+- Use `visual-data-flywheel` for learning loops, telemetry, and compounding reuse.
 - Use `profile` for team, expert, or stakeholder pages.
 - Use `contact-card` only when the input contains real contact records.
 - Use `column-chart` for one categorical series when vertical comparison is appropriate and labels are short.
@@ -194,6 +203,7 @@ Do not output components that add no information.
 - Horizon curve: needs 3-4 horizons that build over time or ambition. Use `horizon-bands` when horizons are equal buckets.
 - Journey arc: needs 4-5 staged progression steps. Use `journey-map` when the key message is high/mid/low experience by phase.
 - Gantt workplan: needs at least 3 workstreams and 3 time periods. Use `phase-roadmap` when exact timing is not known.
+- Visual primitives: need a clear answer-first page message and a reason the visual supports comprehension. Do not use them as decoration on sparse pages or as substitutes for charts, tables, matrices, scorecards, timelines, or risk registers when evidence exists.
 - Stair-step timeline: needs 4-6 ordered maturity or progression steps. Use `timeline` if the message is chronology rather than increasing maturity.
 - Journey wave: needs 4-6 journey stages with explicit rises, dips, friction, or recovery points.
 - Calendar workplan: needs named days, dates, or short-cycle periods plus tasks in each period.
@@ -232,6 +242,7 @@ Do not output components that add no information.
 - Lists and decisions: use `numbered-list-grid` for short parallel steps, `step-explanation-strip` for longer step support, `contents-card-grid` for module catalogs, `six-column-list` for exactly six compact categories, `icon-outcome-grid` for parallel outcomes, `conversion-list` for input-to-outcome sequences, `story-block-list` for one message plus proof, `dense-list` for compact repeated records, `status-table` for progress records, `decision-log` for governance tracking, and `pros-cons-table` for option tradeoffs.
 - Governance: use `raci-governance-grid` when the page must show accountable/responsible/consulted/informed roles plus forum and cadence.
 - Quotes: use `quote-large` only when the quote is the evidence, `quote-small` when the quote supports an exhibit, and `quote-insight` when the implication should be stated beside the quote.
+- Visual support: use `visual-architecture-stack`, `visual-operating-system`, `visual-market-map`, `visual-value-bridge`, `visual-risk-control`, `visual-customer-journey`, `visual-team-network`, or `visual-data-flywheel` only after checking `references/visual-assets.md`. Pair them with a claim, implication, or sidebar note.
 
 ## Fit Contract
 
@@ -263,6 +274,14 @@ Future passes should expand CV/face-page primitives, richer full-deck examples, 
 | `templates/components/simple-agenda-grid.html` | Numbered agenda grid. |
 | `templates/components/table.html` | Compact comparison table. |
 | `templates/components/illustration-orbit.html` | Neutral abstract illustration. |
+| `templates/components/visual-architecture-stack.html` | Supportive visual for architecture layers and integration depth. |
+| `templates/components/visual-operating-system.html` | Supportive visual for a core capability coordinating surrounding routines. |
+| `templates/components/visual-market-map.html` | Supportive visual for directional opportunity spaces. |
+| `templates/components/visual-value-bridge.html` | Supportive visual for directional value movement. |
+| `templates/components/visual-risk-control.html` | Supportive visual for safeguards and control framing. |
+| `templates/components/visual-customer-journey.html` | Supportive visual for journey or adoption progression. |
+| `templates/components/visual-team-network.html` | Supportive visual for collaboration shape without named people. |
+| `templates/components/visual-data-flywheel.html` | Supportive visual for learning loops and compounding reuse. |
 | `templates/components/profile.html` | Profile row with generated avatar placeholder. |
 | `templates/components/contact-card.html` | Single contact with optional photo. |
 | `templates/components/column-chart.html` | Single-series vertical category chart with optional highlighted column. |

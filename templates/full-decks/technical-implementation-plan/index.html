@@ -14,6 +14,9 @@
 <body>
   <main class="deck" data-deck-title="Technical Implementation Plan Archetype">
     <section class="slide dark cover simple-title-cover dark-cover" data-title="Cover">
+      <div class="cover-art">
+        <img src="../../../assets/media/covers/strategy-architecture-cover.jpg" alt="">
+      </div>
       <div class="default-opening-main">
         <div class="slide-kicker">Full-deck archetype</div>
         <h1 class="slide-title">Technical implementation plan</h1>
@@ -41,15 +44,26 @@
     <section class="slide" data-title="Target architecture">
       <header><div class="slide-kicker">Target architecture</div><h2 class="slide-title">Architecture pages should separate reusable platform layers from delivery workstreams</h2><div class="slide-rule"></div></header>
       <div class="content">
-        <div class="framework-map">
-          <div class="framework-node is-core"><strong>Implementation spine</strong><span>Reusable architecture that each release can inherit</span></div>
-          <div class="framework-ring">
-            <article class="framework-node"><strong>Experience layer</strong><span>User journeys, role permissions, and interaction surfaces.</span></article>
-            <article class="framework-node"><strong>Workflow layer</strong><span>State, approvals, handoffs, and business rules.</span></article>
-            <article class="framework-node"><strong>Data layer</strong><span>Source systems, quality gates, lineage, and retention.</span></article>
-            <article class="framework-node"><strong>Integration layer</strong><span>APIs, events, adapters, and monitoring contracts.</span></article>
-            <article class="framework-node"><strong>Control layer</strong><span>Security, audit, reliability, testing, and rollback.</span></article>
-          </div>
+        <div class="region-layout right-sidebar">
+          <main class="region">
+            <div class="region-body">
+              <div class="visual-canvas visual-architecture-stack" aria-label="Abstract architecture stack visual">
+                <span class="visual-layer"></span>
+                <span class="visual-layer"></span>
+                <span class="visual-layer"></span>
+                <span class="visual-layer"></span>
+                <span class="visual-pill"></span>
+                <span class="visual-dot"></span>
+                <span class="visual-dot"></span>
+                <span class="visual-dot"></span>
+              </div>
+            </div>
+          </main>
+          <aside class="region is-muted">
+            <div class="region-body is-centered">
+              <div class="callout">Use the stack to show reusable platform layers first, then map delivery workstreams to each layer.</div>
+            </div>
+          </aside>
         </div>
       </div>
       <footer class="footer"><span>Technical implementation archetype</span><span class="page-number"></span></footer>

@@ -33,16 +33,17 @@ For real deck work, follow this path in order:
 2. For strategy, board, investment, pitch, transformation, or full-deck work, read `references/consulting-thinking.md`.
 3. For full decks, read `references/full-decks.md`, then the closest `templates/full-decks/<slug>/README.md`, then inspect that archetype's `index.html` for inspiration before writing HTML.
 4. For single-page, partial-deck, or local page-composition work, read `references/pattern-index.md` or `templates/showcase/README.md` before choosing and recombining layout + component patterns.
-5. Start from `templates/starter-deck.html` or the user's existing deck. Do not start from a blank file.
-6. Extract an evidence inventory from the user's material: claims, numbers, comparisons, time periods, risks, decisions, and open gaps.
-7. Pass the source fidelity gate: every body slide must use user-provided evidence, clearly marked assumptions, or approved external data.
-8. Pass the pattern selection gate: choose audience, decision scenario, output length, theme default, relevant full-deck archetype, optional showcase page pattern, component mix, and evidence-to-page route. Common scenarios include strategy recommendation, board update, investment thesis, pitch, transformation, technical implementation, vendor selection, workshop, CXO/SteerCo update, LOP, initiative recommendation, market entry, pricing, org design, diligence findings, PMI, turnaround, portfolio allocation, M&A decision, and analytics readout.
-9. Create a short slide plan before writing HTML: message, evidence source, evidence shape, layout, component, fallback, and output role.
-10. Use `references/layouts.md`, `references/components.md`, and `references/themes.md` only when choosing from those catalogs.
-11. Assemble slides using existing CSS layers, layout shells, components, and theme tokens.
-12. Run `scripts/check-deck-quality.sh path/to/index.html` and `scripts/check-deck-contrast.sh path/to/index.html`; fix failures.
-13. Run `scripts/render.sh path/to/index.html` unless the user explicitly asks for source HTML only.
-14. Deliver `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` as the default share set.
+5. If a page needs cover art, a section visual, or an interior visual support pattern, read `references/visual-assets.md` before choosing bitmap media or visual primitives.
+6. Start from `templates/starter-deck.html` or the user's existing deck. Do not start from a blank file.
+7. Extract an evidence inventory from the user's material: claims, numbers, comparisons, time periods, risks, decisions, and open gaps.
+8. Pass the source fidelity gate: every body slide must use user-provided evidence, clearly marked assumptions, or approved external data.
+9. Pass the pattern selection gate: choose audience, decision scenario, output length, theme default, relevant full-deck archetype, optional showcase page pattern, component mix, and evidence-to-page route. Common scenarios include strategy recommendation, board update, investment thesis, pitch, transformation, technical implementation, vendor selection, workshop, CXO/SteerCo update, LOP, initiative recommendation, market entry, pricing, org design, diligence findings, PMI, turnaround, portfolio allocation, M&A decision, and analytics readout.
+10. Create a short slide plan before writing HTML: message, evidence source, evidence shape, layout, component, fallback, and output role.
+11. Use `references/layouts.md`, `references/components.md`, and `references/themes.md` only when choosing from those catalogs.
+12. Assemble slides using existing CSS layers, layout shells, components, and theme tokens.
+13. Run `scripts/check-deck-quality.sh path/to/index.html` and `scripts/check-deck-contrast.sh path/to/index.html`; fix failures.
+14. Run `scripts/render.sh path/to/index.html` unless the user explicitly asks for source HTML only.
+15. Deliver `dist/package/index.html`, `dist/index.pdf`, and `dist/png/` as the default share set.
 
 If any export step fails, fix the source deck or dependency problem and rerun the same command. Do not hand-wave missing package assets, PDF, PNGs, or audit failures.
 
@@ -58,13 +59,14 @@ This is the foundational HTML skeleton phase. Use the starter deck as the base p
 - Use the CSS layers in order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, then one file from `assets/themes/`.
 - Use `assets/js/runtime.js` for keyboard navigation and print/export mode.
 - Read `references/authoring-guide.md` before creating a real deck.
-- Read `references/agent-compatibility.md`, `references/consulting-thinking.md`, `references/pattern-index.md`, `references/layouts.md`, `references/components.md`, `references/themes.md`, `references/full-decks.md`, `references/adding-patterns.md`, or `references/asset-sourcing.md` only when that catalog is needed.
+- Read `references/agent-compatibility.md`, `references/consulting-thinking.md`, `references/pattern-index.md`, `references/layouts.md`, `references/components.md`, `references/themes.md`, `references/full-decks.md`, `references/adding-patterns.md`, `references/visual-assets.md`, or `references/asset-sourcing.md` only when that catalog is needed.
 - Run `scripts/check-deck-quality.sh path/to/deck.html` and `scripts/check-deck-contrast.sh path/to/deck.html` before final delivery.
 - Unless the user asks for HTML only, run `scripts/render.sh path/to/deck.html` and deliver the self-contained package `index.html`, PDF, and PNG slide images.
 - Use `templates/layouts/default-*.html` for opening, centered transition, centered message, headline metric, and ending pages.
 - Use `templates/layouts/blank-*.html` for ordinary structure-first pages before adding specialized components.
 - Normalize relative asset paths after copying snippets into a deck.
 - Do not add CDN scripts, remote images, dynamic module loaders, or runtime dependencies that cannot be embedded into the final package. Use only the predownloaded local font files referenced by `assets/css/fonts.css`.
+- Do not bundle third-party original images by default. Network images may be used only as reference, seed, or mood input unless the user approves a reviewed CC0/public-domain asset. Final bundled visual assets must be self-generated or repo-native, strongly transformed, and free of visible logos, people, trademarks, product UI, source marks, or consulting-firm identifiers.
 - Do not copy proprietary logos, company names, confidentiality statements, or source-identifying marks from reference decks into generated HTML.
 - Do not add MBB Page Maker, archetype, agency, or placeholder brand marks to user decks. Use no visible logo unless the user supplies one.
 - Keep footers minimal: page number and, if useful, a neutral deck title. Do not include "source", "prepared by", consulting-firm-style, or archetype footer copy unless the user explicitly supplied that text.
@@ -121,6 +123,8 @@ If a slide has one compact component or compact region layout that only uses rou
 Dark or pitch-style pages must use `.dark`, `[data-mode="dark"]`, `[data-tone="dark"]`, `.dark-cover`, or `[data-variant="dark-cover"]` instead of only setting a dark background. The runtime includes a slide-level safety net for dark backgrounds, but generated decks must still pass the contrast audit.
 
 Page choice is compositional, not fixed. Infer the user's task and data shape, then combine the smallest suitable layout with the needed components. Full-deck archetypes and showcase patterns are references, not constraints; diverge from them whenever the user's material calls for a better storyline or exhibit. For flows, funnels, filters, horizons, timelines, journeys, tables, lists, and quotes, inspect the relevant process/time/text showcase before inventing ad hoc HTML. Use `references/layouts.md` and `references/components.md` for detailed selection guidance.
+
+Visual choice is also compositional. Use visuals only when they support the answer-first message, improve visual balance, or create a deliberate cover/section moment. Do not add illustration to data-rich pages by default; charts, tables, scorecards, matrices, metrics, and risk/status components remain primary when evidence exists. Before using bitmap media or interior visual primitives, inspect `references/visual-assets.md` and `templates/showcase/visual-patterns.html`.
 
 Do not force a specialized page. If the input is sparse, use a simpler page or ask for the missing data.
 

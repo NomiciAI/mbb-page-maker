@@ -26,7 +26,7 @@ Uses `metric-strip`, `cause-effect`, `portfolio-prioritization-matrix`, `sensiti
 
 ## Theme / assets
 
-Theme: `assets/themes/red.css`. No required media assets.
+Theme: `assets/themes/red.css`. Optional generated cover asset: `assets/media/covers/operations-improvement-cover.jpg`. Interior visual support can use `visual-risk-control` when the message is about control loops and recovery guardrails.
 
 ## Source inspiration
 

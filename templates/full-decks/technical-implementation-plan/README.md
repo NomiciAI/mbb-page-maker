@@ -26,7 +26,7 @@ Uses `numbered-list-grid`, `framework-map`, `process-flow`, `comparison-table`, 
 
 ## Theme / assets
 
-Theme: `assets/themes/blue.css`. No required media assets.
+Theme: `assets/themes/blue.css`. Optional generated cover asset: `assets/media/covers/strategy-architecture-cover.jpg`. Interior visual support can use `visual-architecture-stack` when the message is about platform layers.
 
 ## Source inspiration
 

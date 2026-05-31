@@ -26,7 +26,7 @@ Uses `metric-strip`, `ranked-bars`, `comparison-table`, `portfolio-prioritizatio
 
 ## Theme / assets
 
-Theme: `assets/themes/green.css`. No required media assets.
+Theme: `assets/themes/green.css`. Optional generated cover asset: `assets/media/covers/market-growth-cover.jpg`. Interior visual support can use `visual-market-map` when the message is about opportunity spaces before quantified scoring.
 
 ## Source inspiration
 

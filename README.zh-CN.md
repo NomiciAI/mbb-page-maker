@@ -43,7 +43,7 @@ npx skills add https://github.com/NomiciAI/mbb-page-maker --agent '*'
 核心结构分成五层：
 
 - `SKILL.md`: AgentSkill 入口和调度规则。
-- `references/`: agent 兼容性、pattern index、主题、布局、咨询式思考流程、完整 deck 结构和写作流程。
+- `references/`: agent 兼容性、pattern index、主题、布局、视觉资产、咨询式思考流程、完整 deck 结构和写作流程。
 - `assets/`: 静态 HTML PPT runtime、CSS design system、主题 token。
 - `templates/`: `starter-deck.html`、design-system gallery、full-deck archetype、showcase 思维/组合案例、light/dark/mixed/neutral skeleton 和布局模板。
 - `scripts/`: 新建 deck、字体刷新、agent adapter 链接、可见性检查和导出 PNG/PDF/HTML。
@@ -60,6 +60,7 @@ CSS 按职责拆分：
 - `illustrations.css`: 中性插图 primitives 和静态资源插槽。
 - `themes/*.css`: 只放颜色 token，每个主题同时支持 light/dark mode。
 - `assets/media/`: 可选静态图片、SVG、截图和头像素材。
+- `references/visual-assets.md`: cover art、支撑性视觉 primitive、bitmap 使用和网络素材 inspiration gate。
 
 页面生成按组合方式进行：
 
@@ -77,6 +78,8 @@ CSS 按职责拆分：
 源 HTML 的 CSS/JS 保持静态分层：`fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, 一个 theme 文件，再加 `runtime.js`。不做源码 build。`assets/css/fonts.css` 指向 `assets/fonts/google/` 里的预下载字体。最终 `scripts/render.sh --package` 会把本地 CSS、JS、字体和媒体资源内联进 `package/index.html`，让这个 HTML 文件可以被浏览器单独打开。
 
 最终 package 会校验为自包含文件：不允许外部 stylesheet、外部 script、远程字体 URL、CSS `@import` 或未内联的媒体 URL。图表和视觉组件优先使用内置静态 HTML/CSS/SVG，不依赖 CDN runtime。
+
+网络开放素材默认只作为 reference / seed / mood input，不直接把第三方原图打进仓库。进入 `assets/media/` 的通用视觉资产应为自生成或 repo-native，并保留 manifest/provenance 记录。
 
 `starter-deck.html` 保持轻量：标题封面、简单 agenda/context、空白内容页、ending。普通内容页默认从空白内容页开始，再按用户数据组合 layout 和 component。各 skeleton 不需要页面完全一致，只需要遵守同一个 16:9 slide contract 和输出文件顺序。
 

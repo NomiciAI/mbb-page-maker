@@ -55,6 +55,7 @@ mbb-page-maker/
 │   ├── layouts.md
 │   ├── themes.md
 │   ├── full-decks.md
+│   ├── visual-assets.md
 │   └── asset-sourcing.md
 ├── assets/
 │   ├── css/
@@ -93,6 +94,7 @@ mbb-page-maker/
 │   ├── check-deck-quality.sh
 │   ├── check-deck-contrast.sh
 │   ├── fetch-fonts.sh
+│   ├── split-component-css.sh
 │   ├── link-agent-adapters.sh
 │   └── render.sh
 └── examples/
@@ -118,6 +120,7 @@ CSS is intentionally split by responsibility:
 - `illustrations.css`: neutral illustration primitives and asset slots.
 - `themes/*.css`: color tokens only, with light and dark mode values.
 - `assets/media/`: optional static images, SVGs, screenshots, and showcase-only filler headshots.
+- `references/visual-assets.md`: rules for cover art, supportive visual primitives, bitmap use, and web inspiration gates.
 - `references/asset-sourcing.md`: curated sources for consulting-style photos, SVG assets, icons, and pure JavaScript visual libraries.
 
 Generated source decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no source build step. `assets/css/fonts.css` points to predownloaded font files in `assets/fonts/google/`. Final `scripts/render.sh --package` output inlines local CSS, JavaScript, fonts, and media into `package/index.html` so the HTML file can be opened by a browser on its own.

@@ -32,7 +32,9 @@ perl -0ne '
     stair-step-timeline|journey-wave|calendar-workplan|schedule-list|
     contents-card-grid|six-column-list|milestone-track|pyramid-stack|
     conversion-list|story-block-list|step-explanation-strip|icon-outcome-grid|
-    cause-effect|diverging-textboxes|from-to-multi|compass-choice
+    cause-effect|diverging-textboxes|from-to-multi|compass-choice|
+    visual-architecture-stack|visual-operating-system|visual-market-map|visual-value-bridge|
+    visual-risk-control|visual-customer-journey|visual-team-network|visual-data-flywheel
   /x;
   for my $slide (@slides) {
     $i++;
