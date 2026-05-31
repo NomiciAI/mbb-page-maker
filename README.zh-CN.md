@@ -22,22 +22,13 @@ MBB Page Maker 给 coding agent 提供一套开箱即用的系统，用来生成
   <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
 </p>
 
-## Design System
-
-MBB Page Maker 的核心原则很简单：源 deck 应该可读、可编辑、可迁移。生成结果就是 HTML、CSS、JavaScript 和本地静态资源。最终 package 不依赖框架 runtime、不需要 build，也不依赖 CDN。
-
-设计系统把结构和风格拆开：
-
-- `base.css`: slide 画布、字体层级、runtime controls 和 print 规则。
-- `layouts.css`: 页面级 layout shell。
-- `components.css`: 表格、卡片、指标、roadmap、矩阵和 profile blocks。
-- `illustrations.css`: 中性视觉 primitives 和静态资源插槽。
-- `themes/*.css`: blue、green、red、pitch、mono、classic 等主题 token。
-- `assets/media/`: 可选静态图片、cover、截图和 showcase 素材。
-
-推荐的生成方式是组合式的。agent 从一个简单 deck shell 开始，先判断 message structure，再选择 layout 和 component，套用主题，最后做 render check。模板不是固定套版：`templates/full-decks/` 用来参考 storyline pacing，`templates/showcase/` 用来看单页 pattern，`examples/` 展示公开完成版 demo。
-
-导出方式刻意保持简单。`scripts/render.sh` 会生成自包含 HTML package、PDF 和 PNG 页面图。最终 package 会内联本地 CSS、JavaScript、字体和媒体资源，让 `package/index.html` 可以直接用浏览器打开。
+> 直接告诉你的 agent：
+>
+> ```bash
+> npx skills add https://github.com/NomiciAI/mbb-page-maker
+> ```
+>
+> 然后在 Codex、Claude Code、Cursor、OpenClaw、Hermes 或其他兼容 coding agent 里说：`Use mbb-page-maker to create...`
 
 ## 安装
 
@@ -108,6 +99,23 @@ open my-talk/index.html
 ./scripts/render.sh my-talk/index.html
 open my-talk/dist/package/index.html
 ```
+
+## Design System
+
+MBB Page Maker 的核心原则很简单：源 deck 应该可读、可编辑、可迁移。生成结果就是 HTML、CSS、JavaScript 和本地静态资源。最终 package 不依赖框架 runtime、不需要 build，也不依赖 CDN。
+
+设计系统把结构和风格拆开：
+
+- `base.css`: slide 画布、字体层级、runtime controls 和 print 规则。
+- `layouts.css`: 页面级 layout shell。
+- `components.css`: 表格、卡片、指标、roadmap、矩阵和 profile blocks。
+- `illustrations.css`: 中性视觉 primitives 和静态资源插槽。
+- `themes/*.css`: blue、green、red、pitch、mono、classic 等主题 token。
+- `assets/media/`: 可选静态图片、cover、截图和 showcase 素材。
+
+推荐的生成方式是组合式的。agent 从一个简单 deck shell 开始，先判断 message structure，再选择 layout 和 component，套用主题，最后做 render check。模板不是固定套版：`templates/full-decks/` 用来参考 storyline pacing，`templates/showcase/` 用来看单页 pattern，`examples/` 展示公开完成版 demo。
+
+导出方式刻意保持简单。`scripts/render.sh` 会生成自包含 HTML package、PDF 和 PNG 页面图。最终 package 会内联本地 CSS、JavaScript、字体和媒体资源，让 `package/index.html` 可以直接用浏览器打开。
 
 ## 项目结构
 

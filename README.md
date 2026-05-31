@@ -24,22 +24,13 @@ Install it once, then use it from Codex, Claude Code, Cursor, OpenClaw, Hermes, 
   <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
 </p>
 
-## Design System
-
-MBB Page Maker is built around a simple constraint: the source deck should stay readable, editable, and portable. A generated deck is just HTML, CSS, JavaScript, and local assets. There is no framework runtime, no build step, and no CDN dependency in the final package.
-
-The design system separates structure from styling:
-
-- `base.css`: slide canvas, typography, runtime controls, and print rules.
-- `layouts.css`: page-level layout shells.
-- `components.css`: reusable tables, cards, metrics, roadmaps, matrices, and profile blocks.
-- `illustrations.css`: neutral visual primitives and asset slots.
-- `themes/*.css`: color tokens for blue, green, red, pitch, mono, and classic themes.
-- `assets/media/`: optional static images, covers, screenshots, and showcase assets.
-
-The intended workflow is compositional. The agent starts from a simple deck shell, chooses the message structure, picks layouts and components, applies a theme, then render-checks the result. Templates are references, not rigid slide masters: `templates/full-decks/` teaches storyline pacing, `templates/showcase/` shows page-level patterns, and `examples/` shows public finished demos.
-
-Export is deliberately boring. `scripts/render.sh` creates a self-contained HTML package, PDF, and PNG slide images. Final packages inline local CSS, JavaScript, fonts, and media so `package/index.html` can be opened directly in a browser.
+> Tell your agent what to do:
+>
+> ```bash
+> npx skills add https://github.com/NomiciAI/mbb-page-maker
+> ```
+>
+> Then prompt Codex, Claude Code, Cursor, OpenClaw, Hermes, or any compatible coding agent with: `Use mbb-page-maker to create...`
 
 ## Install
 
@@ -110,6 +101,23 @@ open my-talk/index.html
 ./scripts/render.sh my-talk/index.html
 open my-talk/dist/package/index.html
 ```
+
+## Design System
+
+MBB Page Maker is built around a simple constraint: the source deck should stay readable, editable, and portable. A generated deck is just HTML, CSS, JavaScript, and local assets. There is no framework runtime, no build step, and no CDN dependency in the final package.
+
+The design system separates structure from styling:
+
+- `base.css`: slide canvas, typography, runtime controls, and print rules.
+- `layouts.css`: page-level layout shells.
+- `components.css`: reusable tables, cards, metrics, roadmaps, matrices, and profile blocks.
+- `illustrations.css`: neutral visual primitives and asset slots.
+- `themes/*.css`: color tokens for blue, green, red, pitch, mono, and classic themes.
+- `assets/media/`: optional static images, covers, screenshots, and showcase assets.
+
+The intended workflow is compositional. The agent starts from a simple deck shell, chooses the message structure, picks layouts and components, applies a theme, then render-checks the result. Templates are references, not rigid slide masters: `templates/full-decks/` teaches storyline pacing, `templates/showcase/` shows page-level patterns, and `examples/` shows public finished demos.
+
+Export is deliberately boring. `scripts/render.sh` creates a self-contained HTML package, PDF, and PNG slide images. Final packages inline local CSS, JavaScript, fonts, and media so `package/index.html` can be opened directly in a browser.
 
 ## Project Structure
 
