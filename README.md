@@ -1,7 +1,7 @@
 # MBB Page Maker
 
-This is a world-class AgentSkill for creating consulting-style HTML PPT decks: strategy pages, board updates, investment memos, and executive narratives.
-The goal is to give any capable agent a reliable, installable way to author, preview, and eventually export executive-grade HTML presentations from a static skill package.
+This is a skill package for creating consulting-style HTML PPT decks: strategy pages, board updates, investment memos, and executive narratives. [中文 README](README.zh-CN.md)
+The goal is to give AI coding agents a reliable, installable way to author, preview, and export executive-grade HTML presentations from a static package.
 
 Design constraints:
 
@@ -31,7 +31,7 @@ npx skills add https://github.com/NomiciAI/mbb-page-maker
 
 Repository: [NomiciAI/mbb-page-maker](https://github.com/NomiciAI/mbb-page-maker)
 
-The command above installs the AgentSkill directly from the public GitHub repository.
+The command above installs the skill package directly from the public GitHub repository.
 
 For broad agent discovery, install to all detected clients:
 
@@ -47,7 +47,41 @@ If Claude Code, Cursor, Codex, OpenClaw, Hermes, or another client reports `Unkn
 
 See `references/agent-compatibility.md` for project/global paths and Claude Code-specific troubleshooting.
 
-## What Is Included
+## Quick Start
+
+```bash
+# Open a public demo deck locally
+open examples/ai-erp-saas-lop/index.html
+
+# Scaffold a new deck from the starter template
+./scripts/new-deck.sh my-talk
+open my-talk/index.html
+
+# Export a self-contained HTML package, PDF, and PNG slide images
+./scripts/render.sh my-talk/index.html
+open my-talk/dist/package/index.html
+```
+
+## Design System
+
+MBB Page Maker is plain static HTML/CSS/JS. The source deck stays readable and editable, while `scripts/render.sh` can package it into a single self-contained HTML file for sharing.
+
+CSS is split by responsibility:
+
+- `base.css`: slide canvas, typography, runtime controls, and print rules.
+- `layouts.css`: page-level layout shells.
+- `components.css`: reusable tables, cards, metrics, roadmaps, matrices, and profile blocks.
+- `illustrations.css`: neutral visual primitives and asset slots.
+- `themes/*.css`: color tokens for blue, green, red, pitch, mono, and classic themes.
+- `assets/media/`: optional static images, covers, screenshots, and showcase assets.
+
+Generated decks use the same static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no source build step.
+
+Use `templates/starter-deck.html` for a new deck. `templates/deck.html` is the design-system gallery and component tour. `templates/full-decks/` contains complete storyline archetypes, while `templates/showcase/` contains page-level patterns and theme/layout/component combinations. Public demos live in `examples/` and are maintained separately from templates.
+
+Run `scripts/render.sh path/to/deck.html` to export a self-contained HTML package, PDF, and PNG slide images. Final packages inline local CSS, JavaScript, fonts, and media so `package/index.html` can be opened directly in a browser. Detailed authoring rules live in `SKILL.md` and `references/`.
+
+## Project Structure
 
 ```text
 mbb-page-maker/
@@ -112,51 +146,6 @@ mbb-page-maker/
     ├── enterprise-intelligence-transformation/
     └── ai-application-investment-thesis/
 ```
-
-## Roadmap
-
-1. Finalize the foundational HTML PPT shell and shared primitives.
-2. Add case-by-case reference guidance after approved examples are selected.
-3. Harden one-shot full-deck generation with archetypes, audits, and package verification.
-4. Research PowerPoint export.
-
-## Design System
-
-CSS is intentionally split by responsibility:
-
-- `base.css`: canvas, typography primitives, runtime controls, print rules.
-- `layouts.css`: page-level layout shells.
-- `components.css`: tables, cards, metrics, agenda, matrix, roadmap, profile blocks.
-- `illustrations.css`: neutral illustration primitives and asset slots.
-- `themes/*.css`: color tokens only, with light and dark mode values.
-- `assets/media/`: optional static images, SVGs, screenshots, and showcase-only filler headshots.
-- `references/visual-assets.md`: rules for cover art, supportive visual primitives, bitmap use, and web inspiration gates.
-- `references/asset-sourcing.md`: curated sources for consulting-style photos, SVG assets, icons, and pure JavaScript visual libraries.
-
-Generated source decks should use this static file order: `fonts.css`, `base.css`, `layouts.css`, `components.css`, `illustrations.css`, one theme file, then `runtime.js`. There is no source build step. `assets/css/fonts.css` points to predownloaded font files in `assets/fonts/google/`. Final `scripts/render.sh --package` output inlines local CSS, JavaScript, fonts, and media into `package/index.html` so the HTML file can be opened by a browser on its own.
-
-Final packages are verified as self-contained: no external stylesheet links, external scripts, remote font URLs, CSS imports, or non-embedded media URLs. Use built-in static components instead of CDN chart/runtime dependencies.
-
-The base layout and component library is structure-first. Themes, showcase pages, or deliberate variants carry color, image treatment, and decorative effects.
-
-Authoring is composable:
-
-1. Start from `templates/starter-deck.html` for a new deck.
-2. Identify the message and data shape.
-3. Choose the simplest layout from `templates/layouts/`.
-4. Fill content slots with components from `templates/components/`.
-5. Apply one theme from `assets/themes/`.
-6. Add static assets from `assets/media/` only when they are supplied or needed.
-7. Render-check alignment, visual balance, and overflow.
-8. Run `scripts/check-deck-quality.sh path/to/deck.html` before delivery.
-9. Run `scripts/check-deck-contrast.sh path/to/deck.html` before delivery.
-10. Unless HTML-only is requested, run `scripts/render.sh path/to/deck.html` to create the self-contained HTML package, PDF, and PNG slide images.
-
-The starter deck stays intentionally light: title cover, simple agenda/context, blank content page, and ending page. Default simple pages are included for opening, centered message/list/metric, visual title, and ending slides. Use `blank-*` layouts when the slide structure is known but the component choice is still being composed.
-
-`templates/deck.html` is the design-system gallery and review tour, not the default generation template.
-
-`templates/full-decks/` contains complete agent-facing deck archetypes for storyline pacing, page roles, and component composition. Each folder includes a README sidecar for fast indexing before inspecting the HTML. `templates/showcase/` contains page-level thinking patterns and theme + layout + component combinations for single pages and partial decks. Agents should use `references/pattern-index.md` to choose useful references, then adapt or recombine them. `examples/` contains independent public demo decks maintained separately from templates.
 
 ## Contributing
 
