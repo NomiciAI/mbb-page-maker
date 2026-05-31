@@ -276,9 +276,33 @@
             <p>Sense workflow state, recommend the next action, explain confidence, and execute only inside permissioned guardrails.</p>
           </article>
           <div class="support-stack">
-            <article><strong>Read the workflow</strong><span>Use tenant context, role, process state, open exceptions, and policy to understand the user's current decision.</span></article>
-            <article><strong>Recommend and act with evidence</strong><span>Explain the proposed action, source trace, confidence, business impact, and required approval class.</span></article>
-            <article><strong>Learn from overrides</strong><span>Turn edits, rejections, escalations, and outcomes into reusable product telemetry and evaluation assets.</span></article>
+            <article>
+              <strong>Read the workflow</strong>
+              <span>Use tenant context, role, process state, open exceptions, and policy to understand the user's current decision.</span>
+              <ul>
+                <li>Detect task state, blockers, approver path, and exception severity.</li>
+                <li>Retrieve only permissioned records, configuration, and policy context.</li>
+                <li>Package the current decision into a reusable workflow-state object.</li>
+              </ul>
+            </article>
+            <article>
+              <strong>Recommend and act with evidence</strong>
+              <span>Explain the proposed action, source trace, confidence, business impact, and required approval class.</span>
+              <ul>
+                <li>Rank next actions by value, risk, and policy fit.</li>
+                <li>Show source trail, confidence band, and expected operating impact.</li>
+                <li>Execute draft, recommend, or route-for-approval actions by guardrail.</li>
+              </ul>
+            </article>
+            <article>
+              <strong>Learn from overrides</strong>
+              <span>Turn edits, rejections, escalations, and outcomes into reusable product telemetry and evaluation assets.</span>
+              <ul>
+                <li>Capture user edits, rejection reasons, and downstream business outcomes.</li>
+                <li>Promote repeated patterns into tests, prompts, and decision policies.</li>
+                <li>Feed product roadmap with adoption friction and margin-improvement signals.</li>
+              </ul>
+            </article>
           </div>
         </div>
       </div>
