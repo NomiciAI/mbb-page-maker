@@ -85,20 +85,14 @@ CSS 按职责拆分：
 
 ## 示例 Gallery
 
-公开 demo 在 README 里用轻量 WebP 静态预览图展示，不放视频。这样用户下载整个 repo 时不会被大体积 MP4 拖慢，同时仍然能快速看到页面质感和主题范围。
-
-| Demo | 预览 | 适合场景 |
-| --- | --- | --- |
-| [AI Product Operating Plan for an ERP SaaS Incumbent](examples/ai-erp-saas-lop/index.html)<br>26 页 · blue executive theme | <img src="assets/media/readme/ai-erp-saas-lop.webp" alt="AI Product Operating Plan preview" width="260"> | 领导层经营计划、产品战略、AI platform 投资叙事。 |
-| [Agent Technology Outlook](examples/agent-technology-outlook/index.html)<br>14 页 · green technology theme | <img src="assets/media/readme/agent-technology-outlook.webp" alt="Agent Technology Outlook preview" width="260"> | 技术趋势判断、架构策略、agent operating model 讨论。 |
-| [AI-Era Enterprise Intelligence Transformation](examples/enterprise-intelligence-transformation/index.html)<br>14 页 · mono transformation theme | <img src="assets/media/readme/enterprise-intelligence-transformation.webp" alt="Enterprise Intelligence Transformation preview" width="260"> | 企业级转型、intelligence flywheel、高管对齐。 |
-| [AI Application Software Investment Thesis](examples/ai-application-investment-thesis/index.html)<br>14 页 · red investment theme | <img src="assets/media/readme/ai-application-investment-thesis.webp" alt="AI Application Investment Thesis preview" width="260"> | 投资 thesis、IC recommendation、市场结构分析。 |
-
-clone 仓库后，可以直接用浏览器打开任意 `examples/*/index.html`。如果要为 demo 导出自包含 HTML package、PDF 和 PNG 页面图，运行：
-
-```bash
-scripts/render.sh examples/ai-erp-saas-lop/index.html
-```
+<p align="center">
+  <a href="examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.webp" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="420"></a>
+  <a href="examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.webp" alt="Agent Technology Outlook" width="420"></a>
+</p>
+<p align="center">
+  <a href="examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.webp" alt="AI-Era Enterprise Intelligence Transformation" width="420"></a>
+  <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.webp" alt="AI Application Software Investment Thesis" width="420"></a>
+</p>
 
 ## 贡献
 

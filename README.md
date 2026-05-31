@@ -149,24 +149,16 @@ The starter deck stays intentionally light: title cover, simple agenda/context, 
 
 `templates/full-decks/` contains complete agent-facing deck archetypes for storyline pacing, page roles, and component composition. Each folder includes a README sidecar for fast indexing before inspecting the HTML. `templates/showcase/` contains page-level thinking patterns and theme + layout + component combinations for single pages and partial decks. Agents should use `references/pattern-index.md` to choose useful references, then adapt or recombine them. `examples/` contains independent public demo decks maintained separately from templates.
 
-Public demos include `examples/ai-erp-saas-lop/`, a synthetic 26-slide AI product LOP for a traditional ERP SaaS company using the blue executive theme and broad component coverage.
-
 ## Example Gallery
 
-The public examples are shown with lightweight static WebP previews instead of video. This keeps the installed repository small while still giving readers an immediate sense of the page quality and visual range.
-
-| Demo | Preview | Best For |
-| --- | --- | --- |
-| [AI Product Operating Plan for an ERP SaaS Incumbent](examples/ai-erp-saas-lop/index.html)<br>26 slides · blue executive theme | <img src="assets/media/readme/ai-erp-saas-lop.webp" alt="AI Product Operating Plan preview" width="260"> | Leadership operating plan, product strategy, AI platform investment narrative. |
-| [Agent Technology Outlook](examples/agent-technology-outlook/index.html)<br>14 slides · green technology theme | <img src="assets/media/readme/agent-technology-outlook.webp" alt="Agent Technology Outlook preview" width="260"> | Technology outlook, architecture strategy, agent operating model discussion. |
-| [AI-Era Enterprise Intelligence Transformation](examples/enterprise-intelligence-transformation/index.html)<br>14 slides · mono transformation theme | <img src="assets/media/readme/enterprise-intelligence-transformation.webp" alt="Enterprise Intelligence Transformation preview" width="260"> | Enterprise transformation, intelligence flywheel, executive alignment. |
-| [AI Application Software Investment Thesis](examples/ai-application-investment-thesis/index.html)<br>14 slides · red investment theme | <img src="assets/media/readme/ai-application-investment-thesis.webp" alt="AI Application Investment Thesis preview" width="260"> | Investment thesis, IC recommendation, market structure analysis. |
-
-After cloning the repo, open any `examples/*/index.html` file directly in a browser. To create a self-contained package, PDF, and PNG slide images for a demo, run:
-
-```bash
-scripts/render.sh examples/ai-erp-saas-lop/index.html
-```
+<p align="center">
+  <a href="examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.webp" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="420"></a>
+  <a href="examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.webp" alt="Agent Technology Outlook" width="420"></a>
+</p>
+<p align="center">
+  <a href="examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.webp" alt="AI-Era Enterprise Intelligence Transformation" width="420"></a>
+  <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.webp" alt="AI Application Software Investment Thesis" width="420"></a>
+</p>
 
 ## Contributing
 
