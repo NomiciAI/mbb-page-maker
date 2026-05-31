@@ -4,14 +4,23 @@
 
 目标是让任何有 skill 能力的 agent，都能通过一个可安装的静态包，稳定地生成、预览，并逐步导出高质量管理层汇报材料。
 
-当前处于基础 HTML 骨架阶段。
-
 设计约束：
 
 - 一条命令安装。
 - 不需要 build。
 - 纯静态 HTML/CSS/JS。
 - 默认导出自包含 HTML package、PDF 和 PNG；PowerPoint 最后研究。
+
+## 示例 Gallery
+
+<p align="center">
+  <a href="examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.gif" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="360"></a>
+  <a href="examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.gif" alt="Agent Technology Outlook" width="360"></a>
+</p>
+<p align="center">
+  <a href="examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.gif" alt="AI-Era Enterprise Intelligence Transformation" width="360"></a>
+  <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
+</p>
 
 ## 安装
 
@@ -36,17 +45,6 @@ npx skills add https://github.com/NomiciAI/mbb-page-maker --agent '*'
 ```
 
 具体项目级/全局路径和 Claude Code 排查见 `references/agent-compatibility.md`。
-
-## 示例 Gallery
-
-<p align="center">
-  <a href="examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.gif" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="360"></a>
-  <a href="examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.gif" alt="Agent Technology Outlook" width="360"></a>
-</p>
-<p align="center">
-  <a href="examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.gif" alt="AI-Era Enterprise Intelligence Transformation" width="360"></a>
-  <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
-</p>
 
 ## 当前结构
 
