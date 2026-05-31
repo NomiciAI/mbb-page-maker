@@ -22,6 +22,8 @@ MBB Page Maker 给 coding agent 提供一套开箱即用的系统，用来生成
   <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
 </p>
 
+Quick links: [ERP SaaS LOP](examples/ai-erp-saas-lop/index.html) · [Agent Technology Outlook](examples/agent-technology-outlook/index.html) · [Enterprise Intelligence Transformation](examples/enterprise-intelligence-transformation/index.html) · [AI Application Investment Thesis](examples/ai-application-investment-thesis/index.html)
+
 > 直接告诉你的 agent：
 >
 > ```bash

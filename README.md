@@ -24,6 +24,8 @@ Install it once, then use it from Codex, Claude Code, Cursor, OpenClaw, Hermes, 
   <a href="examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
 </p>
 
+Quick links: [ERP SaaS LOP](examples/ai-erp-saas-lop/index.html) · [Agent Technology Outlook](examples/agent-technology-outlook/index.html) · [Enterprise Intelligence Transformation](examples/enterprise-intelligence-transformation/index.html) · [AI Application Investment Thesis](examples/ai-application-investment-thesis/index.html)
+
 > Tell your agent what to do:
 >
 > ```bash
