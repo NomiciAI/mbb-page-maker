@@ -14,12 +14,20 @@ MBB Page Maker 给 coding agent 提供一套开箱即用的系统，用来生成
 ## 示例 Gallery
 
 <p align="center">
-  <a href="https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.gif" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="360"><br>ERP SaaS LOP</a>
-  <a href="https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.gif" alt="Agent Technology Outlook" width="360"><br>Agent Technology Outlook</a>
+  <a href="https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html"><img src="assets/media/readme/ai-erp-saas-lop.gif" alt="AI Product Operating Plan for an ERP SaaS Incumbent" width="360"></a>
+  <a href="https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html"><img src="assets/media/readme/agent-technology-outlook.gif" alt="Agent Technology Outlook" width="360"></a>
 </p>
 <p align="center">
-  <a href="https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.gif" alt="AI-Era Enterprise Intelligence Transformation" width="360"><br>Enterprise Intelligence Transformation</a>
-  <a href="https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"><br>AI Application Investment Thesis</a>
+  <a href="https://nomici.ai/mbb-page-maker/examples/ai-erp-saas-lop/index.html">ERP SaaS LOP</a> ·
+  <a href="https://nomici.ai/mbb-page-maker/examples/agent-technology-outlook/index.html">Agent Technology Outlook</a>
+</p>
+<p align="center">
+  <a href="https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html"><img src="assets/media/readme/enterprise-intelligence-transformation.gif" alt="AI-Era Enterprise Intelligence Transformation" width="360"></a>
+  <a href="https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html"><img src="assets/media/readme/ai-application-investment-thesis.gif" alt="AI Application Software Investment Thesis" width="360"></a>
+</p>
+<p align="center">
+  <a href="https://nomici.ai/mbb-page-maker/examples/enterprise-intelligence-transformation/index.html">Enterprise Intelligence Transformation</a> ·
+  <a href="https://nomici.ai/mbb-page-maker/examples/ai-application-investment-thesis/index.html">AI Application Investment Thesis</a>
 </p>
 
 Quick links: [Full-Deck Index](https://nomici.ai/mbb-page-maker/templates/full-decks/index.html)
