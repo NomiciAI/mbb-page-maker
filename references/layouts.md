@@ -12,6 +12,8 @@ When adding a layout, read `references/adding-patterns.md` first. Add a new layo
 
 Slides are fixed 16:9 canvases. Browser present mode scales the whole slide to the viewport; it must not reflow the slide internals based on viewport width. Do not add mobile breakpoints that collapse grids, sidebars, charts, or component layouts inside `.slide`.
 
+Default ordinary slides use a 72px horizontal safe area and 36px top/bottom safe area. A single direct child inside `.content` should normally fill the available content height so the page has a clear bottom boundary near the footer. Multi-child content areas should let the component own vertical allocation. Use `.content.is-vertically-centered`, `.content[data-align-y="center"]`, `.is-fit-content`, or `data-fit-height="content"` only for deliberately compact exhibits.
+
 Line economy matters. The default page should not feel boxed in:
 
 - The title rule is a subtle separator below the title, not a tight underline.
@@ -127,7 +129,7 @@ Overflow rules:
 - If a table, chart, or profile grid does not fit, choose a wider shell, split the page, or reduce the visible data.
 - Do not shrink text below legible slide scale just to force content into a region.
 - Do not add filler content to occupy empty regions. If the user did not provide enough data, use a simpler layout.
-- If a single table, timeline, roadmap, flow, framework, or compact region layout only occupies the upper half of the content area, use `.content.is-vertically-centered` or `.content[data-align-y="center"]`.
+- If a single table, timeline, roadmap, flow, framework, or compact region layout only occupies the upper half of the content area, use `.content.is-vertically-centered`, `.content[data-align-y="center"]`, `.is-fit-content`, or `data-fit-height="content"` to opt out of the default fill-height behavior.
 - If both sides of a two-column content page are compact primary exhibits, center the pair vertically as one block. For custom split wrappers, add `data-fit-height="content"` or `.is-fit-content` and avoid `height: 100%`.
 - For sparse individual regions, use `.region-body.is-centered`.
 

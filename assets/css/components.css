@@ -444,9 +444,9 @@
 
 .outcome-support {
   display: grid;
-  grid-template-rows: minmax(150px, auto) minmax(0, 1fr);
-  gap: 34px;
-  align-content: center;
+  grid-template-rows: minmax(128px, auto) minmax(0, 1fr);
+  gap: 28px;
+  align-content: stretch;
   height: 100%;
   min-width: 0;
   min-height: 0;
@@ -458,14 +458,16 @@
   width: min(720px, 78%);
   border: 1px solid var(--color-line);
   background: color-mix(in srgb, var(--color-elevated) 92%, var(--color-accent) 8%);
-  padding: 28px 34px;
+  padding: 24px 34px;
   text-align: center;
 }
 
 .support-stack {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
   gap: 24px;
+  height: 100%;
   min-width: 0;
   min-height: 0;
   overflow: hidden;
@@ -481,8 +483,9 @@
   grid-template-rows: auto auto minmax(0, 1fr);
   align-content: stretch;
   justify-items: start;
-  min-height: 236px;
-  padding: 24px 0 22px;
+  height: 100%;
+  min-height: 0;
+  padding: 22px 0 18px;
   box-sizing: border-box;
   text-align: left;
 }
@@ -491,9 +494,9 @@
   display: grid;
   align-self: stretch;
   align-content: start;
-  min-height: 126px;
-  gap: 14px;
-  margin: 18px 0 0;
+  min-height: 0;
+  gap: 16px;
+  margin: 16px 0 0;
   padding: 0;
   list-style: none;
 }

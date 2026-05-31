@@ -336,13 +336,13 @@
   position: absolute;
   left: var(--page-x);
   right: var(--page-x);
-  bottom: var(--page-y);
+  bottom: var(--page-y-bottom);
   z-index: 2;
 }
 
 .split-panel {
   position: relative;
-  padding: var(--page-y) var(--page-x);
+  padding: var(--page-y-top) var(--page-x) var(--page-y-bottom);
 }
 
 .split-panel + .split-panel {

@@ -213,6 +213,7 @@ Fit rules:
 
 - Ordinary slides use `section.slide > header + .content + footer`. Cover, ending, and full-bleed pages are deliberate variants.
 - Insert components only inside `.content`, `.region-body`, `.safe-fill`, or `.safe-stack`.
+- A single direct child of ordinary `.content` fills the available content height by default; multi-child content areas should let their component CSS allocate vertical space. Mark compact exhibits with `.is-fit-content`, `data-fit-height="content"`, or a centered content class.
 - Prefer `blank-content.html` when one component owns the page. Its `.blank-content-slot` is the default ordinary-page entry point for generated content.
 - Use region layouts only when the page needs separate zones.
 - Keep one primary component per region.
