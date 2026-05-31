@@ -1,15 +1,16 @@
 # MBB Page Maker
 
 This is a world-class AgentSkill for creating consulting-style HTML PPT decks: strategy pages, board updates, investment memos, and executive narratives.
-
 The goal is to give any capable agent a reliable, installable way to author, preview, and eventually export executive-grade HTML presentations from a static skill package.
 
 Design constraints:
 
+```txt
 - One-command install.
 - No build step.
 - Pure static HTML/CSS/JS.
-- Default export targets: self-contained HTML package, PDF, and PNG; PowerPoint later.
+- Default export targets: self-contained HTML package, PDF, and PNG.
+```
 
 ## Example Gallery
 
@@ -159,7 +160,7 @@ The starter deck stays intentionally light: title cover, simple agenda/context, 
 
 ## Contributing
 
-Contributions are welcome through pull requests. The `main` branch is protected: Saitop may push directly, and everyone else should submit changes through PRs.
+Contributions are welcome through pull requests.
 
 See `CONTRIBUTING.md` for PR expectations, testing notes, and repository hygiene.
 
