@@ -8,6 +8,8 @@
   const requestedSlide = previewMode ? params.get("preview") : params.get("slide");
   let index = Math.max(0, Math.min(slides.length - 1, Number(requestedSlide || 1) - 1));
   let status;
+  let edgeButtons = [];
+  let pointerX = null;
   let touchStartX = 0;
   let touchStartY = 0;
   let lastWheelAt = 0;
@@ -142,6 +144,13 @@
       }, { once: true });
     }
     if (status) status.textContent = `${index + 1} / ${slides.length}`;
+    edgeButtons.forEach((button) => {
+      const action = button.dataset.action;
+      const disabled = action === "prev" ? index === 0 : index === slides.length - 1;
+      button.disabled = disabled;
+      button.setAttribute("aria-disabled", String(disabled));
+    });
+    updateEdgeHover(pointerX === null ? null : navigationActionFromClientX(pointerX));
     if (!previewMode && !exportMode) history.replaceState(null, "", `#${index + 1}`);
   }
 
@@ -166,6 +175,21 @@
   }
 
   function addControls() {
+    edgeButtons = ["prev", "next"].map((action) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `deck-edge-button is-${action}`;
+      button.dataset.action = action;
+      button.tabIndex = -1;
+      button.setAttribute("aria-label", action === "prev" ? "Previous slide" : "Next slide");
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        show(action === "prev" ? index - 1 : index + 1);
+      });
+      document.body.appendChild(button);
+      return button;
+    });
+
     const controls = document.createElement("nav");
     controls.className = "deck-controls";
     controls.setAttribute("aria-label", "Deck controls");
@@ -185,6 +209,25 @@
     document.body.appendChild(controls);
   }
 
+  function navigationActionFromClientX(x) {
+    const center = window.innerWidth / 2;
+    const safeHalfWidth = Math.max(150, Math.min(300, window.innerWidth * 0.18));
+    if (x < center - safeHalfWidth) return "prev";
+    if (x > center + safeHalfWidth) return "next";
+    return null;
+  }
+
+  function updateEdgeHover(action) {
+    const canGoPrev = index > 0;
+    const canGoNext = index < slides.length - 1;
+    const activeAction =
+      action === "prev" && canGoPrev ? "prev" :
+      action === "next" && canGoNext ? "next" :
+      null;
+    document.body.classList.toggle("is-hover-prev-zone", activeAction === "prev");
+    document.body.classList.toggle("is-hover-next-zone", activeAction === "next");
+  }
+
   function bindKeys() {
     document.addEventListener("keydown", (event) => {
       if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
@@ -199,6 +242,21 @@
       if (event.key === "Escape" && document.body.classList.contains("is-overview")) toggleOverview();
     });
 
+    document.addEventListener("pointermove", (event) => {
+      pointerX = event.clientX;
+      const overControls = event.target instanceof Element && event.target.closest(".deck-controls");
+      if (document.body.classList.contains("is-overview") || overControls) {
+        updateEdgeHover(null);
+        return;
+      }
+      updateEdgeHover(navigationActionFromClientX(event.clientX));
+    });
+
+    document.addEventListener("pointerleave", () => {
+      pointerX = null;
+      updateEdgeHover(null);
+    });
+
     slides.forEach((slide, i) => {
       slide.addEventListener("click", (event) => {
         if (event.target.closest(".deck-controls")) return;
@@ -207,9 +265,9 @@
           toggleOverview();
           return;
         }
-        const x = event.clientX;
-        const midpoint = window.innerWidth / 2;
-        show(x < midpoint ? index - 1 : index + 1);
+        const action = navigationActionFromClientX(event.clientX);
+        if (!action) return;
+        show(action === "prev" ? index - 1 : index + 1);
       });
     });
   }
