@@ -258,7 +258,7 @@ body:not(.is-print):not(.is-overview) .slide {
   padding: 3px;
   border: 1px solid transparent;
   background: transparent;
-  opacity: 0.12;
+  opacity: 0.38;
   backdrop-filter: blur(10px);
   transition: opacity 160ms ease, background 160ms ease;
 }
