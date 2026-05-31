@@ -83,6 +83,23 @@ CSS 按职责拆分：
 
 `starter-deck.html` 保持轻量：标题封面、简单 agenda/context、空白内容页、ending。普通内容页默认从空白内容页开始，再按用户数据组合 layout 和 component。各 skeleton 不需要页面完全一致，只需要遵守同一个 16:9 slide contract 和输出文件顺序。
 
+## 示例 Gallery
+
+公开 demo 在 README 里用轻量 WebP 静态预览图展示，不放视频。这样用户下载整个 repo 时不会被大体积 MP4 拖慢，同时仍然能快速看到页面质感和主题范围。
+
+| Demo | 预览 | 适合场景 |
+| --- | --- | --- |
+| [AI Product Operating Plan for an ERP SaaS Incumbent](examples/ai-erp-saas-lop/index.html)<br>26 页 · blue executive theme | <img src="assets/media/readme/ai-erp-saas-lop.webp" alt="AI Product Operating Plan preview" width="260"> | 领导层经营计划、产品战略、AI platform 投资叙事。 |
+| [Agent Technology Outlook](examples/agent-technology-outlook/index.html)<br>14 页 · green technology theme | <img src="assets/media/readme/agent-technology-outlook.webp" alt="Agent Technology Outlook preview" width="260"> | 技术趋势判断、架构策略、agent operating model 讨论。 |
+| [AI-Era Enterprise Intelligence Transformation](examples/enterprise-intelligence-transformation/index.html)<br>14 页 · mono transformation theme | <img src="assets/media/readme/enterprise-intelligence-transformation.webp" alt="Enterprise Intelligence Transformation preview" width="260"> | 企业级转型、intelligence flywheel、高管对齐。 |
+| [AI Application Software Investment Thesis](examples/ai-application-investment-thesis/index.html)<br>14 页 · red investment theme | <img src="assets/media/readme/ai-application-investment-thesis.webp" alt="AI Application Investment Thesis preview" width="260"> | 投资 thesis、IC recommendation、市场结构分析。 |
+
+clone 仓库后，可以直接用浏览器打开任意 `examples/*/index.html`。如果要为 demo 导出自包含 HTML package、PDF 和 PNG 页面图，运行：
+
+```bash
+scripts/render.sh examples/ai-erp-saas-lop/index.html
+```
+
 ## 贡献
 
 欢迎通过 pull request 贡献。`main` 分支受保护：Saitop 可以直接 push，其他 collaborator 和外部 contributor 都应通过 PR 提交变更。
