@@ -170,4 +170,4 @@ Inspired by [lewislulu/html-ppt-skill](https://github.com/lewislulu/html-ppt-ski
 
 ## License & Author
 
-Apache-2.0. Copyright 2026 Saitop.
+Apache-2.0. Copyright 2026 Saitop <saitop@nomici.ai>.

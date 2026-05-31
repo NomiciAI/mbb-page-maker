@@ -104,4 +104,4 @@ PR 规则、测试说明和仓库维护要求见 `CONTRIBUTING.md`。
 
 ## License & Author
 
-Apache-2.0. Copyright 2026 Saitop.
+Apache-2.0. Copyright 2026 Saitop <saitop@nomici.ai>.
