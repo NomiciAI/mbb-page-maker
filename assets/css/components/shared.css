@@ -52,24 +52,52 @@
 }
 
 .gate-card {
+  position: relative;
   display: grid;
-  place-items: center;
-  min-height: 76px;
-  border: 1px solid var(--color-line);
-  border-radius: 50%;
+  align-content: center;
+  justify-items: center;
+  min-height: 260px;
+  padding: 0 8px;
   color: var(--color-accent);
   text-align: center;
 }
 
+.gate-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--color-line);
+  transform: translateX(-50%);
+}
+
 .gate-card strong {
+  position: relative;
+  z-index: 1;
   display: block;
+  min-width: 76px;
+  padding: 10px 8px 3px;
+  border: 1px solid var(--color-line);
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  background: var(--color-bg);
   font-size: 16px;
   line-height: 1;
 }
 
 .gate-card span {
+  position: relative;
+  z-index: 1;
   display: block;
-  margin-top: 4px;
+  min-width: 76px;
+  margin-top: 0;
+  padding: 3px 8px 10px;
+  border: 1px solid var(--color-line);
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
+  background: var(--color-bg);
   color: var(--color-muted);
   font-size: 10px;
   font-weight: 800;
