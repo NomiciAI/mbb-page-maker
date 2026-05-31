@@ -38,7 +38,7 @@ Install it once, then use it from Codex, Claude Code, Cursor, OpenClaw, Hermes, 
   </tr>
 </table>
 
-Quick links: [Full-Deck Index](https://nomici.ai/mbb-page-maker/templates/full-decks/index.html)
+Template preview: [Full-Deck Template Index](https://nomici.ai/mbb-page-maker/templates/full-decks/index.html)
 
 > Tell your agent what to do:
 >

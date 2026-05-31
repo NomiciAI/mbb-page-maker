@@ -36,7 +36,7 @@ MBB Page Maker 给 coding agent 提供一套开箱即用的系统，用来生成
   </tr>
 </table>
 
-Quick links: [Full-Deck Index](https://nomici.ai/mbb-page-maker/templates/full-decks/index.html)
+Template preview: [Full-Deck Template Index](https://nomici.ai/mbb-page-maker/templates/full-decks/index.html)
 
 > 直接告诉你的 agent：
 >
