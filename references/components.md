@@ -13,7 +13,7 @@ Components should be structure-first:
 
 When adding a component, read `references/adding-patterns.md` first. A component is agent-ready only when it has a snippet, semantic CSS, sufficiency rules, data-router guidance when relevant, quality-check coverage when it represents evidence, and a 16:9 fit validation inside a bounded layout.
 
-For complex variants, read `references/component-variant-router.md` before choosing snippets. It defines when to use each chart, table, conceptual, flow, workplan, and people variant, and it repeats the rule that titles, legends, axes, and group labels must come from the user's material.
+For complex variants, read `references/content-to-exhibit-router.md` before choosing the exhibit and `references/component-variant-router.md` before choosing snippets. They define when to use each chart, table, conceptual, architecture, workshop, workplan, and people variant, and repeat the rule that titles, legends, axes, and group labels must come from the user's material.
 
 ## Selection Rules
 
@@ -21,14 +21,16 @@ Use the component catalog actively. Before authoring HTML, map each planned body
 
 Components are not decoration. Each component must prove a claim, compare alternatives, show movement over time, expose risk, clarify a decision, or structure qualitative reasoning.
 
-- Numeric section data should become `metric-strip`, `line-chart`, `combo-chart`, `column-chart`, `ranked-bars`, `chart-bars`, `stacked-bars`, `paired-bars`, `likert-bars`, `waterfall-bridge`, `stacked-waterfall-bridge`, `tornado-bars`, `table`, `comparison-table`, `checkmark-bar-table`, `sensitivity-grid`, `heatmap`, `range-comparison-plot`, `competency-gap-range-table`, or `dot-scale-comparison`.
+- Numeric section data should become `metric-strip`, `line-chart`, `combo-chart`, `small-multiples-chart`, `column-chart`, `ranked-bars`, `chart-bars`, `stacked-bars`, `paired-bars`, `likert-bars`, `waterfall-bridge`, `stacked-waterfall-bridge`, `tornado-bars`, `distribution-plot`, `cohort-retention-grid`, `variance-bridge-table`, `table`, `comparison-table`, `checkmark-bar-table`, `sensitivity-grid`, `heatmap`, `range-comparison-plot`, `competency-gap-range-table`, or `dot-scale-comparison`.
 - Peer/company/industry comparisons should become `comparison-table`, `weighted-scorecard`, `ranked-bars`, `column-chart`, `quadrant-matrix`, `range-comparison-plot`, or `heatmap`.
 - Ordered or phased content should become `timeline`, `phase-roadmap`, `milestone-track`, `process-flow`, `stage-gate`, `vertical-process-takeaway`, `process-deep-dive`, `cascading-flow`, `cycle-flow`, `step-explanation-strip`, or `gantt-workplan`.
 - Qualification logic should become `funnel-steps`, `filter-cascade`, `screen-filter-grid`, or `decision-flowchart`.
 - Root-cause logic should become `fishbone-cause-effect` when several cause categories explain one effect.
-- Decisions and recommendations should become `weighted-scorecard`, `decision-log`, `pros-cons-table`, `outcome-support`, or `callout` paired with evidence.
+- Decisions and recommendations should become `option-funnel-scorecard`, `tradeoff-frontier`, `scenario-comparison-table`, `assumption-register-table`, `weighted-scorecard`, `decision-log`, `pros-cons-table`, `outcome-support`, or `callout` paired with evidence.
 - Portfolio, initiative, or market-option choices should become `portfolio-prioritization-matrix`, `weighted-scorecard`, `quadrant-matrix`, or `comparison-table` depending on whether the evidence is directional, scored, or tabular.
 - Governance, RACI, or operating cadence records should become `raci-governance-grid`, `decision-log`, `comparison-table`, or `dense-list` depending on whether roles and cadence are explicit.
+- Architecture records should become `system-context-map`, `dependency-map`, `sequence-interaction-flow`, `architecture-option-comparison`, `input-process-output-layers`, or `swimlane-process-map` depending on whether the source describes context, dependency, interaction sequence, or option tradeoff.
+- Workshop records should become `agenda-table`, `phase-meeting-plan`, `workshop-breakout-synthesis`, `decision-capture-board`, `stakeholder-map`, or `decision-log` depending on whether the source describes agenda, breakout output, decisions, stakeholder alignment, or action tracking.
 
 Evidence shape router:
 
@@ -88,6 +90,10 @@ This same variant logic applies across component families: tables vary by fields
 - Use `team-wall` for compact many-person views when names and roles matter more than hierarchy. Use `bio-card-grid` when each person needs a short credential, responsibility, or biography.
 - Use `column-chart` for one categorical series when vertical comparison is appropriate and labels are short.
 - Use `line-chart` for ordered trends, `combo-chart` for volume plus rate/index, `paired-bars` for two values per category, `likert-bars` for ordered response distributions, `waterfall-bridge` for additive movement, `stacked-waterfall-bridge` for base-plus-uplift bridges, and `checkmark-bar-table` for pass/fail gates plus a score bar.
+- Use `small-multiples-chart` for repeated comparable segment trends, `cohort-retention-grid` for cohort-age retention or conversion, `distribution-plot` for spread and outliers, and `variance-bridge-table` for plan/current/variance by driver.
+- Use `option-funnel-scorecard` when screening logic and shortlist scoring must appear together, `tradeoff-frontier` when two dimensions explain dominated choices, `scenario-comparison-table` when assumptions change the decision posture, and `assumption-register-table` when open proof gates should remain visible.
+- Use `system-context-map` for a governed core system and adjacent actors, `dependency-map` for cross-team/system dependencies, `sequence-interaction-flow` for actor-to-actor technical interaction order, and `architecture-option-comparison` for architecture path tradeoffs.
+- Use `stakeholder-map` for influence/commitment or influence/support mapping, `workshop-breakout-synthesis` for comparable breakout outputs, and `decision-capture-board` for workshop decisions with owners, evidence asks, and next actions.
 - Use `quadrant-matrix` for qualitative 2x2 prioritization, segmentation, or portfolio positioning.
 - Use `risk-matrix-register` when risk placement must be paired with owners, mitigations, scores, or next actions.
 - Components with bottom x-axis labels or bottom captions, including risk/register matrices, portfolio matrices, quadrant/scatter plots, and similar charts, should sit in `section.slide.is-dense` when they run close to the footer. Dense mode provides the axis clearance; do not add arbitrary bottom padding to ordinary heatmaps or tables.
@@ -175,7 +181,11 @@ Do not output components that add no information.
 - Bio card grid: needs 2-6 named people with at least two supporting fields such as title, responsibility, credential, location, email, or biography.
 - Column chart: needs at least 2 labeled numeric values. Use at most one `.is-highlight` item unless the user explicitly asks to compare multiple focus categories.
 - Line chart: needs at least 3 ordered periods and one numeric series. Use a table when exact values are the primary need.
+- Small multiples chart: needs at least 3 comparable segments, each with the same ordered periods and measure.
 - Combo chart: needs one bar series and one line/rate/index series over the same periods. Do not combine unrelated measures.
+- Cohort retention grid: needs at least 3 cohort rows, 3 ordered period-age columns, and comparable values.
+- Distribution plot: needs histogram buckets or distribution statistics such as min, max, median, and interquartile range.
+- Variance bridge table: needs at least 3 drivers with plan, actual, variance, and readout fields.
 - Paired bars: needs at least 2 categories with exactly two comparable values per category.
 - Likert bars: needs at least 2 rows and 3-5 ordered response buckets that sum to a meaningful total.
 - Waterfall bridge: needs a start value, at least two additive/subtractive drivers, and an end value.
@@ -187,9 +197,20 @@ Do not output components that add no information.
 - Scatter plot: needs x and y values for each point.
 - Comparison table: needs options and shared criteria.
 - Weighted scorecard: needs at least 3 criteria, 2 options, explicit weights or a clearly stated unweighted scoring rule, and a recommendation readout.
+- Option funnel scorecard: needs stage counts or gates plus at least 2 scored shortlist options.
+- Tradeoff frontier: needs at least 3 options and two comparable dimensions such as value/risk, control/speed, or cost/impact.
+- Scenario comparison table: needs at least 2 scenarios with assumptions, impact, and decision posture.
+- Assumption register table: needs at least 2 assumptions with evidence, test, owner, or status.
 - Sensitivity grid: needs at least 2 assumptions or scenarios and at least 2 cases such as low/base/high, downside/base/upside, or conservative/target/stretch.
 - Portfolio prioritization matrix: needs at least 3 options or initiatives and two meaningful dimensions such as value and feasibility, attractiveness and right-to-win, or impact and readiness.
 - RACI governance grid: needs at least 2 decisions or processes and clear role/cadence fields. Do not invent accountable owners if the user has not supplied them.
+- System context map: needs one core system or capability and 4-6 adjacent systems, users, data sources, or controls.
+- Dependency map: needs at least 2 lanes and multiple dependencies or tasks per lane.
+- Sequence interaction flow: needs at least 3 actors and 4 ordered interactions.
+- Architecture option comparison: needs at least 2 architecture paths and 3 shared criteria.
+- Stakeholder map: needs at least 4 stakeholders or groups and two meaningful dimensions.
+- Workshop breakout synthesis: needs 2-4 breakout groups with parallel findings and decisions or actions.
+- Decision capture board: needs a decision plus owner, evidence ask, and next action; use `decision-log` for many detailed records.
 - Metric strip: needs 3-5 high-signal metrics. If there is only one number, use a statement or callout.
 - Table: needs consistent row/column structure. Do not force prose into a table.
 - Catalog grid: needs at least 3 sections. If there are more than 9 sections, split the catalog or use a denser list.

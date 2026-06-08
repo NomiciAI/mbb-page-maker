@@ -548,6 +548,53 @@
   transform: rotate(45deg);
 }
 
+.sequence-interaction-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: auto repeat(5, minmax(0, 1fr));
+  gap: 14px 20px;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.sequence-actor {
+  border-bottom: 3px solid var(--color-accent);
+  padding-bottom: 12px;
+  color: var(--color-text);
+  font-size: 20px;
+  font-weight: 850;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.sequence-step {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: 0;
+  background: color-mix(in srgb, var(--color-panel) 70%, var(--color-bg));
+  padding: 12px 16px;
+  color: var(--color-text);
+  font-size: 15px;
+  font-weight: 760;
+  line-height: 1.18;
+}
+
+.sequence-step::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid color-mix(in srgb, var(--color-panel) 70%, var(--color-bg));
+  transform: translateY(-50%);
+}
+
 .cycle-flow {
   position: relative;
   display: grid;

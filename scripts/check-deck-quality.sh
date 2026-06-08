@@ -46,7 +46,11 @@ perl -0ne '
     capability-coverage-map|chevron-process-ribbon|swimlane-process-map|customer-journey-loop|
     input-process-output-layers|phase-meeting-plan|team-wall|bio-card-grid|
     competency-gap-range-table|tornado-bars|stacked-waterfall-bridge|
-    part-to-whole-comparison|donut-explanation
+    part-to-whole-comparison|donut-explanation|small-multiples-chart|cohort-retention-grid|
+    distribution-plot|variance-bridge-table|option-funnel-scorecard|tradeoff-frontier|
+    scenario-comparison-table|assumption-register-table|system-context-map|dependency-map|
+    sequence-interaction-flow|architecture-option-comparison|stakeholder-map|
+    decision-capture-board|workshop-breakout-synthesis
   /x;
   my $visual_re = qr/
     visual-architecture-stack|visual-operating-system|visual-market-map|visual-value-bridge|

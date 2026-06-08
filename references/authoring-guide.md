@@ -48,7 +48,7 @@ Use this order when building a deck:
 1. Inspect the user's material and identify the communication task.
 2. For strategy, board, investment, pitch, transformation, or full-deck work, use `references/consulting-thinking.md` to define the audience, decision, answer, evidence, and action.
 3. Draft the storyline and answer-first page messages.
-4. Check whether the input has enough data for specialized components.
+4. Build an evidence inventory and use `references/content-to-exhibit-router.md` to check whether the input has enough data for specialized components or combination showcases.
 5. For full decks, inspect relevant archetypes in `templates/full-decks/` after reading `references/full-decks.md`; adapt or diverge based on the user's material.
 6. Create a slide plan before writing HTML.
 7. Choose the simplest layout that can hold the message.
@@ -72,7 +72,8 @@ Before writing deck HTML, make a compact internal plan. For every slide, define:
 - Evidence source: user-provided material, clearly marked assumption, or approved external data.
 - Evidence shape: numeric, categorical, comparison, time, risk, decision, qualitative, quote, contact, or mixed.
 - Layout: the shell from `templates/layouts/` or starter/skeleton variant.
-- Components: the reusable component(s) from `templates/components/`.
+- Selected component: the reusable component(s) from `templates/components/`.
+- Selected showcase pattern: the closest page combination from `templates/showcase/README.md` when a full-page pattern is useful.
 - Fallback: the simpler qualitative component or omitted page to use if evidence is insufficient.
 - Output role: cover, executive answer, data evidence, comparison, roadmap, decision, appendix, or closing.
 
@@ -125,7 +126,7 @@ When the user provides a report, notes, transcript, or raw text file, extract th
 
 If external data is approved, extract it separately from the user's material and label it as external in the slide plan.
 
-Then compress the material into a storyline. Use the strongest evidence as exhibits and put weaker or repetitive details into notes, appendix, or omit them. Do not make a slide for every paragraph in the source.
+Then route the extracted material through `references/content-to-exhibit-router.md`. The router should decide whether the page needs a primitive component, a combination showcase pattern, or a simpler qualitative fallback. Use the strongest evidence as exhibits and put weaker or repetitive details into notes, appendix, or omit them. Do not make a slide for every paragraph in the source.
 
 For sparse prompts, produce a qualitative deck with explicit assumptions, open questions, and decision points. For data-rich prompts, make the structure visible with evidence components instead of flattening the material into prose cards.
 
