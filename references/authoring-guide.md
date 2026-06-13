@@ -37,9 +37,11 @@ The runtime adds a slide-level `auto-dark` safety class when it detects a dark s
 - `templates/neutral-skeleton.html`: structure-first baseline.
 - `templates/light-skeleton.html`: default analytical pages.
 - `templates/dark-skeleton.html`: dark cover, divider, and high-emphasis shell.
-- `templates/mixed-skeleton.html`: mixed dark/light narrative example.
+- `templates/mixed-skeleton.html`: mixed dark/light narrative example, not the default choice for generated decks.
 
 Skeletons do not need identical page inventories. They must share the same CSS/JS load order, 16:9 fit rules, and ordinary slide contract, and each should contain at least one page where a component can be inserted safely.
+
+When the user does not specify a visual style, start from a light or neutral analytical body and keep the deck tonally consistent. Dark pages are deliberate exceptions for the cover, closing, section dividers, or a few high-emphasis narrative moments. Do not use the mixed skeleton or alternate dark and light body pages simply to make the deck feel more lively.
 
 ## Composition Order
 

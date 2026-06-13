@@ -23,7 +23,9 @@ Never put a dark background on a slide, region, split panel, or custom block wit
 
 Use one theme file per deck. Do not mix theme files in one production deck unless the user explicitly wants a theme comparison.
 
-For pitch-style decks, use `assets/themes/pitch.css` rather than recreating pitch colors inline. Prefer dark section dividers and a controlled number of dark emphasis pages rather than ad hoc black panels. Any dark page must pass `scripts/check-deck-contrast.sh path/to/deck.html`. The runtime can auto-apply dark text tokens to a slide-level dark background, but it cannot reliably infer the intent of every custom nested panel, gradient, or image overlay.
+If the user does not specify a style, keep one dominant tone across the deck. Default ordinary analytical body pages to light or neutral mode because they carry tables, charts, comparisons, and executive reading. Use dark mode only for the cover, closing, deliberate section dividers, or a few high-emphasis story moments. Do not alternate dark and light body slides only for visual variety.
+
+For pitch-style decks, use `assets/themes/pitch.css` rather than recreating pitch colors inline. Treat pitch as a cohesive token set, not a mandate to mix dark and light pages throughout the deck. Prefer a dark cover plus light analytical body pages unless the user explicitly asks for a dark pitch deck or the page is a deliberate divider/emphasis moment. Any dark page must pass `scripts/check-deck-contrast.sh path/to/deck.html`. The runtime can auto-apply dark text tokens to a slide-level dark background, but it cannot reliably infer the intent of every custom nested panel, gradient, or image overlay.
 
 ## Token Rules
 

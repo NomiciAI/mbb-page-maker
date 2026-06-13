@@ -147,11 +147,12 @@ Content sufficiency examples:
 
 Default theme selection:
 
+- If the user does not specify a visual style, choose one theme and one dominant tone for the full deck. Ordinary analytical body slides should default to light or neutral mode; reserve dark mode for the cover, closing, deliberate section dividers, or at most a few high-emphasis story moments. Do not alternate dark and light body slides merely to make the deck feel more dynamic.
 - `mono.css`: structure-first drafts and neutral skeletons.
 - `blue.css`: default executive consulting style.
 - `red.css`: urgency, turnaround, risk, commercial action.
 - `green.css`: growth, sustainability, operations, transformation.
-- `pitch.css`: investor, board, fundraising, and VC-style dark/light pitch decks.
+- `pitch.css`: investor, board, fundraising, and VC-style pitch decks. Treat it as a cohesive pitch token set, not a requirement to mix dark and light slides throughout the deck. For institutional finance, infrastructure, strategy, or board materials without an explicit fundraising or marketing-style ask, prefer `blue.css` or `mono.css` with light analytical body pages.
 
 ## HTML Slide Contract
 
