@@ -147,6 +147,8 @@ Content sufficiency examples:
 
 Default theme selection:
 
+- If the user explicitly requests a dark deck, dark theme, black background, or dark mode, make the deck consistently dark: apply `.dark` or `[data-mode="dark"]` to ordinary slides and `.dark-cover` or `[data-variant="dark-cover"]` to cover-style slides. Do not insert light body slides unless the user explicitly asks for a mixed deck.
+- If the user explicitly requests a light deck, white background, clean light style, or light mode, make the deck consistently light: keep ordinary slides in default light mode and avoid dark covers, dark dividers, dark panels, or dark backgrounds unless the user explicitly asks for a mixed deck or a single named dark page.
 - If the user does not specify a visual style, choose one theme and one dominant tone for the full deck. Ordinary analytical body slides should default to light or neutral mode; reserve dark mode for the cover, closing, deliberate section dividers, or at most a few high-emphasis story moments. Do not alternate dark and light body slides merely to make the deck feel more dynamic.
 - `mono.css`: structure-first drafts and neutral skeletons.
 - `blue.css`: default executive consulting style.
