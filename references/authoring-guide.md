@@ -43,7 +43,7 @@ Skeletons do not need identical page inventories. They must share the same CSS/J
 
 When the user does not specify a visual style, start from a light or neutral analytical body and keep the deck tonally consistent. Dark pages are deliberate exceptions for the cover, closing, section dividers, or a few high-emphasis narrative moments. Do not use the mixed skeleton or alternate dark and light body pages simply to make the deck feel more lively.
 
-When the user explicitly specifies a tone, make it consistent. For a dark request, use dark skeletons and dark token contexts across ordinary slides, not isolated dark backgrounds. For a light request, use light or neutral skeletons and do not add dark covers, dark section dividers, or dark panels unless the user explicitly asks for a mixed deck or names a specific dark page.
+When the user explicitly specifies a tone, make it consistent across the deck. Use mixed dark/light pacing only when requested or clearly supplied as a reference, not as the default way to add energy.
 
 ## Composition Order
 

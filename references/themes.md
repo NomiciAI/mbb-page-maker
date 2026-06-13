@@ -23,13 +23,7 @@ Never put a dark background on a slide, region, split panel, or custom block wit
 
 Use one theme file per deck. Do not mix theme files in one production deck unless the user explicitly wants a theme comparison.
 
-Honor explicit tone requests across the whole deck:
-
-- Dark request: if the user asks for a dark deck, dark theme, black background, or dark mode, apply a dark token context to ordinary slides with `.dark` or `[data-mode="dark"]`, and use `.dark-cover` or `[data-variant="dark-cover"]` for cover-style slides. Do not add light body slides unless the user explicitly asks for mixed dark/light pacing.
-- Light request: if the user asks for a light deck, white background, clean light style, or light mode, keep ordinary slides in default light mode and avoid dark covers, dark dividers, dark panels, or dark backgrounds unless the user explicitly asks for a mixed deck or names a single dark page.
-- Mixed request: use mixed dark/light pacing only when the user asks for it or when the supplied reference deck clearly uses that system.
-
-If the user does not specify a style, keep one dominant tone across the deck. Default ordinary analytical body pages to light or neutral mode because they carry tables, charts, comparisons, and executive reading. Use dark mode only for the cover, closing, deliberate section dividers, or a few high-emphasis story moments. Do not alternate dark and light body slides only for visual variety.
+Honor explicit tone requests across the whole deck: dark means consistently dark token contexts, light means consistently light pages, and mixed pacing is used only when the user asks for it or provides a clearly mixed reference. If the user does not specify a style, keep one dominant tone across the deck. Default ordinary analytical body pages to light or neutral mode because they carry tables, charts, comparisons, and executive reading. Use dark mode only for the cover, closing, deliberate section dividers, or a few high-emphasis story moments. Do not alternate dark and light body slides only for visual variety.
 
 For pitch-style decks, use `assets/themes/pitch.css` rather than recreating pitch colors inline. Treat pitch as a cohesive token set, not a mandate to mix dark and light pages throughout the deck. Prefer a dark cover plus light analytical body pages unless the user explicitly asks for a dark pitch deck or the page is a deliberate divider/emphasis moment. Any dark page must pass `scripts/check-deck-contrast.sh path/to/deck.html`. The runtime can auto-apply dark text tokens to a slide-level dark background, but it cannot reliably infer the intent of every custom nested panel, gradient, or image overlay.
 
